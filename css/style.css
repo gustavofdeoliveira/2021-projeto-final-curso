@@ -1,0 +1,23 @@
+@font-face {
+    font-family: Raleway-Bold;
+    src: url(../fonts/Raleway-Bold.ttf);
+    font-weight: bold;
+  }
+  @font-face {
+    font-family: Raleway-SemiBold;
+    src: url(../fonts/Raleway-SemiBold.ttf);
+  }
+a, .titulo-navbar-verde{
+    font-family: Raleway-Bold;
+    font-size: 37.47px;
+    color: #1B3A02;
+    text-decoration: none;
+    line-height: 25px;
+}
+
+span, .titulo-navbar-vermelho{
+    font-family: Raleway-SemiBold;
+    font-size: 30.9px;
+    color: #AF3320;
+    text-decoration: none;
+}
