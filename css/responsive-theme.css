@@ -1,0 +1,8 @@
+@media screen and (max-width: 320px) {
+  p#titulo-login-verde{
+    font-size: 60px;
+  }
+  span#titulo-login-vermelho{
+    font-size: 50px;
+  }
+}

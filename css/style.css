@@ -78,6 +78,25 @@ span#titulo-login-vermelho {
   min-height: 100vh;
   display: table;
 }
+.btn-login{
+  color: #fff !important;
+  background-color: #1B3A02 !important;
+  border-color: #1B3A02 !important;
+  width: 200px;
+  height: 66px;
+  font-family: Raleway-Bold;
+  font-size: 33.35px !important;
+  border-radius: 26.28px 0px 26.28px 0px !important;
+}
+.btn-espacamento{
+  margin-top: 5% !important;
+}
+.matenha-conectado{
+  font-family: Raleway-Light;
+  color: #AF3320;
+  font-size: 20.02px;
+  word-break: unset;
+}
 
 .background-login-image {
   width: 50%;
