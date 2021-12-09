@@ -40,7 +40,6 @@
 
     </footer>
     <script src="javascript/bootstrap.bundle.min.js"></script>
-    <script src="javascript/bootstrap.bundle.min.js.map"></script>
 </body>
 
 </html>
