@@ -2,38 +2,38 @@
 
 class Login
 {
-    private $nmUsuario;
-    private $nmSenha;
+    private $nomeUsuario;
+    private $nomeSenha;
 
     /**
      * @return mixed
      */
-    public function getNmUsuario()
+    public function getNomeUsuario()
     {
-        return $this->nmUsuario;
+        return $this->nomeUsuario;
     }
 
     /**
      * @param mixed 
      */
-    public function setNmUsuario($nmUsuario)
+    public function setNomeUsuario($nomeUsuario)
     {
-        $this->nmUsuario = $nmUsuario;
+        $this->nomeUsuario = $nomeUsuario;
     }
 
     /**
      * @return mixed
      */
-    public function getNmSenha()
+    public function getNomeSenha()
     {
-        return $this->nmSenha;
+        return $this->nomeSenha;
     }
 
     /**
      * @param mixed 
      */
-    public function setNmSenha($nmSenha)
+    public function setNomeSenha($nomeSenha)
     {
-        $this->nmSenha = $nmSenha;
+        $this->nomeSenha = $nomeSenha;
     }
 }
