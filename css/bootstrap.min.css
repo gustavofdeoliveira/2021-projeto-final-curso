@@ -890,6 +890,94 @@ progress {
     margin-left: 91.66666667%
 }
 
+.col-md-offset-1 {
+    margin-left: 8.33333333%
+}
+
+.col-md-offset-2 {
+    margin-left: 16.66666667%
+}
+
+.col-md-offset-3 {
+    margin-left: 25%
+}
+
+.col-md-offset-4 {
+    margin-left: 33.33333333%
+}
+
+.col-md-offset-5 {
+    margin-left: 41.66666667%
+}
+
+.col-md-offset-6 {
+    margin-left: 50%
+}
+
+.col-md-offset-7 {
+    margin-left: 58.33333333%
+}
+
+.col-md-offset-8 {
+    margin-left: 66.66666667%
+}
+
+.col-md-offset-9 {
+    margin-left: 75%
+}
+
+.col-md-offset-10 {
+    margin-left: 83.33333333%
+}
+
+.col-md-offset-11 {
+    margin-left: 91.66666667%
+}
+
+.col-xl-offset-1 {
+    margin-left: 8.33333333%
+}
+
+.col-xl-offset-2 {
+    margin-left: 16.66666667%
+}
+
+.col-xl-offset-3 {
+    margin-left: 25%
+}
+
+.col-xl-offset-4 {
+    margin-left: 33.33333333%
+}
+
+.col-xl-offset-5 {
+    margin-left: 41.66666667%
+}
+
+.col-xl-offset-6 {
+    margin-left: 50%
+}
+
+.col-xl-offset-7 {
+    margin-left: 58.33333333%
+}
+
+.col-xl-offset-8 {
+    margin-left: 66.66666667%
+}
+
+.col-xl-offset-9 {
+    margin-left: 75%
+}
+
+.col-xl-offset-10 {
+    margin-left: 83.33333333%
+}
+
+.col-xl-offset-11 {
+    margin-left: 91.66666667%
+}
+
 .g-0, .gx-0 {
     --bs-gutter-x: 0
 }
