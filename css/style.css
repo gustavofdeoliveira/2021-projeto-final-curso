@@ -29,24 +29,10 @@ body {
   overflow-x: hidden;
 }
 
-p#titulo-login-verde {
-  font-family: Raleway-Black;
-  font-size: 98.24px;
-  color: #1B3A02;
-  text-decoration: none;
-  line-height: 78px;
-  margin-left: auto;
-  margin-right: auto;
-  display: table;
-  margin-top: 5%;
-
-}
-
-span#titulo-login-vermelho {
-  font-family: Raleway-SemiBold;
-  font-size: 78.15px;
-  color: #AF3320;
-  text-decoration: none;
+.img-logo-login {
+  width: 90%;
+  height: 100%;
+  margin-left: 5%;
 }
 
 .background-login {
@@ -67,7 +53,7 @@ span#titulo-login-vermelho {
 }
 
 .label-login {
-  font-size: 33.35px;
+  font-size: 30px;
   font-family: Raleway-Light;
   color: #AF3320;
 }
@@ -81,46 +67,93 @@ span#titulo-login-vermelho {
   height: 100%;
   min-height: 100vh;
 }
-.btn-login{
+
+.btn-login {
   color: #fff !important;
   background-color: #1B3A02 !important;
   border-color: #1B3A02 !important;
-  width: 200px;
-  height: 66px;
+  width: 180px;
+  height: 60px;
   font-family: Raleway-Bold;
   font-size: 33.35px !important;
   border-radius: 26.28px 0px 26.28px 0px !important;
+  padding: unset !important;
 }
-.btn-espacamento{
+
+.btn-espacamento {
   margin-top: 5% !important;
 }
-.matenha-conectado{
+
+.mantenha-conectado {
   font-family: Raleway-Light;
   color: #AF3320;
-  font-size: 20.02px;
+  font-size: 18px;
   word-break: unset;
+  margin-top: 5%;
 }
-.login-esqueceu-senha{
+
+input[type="checkbox"] {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+input[type="checkbox"]+label {
+  position: relative;
+  cursor: pointer;
+  padding-left: 50px;
+  line-height: 40px;
+}
+
+input[type="checkbox"]+label::before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 35px;
+  left: 0;
+  top: 0%;
+  bottom: 0%;
+  border: solid 1px;
+  border-radius: 200px;
+  vertical-align: bottom;
+}
+
+input[type="checkbox"]:checked+label::after {
+  content: "";
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+  width: 10px;
+  height: 20px;
+  border-right: solid 3px #1B3A02;
+  border-bottom: solid 3px #1B3A02;
+  transform: rotate(45deg);
+}
+
+.login-esqueceu-senha {
   font-family: Raleway-Light-Italic;
   font-size: 18.08px;
   color: #AF3320;
   text-decoration: underline;
 }
-.novo-registro{
+
+.novo-registro {
   font-family: Raleway-Light-Italic;
   font-size: 18.08px;
   color: #AF3320;
   text-decoration: none;
 }
-a#novo-registro{
+
+a#novo-registro {
   font-family: Raleway-Light-Italic;
   font-size: 18.08px;
   color: #AF3320;
   text-decoration: underline;
 }
-.img-login{
+
+.img-login {
   width: 18%;
-  height: 43%;
+  height: 45%;
   z-index: 5;
   bottom: 0;
   right: 0;
@@ -128,16 +161,17 @@ a#novo-registro{
   position: fixed;
 }
 
-p#titulo-login{
-  font-size: 98.59px;
+p#titulo-login {
+  font-size: 78.87px;
   font-family: Raleway-Black;
   color: #FFFFF8;
-  line-height: 88.6px;
+  line-height: 75px;
   display: flex;
   margin-top: 5%;
 
 }
-p#frase-login{
+
+p#frase-login {
   font-size: 19.8px;
   font-family: Raleway-Light;
   color: #FFFFF8;
