@@ -1,3 +1,7 @@
+<?php
+include_once("../database/conexao.php");
+require_once("../dao/LoginDao.php");
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -27,13 +31,13 @@
                             <img class="img-logo-login" src="../image/Logo.png">
                         </div>
                     </div>
-                    <form>
+                    <form method="POST" action="../control/LoginControl.php">
                         <div class="row">
                             <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1  col-xl-8 col-xl-offset-2 col-lg-8 col-lg-offset-2">
                                 <div class="form-group">
                                     <label class="form-label label-login" for="nmUsuario">E-mail | Nome de
                                         Usuário</label>
-                                    <input required class="form-control input-login" type="text" name="nmUsuario">
+                                    <input class="form-control input-login" type="text" name="nomeUsuario">
                                 </div>
                             </div>
                         </div>
@@ -41,7 +45,7 @@
                             <div class="col-sm-10 col-sm-offset-1 col-sm-offset-0 col-md-10 col-md-offset-1 col-xl-8 col-xl-offset-2 col-lg-8 col-lg-offset-2">
                                 <div class="form-group">
                                     <label class="form-label label-login" for="nmSenha">Senha</label>
-                                    <input required class="form-control input-login" type="text" name="nmSenha">
+                                    <input class="form-control input-login" type="password" name="Senha">
                                 </div>
                             </div>
                         </div>

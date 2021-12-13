@@ -1,9 +1,9 @@
 <?php
 
-class Login
+class LoginModel
 {
     private $nomeUsuario;
-    private $nomeSenha;
+    private $senha;
 
     /**
      * @return mixed
@@ -24,16 +24,16 @@ class Login
     /**
      * @return mixed
      */
-    public function getNomeSenha()
+    public function getSenha()
     {
-        return $this->nomeSenha;
+        return $this->senha;
     }
 
     /**
      * @param mixed 
      */
-    public function setNomeSenha($nomeSenha)
+    public function setSenha($senha)
     {
-        $this->nomeSenha = $nomeSenha;
+        $this->senha = $senha;
     }
 }
