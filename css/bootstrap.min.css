@@ -851,7 +851,7 @@ progress {
     --bs-gutter-y: 3rem
 }
 
-@media (min-width:576px) and (max-width:767px) {
+@media (min-width:0px) and (max-width:767px) {
     .col-sm {
         flex: 1 0 0%
     }

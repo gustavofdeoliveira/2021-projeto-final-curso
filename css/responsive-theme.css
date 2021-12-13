@@ -6,24 +6,89 @@
   span#titulo-login-vermelho {
     font-size: 50px;
   }
+
+  .position-fixed-sm {
+    position: fixed;
+  }
+
+  .label-login {
+    font-size: 19px;
+    margin-top: 1%;
+  }
+
+  .login-esqueceu-senha, .novo-registro, a#novo-registro {
+    font-size: 15px;
+  margin-top: 2%;
+  }
+  
+  .btn-login{
+    width: 150px;
+    height: 40px;
+    font-size: 19px !important;
+  }
+  .img-login {
+    width: 28%;
+    height: 22%;
+    z-index: 5;
+    bottom: 0;
+    right: 0;
+    float: left;
+    position: fixed;
+  }
+
+  .all-conteudo{
+    margin-top: 5% !important;
+  }
+  .mantenha-conectado{
+    font-size: 14px;
+    margin-left: 5%;
+  }
+  input[type="checkbox"]+label {
+    position: relative;
+    cursor: pointer;
+    padding-left: 45px;
+    line-height: 20px;
+  }
+  
+  input[type="checkbox"]+label::before {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 25px;
+    left: 0;
+    top: 0%;
+    bottom: 0%;
+    border: solid 1px;
+    border-radius: 200px;
+    vertical-align: bottom;
+  }
+  input[type="checkbox"]:checked+label::after {
+    left: 10px;
+    bottom: 0px;
+
+  }
 }
 
 @media screen and (min-width:768px) and (max-width: 1024px) {
   .label-login {
     font-size: 25px;
   }
+
   p#titulo-login {
     font-size: 60px;
     line-height: 55px;
     margin-top: 10%;
   }
-  .all-conteudo{
+
+  .all-conteudo {
     margin-top: 8% !important;
   }
+
   .img-login {
     width: 30%;
   }
-  .login-fundo-branco{
+
+  .login-fundo-branco {
     min-height: 105vh;
   }
 }

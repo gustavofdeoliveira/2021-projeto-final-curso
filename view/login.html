@@ -19,18 +19,17 @@
     </header>
     <main>
 
-        <div class="col-sm-12 col-xl-12 col-sm-12 col-lg-12">
+        <div class="col-sm-12 col-xl-12 col-sm-12 col-lg-12 position-fixed-sm">
             <div class="row">
                 <div class="col-sm-12 col-md-6 col-xl-6 col-lg-6 login-fundo-branco">
                     <div class="row all-conteudo">
-                        <div class="col-xl-10 col-xl-offset-1">
-                            
+                        <div class="col-xl-10 col-sm-10 col-sm-offset-1 col-xl-offset-1">
                             <img class="img-logo-login" src="../image/Logo.png">
                         </div>
                     </div>
                     <form>
                         <div class="row">
-                            <div class="col-sm-12 col-md-10 col-md-offset-1 col-sm-offset-0 col-xl-8 col-xl-offset-2 col-lg-8 col-lg-offset-2">
+                            <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1  col-xl-8 col-xl-offset-2 col-lg-8 col-lg-offset-2">
                                 <div class="form-group">
                                     <label class="form-label label-login" for="nmUsuario">E-mail | Nome de
                                         Usuário</label>
@@ -39,7 +38,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-12 col-sm-offset-0 col-md-10 col-md-offset-1 col-xl-8 col-xl-offset-2 col-lg-8 col-lg-offset-2">
+                            <div class="col-sm-10 col-sm-offset-1 col-sm-offset-0 col-md-10 col-md-offset-1 col-xl-8 col-xl-offset-2 col-lg-8 col-lg-offset-2">
                                 <div class="form-group">
                                     <label class="form-label label-login" for="nmSenha">Senha</label>
                                     <input required class="form-control input-login" type="text" name="nmSenha">
@@ -47,13 +46,13 @@
                             </div>
                         </div>
                         <div class="row btn-espacamento">
-                            <div class="col-lg-8 col-lg-offset-2 col-md-offset-1 col-md-10 col-xl-8 col-xl-offset-2 col-sm-12 col-sm-offset-0 ">
+                            <div class="col-lg-8 col-lg-offset-2 col-md-offset-1 col-md-10 col-xl-8 col-xl-offset-2 col-sm-12 col-sm-offset-0">
                                 <div class="row">
-                                    <div class="col-sm-12 col-md-offset-2 col-md-8 col-xl-5 col-lg-6 col-lg-8 col-lg-offset-2 col-xl-offset-0">
+                                    <div class="col-sm-6 col-sm-offset-3 col-md-offset-2 col-md-8 col-xl-5 col-lg-6 col-lg-8 col-lg-offset-2 col-xl-offset-0">
                                         <input type="hidden" name="acao" value="1">
                                         <input class="btn-login btn btn-lg" type="submit" value="Entrar">
                                     </div>
-                                    <div class="col-sm-12 col-md-offset-1 col-md-10 col-xl-7 col-lg-10 col-lg-offset-1 col-xl-offset-0 col-lg-6">
+                                    <div class="col-sm-10 col-sm-offset-2 col-md-offset-1 col-md-10 col-xl-7 col-lg-10 col-lg-offset-1 col-xl-offset-0 col-lg-6">
                                         <input id="checkbox-login" type="checkbox">
                                         <label for="checkbox-login" class="mantenha-conectado">Manter-se
                                             conectado</label>
@@ -63,17 +62,22 @@
                             </div>
                         </div>
                         <div class="row btn-espacamento">
-                            <div class="col-xl-8 col-md-offset-1 col-lg-8 col-lg-offset-2 col-md-10 col-xl-offset-2">
+                            <div class="col-xl-8 col-md-offset-1 col-sm-offset-1 col-lg-8 col-lg-offset-2 col-md-10 col-xl-offset-2">
                                 <a class="login-esqueceu-senha" href="">Esqueceu a sua senha?</a>
                             </div>
-                            <div class="col-xl-8 col-lg-offset-2 col-md-offset-1 col-xl-offset-2">
-                                <p class="novo-registro">Ainda não tem uma conta? <a id="novo-registro"
+                            <div class="col-xl-8 col-lg-offset-2 col-sm-offset-1 col-md-offset-1 col-xl-offset-2">
+                                <p class="novo-registro">Ainda não tem uma conta? <br class="d-block d-sm-none"><a id="novo-registro"
                                         href="">Registrar-se</a></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-10 col-lg-offset-1">
+                                <img class="img-login" src="../image/BG-LOGIN-ICON.png">
                             </div>
                         </div>
                     </form>
                 </div>
-                <div class="col-sm-12 col-md-6 col-xl-6 col-lg-6 login-right">
+                <div class="col-sm-12 d-none d-sm-block col-md-6 col-xl-6 col-lg-6 login-right">
                     <div class="col-lg-10 col-lg-offset-1">
                         <p id="titulo-login">Tudo<br> sobre<br>sociologia<br>em um só<br>lugar</p>
                         <p id="frase-login">participe da nossa comunidade,<br> aprenda de forma interativa</p>
