@@ -67,6 +67,12 @@
     bottom: 0px;
 
   }
+  .login-esqueceu-senha {
+    font-family: Raleway-Black-Italic;
+  }
+  a#novo-registro {
+    font-family: Raleway-Black-Italic;
+  }
 }
 
 @media screen and (min-width:768px) and (max-width: 1024px) {

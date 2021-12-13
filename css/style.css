@@ -135,7 +135,7 @@ input[type="checkbox"]:checked+label::after {
 }
 
 .login-esqueceu-senha {
-  font-family: Raleway-Black-Italic;
+  font-family: Raleway-Light-Italic;
   font-size: 18.08px;
   color: #AF3320;
   text-decoration: underline;
@@ -149,7 +149,7 @@ input[type="checkbox"]:checked+label::after {
 }
 
 a#novo-registro {
-  font-family: Raleway-Black-Italic;
+  font-family: Raleway-Light-Italic;
   font-size: 18.08px;
   color: #AF3320;
   text-decoration: underline;
