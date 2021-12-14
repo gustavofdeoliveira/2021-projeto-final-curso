@@ -44,10 +44,10 @@ function ValidateField(field) {
         if (error) {
             const message = customMessage(error)
             debugger
-            field.style.borderColor = "#AF3320 !important"
+            field.style.borderColor = "#AF3320"
             setCustomMessage(message)
         } else {
-            field.style.borderColor = "#1B3A02 !important"
+            field.style.borderColor = "#1B3A02"
             setCustomMessage()
         }
     }

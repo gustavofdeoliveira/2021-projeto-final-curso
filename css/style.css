@@ -65,7 +65,7 @@ body {
 
 .input-login {
   border-radius: 200px !important;
-  border: 1px solid #AF3320 !important;
+  border: 1px solid #AF3320;
 }
 
 .login-right {
@@ -211,6 +211,6 @@ input .input-login~label {
 }
 
 .input-login span.error.active {
-  border: 1px solid red !important;
+  border: 1px solid red;
   padding: 0.4em;
 }

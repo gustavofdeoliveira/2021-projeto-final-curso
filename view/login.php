@@ -37,7 +37,7 @@ require_once("../dao/LoginDao.php");
                                 <div class="form-group">
                                     <label class="form-label label-login" for="nomeUsuario">E-mail | Nome de
                                         Usuário</label>
-                                    <input required class="form-control input-login" type="text" name="nomeUsuario">
+                                    <input required class="input-login form-control" type="text" name="nomeUsuario">
                                     <span class="error"></span>
                                 </div>
                             </div>
@@ -46,7 +46,7 @@ require_once("../dao/LoginDao.php");
                             <div class="col-sm-10 col-sm-offset-1 col-sm-offset-0 col-md-10 col-md-offset-1 col-xl-8 col-xl-offset-2 col-lg-8 col-lg-offset-2">
                                 <div class="form-group">
                                     <label class="form-label label-login" for="Senha">Senha</label>
-                                    <input required class="form-control input-login" type="password" name="Senha">
+                                    <input required class="input-login form-control" type="password" name="Senha">
                                     <span class="error"></span>
                                 </div>
                             </div>
