@@ -8,28 +8,23 @@ class LoginDao
     {
         $this->conn = Connection::conectar();
     }
+
     function buscarUsuario(LoginModel $modelo)
     {
-        $sql = "SELECT * FROM usuario WHERE nomeUsuario = '" . $modelo->getNomeUsuario() . "' OR email='" . $modelo->getNomeUsuario() . "' AND senha = SHA1('" . $modelo->getSenha() . "')";
+        $sql = "SELECT * FROM usuario WHERE nomeUsuario = :nomeUsuario OR email=:nomeUsuario";
         $statement = $this->conn->prepare($sql);
+        $statement->bindValue(':nomeUsuario', $modelo->getNomeUsuario());
         $statement->execute();
-        if ($statement->rowCount() == 0) {
-            header("location: ../view/Login.php?msg=usuario não cadastrado");
-            exit;
-        } else {
-
-            $usuario_do_banco = $statement->fetch(PDO::FETCH_ASSOC);
-            
-            if (sha1(($modelo->getSenha()) == $usuario_do_banco["senha"] ) &&
-                ($modelo->getNomeUsuario() ==  $usuario_do_banco["nomeUsuario"]) ||
-                ($modelo->getNomeUsuario() ==  $usuario_do_banco["email"])                
-            ) {
-                $usuario_do_banco = "Usuario autenticado";
+        if ($statement->rowCount()) {
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            if ($result['senha'] === sha1($modelo->getSenha())) {
+                $_SESSION['usuarioAutenticado'] = $result;
+                return true;
             } else {
-                $usuario_do_banco = "nome de usuario | E-mail ou senha incorretos";
+                
+                throw new \Exception('Senha incorreta');
             }
         }
-
-        return $usuario_do_banco;
+        throw new \Exception('E-mail | Nome de Usuário incorreto');
     }
 }

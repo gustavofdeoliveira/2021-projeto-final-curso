@@ -1,6 +1,7 @@
 <?php
 include_once("../database/Connection.php");
 require_once("../dao/LoginDao.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -51,6 +52,16 @@ require_once("../dao/LoginDao.php");
                                 </div>
                             </div>
                         </div>
+                        <?php
+                        
+                        if(!empty($_SESSION['msg_error'])){
+                        echo"
+                            <div class='col-sm-10 col-sm-offset-1 col-sm-offset-0 col-md-10 col-md-offset-1 col-xl-8 col-xl-offset-2 col-lg-8 col-lg-offset-2'>
+                                <div class='alert alert-danger' role='alert'>{$_SESSION['msg_error']}                      </div>
+                            </div>
+                        ";
+                        }?>
+                        
                         <div class="row btn-espacamento">
                             <div class="col-lg-8 col-lg-offset-2 col-md-offset-1 col-md-10 col-xl-8 col-xl-offset-2 col-sm-12 col-sm-offset-0">
                                 <div class="row">
@@ -72,8 +83,7 @@ require_once("../dao/LoginDao.php");
                                 <a class="login-esqueceu-senha" href="">Esqueceu a sua senha?</a>
                             </div>
                             <div class="col-xl-8 col-lg-offset-2 col-sm-offset-1 col-md-offset-1 col-xl-offset-2">
-                                <p class="novo-registro">Ainda não tem uma conta? <br class="d-block d-sm-none"><a id="novo-registro"
-                                        href="">Registrar-se</a></p>
+                                <p class="novo-registro">Ainda não tem uma conta? <br class="d-block d-sm-none"><a id="novo-registro" href="">Registrar-se</a></p>
                             </div>
                         </div>
                         <div class="row">

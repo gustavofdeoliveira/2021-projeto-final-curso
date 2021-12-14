@@ -1,27 +1,45 @@
 <?php
 require_once "../dao/LoginDao.php";
 require_once "../model/LoginModel.php";
-
 class LoginControl
 {
     
     private $dao;
     private $modelo;
     private $acao;
-    function __construct(){
-        $this->dao=new LoginDao();
-        $this->modelo=new LoginModel();
-        $this->acao=$_REQUEST["acao"];
+
+    function __construct()
+    {  
+        $this->dao = new LoginDao();
+        $this->modelo = new LoginModel();
+        
+        $this->acao = $_REQUEST["acao"];
         $this->verificaAcao();
     }
-    function verificaAcao(){
-        switch ($this->acao){
-            case 1:
+    
+    public function verificaAcao()
+    {
+        if ($this->acao) {
+            try {
                 $this->modelo->setNomeUsuario($_POST["nomeUsuario"]);
                 $this->modelo->setSenha($_POST["Senha"]);
-                $usuario = $this->dao->buscarUsuario($this->modelo);
-                print_r($usuario);
-                break;
+                $this->dao->buscarUsuario($this->modelo);
+                $usuario = $_SESSION['usuarioAutenticado'];
+                if ($usuario['nivelAcesso'] === 1) {
+                    header("Location:../view/Dashboard.php");
+                    
+                } else if ($usuario['nivelAcesso'] === 2) {
+                    header("Location:../view/Login.php");
+                } else if ($usuario['nivelAcesso'] === 3) {
+                    header("Location:../view/");
+                }
+            } catch (\Exception $e) {
+                
+                $_SESSION['msg_error'] = $e->getMessage();
+                 header("Location:../view/Login.php");
+            }finally{
+                unset($_SESSION['msg_error']);
+            }
         }
     }
 }

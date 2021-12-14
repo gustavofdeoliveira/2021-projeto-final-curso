@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 09-Dez-2021 às 12:31
+-- Tempo de geração: 14-Dez-2021 às 13:56
 -- Versão do servidor: 10.4.21-MariaDB
 -- versão do PHP: 8.0.10
 
@@ -24,27 +24,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb-usuario`
+-- Estrutura da tabela `usuario`
 --
 
-CREATE TABLE `tb-usuario` (
+CREATE TABLE `usuario` (
   `idUsuario` int(11) NOT NULL,
-  `nmUsuario` varchar(200) NOT NULL,
-  `nmSenha` varchar(200) NOT NULL,
-  `nmNome` varchar(200) NOT NULL,
-  `nmEmail` varchar(200) NOT NULL,
-  `nvAcesso` int(1) NOT NULL,
-  `dtInclusao` date NOT NULL
+  `nomeCompleto` varchar(150) NOT NULL,
+  `nomeUsuario` varchar(50) NOT NULL,
+  `senha` varchar(40) NOT NULL,
+  `nivelAcesso` int(1) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `dataInclusao` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `usuario`
+--
+
+INSERT INTO `usuario` (`idUsuario`, `nomeCompleto`, `nomeUsuario`, `senha`, `nivelAcesso`, `email`, `dataInclusao`) VALUES
+(1, 'Administrador', 'admin@admin', 'a1ba0d7140693d4c80041b5940815128b208b7a5', 1, 'admin@admin.org.br', '2021-12-12');
 
 --
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices para tabela `tb-usuario`
+-- Índices para tabela `usuario`
 --
-ALTER TABLE `tb-usuario`
+ALTER TABLE `usuario`
   ADD PRIMARY KEY (`idUsuario`);
 
 --
@@ -52,10 +59,10 @@ ALTER TABLE `tb-usuario`
 --
 
 --
--- AUTO_INCREMENT de tabela `tb-usuario`
+-- AUTO_INCREMENT de tabela `usuario`
 --
-ALTER TABLE `tb-usuario`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `usuario`
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
