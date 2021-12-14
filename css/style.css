@@ -13,6 +13,7 @@
   font-family: Raleway-Black;
   src: url(../fonts/Raleway-Black.ttf);
 }
+
 @font-face {
   font-family: Raleway-Black-Italic;
   src: url(../fonts/Raleway-BlackItalic.ttf);
@@ -180,4 +181,36 @@ p#frase-login {
   font-family: Raleway-Light;
   color: #FFFFF8;
   line-height: 23.8px;
+}
+
+input:focus .input-login~label, input:valid .input-login~label {
+  transform: translateY(-24px);
+  font-size: 0.8em;
+  letter-spacing: 0.1em;
+}
+
+input .input-login~label {
+  position: absolute;
+  top: 16px;
+  left: 0;
+  color: rgba(255, 255, 255, 0.6);
+  transition: .4s;
+}
+
+.error {
+  color: #AF3320;
+  font-size: 18px;
+  margin-left: 3%;
+  font-family: Raleway-Black-Italic;
+}
+
+.input-login span.error {
+  display: flex;
+  padding: 0;
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
+.input-login span.error.active {
+  border: 1px solid red !important;
+  padding: 0.4em;
 }

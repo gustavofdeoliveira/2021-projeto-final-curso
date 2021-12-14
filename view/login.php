@@ -1,5 +1,5 @@
 <?php
-include_once("../database/conexao.php");
+include_once("../database/Connection.php");
 require_once("../dao/LoginDao.php");
 ?>
 <!DOCTYPE html>
@@ -31,21 +31,23 @@ require_once("../dao/LoginDao.php");
                             <img class="img-logo-login" src="../image/Logo.png">
                         </div>
                     </div>
-                    <form method="POST" action="../control/LoginControl.php">
+                    <form action="../control/LoginControl.php" method="POST" class="form-group">
                         <div class="row">
                             <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1  col-xl-8 col-xl-offset-2 col-lg-8 col-lg-offset-2">
                                 <div class="form-group">
-                                    <label class="form-label label-login" for="nmUsuario">E-mail | Nome de
+                                    <label class="form-label label-login" for="nomeUsuario">E-mail | Nome de
                                         Usuário</label>
-                                    <input class="form-control input-login" type="text" name="nomeUsuario">
+                                    <input required class="form-control input-login" type="text" name="nomeUsuario">
+                                    <span class="error"></span>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-10 col-sm-offset-1 col-sm-offset-0 col-md-10 col-md-offset-1 col-xl-8 col-xl-offset-2 col-lg-8 col-lg-offset-2">
                                 <div class="form-group">
-                                    <label class="form-label label-login" for="nmSenha">Senha</label>
-                                    <input class="form-control input-login" type="password" name="Senha">
+                                    <label class="form-label label-login" for="Senha">Senha</label>
+                                    <input required class="form-control input-login" type="password" name="Senha">
+                                    <span class="error"></span>
                                 </div>
                             </div>
                         </div>
@@ -98,6 +100,7 @@ require_once("../dao/LoginDao.php");
 
     </footer>
     <script src="../javascript/bootstrap.bundle.min.js"></script>
+    <script src="../javascript/scripts.js"></script>
 </body>
 
 </html>
