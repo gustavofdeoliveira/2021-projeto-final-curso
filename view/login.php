@@ -22,6 +22,7 @@ require_once("../dao/LoginDao.php");
     <header>
 
     </header>
+
     <main>
 
         <div class="col-sm-12 col-xl-12 col-sm-12 col-lg-12 position-fixed-sm">
@@ -29,7 +30,7 @@ require_once("../dao/LoginDao.php");
                 <div class="col-sm-12 col-md-6 col-xl-6 col-lg-6 login-fundo-branco">
                     <div class="row all-conteudo">
                         <div class="col-xl-10 col-sm-10 col-sm-offset-1 col-xl-offset-1">
-                            <img class="img-logo-login" src="../image/Logo.png">
+                            <img id="img-logo-login" class="img-logo-login" src="../image/Logo-claro.png">
                         </div>
                     </div>
                     <form action="../control/LoginControl.php" method="POST" class="form-group">
@@ -62,7 +63,7 @@ require_once("../dao/LoginDao.php");
                             </div>
                         ";
                         } ?>
-
+                        <input name="theme" type="checkbox" class="toggle-dark-mode" />
                         <div class="row btn-espacamento">
                             <div class="col-lg-8 col-lg-offset-2 col-md-offset-1 col-md-10 col-xl-8 col-xl-offset-2 col-sm-12 col-sm-offset-0">
                                 <div class="row">
@@ -76,9 +77,17 @@ require_once("../dao/LoginDao.php");
                                             conectado</label>
 
                                     </div>
+
                                 </div>
                             </div>
                         </div>
+                         <div class="row">
+                            <div class="col-xl-6">
+                            <button id="dark-mode-toggle" class="dark-mode-toggle">mudar
+                                
+                            </button>
+                    </div>
+                        </div> 
                         <div class="row btn-espacamento">
                             <div class="col-xl-8 col-md-offset-1 col-sm-offset-1 col-lg-8 col-lg-offset-2 col-md-10 col-xl-offset-2">
                                 <a class="login-esqueceu-senha" href="">Esqueceu a sua senha?</a>
@@ -89,7 +98,7 @@ require_once("../dao/LoginDao.php");
                         </div>
                         <div class="row">
                             <div class="col-sm-10 col-lg-offset-1">
-                                <img class="img-login" src="../image/BG-LOGIN-ICON.png">
+                                <img id="img-login" class="img-login" src="../image/Bg-Login-Icon-Claro.png">
                             </div>
                         </div>
                     </form>
@@ -112,6 +121,8 @@ require_once("../dao/LoginDao.php");
     </footer>
     <script src="../javascript/bootstrap.bundle.min.js"></script>
     <script src="../javascript/scripts.js"></script>
+    <script src="../javascript/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
 </body>
 
 </html>

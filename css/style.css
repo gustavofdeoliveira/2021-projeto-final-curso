@@ -29,6 +29,37 @@
   src: url(../fonts/Raleway-LightItalic.ttf);
 }
 
+:root {
+  --cor_branca: #FFFFF8;
+  --cor_vermelha: #AF3320;
+  --cor_verde: #1B3A02;
+  --logo: url(../image/Logo-claro.png);
+  --background: url(../image/Bg-Login-Claro.png) center center no-repeat fixed;
+}
+
+.darkmode {
+  --cor_branca: #121212;
+  --cor_vermelha: #BE1900;
+  --cor_verde: #4A9B0B;
+  --logo: url('../image/Logo-claro.png');
+  --background: url(../image/Bg-Login-Noturno.png) center center no-repeat fixed;
+}
+
+.dark-mode-toggle {
+  position: absolute;
+  z-index: 100;
+  top: 1em;
+  right: 1em;
+  color: var(--foreground);
+  border: 2px solid currentColor;
+  padding: 4px;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+}
+
 body {
   width: 100%;
   overflow-x: hidden;
@@ -47,25 +78,25 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover !important;
-  background: url(../image/BG-LOGIN.png) center center no-repeat fixed;
+  background: var(--background);
 
 }
 
 .login-fundo-branco {
   height: 100%;
   min-height: 100vh;
-  background-color: #FFFFF8;
+  background-color: var(--cor_branca);
 }
 
 .label-login {
   font-size: 30px;
   font-family: Raleway-Light;
-  color: #AF3320;
+  color: var(--cor_vermelha);
 }
 
 .input-login {
   border-radius: 200px !important;
-  border: 1px solid #AF3320;
+  border: 1px solid var(--cor_vermelha);
 }
 
 .login-right {
@@ -75,8 +106,8 @@ body {
 
 .btn-login {
   color: #fff !important;
-  background-color: #1B3A02 !important;
-  border-color: #1B3A02 !important;
+  background-color: var(--cor_verde) !important;
+  border-color: var(--cor_verde) !important;
   width: 180px;
   height: 60px;
   font-family: Raleway-Bold;
@@ -91,7 +122,7 @@ body {
 
 .mantenha-conectado {
   font-family: Raleway-Light;
-  color: #AF3320;
+  color: var(--cor_vermelha);
   font-size: 18px;
   word-break: unset;
   margin-top: 5%;
@@ -138,21 +169,21 @@ input[type="checkbox"]:checked+label::after {
 .login-esqueceu-senha {
   font-family: Raleway-Light-Italic;
   font-size: 18.08px;
-  color: #AF3320;
+  color: var(--cor_vermelha);
   text-decoration: underline;
 }
 
 .novo-registro {
   font-family: Raleway-Light-Italic;
   font-size: 18.08px;
-  color: #AF3320;
+  color: var(--cor_vermelha);
   text-decoration: none;
 }
 
 a#novo-registro {
   font-family: Raleway-Light-Italic;
   font-size: 18.08px;
-  color: #AF3320;
+  color: var(--cor_vermelha);
   text-decoration: underline;
 }
 
@@ -169,7 +200,7 @@ a#novo-registro {
 p#titulo-login {
   font-size: 78.87px;
   font-family: Raleway-Black;
-  color: #FFFFF8;
+  color: var(--cor_branca);
   line-height: 75px;
   display: flex;
   margin-top: 5%;
@@ -179,7 +210,7 @@ p#titulo-login {
 p#frase-login {
   font-size: 19.8px;
   font-family: Raleway-Light;
-  color: #FFFFF8;
+  color: var(--cor_branca);
   line-height: 23.8px;
 }
 
