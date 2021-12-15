@@ -15,13 +15,10 @@ require_once("../dao/LoginDao.php");
     <link rel="stylesheet" href="../css/responsive-theme.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css.map">
+    <link rel="shortcut icon" href="../image/Logo-claro.ico" type="image/x-icon">
 </head>
 
 <body class="background-login">
-
-    <header>
-
-    </header>
 
     <main>
 
@@ -108,16 +105,13 @@ require_once("../dao/LoginDao.php");
                         <p id="frase-login">participe da nossa comunidade,<br> aprenda de forma interativa</p>
                     </div>
 
-                    <img class="img-login" src="../image/BG-LOGIN-ICON.png">
+                    <img class="img-login" src="../image/Bg-Login-Icon-Claro.png">
                 </div>
 
 
             </div>
         </div>
     </main>
-    <footer>
-
-    </footer>
     <script src="../javascript/bootstrap.bundle.min.js"></script>
     <script src="../javascript/scripts.js"></script>
     <script src="../javascript/jquery.js"></script>

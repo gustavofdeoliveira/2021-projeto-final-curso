@@ -24,8 +24,9 @@ class LoginControl
                 $this->modelo->setNomeUsuario($_POST["nomeUsuario"]);
                 $this->modelo->setSenha($_POST["Senha"]);
                 $this->dao->buscarUsuario($this->modelo);
+                //Guarda os dados do usuario
                 $usuario = $_SESSION['usuarioAutenticado'];
-                print_r($usuario);
+                
                 if ($usuario['nivelAcesso'] == 1) {
                     header("Location:../view/Dashboard.php");
                 } else if ($usuario['nivelAcesso'] == 2) {
@@ -35,6 +36,7 @@ class LoginControl
                 }
             } catch (\Exception $e) {
                 $_SESSION["msg_error"] = $e->getMessage();
+                $_SESSION["tempo_msg_error"] = time();
                 header("Location:../view/Login.php");
             }
         }

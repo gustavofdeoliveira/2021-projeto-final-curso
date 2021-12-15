@@ -52,6 +52,7 @@ function ValidateField(field) {
 }
 
 function customValidation(event) {
+    debugger;
     const field = event.target
     const validation = ValidateField(field)
     validation()
