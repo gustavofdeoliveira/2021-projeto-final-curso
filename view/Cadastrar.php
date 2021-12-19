@@ -16,6 +16,7 @@ require_once("../dao/LoginDao.php");
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css.map">
     <link rel="shortcut icon" href="../image/Logo-claro.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body class="background-login">
@@ -39,20 +40,43 @@ require_once("../dao/LoginDao.php");
                         </div>
 
                         <div class="row">
-                            <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1  col-xl-8 col-xl-offset-2 col-lg-8 col-lg-offset-2">
+                            <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-xl-8 col-xl-offset-1 col-lg-8 col-lg-offset-2">
                                 <div class="form-group">
-                                    <label class="form-label label-login" for="nomeUsuario">E-mail | Nome de
-                                        Usuário</label>
-                                    <input required class="input-login form-control" type="text" name="nomeUsuario">
+                                    <label class="form-label label-criar-conta" for="nomeUsuario">nome completo</label>
+                                    <input required class="input-criar-conta form-control" type="text" name="nomeUsuario">
                                     <span class="error"></span>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-10 col-sm-offset-1 col-sm-offset-0 col-md-10 col-md-offset-1 col-xl-8 col-xl-offset-2 col-lg-8 col-lg-offset-2">
+                            <div class="col-sm-10 col-sm-offset-1 col-sm-offset-0 col-md-10 col-md-offset-1 col-xl-8 col-xl-offset-1 col-lg-8 col-lg-offset-2">
                                 <div class="form-group">
-                                    <label class="form-label label-login" for="Senha">Senha</label>
-                                    <input required class="input-login form-control" type="password" name="Senha">
+                                    <label class="form-label label-criar-conta" for="Senha">e-mail</label>
+                                    <input required class="input-criar-conta form-control" type="password" name="Senha">
+                                    <span class="error"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-10 col-sm-offset-1 col-sm-offset-0 col-md-10 col-md-offset-1 col-xl-8 col-xl-offset-1 col-lg-8 col-lg-offset-2">
+                                <div class="form-group">
+                                    <label class="form-label label-criar-conta" for="Senha">nome de usuário</label>
+                                    <input required class="input-criar-conta form-control" type="password" name="Senha">
+                                    <span class="error"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-10 col-sm-offset-1 col-sm-offset-0 col-md-10 col-md-offset-1 col-xl-6 col-xl-offset-1 col-lg-8 col-lg-offset-2">
+                                <div class="form-group submit-line">
+                                    <label class="form-label label-criar-conta" for="Senha">senha</label>
+                                    
+                                    <div class="input-group" id="show_hide_password">
+                                        <input required class="input-criar-conta form-control" type="password" name="senha">
+                                        <div class="input-group-addon" onclick="ocultarSenha()">
+                                            <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
                                     <span class="error"></span>
                                 </div>
                             </div>
@@ -72,7 +96,7 @@ require_once("../dao/LoginDao.php");
                                 <div class="row">
                                     <div class="col-sm-6 col-sm-offset-3 col-md-offset-2 col-md-8 col-xl-5 col-lg-6 col-lg-8 col-lg-offset-2 col-xl-offset-0">
                                         <input type="hidden" name="acao" value="1">
-                                        <input class="btn-login btn btn-lg" type="submit" value="Entrar">
+                                        <input class="btn-criar-conta btn btn-lg" type="submit" value="criar conta">
                                     </div>
 
 
