@@ -10,7 +10,7 @@ require_once("../dao/LoginDao.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tererê com Sociologia | Entrar</title>
+    <title>Tererê com Sociologia | Cadastrar-se</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/responsive-theme.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -26,11 +26,18 @@ require_once("../dao/LoginDao.php");
             <div class="row">
                 <div class="col-sm-12 col-md-6 col-xl-6 col-lg-6 login-fundo-branco">
                     <div class="row all-conteudo">
-                        <div class="col-xl-10 col-sm-10 col-sm-offset-1 col-xl-offset-1">
-                            <img id="img-logo-login" class="img-logo-login" src="../image/Logo-claro.png">
+                        <div class="col-xl-6 col-sm-10 col-sm-offset-1 col-xl-offset-1">
+                            <img id="img-logo-login" class="img-logo-cadastrar" src="../image/Logo-claro.png">
                         </div>
                     </div>
                     <form action="../control/LoginControl.php" method="POST" class="form-group">
+                        <div class="row">
+                            <div class="col-xl-6 col-xl-offset-1">
+                                <p id="titulo-criar-conta">crie a<br> sua conta</p>
+                                <p id="possui-conta">Já faz parte do blog? <a id="fazer-login" href="">Fazer login</a></p>
+                            </div>
+                        </div>
+
                         <div class="row">
                             <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1  col-xl-8 col-xl-offset-2 col-lg-8 col-lg-offset-2">
                                 <div class="form-group">
@@ -67,12 +74,7 @@ require_once("../dao/LoginDao.php");
                                         <input type="hidden" name="acao" value="1">
                                         <input class="btn-login btn btn-lg" type="submit" value="Entrar">
                                     </div>
-                                    <div class="col-sm-10 col-sm-offset-2 col-md-offset-1 col-md-10 col-xl-7 col-lg-10 col-lg-offset-1 col-xl-offset-0 col-lg-6">
-                                        <input id="checkbox-login" type="checkbox">
-                                        <label for="checkbox-login" class="mantenha-conectado">Manter-se
-                                            conectado</label>
 
-                                    </div>
 
                                 </div>
                             </div>
@@ -84,19 +86,7 @@ require_once("../dao/LoginDao.php");
                                 </button>
                             </div>
                         </div>
-                        <div class="row btn-espacamento">
-                            <div class="col-xl-8 col-md-offset-1 col-sm-offset-1 col-lg-8 col-lg-offset-2 col-md-10 col-xl-offset-2">
-                                <a class="login-esqueceu-senha" href="">Esqueceu a sua senha?</a>
-                            </div>
-                            <div class="col-xl-8 col-lg-offset-2 col-sm-offset-1 col-md-offset-1 col-xl-offset-2">
-                                <p class="novo-registro">Ainda não tem uma conta? <br class="d-block d-sm-none"><a id="novo-registro" href="../view/Cadastrar.php">Registrar-se</a></p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-10 col-lg-offset-1">
-                                <img id="img-login" class="img-login" src="../image/Bg-Login-Icon-Claro.png">
-                            </div>
-                        </div>
+
                     </form>
                 </div>
                 <div class="col-sm-12 d-none d-sm-block col-md-6 col-xl-6 col-lg-6 login-right">
