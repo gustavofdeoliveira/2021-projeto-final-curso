@@ -3,6 +3,11 @@
   src: url(../fonts/Raleway-Bold.ttf);
   font-weight: bold;
 }
+@font-face {
+  font-family: Raleway-Bold-Italic;
+  src: url(../fonts/Raleway-BoldItalic.ttf);
+  font-weight: bold;
+}
 
 @font-face {
   font-family: Raleway-SemiBold;
@@ -360,4 +365,38 @@ a#fazer-login {
 
 .input-senha {
   margin-left: 7%;
+}
+
+p#titulo-conta-criada{
+  font-size: 93px;
+  line-height: 71.6px;
+  color: var(--cor_verde);
+  font-family: Raleway-Black;
+  margin-left: 4%;
+  margin-top: 5%;
+}
+p#texto-conta-criada{
+  font-size: 31px;
+  color: var(--cor_vermelha);
+  font-family: Raleway-Light-Italic;
+  margin-left: 4%;
+  margin-top: 5%;
+}
+span#texto-conta-criada-negrito{
+  font-family: Raleway-Bold-Italic;
+}
+
+a#btn-criar-conta-login{
+  color: #fff !important;
+  background-color: var(--cor_verde) !important;
+  border-color: var(--cor_verde) !important;
+  width: 353px;
+  height: 70.22px;
+  font-family: Raleway-Black;
+  font-size: 43px !important;
+  border-radius: 100PX !important;
+  padding: 8px 64px !important;
+  margin-bottom: 50px;
+  text-decoration: none;
+  margin-left: 4%;
 }

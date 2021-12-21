@@ -33,7 +33,7 @@ class CadastroDao
              VALUES ( '" . $modelo->getNomeCompleto() . "', '" . $modelo->getNomeUsuario() . "', SHA1('" . $modelo->getSenha() . "'), 1,'" . $modelo->getEmail() . "',CURRENT_DATE())";
             $statement = $this->conn->prepare($sql);
             $statement->execute();
-            header("Location:../view/CadastroFinalizado.php");
+            
         }
     }
 }

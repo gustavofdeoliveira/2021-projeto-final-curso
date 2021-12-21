@@ -26,17 +26,9 @@ class CadastroControl
                 $this->modelo->setSenha($_POST["senha"]);
                 $this->modelo->setEmail($_POST["email"]);
                 $this->dao->cadastrarUsuario($this->modelo);
-                $result = $this->dao->cadastrarUsuario($this->modelo);
-                print_r($result);
-                //Guarda os dados do usuario
-                // $usuario = $_SESSION['usuarioAutenticado'];
-                // if ($usuario['nivelAcesso'] == 1) {
-                //     header("Location:../view/Dashboard.php");
-                // } else if ($usuario['nivelAcesso'] == 2) {
-                //     header("Location:../view/Login.php");
-                // } else if ($usuario['nivelAcesso'] === 3) {
-                //     header("Location:../view/");
-                // }
+                $this->dao->cadastrarUsuario($this->modelo);
+                header("Location:../view/CadastroFinalizado.php");
+
             } catch (\Exception $e) {
                 $_SESSION["msg_error"] = $e->getMessage();
                 $_SESSION["tempo_msg_error"] = time();

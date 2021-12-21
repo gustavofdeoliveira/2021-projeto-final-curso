@@ -73,6 +73,17 @@
   a#novo-registro {
     font-family: Raleway-Black-Italic;
   }
+  p#titulo-conta-criada{
+    font-size: 63px;
+    line-height: 60px;
+  }
+  p#texto-conta-criada{
+    font-size: 21px;
+  }
+  a#btn-criar-conta-login{
+    font-size: 30px !important;
+    padding: 5px 45px !important;
+  }
 }
 
 @media screen and (min-width:768px) and (max-width: 1024px) {
@@ -96,5 +107,15 @@
 
   .login-fundo-branco {
     min-height: 105vh;
+  }
+  p#titulo-conta-criada{
+    font-size: 73px;
+  }
+  p#texto-conta-criada{
+    font-size: 23px;
+  }
+  a#btn-criar-conta-login{
+    font-size: 30px;
+    padding: 5px 50px;
   }
 }
