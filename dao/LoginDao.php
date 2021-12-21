@@ -15,7 +15,7 @@ class LoginDao
 
     function buscarUsuario(LoginModel $modelo)
     {
-        $sql = "SELECT * FROM usuario WHERE nomeUsuario = :nomeUsuario OR email=:nomeUsuario";
+        $sql = "SELECT * FROM `usuario` WHERE `nomeUsuario` = :nomeUsuario OR `email`=:nomeUsuario";
         $statement = $this->conn->prepare($sql);
         $statement->bindValue(':nomeUsuario', $modelo->getNomeUsuario());
         $statement->execute();

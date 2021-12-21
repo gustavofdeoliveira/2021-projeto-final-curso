@@ -1,9 +1,10 @@
+
 const fields = document.querySelectorAll("[required]")
 function ValidateField(field) {
+debugger
     // logica para verificar se existem erros
     function verifyErrors() {
         let foundError = false;
-
         for (let error in field.validity) {
             // se não for customError
             // então verifica se tem erro
@@ -51,6 +52,7 @@ function ValidateField(field) {
     }
 }
 
+
 function customValidation(event) {
     debugger;
     const field = event.target
@@ -74,65 +76,88 @@ document.querySelector("form")
 
     })
 
-
 //modo moturno
 
 // check for saved 'darkMode' in localStorage
-let darkMode = localStorage.getItem('darkMode'); 
-
+let darkMode = localStorage.getItem('darkMode');
 const darkModeToggle = document.querySelector('#dark-mode-toggle');
 
 const enableDarkMode = () => {
-  // 1. Add the class to the body
-  document.body.classList.add('darkmode');
-  // 2. Update darkMode in localStorage
-  document.getElementById('img-logo-login').src = '../image/Logo-noturno.png';
-  document.getElementById('img-login').src = '../image/Bg-Login-Icon-Noturno.png';
-  localStorage.setItem('darkMode', 'enabled');
+    // 1. Add the class to the body
+    document.body.classList.add('darkmode');
+    // 2. Update darkMode in localStorage
+    document.getElementById('img-logo-login').src = '../image/Logo-noturno.png';
+    document.getElementById('img-login').src = '../image/Bg-Login-Icon-Noturno.png';
+    localStorage.setItem('darkMode', 'enabled');
 }
 
 const disableDarkMode = () => {
-  // 1. Remove the class from the body
-  document.body.classList.remove('darkmode');
-  // 2. Update darkMode in localStorage 
-  document.getElementById('img-logo-login').src = '../image/Logo-claro.png';
-  document.getElementById('img-login').src = '../image/Bg-Login-Icon-Claro.png';
-  localStorage.setItem('darkMode', null);
+    // 1. Remove the class from the body
+    document.body.classList.remove('darkmode');
+    // 2. Update darkMode in localStorage 
+    document.getElementById('img-logo-login').src = '../image/Logo-claro.png';
+    document.getElementById('img-login').src = '../image/Bg-Login-Icon-Claro.png';
+    localStorage.setItem('darkMode', null);
 }
- 
+
 // If the user already visited and enabled darkMode
 // start things off with it on
 if (darkMode === 'enabled') {
-  enableDarkMode();
+    enableDarkMode();
 }
 
 // When someone clicks the button
 darkModeToggle.addEventListener('click', () => {
-  // get their darkMode setting
-  darkMode = localStorage.getItem('darkMode'); 
-  
-  // if it not current enabled, enable it
-  if (darkMode !== 'enabled') {
-    enableDarkMode();
-  // if it has been enabled, turn it off  
-  } else {  
-    disableDarkMode(); 
-  }
+    // get their darkMode setting
+    darkMode = localStorage.getItem('darkMode');
+
+    // if it not current enabled, enable it
+    if (darkMode !== 'enabled') {
+        enableDarkMode();
+        // if it has been enabled, turn it off  
+    } else {
+        disableDarkMode();
+    }
 });
 
 //ocultar e mostrar senha
-function ocultarSenha(){
- debugger
-    // $("#show_hide_password").on('click', function(event) {
-    //     event.preventDefault();
-    //     if($('#show_hide_password input').attr("type") == "text"){
-    //         $('#show_hide_password input').attr('type', 'password');
-    //         $('#show_hide_password i').addClass( "fa-eye-slash" );
-    //         $('#show_hide_password i').removeClass( "fa-eye" );
-    //     }else if($('#show_hide_password input').attr("type") == "password"){
-    //         $('#show_hide_password input').attr('type', 'text');
-    //         $('#show_hide_password i').removeClass( "fa-eye-slash" );
-    //         $('#show_hide_password i').addClass( "fa-eye" );
-    //     }
-    // });
+function mostrar() {
+    if ($('#show_hide_password input').attr("type") == "text") {
+        $('#show_hide_password input').attr('type', 'password');
+        $('#show_hide_password i').addClass("fa-eye-slash");
+        $('#show_hide_password i').removeClass("fa-eye");
+    } else if ($('#show_hide_password input').attr("type") == "password") {
+        $('#show_hide_password input').attr('type', 'text');
+        $('#show_hide_password i').removeClass("fa-eye-slash");
+        $('#show_hide_password i').addClass("fa-eye");
+    }
+
+};
+
+//Validar email
+function validacaoEmail(field) {
+    usuario = field.value.substring(0, field.value.indexOf("@"));
+    dominio = field.value.substring(field.value.indexOf("@") + 1, field.value.length);
+
+    if ((usuario.length >= 1) &&
+        (dominio.length >= 3) &&
+        (usuario.search("@") == -1) &&
+        (dominio.search("@") == -1) &&
+        (usuario.search(" ") == -1) &&
+        (dominio.search(" ") == -1) &&
+        (dominio.search(".") != -1) &&
+        (dominio.indexOf(".") >= 1) &&
+        (dominio.lastIndexOf(".") < dominio.length - 1)) {
+        const spanError = field.parentNode.querySelector("span.error")
+        spanError.classList.add("valido")
+        spanError.innerHTML = "E-mail válido";
+    }
+    else {
+        const spanError = field.parentNode.querySelector("span.error")
+        spanError.classList.add("active")
+        spanError.innerHTML = "E-mail inválido";
+        field.style.borderColor = "#AF3320";
+
+
+    }
 }
