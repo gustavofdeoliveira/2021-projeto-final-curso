@@ -24,17 +24,17 @@ require_once("../dao/CadastroDao.php");
 
     <main>
 
-        <div class="col-sm-12 col-xl-12 col-sm-12 col-lg-12 position-fixed-sm">
+        <div class="col-sm-12 col-xl-12 col-sm-12 col-lg-12">
             <div class="row">
                 <div class="col-sm-12 col-md-6 col-xl-6 col-lg-6 login-fundo-branco">
                     <div class="row all-conteudo">
-                        <div class="col-xl-6 col-sm-10 col-sm-offset-1 col-xl-offset-1">
+                        <div class="col-xl-6 col-sm-10 col-sm-offset-1 col-lg-9 col-lg-offset-1 col-md-9 col-md-offset-1 col-xl-offset-1">
                             <img id="img-logo-login" class="img-logo-cadastrar" src="../image/Logo-claro.png">
                         </div>
                     </div>
                     <form action="../control/CadastroControl.php" method="POST" class="form-group">
                         <div class="row">
-                            <div class="col-xl-8 col-xl-offset-1">
+                            <div class="col-xl-8 col-xl-offset-1 col-md-10 col-md-offset-1">
                                 <p id="titulo-criar-conta">crie a<br> sua conta</p>
                                 <p id="possui-conta">Já faz parte do blog? <a id="fazer-login" href="">Fazer login</a></p>
                             </div>
@@ -59,7 +59,7 @@ require_once("../dao/CadastroDao.php");
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-10 col-sm-offset-1 col-sm-offset-0 col-md-10 col-md-offset-1 col-xl-8 col-xl-offset-1 col-lg-8 col-lg-offset-2">
+                            <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-xl-8 col-xl-offset-1 col-lg-8 col-lg-offset-2">
                                 <div class="form-group">
                                     <label class="form-label label-criar-conta" for="nomeUsuario">nome de usuário</label>
                                     <div class="input-group mb-2 input-nome-usuario">
@@ -69,12 +69,12 @@ require_once("../dao/CadastroDao.php");
                                         <input type="text" required class="input-criar-conta-nomeusuario form-control" name="nomeUsuario">
                                         <span class="error"></span>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-10 col-sm-offset-1 col-sm-offset-0 col-md-10 col-md-offset-1 col-xl-6 col-xl-offset-1 col-lg-8 col-lg-offset-2">
+                            <div class="col-sm-10 col-sm-offset-1 col-sm-offset-0 col-md-8 col-md-offset-1 col-xl-6 col-xl-offset-1 col-lg-8 col-lg-offset-2">
                                 <div class="form-group input-senha">
                                     <label class="form-label label-criar-senha" for="senha">senha</label>
                                     <div class="input-group" id="show_hide_password">
@@ -101,12 +101,10 @@ require_once("../dao/CadastroDao.php");
                         <div class="row btn-espacamento">
                             <div class="col-lg-8 col-lg-offset-2 col-md-offset-1 col-md-10 col-xl-8 col-xl-offset-2 col-sm-12 col-sm-offset-0">
                                 <div class="row">
-                                    <div class="col-sm-6 col-sm-offset-3 col-md-offset-2 col-md-8 col-xl-5 col-lg-6 col-lg-8 col-lg-offset-2 col-xl-offset-0">
+                                    <div class="col-sm-6 col-sm-offset-1 col-md-offset-0 col-md-8 col-xl-5 col-lg-6 col-lg-8 col-lg-offset-2 col-xl-offset-0">
                                         <input type="hidden" name="acao" value="1">
                                         <input class="btn-criar-conta btn btn-lg" type="submit" value="criar conta">
                                     </div>
-
-
                                 </div>
                             </div>
                         </div>

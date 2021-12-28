@@ -1,4 +1,5 @@
 <?php
+//Abre conecao com o banco
 session_start();
 require_once("../database/Connection.php");
 //Temporalizador da Mensagem de erro no login
@@ -33,7 +34,6 @@ class CadastroDao
              VALUES ( '" . $modelo->getNomeCompleto() . "', '" . $modelo->getNomeUsuario() . "', SHA1('" . $modelo->getSenha() . "'), 1,'" . $modelo->getEmail() . "',CURRENT_DATE())";
             $statement = $this->conn->prepare($sql);
             $statement->execute();
-            
         }
     }
 }

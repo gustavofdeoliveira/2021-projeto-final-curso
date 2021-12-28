@@ -12,7 +12,7 @@ class LoginControl
     {
         $this->dao = new LoginDao();
         $this->modelo = new LoginModel();
-
+        //Recebe a requisão dos botoes da tela
         $this->acao = $_REQUEST["acao"];
         $this->verificaAcao();
     }
@@ -26,7 +26,7 @@ class LoginControl
                 $this->dao->buscarUsuario($this->modelo);
                 //Guarda os dados do usuario
                 $usuario = $_SESSION['usuarioAutenticado'];
-                
+                //teste nivel de acesso do usuario
                 if ($usuario['nivelAcesso'] == 1) {
                     header("Location:../view/Dashboard.php");
                 } else if ($usuario['nivelAcesso'] == 2) {

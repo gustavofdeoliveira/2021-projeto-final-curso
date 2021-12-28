@@ -48,6 +48,7 @@ debugger
         } else {
             field.style.borderColor = "#1B3A02"
             setCustomMessage()
+            validacaoEmail();
         }
     }
 }

@@ -18,14 +18,15 @@
 
   .login-esqueceu-senha, .novo-registro, a#novo-registro {
     font-size: 15px;
-  margin-top: 2%;
+    margin-top: 2%;
   }
-  
-  .btn-login{
+
+  .btn-login {
     width: 150px;
     height: 40px;
     font-size: 19px !important;
   }
+
   .img-login {
     width: 28%;
     height: 22%;
@@ -36,20 +37,22 @@
     position: fixed;
   }
 
-  .all-conteudo{
+  .all-conteudo {
     margin-top: 5% !important;
   }
-  .mantenha-conectado{
+
+  .mantenha-conectado {
     font-size: 14px;
     margin-left: 5%;
   }
+
   input[type="checkbox"]+label {
     position: relative;
     cursor: pointer;
     padding-left: 45px;
     line-height: 20px;
   }
-  
+
   input[type="checkbox"]+label::before {
     content: "";
     position: absolute;
@@ -62,27 +65,63 @@
     border-radius: 200px;
     vertical-align: bottom;
   }
+
   input[type="checkbox"]:checked+label::after {
     left: 10px;
     bottom: 0px;
 
   }
+
   .login-esqueceu-senha {
     font-family: Raleway-Black-Italic;
   }
+
   a#novo-registro {
     font-family: Raleway-Black-Italic;
   }
-  p#titulo-conta-criada{
+
+  p#titulo-criar-conta {
+    font-size: 50px;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  p#possui-conta {
+    font-size: 19px;
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+  }
+
+  p#titulo-conta-criada {
     font-size: 63px;
     line-height: 60px;
   }
-  p#texto-conta-criada{
+
+  p#texto-conta-criada {
     font-size: 21px;
   }
-  a#btn-criar-conta-login{
+
+  a#btn-criar-conta-login {
     font-size: 30px !important;
     padding: 5px 45px !important;
+  }
+
+  .input-criar-conta {
+    margin-left: unset;
+  }
+
+  .input-nome-usuario {
+    margin-left: unset;
+  }
+
+  .input-senha {
+    margin-left: unset;
+  }
+
+  .btn-criar-conta {
+    margin-left: 7%;
   }
 }
 
@@ -108,14 +147,29 @@
   .login-fundo-branco {
     min-height: 105vh;
   }
-  p#titulo-conta-criada{
+
+  p#titulo-conta-criada {
     font-size: 73px;
   }
-  p#texto-conta-criada{
+
+  p#texto-conta-criada {
     font-size: 23px;
   }
-  a#btn-criar-conta-login{
+
+  a#btn-criar-conta-login {
     font-size: 30px;
     padding: 5px 50px;
   }
+
+  p#titulo-criar-conta {
+    font-size: 55px;
+  }
+
+  p#possui-conta {
+    font-size: 25px;
+  }
+  .btn-criar-conta{
+    margin-left: 5%;
+  }
+
 }

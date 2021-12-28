@@ -3,6 +3,7 @@
   src: url(../fonts/Raleway-Bold.ttf);
   font-weight: bold;
 }
+
 @font-face {
   font-family: Raleway-Bold-Italic;
   src: url(../fonts/Raleway-BoldItalic.ttf);
@@ -32,6 +33,11 @@
 @font-face {
   font-family: Raleway-Light-Italic;
   src: url(../fonts/Raleway-LightItalic.ttf);
+}
+
+@font-face {
+  font-family: Raleway-Medium-Italic;
+  src: url(../fonts/Raleway-MediumItalic.ttf);
 }
 
 :root {
@@ -338,11 +344,13 @@ a#fazer-login {
 .input-nome-usuario {
   margin-left: 4%;
 }
+
 .label-criar-senha {
   font-size: 25px;
   font-family: Raleway-Light;
   color: var(--cor_vermelha);
 }
+
 .input-criar-senha {
   border-radius: 200px !important;
   border: 1px solid var(--cor_vermelha);
@@ -367,7 +375,7 @@ a#fazer-login {
   margin-left: 7%;
 }
 
-p#titulo-conta-criada{
+p#titulo-conta-criada {
   font-size: 93px;
   line-height: 71.6px;
   color: var(--cor_verde);
@@ -375,18 +383,20 @@ p#titulo-conta-criada{
   margin-left: 4%;
   margin-top: 5%;
 }
-p#texto-conta-criada{
+
+p#texto-conta-criada {
   font-size: 31px;
   color: var(--cor_vermelha);
   font-family: Raleway-Light-Italic;
   margin-left: 4%;
   margin-top: 5%;
 }
-span#texto-conta-criada-negrito{
+
+span#texto-conta-criada-negrito {
   font-family: Raleway-Bold-Italic;
 }
 
-a#btn-criar-conta-login{
+a#btn-criar-conta-login {
   color: #fff !important;
   background-color: var(--cor_verde) !important;
   border-color: var(--cor_verde) !important;
@@ -399,4 +409,73 @@ a#btn-criar-conta-login{
   margin-bottom: 50px;
   text-decoration: none;
   margin-left: 4%;
+}
+
+/*tela dashboard*/
+.navbar-img-logo {
+  width: 72%;
+  height: 50%;
+  margin-top: 70px;
+  margin-left: 80px;
+}
+
+.navbar-input-busca {
+  height: 69px;
+  border-color: var(--cor_verde);
+  border-radius: 0px 200px 200px 0px !important;
+  border-width: 1px 1px 1px 0px;
+
+}
+
+.navbar-input-busca::placeholder {
+  font-family: Raleway-Medium-Italic;
+  font-size: 26.5px !important;
+  line-height: 26.7px !important;
+  color: var(--cor_verde) !important;
+  height: 100% !important;
+}
+
+.input-group-navbar {
+  margin-top: 70px;
+}
+
+.span-icon-buscar {
+  color: var(--cor_verde) !important;
+  font-size: 55px !important;
+  background-color: #fff !important;
+  border-radius: 200px 0px 0px 200px !important;
+  border-width: 1px 0px 1px 1px !important;
+  border-color: var(--cor_verde) !important;
+}
+
+hr {
+  border-color: var(--cor_verde) !important;
+  background-color: var(--cor_verde) !important;
+  width: 86% !important;
+  display: table !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  border-width: 2px !important;
+  height: 2px !important;
+  opacity: 1 !important;
+}
+.navbar-nav{
+  font-family: Raleway-Bold !important;
+  font-size: 25px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100%;
+  display: table;
+} 
+.nav-link{
+  color: var(--cor_verde) !important;
+}
+.nav-item{
+padding: 0 4.3% 0;
+}
+
+p#titulo-editar-dados{
+  font-family: Raleway-Black;
+  font-size: 65px;
+  color: var(--cor_vermelha);
 }
