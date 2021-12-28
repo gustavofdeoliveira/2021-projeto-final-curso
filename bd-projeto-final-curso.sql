@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 14-Dez-2021 às 13:56
+-- Tempo de geração: 28-Dez-2021 às 13:49
 -- Versão do servidor: 10.4.21-MariaDB
 -- versão do PHP: 8.0.10
 
@@ -42,7 +42,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`idUsuario`, `nomeCompleto`, `nomeUsuario`, `senha`, `nivelAcesso`, `email`, `dataInclusao`) VALUES
-(1, 'Administrador', 'admin@admin', 'a1ba0d7140693d4c80041b5940815128b208b7a5', 1, 'admin@admin.org.br', '2021-12-12');
+(1, 'Administrador', 'admin@admin', 'a1ba0d7140693d4c80041b5940815128b208b7a5', 1, 'admin@admin.org.br', '2021-12-12'),
+(2, 'Gustavo Ferreira de Oliveira', 'gustavoof', 'f7c8dfd35867effa9e9b26084f475439caf0c66f', 1, 'gustavoofdeoliveira@hotmail.com', '2021-12-20');
 
 --
 -- Índices para tabelas despejadas
@@ -62,7 +63,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
