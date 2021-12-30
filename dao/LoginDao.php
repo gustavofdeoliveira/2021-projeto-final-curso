@@ -5,6 +5,19 @@ require_once("../database/Connection.php");
 if (!empty($_SESSION['msg_error']) && (time() - $_SESSION['tempo_msg_error'] > 10)) {
     unset($_SESSION['msg_error']);
 }
+// if (!empty($_SESSION['usuarioAutenticado']) && !empty($_SESSION['manterConectado'])) {
+//     $usuario = $_SESSION['usuarioAutenticado'];
+//     if ($usuario['nivelAcesso'] == 1) {
+//         header("Location:../view/Dashboard-Administrativo.php");
+//     } else if ($usuario['nivelAcesso'] == 2) {
+//         header("Location:../view/Dashboard-Administrativo.php");
+//     } else if ($usuario['nivelAcesso'] === 3) {
+//         header("Location:../view/Dashboard-Usuario.php");
+//     }
+// }else if(!empty($_SESSION['usuarioAutenticado']) && empty($_SESSION['manterConectado']) && (time() - $_SESSION['tempo_msg_error'] > 3600)){
+//     unset($_SESSION['usuarioAutenticado']);
+//     header("Location:../view/Login.php");
+// }
 class LoginDao
 {
     private $conn;
@@ -15,6 +28,7 @@ class LoginDao
 
     function buscarUsuario(LoginModel $modelo)
     {
+        $_SESSION['manterConectado'] = $modelo->getManterLogin();
         $sql = "SELECT * FROM `usuario` WHERE `nomeUsuario` = :nomeUsuario OR `email`=:nomeUsuario";
         $statement = $this->conn->prepare($sql);
         $statement->bindValue(':nomeUsuario', $modelo->getNomeUsuario());

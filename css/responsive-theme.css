@@ -82,16 +82,10 @@
 
   p#titulo-criar-conta {
     font-size: 50px;
-    display: table;
-    margin-left: auto;
-    margin-right: auto;
   }
 
   p#possui-conta {
     font-size: 19px;
-    margin-left: auto;
-    margin-right: auto;
-    display: table;
   }
 
   p#titulo-conta-criada {
@@ -119,15 +113,21 @@
   .input-senha {
     margin-left: unset;
   }
-
-  .btn-criar-conta {
-    margin-left: 7%;
+  .background-login {
+    min-height: unset;
+    width: 100%;
+    -webkit-background-size: unset;
+    -moz-background-size: unset;
+    -o-background-size: unset;
+    background-size: unset;
+    background: unset;
   }
 }
 
 @media screen and (min-width:768px) and (max-width: 1024px) {
   .label-login {
     font-size: 25px;
+    margin-top:20px;
   }
 
   p#titulo-login {
@@ -167,9 +167,6 @@
 
   p#possui-conta {
     font-size: 25px;
-  }
-  .btn-criar-conta{
-    margin-left: 5%;
   }
 
 }

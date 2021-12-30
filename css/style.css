@@ -267,7 +267,6 @@ input .input-login~label {
   width: 90%;
   height: 85%;
   margin-top: 5.5%;
-  margin-left: 5%;
 }
 
 p#titulo-criar-conta {
@@ -276,14 +275,12 @@ p#titulo-criar-conta {
   color: var(--cor_verde);
   line-height: 50px;
   margin-top: 15px;
-  margin-left: 5%;
 }
 
 p#possui-conta {
   font-family: Raleway-Light-Italic;
   font-size: 21px;
   color: var(--cor_vermelha);
-  margin-left: 5%;
 }
 
 a#fazer-login {
@@ -308,13 +305,11 @@ a#fazer-login {
   font-size: 25px;
   font-family: Raleway-Light;
   color: var(--cor_vermelha);
-  margin-left: 5%;
 }
 
 .input-criar-conta {
   border-radius: 200px !important;
   border: 1px solid var(--cor_vermelha);
-  margin-left: 5%;
   width: 100% !important;
 }
 
@@ -342,7 +337,7 @@ a#fazer-login {
 }
 
 .input-nome-usuario {
-  margin-left: 4%;
+  margin-bottom: 27px;
 }
 
 .label-criar-senha {
@@ -355,6 +350,7 @@ a#fazer-login {
   border-radius: 200px !important;
   border: 1px solid var(--cor_vermelha);
   width: 100% !important;
+  margin-bottom: 27px;
 }
 
 .input-group-addon {
@@ -369,10 +365,6 @@ a#fazer-login {
   z-index: 10;
   right: 0;
   color: var(--cor_vermelha);
-}
-
-.input-senha {
-  margin-left: 7%;
 }
 
 p#titulo-conta-criada {
@@ -459,22 +451,25 @@ hr {
   height: 2px !important;
   opacity: 1 !important;
 }
-.navbar-nav{
+
+.navbar-nav {
   font-family: Raleway-Bold !important;
   font-size: 25px !important;
   margin-left: auto !important;
   margin-right: auto !important;
   width: 100%;
   display: table;
-} 
-.nav-link{
-  color: var(--cor_verde) !important;
-}
-.nav-item{
-padding: 0 4.3% 0;
 }
 
-p#titulo-editar-dados{
+.nav-link {
+  color: var(--cor_verde) !important;
+}
+
+.nav-item {
+  padding: 0 4.3% 0;
+}
+
+p#titulo-editar-dados {
   font-family: Raleway-Black;
   font-size: 65px;
   color: var(--cor_vermelha);

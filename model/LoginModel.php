@@ -4,7 +4,7 @@ class LoginModel
 {
     private $nomeUsuario;
     private $senha;
-
+    private $manterLogin;
     /**
      * @return mixed
      */
@@ -35,5 +35,20 @@ class LoginModel
     public function setSenha($senha)
     {
         $this->senha = $senha;
+    }
+    /**
+     * @return mixed
+     */
+    public function getManterLogin()
+    {
+        return $this->manterLogin;
+    }
+
+    /**
+     * @param mixed 
+     */
+    public function setManterLogin($manterLogin)
+    {
+        $this->manterLogin = $manterLogin;
     }
 }

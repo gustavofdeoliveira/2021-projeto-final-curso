@@ -35,7 +35,7 @@ require_once("../dao/CadastroDao.php");
                     <div class="row">
                         <div class="col-xl-10 col-xl-offset-1">
                             <p id="titulo-conta-criada">conta<br>criada!</p>
-                            <p id="texto-conta-criada">acesse seu e-mail para realizar<br>a <span id="texto-conta-criada-negrito">confirmação</span> da sua conta.</p>
+                            <p id="texto-conta-criada">agora volte a tela inicial<br>pra fazer o seu login:</p>
                         </div>
                     </div>
                     <div class="row">
