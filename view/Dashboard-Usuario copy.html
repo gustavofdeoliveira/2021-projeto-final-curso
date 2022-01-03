@@ -1,7 +1,7 @@
 <?php
 <!--Incluir a conecao com o bd sempre -->
 include_once("../database/Connection.php");
-require_once("../dao/LoginDao.php");
+require_once("../dao/UsuarioDao.php");
 
 ?>
 <!DOCTYPE html>
@@ -35,10 +35,8 @@ require_once("../dao/LoginDao.php");
 
             <form class="d-flex">
               <div class="input-group input-group-navbar">
-                <span class="input-group-text span-icon-buscar" id="basic-addon1"><i class="fa fa-search"
-                    aria-hidden="true"></i></span>
-                <input type="text" class="navbar-input-busca form-control" placeholder="descubra algo incrível..."
-                  aria-describedby="basic-addon1">
+                <span class="input-group-text span-icon-buscar" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
+                <input type="text" class="navbar-input-busca form-control" placeholder="descubra algo incrível..." aria-describedby="basic-addon1">
               </div>
               <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
             </form>
@@ -52,8 +50,7 @@ require_once("../dao/LoginDao.php");
       <div class="row">
         <nav class="navbar navbar-expand-lg">
           <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-              aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -71,15 +68,39 @@ require_once("../dao/LoginDao.php");
                   <a class="nav-link" href="#">Biblioteca</a>
                 </li>
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    Meu espaço
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                  </ul>
+                  <div class="d-flex">
+                    <img src="../image/avatares/avatar-principal.png" alt="Foto de Perfil" class="rounded-circle">
+                    <a class="nav-link dropdown-toggle nav-meu-espaco" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Meu espaço
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                    <div class="wrapper">
+                      <div class="notification">
+                        <i class="fa fa-bell-o"></i>
+                        <div class="notify-count count1 common-count" count="0">
+                          <div class="value">0</div>
+                        </div>
+                      </div>
+                      <div class="notification-dropdown dd">
+                        <div class="arrow-up"></div>
+                        <div class="header">
+                          <div class="container">
+                            <div class="text fl">Notifications</div>
+                            <div class="notify-count common-count count2 fl" count="0">
+                              <div class="value">0</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="items">
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </li>
               </ul>
             </div>
@@ -91,6 +112,7 @@ require_once("../dao/LoginDao.php");
   </header>
   <!-- principal-->
   <main>
+    
     <div class=" col-xl-12">
       <div class="row">
 

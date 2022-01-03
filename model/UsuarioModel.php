@@ -1,10 +1,28 @@
 <?php
 
-class LoginModel
+class UsuarioModel
 {
+    private $nomeCompleto;
     private $nomeUsuario;
     private $senha;
+    private $email;
     private $manterLogin;
+
+    /**
+     * @return mixed
+     */
+    public function getNomeCompleto()
+    {
+        return $this->nomeCompleto;
+    }
+
+    /**
+     * @param mixed 
+     */
+    public function setNomeCompleto($nomeCompleto)
+    {
+        $this->nomeCompleto = $nomeCompleto;
+    }
     /**
      * @return mixed
      */
@@ -36,6 +54,22 @@ class LoginModel
     {
         $this->senha = $senha;
     }
+    /**
+     * @return mixed
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param mixed 
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
     /**
      * @return mixed
      */

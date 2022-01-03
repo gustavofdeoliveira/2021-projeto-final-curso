@@ -94,12 +94,17 @@
   }
 
   p#texto-conta-criada {
-    font-size: 21px;
+    font-size: 25px;
+    margin-bottom: 25px;
   }
 
   a#btn-criar-conta-login {
-    font-size: 30px !important;
-    padding: 5px 45px !important;
+    font-size: 34px !important;
+    padding: 5px 40px !important;
+    display: table-cell;
+    width: 100;
+    text-align: center;
+    height: 50px;
   }
 
   .input-criar-conta {
@@ -113,6 +118,7 @@
   .input-senha {
     margin-left: unset;
   }
+
   .background-login {
     min-height: unset;
     width: 100%;
@@ -122,12 +128,74 @@
     background-size: unset;
     background: unset;
   }
+
+  .navbar-img-logo {
+    width: 100%;
+    height: 50%;
+    margin-top: 30px;
+    margin-left: unset;
+  }
+
+  .input-group-navbar {
+    margin-top: 30px;
+  }
+
+  .span-icon-buscar {
+    font-size: 30px !important;
+  }
+
+  .navbar-input-busca {
+    height: 50px;
+  }
+
+  .navbar-input-busca::placeholder {
+    font-size: 20px !important;
+  }
+
+  p#titulo-sobre-nos {
+    font-size: 50px;
+    line-height: 45px;
+    margin-top: -40px;
+  }
+
+  span#texto-professor {
+    font-size: 30px;
+  }
+
+  p#texto-equipe {
+    font-size: 50px;
+  }
+
+  p#texto-professor {
+    font-size: 30px;
+  }
+
+  .img-logo-cadastrar {
+    width: 100%;
+  }
+
+  p#esqueceu-senha {
+    font-size: 42px;
+    line-height: 40px;
+  }
+
+  .btn-enviar-email {
+    display: block !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  a#pagina-inicial {
+    padding: 0px 15px;
+    display: block;
+    margin-left: auto;
+  }
 }
 
-@media screen and (min-width:768px) and (max-width: 1024px) {
+@media screen and (min-width:768px) and (max-width: 1023px) {
   .label-login {
     font-size: 25px;
-    margin-top:20px;
+    margin-top: 20px;
   }
 
   p#titulo-login {
@@ -157,8 +225,10 @@
   }
 
   a#btn-criar-conta-login {
-    font-size: 30px;
-    padding: 5px 50px;
+    font-size: 30px !important;
+    padding: 5px 50px !important;
+    display: table-cell;
+    height: 50px;
   }
 
   p#titulo-criar-conta {
@@ -169,4 +239,43 @@
     font-size: 25px;
   }
 
+  .input-group-navbar {
+    margin-right: 45px;
+  }
+
+  p#titulo-sobre-nos {
+    font-size: 60px;
+    margin-top: -20px;
+  }
+
+  p#texto-sobre-descritivo {
+    font-size: 32px;
+    line-height: 35px;
+  }
+
+  p#titulo-cadastro-finalizado {
+    font-size: 60px;
+    line-height: 65px;
+  }
+
+  .img-cadastro-finalizado {
+    width: 45%;
+    height: 35%;
+  }
+
+  p#titulo-esqueceu-senha {
+    font-size: 70px;
+    line-height: 75px;
+  }
+}
+
+@media screen and (min-width:1024px) {
+  p#texto-sobre-descritivo {
+    font-size: 32px;
+    line-height: 35px;
+  }
+
+  a#btn-criar-conta-login {
+    margin-left: unset;
+  }
 }

@@ -1,6 +1,6 @@
 <?php
 include_once("../database/Connection.php");
-require_once("../dao/CadastroDao.php");
+require_once("../dao/UsuarioDao.php");
 
 ?>
 <!DOCTYPE html>
@@ -28,31 +28,33 @@ require_once("../dao/CadastroDao.php");
             <div class="row">
                 <div class="col-sm-12 col-md-6 col-xl-6 col-lg-6 login-fundo-branco">
                     <div class="row all-conteudo">
-                        <div class="col-xl-7 col-sm-10 col-md-10 col-sm-offset-1 col-xl-offset-1">
+                        <div class="col-xl-7 col-sm-10 col-lg-10 col-lg-offset-1 col-md-10 col-sm-offset-1 col-xl-offset-1">
                             <img id="img-logo-login" class="img-logo-cadastrar" src="../image/Logo-claro.png">
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xl-10 col-xl-offset-1">
+                        <div class="col-xl-10 col-xl-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-sm-10 col-sm-offset-1 col-lg-offset-1">
                             <p id="titulo-conta-criada">conta<br>criada!</p>
                             <p id="texto-conta-criada">agora volte a tela inicial<br>pra fazer o seu login:</p>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xl-8 col-xl-offset-1">
+                        <div class="col-xl-8 col-xl-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-lg-10 col-lg-offset-1">
                             <a id="btn-criar-conta-login" href="../view/Login.php">fazer login</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-12 d-none d-sm-block col-md-6 col-xl-6 col-lg-6 login-right">
-                    <div class="col-lg-10 col-lg-offset-1">
-                        <p id="titulo-login">Tudo<br> sobre<br>sociologia<br>em um só<br>lugar</p>
-                        <p id="frase-login">participe da nossa comunidade,<br> aprenda de forma interativa</p>
+                    <div class="row">
+                        <div class="col-lg-10 col-xl-10 col-xl-1 col-lg-offset-1">
+                            <p id="titulo-cadastro-finalizado">Toda educação humana deve preparar cada um a viver para os outros.</p>
+
+                        </div>
                     </div>
 
-                    <img class="img-login" src="../image/Bg-Login-Icon-Claro.png">
-                </div>
+                    <img class="img-cadastro-finalizado" src="../image/Bg-Conta-Criada-Icon-Claro.png">
 
+                </div>
 
             </div>
         </div>

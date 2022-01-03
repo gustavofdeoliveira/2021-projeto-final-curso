@@ -1,4 +1,5 @@
 <?php
+//Abre conecao com o banco
 session_start();
 require_once("../database/Connection.php");
 //Temporalizador da Mensagem de erro no login
@@ -18,7 +19,7 @@ if (!empty($_SESSION['msg_error']) && (time() - $_SESSION['tempo_msg_error'] > 1
 //     unset($_SESSION['usuarioAutenticado']);
 //     header("Location:../view/Login.php");
 // }
-class LoginDao
+class UsuarioDao
 {
     private $conn;
     function __construct()
@@ -26,7 +27,29 @@ class LoginDao
         $this->conn = Connection::conectar();
     }
 
-    function buscarUsuario(LoginModel $modelo)
+    function inserirUsuario(UsuarioModel $modelo)
+    {
+        $sql = "SELECT * FROM `usuario` WHERE `nomeUsuario`=:nomeUsuario OR `email`=:email";
+        $statement = $this->conn->prepare($sql);
+        $statement->execute(array(':nomeUsuario' => $modelo->getNomeUsuario(), ':email' => $modelo->getEmail()));
+        //Se achar o usuario
+        if (!empty($statement->rowCount())) {
+            //Guarda em um array os dados retornado do banco
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            //Se a senha estiver correta
+            if ($result['email'] === $modelo->getEmail()) {
+                throw new \Exception('E-mail já cadastrado');
+            } else if ($result['nomeUsuario'] === $modelo->getNomeUsuario()) {
+                throw new \Exception('Nome de Usuário já cadastrado');
+            }
+        } else if (empty($statement->rowCount())) {
+            $sql = "INSERT INTO `usuario`(`nomeCompleto`,`nomeUsuario`,`senha`,`nivelAcesso`,`email`,`dataInclusao`) 
+             VALUES ( '" . $modelo->getNomeCompleto() . "', '" . $modelo->getNomeUsuario() . "', SHA1('" . $modelo->getSenha() . "'), 1,'" . $modelo->getEmail() . "',CURRENT_DATE())";
+            $statement = $this->conn->prepare($sql);
+            $statement->execute();
+        }
+    }
+    function buscarUsuario(UsuarioModel $modelo)
     {
         $_SESSION['manterConectado'] = $modelo->getManterLogin();
         $sql = "SELECT * FROM `usuario` WHERE `nomeUsuario` = :nomeUsuario OR `email`=:nomeUsuario";

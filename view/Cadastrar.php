@@ -1,6 +1,6 @@
 <?php
 include_once("../database/Connection.php");
-require_once("../dao/CadastroDao.php");
+require_once("../dao/UsuarioDao.php");
 
 ?>
 <!DOCTYPE html>
@@ -32,7 +32,7 @@ require_once("../dao/CadastroDao.php");
                             <img id="img-logo-login" class="img-logo-cadastrar" src="../image/Logo-claro.png">
                         </div>
                     </div>
-                    <form action="../control/CadastroControl.php" method="POST" class="form-group">
+                    <form action="../control/UsuarioControl.php" method="POST" class="form-group">
                         <div class="row">
                             <div class="col-xl-8 col-xl-offset-2 col-sm-offset-1 col-lg-offset-2 col-md-10 col-md-offset-1">
                                 <p id="titulo-criar-conta">crie a<br> sua conta</p>
@@ -44,8 +44,10 @@ require_once("../dao/CadastroDao.php");
                             <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-xl-8 col-xl-offset-2 col-lg-8 col-lg-offset-2">
                                 <div class="form-group">
                                     <label class="form-label label-criar-conta" for="nomeCompleto">nome completo</label>
-                                    <input required class="input-criar-conta form-control" type="text" name="nomeCompleto">
-                                    <span class="error"></span>
+                                    <div class="input-group">
+                                        <input required class="input-criar-conta form-control" type="text" name="nomeCompleto">
+                                        <span class="error"></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -53,8 +55,10 @@ require_once("../dao/CadastroDao.php");
                             <div class="col-sm-10 col-sm-offset-1 col-sm-offset-0 col-md-10 col-md-offset-1 col-xl-8 col-xl-offset-2 col-lg-8 col-lg-offset-2">
                                 <div class="form-group">
                                     <label class="form-label label-criar-conta" for="email">e-mail</label>
-                                    <input required class="input-criar-conta form-control" onkeypress="validacaoEmail(email)" type="text" name="email">
-                                    <span class="error"></span>
+                                    <div class="input-group">
+                                        <input required class="input-criar-conta form-control" onkeypress="validacaoEmail(email)" type="text" name="email">
+                                        <span class="error"></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -62,12 +66,12 @@ require_once("../dao/CadastroDao.php");
                             <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-xl-8 col-xl-offset-2 col-lg-8 col-lg-offset-2">
                                 <div class="form-group">
                                     <label class="form-label label-criar-conta" for="nomeUsuario">nome de usuário</label>
-                                    <div class="input-group input-nome-usuario">
+                                    <div class="input-group input-group-criar-conta">
                                         <div class="input-group-prepend">
-                                            <div class="input-group-nomeUsuario"><i class="fa fa-at" aria-hidden="true"></i></div>
+                                            <div class="input-group-nomeUsuario">@</div>
                                         </div>
                                         <input type="text" required class="input-criar-conta-nomeusuario form-control" name="nomeUsuario">
-                                        <span class="error"></span>
+                                        <span class="error span-error"></span>
                                     </div>
 
                                 </div>
@@ -76,13 +80,14 @@ require_once("../dao/CadastroDao.php");
                         <div class="row">
                             <div class="col-sm-10 col-sm-offset-1 col-sm-offset-0 col-md-8 col-md-offset-1 col-xl-6 col-xl-offset-2 col-lg-8 col-lg-offset-2">
                                 <div class="form-group input-senha">
-                                    <label class="form-label label-criar-senha" for="senha">senha</label>
+                                    <label class="form-label label-criar-conta" for="senha">senha</label>
                                     <div class="input-group" id="show_hide_password">
-                                        <input required class="input-criar-senha form-control" type="password" name="senha">
+                                        <input required class="input-criar-conta form-control" type="password" name="senha">
+                                        <span class="error span-error"></span>
                                         <div class="input-group-addon" onclick="mostrar()">
                                             <i class="fa fa-eye-slash" aria-hidden="true"></i>
                                         </div>
-                                        <span class="error"></span>
+
                                     </div>
 
                                 </div>
@@ -102,7 +107,7 @@ require_once("../dao/CadastroDao.php");
                             <div class="col-lg-6 col-lg-offset-2 col-md-offset-1 col-md-10 col-xl-8 col-xl-offset-2 col-sm-8 col-sm-offset-1 col-sm-offset-0">
                                 <div class="row">
                                     <div class="col-sm-8 col-sm-offset-1 col-md-offset-0 col-md-8 col-xl-5 col-lg-6 col-lg-8 col-lg-offset-0 col-xl-offset-0">
-                                        <input type="hidden" name="acao" value="1">
+                                        <input type="hidden" name="acao" value="cadastro">
                                         <input class="btn-criar-conta btn btn-lg" type="submit" value="criar conta">
                                     </div>
                                 </div>
