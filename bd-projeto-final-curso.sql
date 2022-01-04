@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 28-Dez-2021 às 13:49
+-- Tempo de geração: 04-Jan-2022 às 13:49
 -- Versão do servidor: 10.4.21-MariaDB
 -- versão do PHP: 8.0.10
 
@@ -34,6 +34,7 @@ CREATE TABLE `usuario` (
   `senha` varchar(40) NOT NULL,
   `nivelAcesso` int(1) NOT NULL,
   `email` varchar(150) NOT NULL,
+  `fotoPerfil` varchar(150) NOT NULL,
   `dataInclusao` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -41,9 +42,9 @@ CREATE TABLE `usuario` (
 -- Extraindo dados da tabela `usuario`
 --
 
-INSERT INTO `usuario` (`idUsuario`, `nomeCompleto`, `nomeUsuario`, `senha`, `nivelAcesso`, `email`, `dataInclusao`) VALUES
-(1, 'Administrador', 'admin@admin', 'a1ba0d7140693d4c80041b5940815128b208b7a5', 1, 'admin@admin.org.br', '2021-12-12'),
-(2, 'Gustavo Ferreira de Oliveira', 'gustavoof', 'f7c8dfd35867effa9e9b26084f475439caf0c66f', 1, 'gustavoofdeoliveira@hotmail.com', '2021-12-20');
+INSERT INTO `usuario` (`idUsuario`, `nomeCompleto`, `nomeUsuario`, `senha`, `nivelAcesso`, `email`, `fotoPerfil`, `dataInclusao`) VALUES
+(1, 'Administrador', 'admin@admin', 'a1ba0d7140693d4c80041b5940815128b208b7a5', 1, 'admin@admin.org.br', '../image/avatares/Avatar-Durkheim.png', '2021-12-12'),
+(2, 'Gustavo Ferreira de Oliveira', 'gustavoof', 'f7c8dfd35867effa9e9b26084f475439caf0c66f', 1, 'gustavoofdeoliveira@hotmail.com', '../image/avatares/Avatar-Weber.png', '2021-12-20');
 
 --
 -- Índices para tabelas despejadas
