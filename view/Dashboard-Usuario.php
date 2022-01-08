@@ -86,13 +86,19 @@ require_once("../dao/UsuarioDao.php");
                         <div class='d-flex'>
                         Modo noturno
                         <div class='dark-light'>
-    <svg viewBox='0 0 24 24' stroke='currentColor' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'>
-     <path d='M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z' /></svg>
-   </div>
-                        </div></button></li>
+                          <svg viewBox='0 0 24 24' stroke='currentColor' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'>
+                          <path d='M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z' /></svg>
+                        </div>
+                        </div></button>
+                        </li>
+                        <li><form action='../control/UsuarioControl.php' method='POST' class='form-group'>
+                        <div class='d-flex'>
+                        <input type='hidden' name='acao' value='sair'>
+                          <input class='dropdown-item input-sair' type='submit' value='Sair'>
+                        <i class='fa fa-sign-out' aria-hidden='true'></i>
+                        </div></form></li>
                       </ul>
-                      
-                      
+                    
                       <div class='wrapper'>
                           <div class='notification' >
                               <i class='fa fa-bell-o'></i>  

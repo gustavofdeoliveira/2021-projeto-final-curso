@@ -96,4 +96,8 @@ class UsuarioDao
             throw new \Exception('E-mail informado não encontrado');
         }
     }
+    function sairUsuario(){
+        unset($_SESSION['usuarioAutenticado']);
+        header("Location:../index.php");
+    }
 }

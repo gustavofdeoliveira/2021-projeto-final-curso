@@ -142,15 +142,7 @@ require_once("../dao/UsuarioDao.php");
                 </div>
             </div>
             <div class="row">
-                <div class="col-xl-3 col-lg-6 col-md-6 col-md-offset-0 col-sm-10 col-sm-offset-1">
-                    <div class="row">
-                        <img src="../image/avatares/avatar-principal.png" alt="Foto do Aluno Autor" class="rounded-circle img-alunos-sobre-nos">
-                    </div>
-                    <div class="row">
-                        <p id="sobre-nos-nome">Anne Marquez</p>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 col-md-offset-0 col-sm-10 col-sm-offset-1">
+                <div class="col-xl-4 col-lg-6 col-md-6 col-md-offset-0 col-sm-10 col-sm-offset-1">
                     <div class="row">
                         <img src="../image/avatares/avatar-principal.png" alt="Foto do Aluno Autor" class="rounded-circle img-alunos-sobre-nos">
                     </div>
@@ -158,17 +150,17 @@ require_once("../dao/UsuarioDao.php");
                         <p id="sobre-nos-nome">Gustavo Ferreira</p>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 col-md-offset-0 col-sm-10 col-sm-offset-1">
+                <div class="col-xl-4 col-lg-6 col-md-6 col-md-offset-0 col-sm-10 col-sm-offset-1">
                     <div class="row">
-                        <img src="../image/avatares/avatar-principal.png" alt="Foto do Aluno Autor" class="rounded-circle img-alunos-sobre-nos">
+                        <img src="../image/Foto-Juliana.png" alt="Foto do Aluno Autor" class="rounded-circle img-alunos-sobre-nos">
                     </div>
                     <div class="row">
                         <p id="sobre-nos-nome">Juliana Kashima</p>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 col-md-offset-0 col-sm-10 col-sm-offset-1">
+                <div class="col-xl-4 col-lg-6 col-md-6 col-md-offset-0 col-sm-10 col-sm-offset-1">
                     <div class="row">
-                        <img src="../image/avatares/avatar-principal.png" alt="Foto do Aluno Autor" class="rounded-circle img-alunos-sobre-nos">
+                        <img src="../image/Foto-Natan.png" alt="Foto do Aluno Autor" class="rounded-circle img-alunos-sobre-nos">
                     </div>
                     <div class="row">
                         <p id="sobre-nos-nome">Natan Pastore</p>

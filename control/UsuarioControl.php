@@ -26,6 +26,8 @@ class UsuarioControl
                 $this->cadastrarUsuario();
             } elseif ($this->acao == "recuperar") {
                 $this->recuperarSenha();
+            } elseif ($this->acao == "sair") {
+                $this->desconectarUsuario();
             }
         }
     }
@@ -76,6 +78,15 @@ class UsuarioControl
             $_SESSION["msg_error"] = $e->getMessage();
             $_SESSION["tempo_msg_error"] = time();
             header("Location:../view/Esqueceu-Senha.php");
+        }
+    }
+    public function desconectarUsuario()
+    {
+        try {
+            $this->dao->sairUsuario();
+        } catch (\Exception $e) {
+            print_r($e->getMessage());
+            header("Location:../view/index.php");
         }
     }
 }

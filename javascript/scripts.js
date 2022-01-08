@@ -91,7 +91,6 @@ const enableDarkMode = () => {
     // 1. Add the class to the body
     document.body.classList.add('darkmode');
     // 2. Update darkMode in localStorage
-    
     if(document.getElementById('img-logo')){
         document.getElementById('img-logo').src = '../image/Logo-noturno.png';
     } 
@@ -106,15 +105,13 @@ const disableDarkMode = () => {
     // 1. Remove the class from the body
     document.body.classList.remove('darkmode');
     // 2. Update darkMode in localStorage 
-    SVGAElement.style.classList.remove("dark-svg"); 
     if(document.getElementById('img-logo')){
         document.getElementById('img-logo').src = '../image/Logo-claro.png';
     }
     document.getElementById('img-logo').src = '../image/Logo-claro.png';
     if(document.getElementById('img-login')){
         document.getElementById('img-login').src = '../image/Bg-Login-Icon-Claro.png';
-    }
-    
+    } 
     localStorage.setItem('darkMode', null);
 }
 
@@ -208,8 +205,3 @@ function validaSenha() {
     }
     return true;
 }
-
-
-
-
-

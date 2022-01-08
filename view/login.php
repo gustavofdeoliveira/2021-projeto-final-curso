@@ -86,13 +86,6 @@ require_once("../dao/UsuarioDao.php");
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-xl-6">
-                                <button id="dark-mode-toggle" class="dark-mode-toggle">mudar
-
-                                </button>
-                            </div>
-                        </div>
                         <div class="row btn-espacamento">
                             <div class="col-xl-8 col-md-offset-1 col-sm-offset-1 col-lg-8 col-lg-offset-2 col-md-10 col-xl-offset-2">
                                 <a class="login-esqueceu-senha" href="">Esqueceu a sua senha?</a>
