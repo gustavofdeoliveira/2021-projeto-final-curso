@@ -1,7 +1,7 @@
-
 const fields = document.querySelectorAll("[required]")
+var emailVerificado;
 function ValidateField(field) {
-debugger
+    debugger
     // logica para verificar se existem erros
     function verifyErrors() {
         let foundError = false;
@@ -48,7 +48,6 @@ debugger
         } else {
             field.style.borderColor = "#1B3A02"
             setCustomMessage()
-            validacaoEmail();
         }
     }
 }
@@ -62,21 +61,25 @@ function customValidation(event) {
 }
 
 for (field of fields) {
+
     field.addEventListener("invalid", event => {
         // eliminar o bubble
         event.preventDefault()
-
         customValidation(event)
     })
     field.addEventListener("blur", customValidation)
 }
 
-document.querySelector("form")
-    .addEventListener("submit", event => {
-        console.log("enviar o formulário")
 
-    })
+if (emailVerificado == true) {
+    document.querySelector("form")
+        .addEventListener("submit", event => {
+            debugger
 
+            console.log("enviar o formulário")
+
+        })
+}
 //modo moturno
 
 // check for saved 'darkMode' in localStorage
@@ -84,20 +87,34 @@ let darkMode = localStorage.getItem('darkMode');
 const darkModeToggle = document.querySelector('#dark-mode-toggle');
 
 const enableDarkMode = () => {
+    debugger
     // 1. Add the class to the body
     document.body.classList.add('darkmode');
     // 2. Update darkMode in localStorage
-    document.getElementById('img-logo-login').src = '../image/Logo-noturno.png';
-    document.getElementById('img-login').src = '../image/Bg-Login-Icon-Noturno.png';
+    
+    if(document.getElementById('img-logo')){
+        document.getElementById('img-logo').src = '../image/Logo-noturno.png';
+    } 
+    if(document.getElementById('img-login')){
+        document.getElementById('img-login').src = '../image/Bg-Login-Icon-Noturno.png';
+    }
     localStorage.setItem('darkMode', 'enabled');
 }
 
 const disableDarkMode = () => {
+    debugger
     // 1. Remove the class from the body
     document.body.classList.remove('darkmode');
     // 2. Update darkMode in localStorage 
-    document.getElementById('img-logo-login').src = '../image/Logo-claro.png';
-    document.getElementById('img-login').src = '../image/Bg-Login-Icon-Claro.png';
+    SVGAElement.style.classList.remove("dark-svg"); 
+    if(document.getElementById('img-logo')){
+        document.getElementById('img-logo').src = '../image/Logo-claro.png';
+    }
+    document.getElementById('img-logo').src = '../image/Logo-claro.png';
+    if(document.getElementById('img-login')){
+        document.getElementById('img-login').src = '../image/Bg-Login-Icon-Claro.png';
+    }
+    
     localStorage.setItem('darkMode', null);
 }
 
@@ -109,6 +126,7 @@ if (darkMode === 'enabled') {
 
 // When someone clicks the button
 darkModeToggle.addEventListener('click', () => {
+    debugger
     // get their darkMode setting
     darkMode = localStorage.getItem('darkMode');
 
@@ -137,9 +155,10 @@ function mostrar() {
 
 //Validar email
 function validacaoEmail(field) {
+    debugger
+
     usuario = field.value.substring(0, field.value.indexOf("@"));
     dominio = field.value.substring(field.value.indexOf("@") + 1, field.value.length);
-
     if ((usuario.length >= 1) &&
         (dominio.length >= 3) &&
         (usuario.search("@") == -1) &&
@@ -152,8 +171,9 @@ function validacaoEmail(field) {
         const spanError = field.parentNode.querySelector("span.error")
         spanError.classList.add("valido")
         spanError.innerHTML = "E-mail válido";
+        emailVerificado = true;
     }
-    else {
+    else if (dominio) {
         const spanError = field.parentNode.querySelector("span.error")
         spanError.classList.add("active")
         spanError.innerHTML = "E-mail inválido";
@@ -161,5 +181,35 @@ function validacaoEmail(field) {
 
 
     }
+
 }
+
+function validaSenha() {
+    debugger
+    var senha = document.getElementById('senha').value;
+    errors = [];
+    if (senha.length < 8) {
+        errors.push("Sua senha deve possuir no mínimo 8 caracteres.<br>");
+    }
+    if (senha.search(/[A-Z]/) <= 0) {
+        errors.push("Sua senha deve possuir uma letra maiúscula.<br>");
+    }
+    if (senha.search(/[!|@|#|$|%|^|&|*|(|)|-|_]/) <= 0) {
+        errors.push("Sua senha deve possuir um caractere especial.<br>");
+    }
+    if (senha.search(/[0-9]/i) <= 0) {
+        errors.push("Sua senha deve possuir um número.");
+    }
+    if (errors.length > 0) {
+        const spanError = field.parentNode.querySelector("span.error")
+        spanError.classList.add("active")
+        spanError.innerHTML = errors.join("\n");
+        return false;
+    }
+    return true;
+}
+
+
+
+
 

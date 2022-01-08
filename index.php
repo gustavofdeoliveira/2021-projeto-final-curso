@@ -11,12 +11,12 @@ require_once("dao/UsuarioDao.php");
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tererê com Sociologia | Dashboard</title>
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/responsive-theme.css">
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <link rel="stylesheet" href="../css/bootstrap.min.css.map">
-  <link rel="stylesheet" href="../css/bootstrap.css.map">
-  <link rel="shortcut icon" href="../image/Logo-claro.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive-theme.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css.map">
+  <link rel="stylesheet" href="css/bootstrap.css.map">
+  <link rel="shortcut icon" href="image/Logo-claro.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -27,7 +27,7 @@ require_once("dao/UsuarioDao.php");
       <div class="row">
         <nav class="navbar navbar-expand-lg navbar-light">
           <div class="col-xl-3 col-md-5 col-sm-10 col-sm-offset-1 col-lg-4">
-            <a class="navbar-brand" href="#"><img class="navbar-img-logo" src="../image/Logo-claro.png"></a>
+            <a class="navbar-brand" href="#"><img class="navbar-img-logo" src="image/Logo-claro.png"></a>
           </div>
           <div class=" col-xl-8 col-md-7 col-sm-10 col-sm-offset-1 col-lg-7">
             <form class="d-flex">
@@ -62,7 +62,7 @@ require_once("dao/UsuarioDao.php");
                   </li>
 
                   <li class="nav-item">
-                    <a class="nav-link" href="../view/Sobre-Nos.php">Sobre Nós</a>
+                    <a class="nav-link" href="view/Sobre-Nos.php">Sobre Nós</a>
                   </li>
 
                   <li class="nav-item">
@@ -92,7 +92,7 @@ require_once("dao/UsuarioDao.php");
                   if (empty($_SESSION["usuarioAutenticado"])) {
                     echo "
                     <li class='nav-item'>
-                    <a class='nav-link btn-navbar-login' href='../view/Login.php'>Fazer Login</a>
+                    <a class='nav-link btn-navbar-login' href='view/Login.php'>Fazer Login</a>
                   </li>";
                   } ?>
                 </ul>
@@ -108,10 +108,10 @@ require_once("dao/UsuarioDao.php");
 
   </main>
 
-  <script src="../javascript/bootstrap.bundle.min.js">
+  <script src="javascript/bootstrap.bundle.min.js">
   </script>
-  <script src="../javascript/scripts.js"></script>
-  <script src="../javascript/jquery.js"></script>
+  <script src="javascript/scripts.js"></script>
+  <script src="javascript/jquery.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
 </body>
 

@@ -69,13 +69,13 @@ require_once("../dao/UsuarioDao.php");
                                 </div>
 
                             </div>
-                            <div class="col-xl-8 col-xl-offset-2 col-lg-8 col-lg-offset-1 col-sm-8 col-sm-offset-2">
+                            <div class="col-xl-8 col-xl-offset-2 col-lg-8 col-lg-offset-1 col-sm-10 col-sm-offset-1">
                                 <p id="texto-instrucao">um e-mail com <span id="texto-instrucao">instruções</span> para<br>recuperar a sua senha será enviado</p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xl-8 col-xl-offset-2 col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-0">
-                                <a id="pagina-inicial">voltar para a página inicial</a>
+                                <a href="../index.php" id="pagina-inicial">voltar para a página inicial</a>
                             </div>
                         </div>
                         <div class="row">
@@ -92,7 +92,7 @@ require_once("../dao/UsuarioDao.php");
                         <p id="titulo-esqueceu-senha">Vivemos<br>tempos<br>líquidos.<br>Nada é para<br>durar.</p>
                     </div>
 
-                    <img class="img-login" src="../image/Bg-Esqueceu-Senha-Claro.png">
+                    <img class="img-esqueceu" src="../image/Bg-Esqueceu-Senha-Claro.png">
                 </div>
 
 

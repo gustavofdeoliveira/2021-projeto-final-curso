@@ -24,6 +24,8 @@ class UsuarioControl
                 $this->login();
             } elseif ($this->acao == "cadastro") {
                 $this->cadastrarUsuario();
+            } elseif ($this->acao == "recuperar") {
+                $this->recuperarSenha();
             }
         }
     }
@@ -63,6 +65,17 @@ class UsuarioControl
             $_SESSION["msg_error"] = $e->getMessage();
             $_SESSION["tempo_msg_error"] = time();
             header("Location:../view/Cadastrar.php");
+        }
+    }
+    public function recuperarSenha()
+    {
+        try {
+            $this->modelo->setEmail($_POST["email"]);
+            $this->dao->novaSenha($this->modelo);
+        } catch (\Exception $e) {
+            $_SESSION["msg_error"] = $e->getMessage();
+            $_SESSION["tempo_msg_error"] = time();
+            header("Location:../view/Esqueceu-Senha.php");
         }
     }
 }

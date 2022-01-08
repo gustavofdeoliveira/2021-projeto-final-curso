@@ -56,7 +56,7 @@ require_once("../dao/UsuarioDao.php");
                                 <div class="form-group">
                                     <label class="form-label label-criar-conta" for="email">e-mail</label>
                                     <div class="input-group">
-                                        <input required class="input-criar-conta form-control" onkeypress="validacaoEmail(email)" type="text" name="email">
+                                        <input required class="input-criar-conta form-control" type="text" onkeypress="validacaoEmail(email)" name="email">
                                         <span class="error"></span>
                                     </div>
                                 </div>
@@ -82,14 +82,12 @@ require_once("../dao/UsuarioDao.php");
                                 <div class="form-group input-senha">
                                     <label class="form-label label-criar-conta" for="senha">senha</label>
                                     <div class="input-group" id="show_hide_password">
-                                        <input required class="input-criar-conta form-control" type="password" name="senha">
+                                        <input required class="input-criar-conta form-control" id="senha" onkeyup="validaSenha()" type="password" name="senha">
                                         <span class="error span-error"></span>
-                                        <div class="input-group-addon" onclick="mostrar()">
+                                        <div class="input-group-addon" onclick="mostrar()" >
                                             <i class="fa fa-eye-slash" aria-hidden="true"></i>
                                         </div>
-
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -123,7 +121,7 @@ require_once("../dao/UsuarioDao.php");
                     </form>
                 </div>
                 <div class="col-sm-12 d-none d-sm-block col-md-6 col-xl-6 col-lg-6 login-right d-none d-sm-block">
-                    <div class="col-lg-10 col-lg-offset-2">
+                    <div class="col-lg-10 col-lg-offset-1">
                         <p id="titulo-login">Tudo<br> sobre<br>sociologia<br>em um só<br>lugar</p>
                         <p id="frase-login">participe da nossa comunidade,<br> aprenda de forma interativa</p>
                     </div>

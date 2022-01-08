@@ -71,4 +71,29 @@ class UsuarioDao
         }
         throw new \Exception('E-mail | Nome de Usuário incorreto');
     }
+    function novaSenha(UsuarioModel $modelo)
+    {
+        $sql = "SELECT * FROM `usuario` WHERE  `email`=:email";
+        $statement = $this->conn->prepare($sql);
+        $statement->bindValue("email", $modelo->getEmail());
+        $statement->execute();
+        //Se achar o usuario
+        if (!empty($statement->rowCount())) {
+            //Guarda em um array os dados retornado do banco
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            //Se a senha estiver correta
+            ini_set("SMTP", "smtp.gmail.com");
+
+            $Name = "Sender";
+            $email = "gustavoofdeoliveira@hotmail.com";
+            $recipient = "receiver@mail.com";
+            $mail_body = "The text for the mail...";
+            $subject = "Subject for reviever";
+            $header = "From: " . $Name . " <" . $email . ">\r\n";
+
+            mail($recipient, $subject, $mail_body, $header);
+        } else if (empty($statement->rowCount())) {
+            throw new \Exception('E-mail informado não encontrado');
+        }
+    }
 }

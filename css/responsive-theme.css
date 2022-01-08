@@ -189,13 +189,38 @@
     padding: 0px 15px;
     display: block;
     margin-left: auto;
+    margin-right: auto;
+  }
+
+  p#texto-instrucao {
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+  }
+
+  .nav-meu-espaco {
+    margin: auto;
+  }
+
+  .navbar-nav .dropdown-menu {
+    position: absolute !important;
   }
 }
+
+
 
 @media screen and (min-width:768px) and (max-width: 1023px) {
   .label-login {
     font-size: 25px;
     margin-top: 20px;
+  }
+
+  .nav-meu-espaco {
+    margin: auto;
+  }
+
+  .navbar-nav .dropdown-menu {
+    position: absolute !important;
   }
 
   p#titulo-login {
@@ -206,10 +231,6 @@
 
   .all-conteudo {
     margin-top: 8% !important;
-  }
-
-  .img-login {
-    width: 30%;
   }
 
   .login-fundo-branco {
@@ -229,6 +250,7 @@
     padding: 5px 50px !important;
     display: table-cell;
     height: 50px;
+    text-align: center;
   }
 
   p#titulo-criar-conta {
@@ -259,8 +281,8 @@
   }
 
   .img-cadastro-finalizado {
-    width: 45%;
-    height: 35%;
+    width: 330px;
+    height: 259px;
   }
 
   p#titulo-esqueceu-senha {
