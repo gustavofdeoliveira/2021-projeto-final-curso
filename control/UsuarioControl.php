@@ -61,6 +61,8 @@ class UsuarioControl
             $this->modelo->setNomeUsuario($_POST["nomeUsuario"]);
             $this->modelo->setSenha($_POST["senha"]);
             $this->modelo->setEmail($_POST["email"]);
+            $avatarNumero = rand(1,6);
+            $this->modelo->setFotoAvatar("http://localhost/2021-projeto-final-curso/image/avatares/Avatar-".$avatarNumero.".png");
             $this->dao->inserirUsuario($this->modelo);
             header("Location:../view/CadastroFinalizado.php");
         } catch (\Exception $e) {

@@ -1,24 +1,24 @@
 <?php
 //Abre conecao com o banco
 session_start();
-require_once("../database/Connection.php");
+require_once(realpath(dirname(__FILE__) . "/../database/Connection.php"));
 //Temporalizador da Mensagem de erro no login
 if (!empty($_SESSION['msg_error']) && (time() - $_SESSION['tempo_msg_error'] > 10)) {
     unset($_SESSION['msg_error']);
 }
-// if (!empty($_SESSION['usuarioAutenticado']) && !empty($_SESSION['manterConectado'])) {
-//     $usuario = $_SESSION['usuarioAutenticado'];
-//     if ($usuario['nivelAcesso'] == 1) {
-//         header("Location:../view/Dashboard-Administrativo.php");
-//     } else if ($usuario['nivelAcesso'] == 2) {
-//         header("Location:../view/Dashboard-Administrativo.php");
-//     } else if ($usuario['nivelAcesso'] === 3) {
-//         header("Location:../view/Dashboard-Usuario.php");
-//     }
-// }else if(!empty($_SESSION['usuarioAutenticado']) && empty($_SESSION['manterConectado']) && (time() - $_SESSION['tempo_msg_error'] > 3600)){
-//     unset($_SESSION['usuarioAutenticado']);
-//     header("Location:../view/Login.php");
-// }
+if (!empty($_SESSION['usuarioAutenticado']) && !empty($_SESSION['manterConectado'])) {
+    $usuario = $_SESSION['usuarioAutenticado'];
+    if ($usuario['nivelAcesso'] == 1) {
+        header("Location:../view/Dashboard-Administrativo.php");
+    } else if ($usuario['nivelAcesso'] == 2) {
+        header("Location:../view/Dashboard-Administrativo.php");
+    } else if ($usuario['nivelAcesso'] === 3) {
+        header("Location:../view/Dashboard-Usuario.php");
+    }
+} else if (!empty($_SESSION['usuarioAutenticado']) && empty($_SESSION['manterConectado']) && (time() - $_SESSION['tempo_msg_error'] > 3600)) {
+    unset($_SESSION['usuarioAutenticado']);
+    header("Location:../view/Login.php");
+}
 class UsuarioDao
 {
     private $conn;
@@ -44,7 +44,7 @@ class UsuarioDao
             }
         } else if (empty($statement->rowCount())) {
             $sql = "INSERT INTO `usuario`(`nomeCompleto`,`nomeUsuario`,`senha`,`nivelAcesso`,`email`,`dataInclusao`) 
-             VALUES ( '" . $modelo->getNomeCompleto() . "', '" . $modelo->getNomeUsuario() . "', SHA1('" . $modelo->getSenha() . "'), 1,'" . $modelo->getEmail() . "',CURRENT_DATE())";
+             VALUES ( '" . $modelo->getNomeCompleto() . "', '" . $modelo->getNomeUsuario() . "', SHA1('" . $modelo->getSenha() . "'), 1,'" . $modelo->getEmail() . "','" . $modelo->getFotoAvatar() . "',CURRENT_DATE())";
             $statement = $this->conn->prepare($sql);
             $statement->execute();
         }
@@ -96,7 +96,8 @@ class UsuarioDao
             throw new \Exception('E-mail informado não encontrado');
         }
     }
-    function sairUsuario(){
+    function sairUsuario()
+    {
         unset($_SESSION['usuarioAutenticado']);
         header("Location:../index.php");
     }

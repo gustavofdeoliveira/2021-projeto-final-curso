@@ -75,7 +75,7 @@ require_once("../dao/UsuarioDao.php");
                     $usuario = $_SESSION["usuarioAutenticado"];
                     echo " <li class='nav-item dropdown nav-meu-espaco'>
                     <div class='d-flex'>
-                      <img src='{$usuario['fotoPerfil']}' alt='Foto de Perfil' class='rounded-circle'>
+                      <img src='{$usuario['fotoAvatar']}' alt='Foto de Perfil' class='rounded-circle'>
                       <a class='nav-link dropdown-toggle nav-meu-espaco' href='#' id='navbarDropdownMenuLink' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
                         Meu espaço
                       </a>

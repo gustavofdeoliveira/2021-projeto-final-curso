@@ -7,6 +7,7 @@ class UsuarioModel
     private $senha;
     private $email;
     private $manterLogin;
+    private $fotoAvatar;
 
     /**
      * @return mixed
@@ -84,5 +85,21 @@ class UsuarioModel
     public function setManterLogin($manterLogin)
     {
         $this->manterLogin = $manterLogin;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFotoAvatar()
+    {
+        return $this->fotoAvatar;
+    }
+
+    /**
+     * @param mixed 
+     */
+    public function setFotoAvatar($fotoAvatar)
+    {
+        $this->fotoAvatar = $fotoAvatar;
     }
 }
