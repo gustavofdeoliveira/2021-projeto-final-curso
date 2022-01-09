@@ -29,7 +29,7 @@ require_once("../dao/UsuarioDao.php");
       <div class="col-xl-12 col-lg-12 col-md-12 ">
         <nav class="navbar navbar-expand-lg navbar-light">
           <div class="col-xl-3 col-md-4 col-sm-10 col-sm-offset-1 col-lg-3">
-            <a class="navbar-brand" href="#"><img id="img-logo" class="navbar-img-logo" src="../image/Logo-claro.png"></a>
+            <a class="navbar-brand" href="../index.php"><img id="img-logo" class="navbar-img-logo" src="../image/Logo-claro.png"></a>
           </div>
           <div class=" col-xl-9 col-md-8 col-sm-10 col-sm-offset-1 col-lg-9">
             <form class="d-flex">
@@ -56,7 +56,7 @@ require_once("../dao/UsuarioDao.php");
                 <div class="row">
                   <ul class="navbar-nav">
                     <li class="nav-item">
-                      <a class="nav-link" aria-current="page" href="#">Início</a>
+                      <a class="nav-link" aria-current="page" href="../index.php">Início</a>
                     </li>
 
                     <li class="nav-item">
@@ -161,7 +161,7 @@ require_once("../dao/UsuarioDao.php");
             <div class="input-group">
               <label class="form-label label-criar-categoria" for="categoria">categoria</label>
               <select class="custom-select" id="select-termo" name="categoria">
-                <option selected>Choose...</option>
+                <option selected>Selecionar...</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>
                 <option value="3">Three</option>

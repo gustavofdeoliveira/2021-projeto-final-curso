@@ -42,7 +42,7 @@ class UsuarioControl
             //Guarda os dados do usuario
             $_SESSION['usuarioAutenticado'];
             //teste nivel de acesso do usuario
-            header("Location:../view/index.php");
+            header("Location:../index.php");
         
         } catch (\Exception $e) {
             $_SESSION["msg_error"] = $e->getMessage();

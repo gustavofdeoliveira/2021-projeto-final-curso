@@ -94,6 +94,9 @@ const enableDarkMode = () => {
     if(document.getElementById('img-logo')){
         document.getElementById('img-logo').src = '../image/Logo-noturno.png';
     } 
+    if(document.getElementById('img-logo-index')){
+        document.getElementById('img-logo-index').src = 'image/Logo-noturno.png';
+    } 
     if(document.getElementById('img-login')){
         document.getElementById('img-login').src = '../image/Bg-Login-Icon-Noturno.png';
     }
@@ -108,7 +111,9 @@ const disableDarkMode = () => {
     if(document.getElementById('img-logo')){
         document.getElementById('img-logo').src = '../image/Logo-claro.png';
     }
-    document.getElementById('img-logo').src = '../image/Logo-claro.png';
+    if(document.getElementById('img-logo-index')){
+        document.getElementById('img-logo-index').src = 'image/Logo-claro.png';
+    }
     if(document.getElementById('img-login')){
         document.getElementById('img-login').src = '../image/Bg-Login-Icon-Claro.png';
     } 

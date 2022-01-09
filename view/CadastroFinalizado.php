@@ -29,7 +29,7 @@ require_once("../dao/UsuarioDao.php");
                 <div class="col-sm-12 col-md-6 col-xl-6 col-lg-6 login-fundo-branco">
                     <div class="row all-conteudo">
                         <div class="col-xl-7 col-sm-10 col-lg-10 col-lg-offset-1 col-md-10 col-sm-offset-1 col-xl-offset-1">
-                            <img id="img-logo-login" class="img-logo-cadastrar" src="../image/Logo-claro.png">
+                            <img id="img-logo" class="img-logo-cadastrar" src="../image/Logo-claro.png">
                         </div>
                     </div>
                     <div class="row">

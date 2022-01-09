@@ -392,7 +392,7 @@ a#fazer-login {
   color: #AF3320;
   height: 38px;
   border-radius: 200px 0px 0px 200px;
-  background-color: #fff;
+  background-color: var(--cor_branca);
   font-family: Raleway-Light;
 }
 
@@ -515,7 +515,6 @@ hr {
 .rounded-circle {
   width: 50px;
   height: 50px;
-  border: 2px solid var(--cor_vermelha);
   margin: auto;
 }
 
@@ -602,12 +601,13 @@ p#texto-equipe {
   font-size: 65px;
   line-height: 35px;
   color: var(--cor_vermelha);
+  margin-top: 20px;
 }
 
 main#container {
-  width: 87%;
-  margin-left: 6.5%;
-  margin-right: 6.5%;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
   margin-top: 30px;
 }
 
