@@ -156,23 +156,44 @@ require_once("../dao/UsuarioDao.php");
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xl-6">
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <label class="input-group-text" for="inputGroupSelect01">Options</label>
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="input-group">
+              <label class="form-label label-criar-categoria" for="categoria">categoria</label>
+              <select class="custom-select" id="select-termo" name="categoria">
+                <option selected>Choose...</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
           </div>
-          <select class="custom-select" id="select-termo">
-            <option selected>Choose...</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
+        </div>
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="form-group">
+              <label class="form-label label-criar-publicacao" for="resumo">resumo</label>
+              <div class="input-group">
+                <textarea required class="textarea input-criar-conta form-control" type="text" name="resumo"></textarea>
+                <span class="error"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="form-group">
+              <label class="form-label label-criar-publicacao" for="termos">rede de termos <span id="texto-opcional">(opcional)</span></label>
+              <div class="input-group">
+                <input class="input-criar-conta form-control" type="text" name="termos">
+                <p id="texto-alerta">deixar esse campo vazio pode reduzir o alcance da sua publicação</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
   </main>
 
   <script src="../javascript/bootstrap.bundle.min.js">
