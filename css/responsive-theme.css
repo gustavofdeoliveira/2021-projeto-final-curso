@@ -1,3 +1,12 @@
+:root {
+  --cor_branca: #FFFFF8;
+  --cor_vermelha: #AF3320;
+  --cor_verde: #1B3A02;
+  --logo: url(../image/Logo-claro.png);
+  --background: url(../image/Bg-Login-Claro.png) center center no-repeat fixed;
+  --color_preta: #000000;
+}
+
 @media screen and (max-width: 576px) {
   p#titulo-login-verde {
     font-size: 60px;
@@ -136,10 +145,6 @@
     margin-left: unset;
   }
 
-  .input-group-navbar {
-    margin-top: 30px;
-  }
-
   .span-icon-buscar {
     font-size: 30px !important;
   }
@@ -207,6 +212,24 @@
   }
 }
 
+@media screen and (max-width: 767px) {
+  .navbar-img-logo {
+    height: 80%;
+    margin-top: 35px;
+    width: 100%;
+  }
+  .input-group-navbar {
+    margin-top: 35px;
+}
+}
+@media screen and (max-width: 991px) {
+  .nav-meu-espaco, .btn-navbar-login,.nav-item{
+    margin:auto;
+  }
+  .nav-item{
+    border-bottom: 2px solid var(--cor_vermelha);
+  }
+}
 
 
 @media screen and (min-width:768px) and (max-width: 1023px) {
@@ -215,11 +238,7 @@
     margin-top: 20px;
   }
 
-  .nav-meu-espaco {
-    margin: auto;
-  }
-
-  .navbar-nav .dropdown-menu {
+   .navbar-nav .dropdown-menu {
     position: absolute !important;
   }
 
@@ -259,10 +278,6 @@
 
   p#possui-conta {
     font-size: 25px;
-  }
-
-  .input-group-navbar {
-    margin-right: 45px;
   }
 
   p#titulo-sobre-nos {

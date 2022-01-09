@@ -25,13 +25,13 @@ require_once("../dao/UsuarioDao.php");
 
 <body id="dark-mode">
   <header>
-    <div class="col-xl-12">
-      <div class="row">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 ">
         <nav class="navbar navbar-expand-lg navbar-light">
-          <div class="col-xl-3 col-md-5 col-sm-10 col-sm-offset-1 col-lg-4">
+          <div class="col-xl-3 col-md-4 col-sm-10 col-sm-offset-1 col-lg-3">
             <a class="navbar-brand" href="#"><img id="img-logo" class="navbar-img-logo" src="../image/Logo-claro.png"></a>
           </div>
-          <div class=" col-xl-8 col-md-7 col-sm-10 col-sm-offset-1 col-lg-7">
+          <div class=" col-xl-9 col-md-8 col-sm-10 col-sm-offset-1 col-lg-9">
             <form class="d-flex">
               <div class="input-group input-group-navbar">
                 <span class="input-group-text span-icon-buscar" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
@@ -40,40 +40,40 @@ require_once("../dao/UsuarioDao.php");
               <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
             </form>
           </div>
-
         </nav>
         <hr>
       </div>
     </div>
-    <div class="col-xl-12">
-      <div class="row">
-        <nav class="navbar navbar-expand-lg">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 ">
+        <nav class="navbar navbar-expand-lg w-100">
           <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <div class="col-xl-12 col-lg-12">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Início</a>
-                  </li>
+              <div class="col-xl-12 col-lg-12 col-md-12">
+                <div class="row">
+                  <ul class="navbar-nav">
+                    <li class="nav-item">
+                      <a class="nav-link" aria-current="page" href="#">Início</a>
+                    </li>
 
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Linha do Tempo</a>
-                  </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Linha do Tempo</a>
+                    </li>
 
-                  <li class="nav-item">
-                    <a class="nav-link" href="../view/Sobre-Nos.php">Sobre Nós</a>
-                  </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="../view/Sobre-Nos.php">Sobre Nós</a>
+                    </li>
 
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Biblioteca</a>
-                  </li>
-                  <?php
-                  if (!empty($_SESSION["usuarioAutenticado"])) {
-                    $usuario = $_SESSION["usuarioAutenticado"];
-                    echo " <li class='nav-item dropdown nav-meu-espaco'>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Biblioteca</a>
+                    </li>
+                    <?php
+                    if (!empty($_SESSION["usuarioAutenticado"])) {
+                      $usuario = $_SESSION["usuarioAutenticado"];
+                      echo " <li class='nav-item dropdown nav-meu-espaco'>
                     <div class='d-flex'>
                       <img src='{$usuario['fotoAvatar']}' alt='Foto de Perfil' class='rounded-circle'>
                       <a class='nav-link dropdown-toggle nav-meu-espaco' href='#' id='navbarDropdownMenuLink' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
@@ -124,25 +124,55 @@ require_once("../dao/UsuarioDao.php");
                   </div>
                     </div>
                   </li>";
-                  } ?>
-                  <?php
-                  if (empty($_SESSION["usuarioAutenticado"])) {
-                    echo "
+                    } ?>
+                    <?php
+                    if (empty($_SESSION["usuarioAutenticado"])) {
+                      echo "
                     <li class='nav-item'>
                     <a class='nav-link btn-navbar-login' href='../view/Login.php'>Fazer Login</a>
                   </li>";
-                  } ?>
-                </ul>
+                    } ?>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </nav>
       </div>
     </div>
-
   </header>
-  <main>
-
+  <main id="telas-navbar">
+    <div class="row">
+      <div class="col-xl-12">
+        <p id="titulo-criar-publicacao">criar publicação</p>
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="form-group">
+              <label class="form-label label-criar-publicacao" for="titulo">título</label>
+              <div class="input-group">
+                <input required class="input-criar-conta form-control" type="text" name="titulo">
+                <span class="error"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-6">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Options</label>
+          </div>
+          <select class="custom-select" id="select-termo">
+            <option selected>Choose...</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+      </div>
+    </div>
   </main>
 
   <script src="../javascript/bootstrap.bundle.min.js">

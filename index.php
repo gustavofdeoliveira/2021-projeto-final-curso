@@ -25,7 +25,7 @@ require_once("dao/UsuarioDao.php");
 
 <body id="dark-mode">
   <header>
-    <div class="col-xl-12">
+    <div class="col-xl-12 col-sm-12">
       <div class="row">
         <nav class="navbar navbar-expand-lg navbar-light">
           <div class="col-xl-3 col-md-5 col-sm-10 col-sm-offset-1 col-lg-4">
@@ -45,7 +45,7 @@ require_once("dao/UsuarioDao.php");
         <hr>
       </div>
     </div>
-    <div class="col-xl-12">
+    <div class="col-xl-12 col-sm-12">
       <div class="row">
         <nav class="navbar navbar-expand-lg">
           <div class="container-fluid">
@@ -53,7 +53,7 @@ require_once("dao/UsuarioDao.php");
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <div class="col-xl-12 col-lg-12">
+              <div class="col-xl-12 col-lg-12 col-sm-12">
                 <ul class="navbar-nav">
                   <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="#">Início</a>

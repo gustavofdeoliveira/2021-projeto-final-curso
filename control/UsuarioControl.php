@@ -12,7 +12,6 @@ class UsuarioControl
     {
         $this->dao = new UsuarioDao();
         $this->modelo = new UsuarioModel();
-
         $this->acao = $_REQUEST["acao"];
         $this->verificaAcao();
     }
@@ -41,16 +40,10 @@ class UsuarioControl
             }
             $this->dao->buscarUsuario($this->modelo);
             //Guarda os dados do usuario
-            $usuario = $_SESSION['usuarioAutenticado'];
-            print_r($usuario);
+            $_SESSION['usuarioAutenticado'];
             //teste nivel de acesso do usuario
-             if ($usuario['nivelAcesso'] == 1) {
-                 header("Location:../view/Dashboard-Administrativo.php");
-             } else if ($usuario['nivelAcesso'] == 2) {
-                 header("Location:../view/Dashboard-Administrativo.php");
-             } else if ($usuario['nivelAcesso'] === 3) {
-                 header("Location:../view/Dashboard-Usuario.php");
-             }
+            header("Location:../view/index.php");
+        
         } catch (\Exception $e) {
             $_SESSION["msg_error"] = $e->getMessage();
             $_SESSION["tempo_msg_error"] = time();
