@@ -36,18 +36,21 @@ class UsuarioControl
         try {
             $this->modelo->setNomeUsuario($_POST["nomeUsuario"]);
             $this->modelo->setSenha($_POST["senha"]);
-            $this->modelo->setManterLogin($_POST["manterLogin"]);
+            if(!empty($_POST["manterLogin"])){
+                $this->modelo->setManterLogin($_POST["manterLogin"]);
+            }
             $this->dao->buscarUsuario($this->modelo);
             //Guarda os dados do usuario
             $usuario = $_SESSION['usuarioAutenticado'];
+            print_r($usuario);
             //teste nivel de acesso do usuario
-            if ($usuario['nivelAcesso'] == 1) {
-                header("Location:../view/Dashboard-Administrativo.php");
-            } else if ($usuario['nivelAcesso'] == 2) {
-                header("Location:../view/Dashboard-Administrativo.php");
-            } else if ($usuario['nivelAcesso'] === 3) {
-                header("Location:../view/Dashboard-Usuario.php");
-            }
+             if ($usuario['nivelAcesso'] == 1) {
+                 header("Location:../view/Dashboard-Administrativo.php");
+             } else if ($usuario['nivelAcesso'] == 2) {
+                 header("Location:../view/Dashboard-Administrativo.php");
+             } else if ($usuario['nivelAcesso'] === 3) {
+                 header("Location:../view/Dashboard-Usuario.php");
+             }
         } catch (\Exception $e) {
             $_SESSION["msg_error"] = $e->getMessage();
             $_SESSION["tempo_msg_error"] = time();
