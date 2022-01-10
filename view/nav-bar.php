@@ -73,57 +73,61 @@ require_once("../dao/UsuarioDao.php");
                                         <?php
                                         if (!empty($_SESSION["usuarioAutenticado"])) {
                                             $usuario = $_SESSION["usuarioAutenticado"];
-                                            echo " <li class='nav-item dropdown nav-meu-espaco'>
-                    <div class='d-flex'>
-                      <img src='{$usuario['fotoAvatar']}' alt='Foto de Perfil' class='rounded-circle'>
-                      <a class='nav-link dropdown-toggle nav-meu-espaco' href='#' id='navbarDropdownMenuLink' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
-                        Meu espaço
-                      </a>
-                      <ul class='dropdown-menu' aria-labelledby='navbarDropdownMenuLink'>
-                        <li><a class='dropdown-item' href='#'>Action</a></li>
-                        <li><a class='dropdown-item' href='#'>Another action</a></li>
-                        <li><button id='dark-mode-toggle' class='dropdown-item'>
-                        <div class='d-flex'>
-                        Modo noturno
-                        <div class='dark-light'>
-                          <svg viewBox='0 0 24 24' stroke='currentColor' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'>
-                          <path d='M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z' /></svg>
-                        </div>
-                        </div></button>
-                        </li>
-                        <li><form action='../control/UsuarioControl.php' method='POST' class='form-group'>
-                        <div class='d-flex'>
-                        <input type='hidden' name='acao' value='sair'>
-                          <input class='dropdown-item input-sair' type='submit' value='Sair'>
-                        <i class='fa fa-sign-out' aria-hidden='true'></i>
-                        </div></form></li>
-                      </ul>
-                    
-                      <div class='wrapper'>
-                          <div class='notification' >
-                              <i class='fa fa-bell-o'></i>  
-                              <div class='notify-count count1 common-count' count='0'>
-                                <div class='value numero-notificacoes'>0</div>
-                              </div>                     
-                          </div>
-                          <div class='notification-dropdown dd'>
-                              <div class='arrow-up'></div>
-                              <div class='header'>
-                                  <div class='container'>
-                                      <div class='text fl'>Notificações</div>
-                                  </div>
-                              </div>
-                              <div class='items'>
-                              <div class='list-item noti'>                            
-                              <div class='image fl'>                                
-                              <img src='https://scontent.fdel1-2.fna.fbcdn.net/hprofile-xpf1/v/t1.0-1/p148x148/1976930_10203739966439862_769227532601458423_n.jpg?oh=5c5a15c674b82a02dba8f79529fb25ee&amp;oe=5689855A'></div> 
-                                <div class='text fl'><b class='name fl'>Abhijit</b>shared a post</div></div>
-                              </div>
-                          </div>
-                      
-                  </div>
-                    </div>
-                  </li>";
+                                            echo " 
+                                            <li class='nav-item dropdown nav-meu-espaco'>
+                                                <div class='d-flex'>
+                                                    <img src='{$usuario['fotoAvatar']}' alt='Foto de Perfil' class='rounded-circle'>
+                                                    <a class='nav-link dropdown-toggle nav-meu-espaco' href='#' id='navbarDropdownMenuLink' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
+                                                    Meu espaço</a>
+                                                    <ul class='dropdown-menu' aria-labelledby='navbarDropdownMenuLink'>
+                                                        <li><a class='dropdown-item' href='#'>Action</a></li>
+                                                        <li><a class='dropdown-item' href='#'>Another action</a></li>
+                                                        <li><button id='dark-mode-toggle' class='dropdown-item'>
+                                                        <div class='d-flex'>
+                                                        Modo noturno
+                                                        <div class='dark-light'>
+                                                        <svg viewBox='0 0 24 24' stroke='currentColor' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'>
+                                                        <path d='M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z' /></svg>
+                                                        </div>
+                                                        </div></button>
+                                                        </li>
+                                                        <li><form action='../control/UsuarioControl.php' method='POST' class='form-group'>
+                                                        <div class='d-flex'>
+                                                        <input type='hidden' name='acao' value='sair'>
+                                                        <input class='dropdown-item input-sair' type='submit' value='Sair'>
+                                                        <i class='fa fa-sign-out' aria-hidden='true'></i>
+                                                        </div></form></li>
+                                                    </ul>
+                                                                       
+                                                    <div class='wrapper'>
+                                                        <div class='notification' >";
+                                                        $_SESSION['notificacao'] = array(0 =>array('nome'=>'@natan_pastore','texto'=>'comentou na sua publicação'), 1 => array('nome'=>'@franco_harlos', 'texto'=>'respondeu o seu comentário'), 2=> array('nome'=>'@ju_kashima', 'texto'=>'respondeu o seu comentário'), 3 =>array('nome'=>'@natan_pastore','texto'=>'comentou na sua publicação'), 4 => array('nome'=>'@franco_harlos', 'texto'=>'respondeu o seu comentário'), 5=> array('nome'=>'@ju_kashima', 'texto'=>'respondeu o seu comentário'));
+                                                        $numeroNotificacoes = count($_SESSION['notificacao']);
+                                                        if($numeroNotificacoes){ 
+                                                            echo"<i class='fa fa-bell'></i> 
+                                                            <div class='notify-count count1 common-count' count='{$numeroNotificacoes}'>
+                                                                <div class='value numero-notificacoes'>{$numeroNotificacoes}</div>
+                                                            </div>
+                                                            ";}
+                                                            else{echo"<i class='fa fa-bell-o'></i>";
+                                                            } echo"</div>
+                                                        <div class='notification-dropdown dd'>
+                                                            <div class='header'>
+                                                                <div class='container'>
+                                                                    <div class='text fl'>Notificações</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class='items'>";  
+                                                            for($i = 0; $i != count($_SESSION['notificacao']); $i++){
+                                                                $nome = $_SESSION['notificacao'][$i]['nome'];
+                                                                $texto = $_SESSION['notificacao'][$i]['texto'];
+                                                                
+                                                                echo "<div class='list-item noti'>
+                                                                        <a id='noticacao-item' href='#' class='text fl'>
+                                                                        <p class='name fl'>".$nome."<span id='texto-notificacao'>".$texto."</span></p></a></div>";
+                                                            }                                                                                                                                                              
+                                                               echo "</div></div></div></div>
+                                                </li>";
                                         } ?>
                                         <?php
                                         if (empty($_SESSION["usuarioAutenticado"])) {
