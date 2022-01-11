@@ -977,6 +977,7 @@ p#texto-alerta {
   margin-left: 10px;
   word-break: break-word;
 }
+
 .ck .ck-icon .ck-button__icon{
 stroke: var(--cor_branca);
 fill: var(--cor_branca);
@@ -1078,12 +1079,15 @@ p#text-revisar-publicacão {
   line-height: 35px;
   font-family: Raleway-Light;
   color: var(--cor_verde) !important;
-}
 
+
+
+}
 .btn-publicar {
   color: var(--cor_branca) !important;
   background-color: var(--cor_verde) !important;
   border-color: var(--cor_verde) !important;
+
   width: 100% !important;
   height: 95px;
   font-family: Raleway-Black;
@@ -1124,3 +1128,4 @@ li#texto-estilo span{
   font-family: Raleway-Black;
   color: var(--cor_verde) !important;
 }
+ 

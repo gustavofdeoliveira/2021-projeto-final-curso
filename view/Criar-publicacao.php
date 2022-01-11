@@ -190,9 +190,11 @@ require_once("../dao/UsuarioDao.php");
               <label class="form-label label-criar-categoria" for="categoria">categoria</label>
               <select class="custom-select" id="select-termo" name="categoria">
                 <option selected>Selecionar...</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option value="1">Publicacão Conteudista</option>
+                <option value="2">Atualidade Sociológica</option>
+                <!-- <option value="3">Three</option> na verdade esse campo não deveria estar aqui kkkk, 
+                tendo em vista que o outro tipo de publicação (Resumo), deve ser feito por meio do 
+                Meu Espaço e tem uma tela própria -->
               </select>
             </div>
           </div>
@@ -240,6 +242,32 @@ require_once("../dao/UsuarioDao.php");
         </div>
       </div>
     </div>
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="form-group">
+              <label class="form-label label-criar-publicacao" for="texto">texto</label>
+              <div class="input-group">
+                <!-- wysiwyg --> 
+                <input class="input-criar-conta form-control" type="text" name="termos">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- REVISE SEUS TEXTOS + BOTÃO
+    <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-offset-1 col-md-10 col-xl-8 col-xl-offset-2 col-sm-12 col-sm-offset-0">
+              <div class="row">
+                <div class="col-sm-6 col-sm-offset-3 col-md-offset-2 col-md-8 col-xl-5 col-lg-6 col-lg-8 col-lg-offset-2 col-xl-offset-0">
+                  <p id="texto-prebotao"> revise seus textos antes de publicar </p>                   
+                    <input class="btn-publicar" type="submit" value="Publicar">
+                </div>
+              </div>
+          </div>
+    </div> 
+     -->                                
 
   </main>
   <script src="../plugins/build/ckeditor.js"></script>
