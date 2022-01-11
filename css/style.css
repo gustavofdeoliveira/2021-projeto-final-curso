@@ -965,3 +965,21 @@ p#texto-alerta {
   margin-left: 10px;
   word-break: break-word;
 }
+
+p#texto-prebotao {
+  font-family: Raleway-Light;
+  color: var(--cor_verde);
+  font-size: 35px;
+  text-align: center;
+}
+
+.btn-publicar {
+  color: var(--cor_branca) !important;
+  background-color: var(--cor_verde) !important;
+  border-color: var(--cor_verde) !important;
+  width: 2000px;
+  height: 50px;
+  font-family: Raleway-Bold;
+  font-size: 33.35px !important;
+  border-radius: 100PX !important;
+}
