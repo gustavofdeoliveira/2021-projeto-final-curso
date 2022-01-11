@@ -20,60 +20,61 @@ require_once("../dao/UsuarioDao.php");
   <script src="../javascript/jquery.js"></script>
   <script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
+  <script src='https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js'></script>
 </head>
 
 
 <body id="dark-mode">
-<header>
-        <div class="row">
-            <div class="col-xl-12 col-lg-12 col-md-12 ">
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <div class="col-xl-3 col-md-4 col-sm-10 col-sm-offset-1 col-lg-3">
-                        <a class="navbar-brand" href="../index.php"><img id="img-logo" class="navbar-img-logo" src="../image/Logo-claro.png"></a>
-                    </div>
-                    <div class=" col-xl-9 col-md-8 col-sm-10 col-sm-offset-1 col-lg-9">
-                        <form class="d-flex">
-                            <div class="input-group input-group-navbar">
-                                <span class="input-group-text span-icon-buscar" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
-                                <input type="text" class="navbar-input-busca form-control" placeholder="descubra algo incrível..." aria-describedby="basic-addon1">
-                            </div>
-                            <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
-                        </form>
-                    </div>
-                </nav>
-                <hr>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xl-12 col-lg-12 col-md-12 ">
-                <nav class="navbar navbar-expand-lg w-100">
-                    <div class="container-fluid">
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                            <div class="col-xl-12 col-lg-12 col-md-12">
-                                <div class="row">
-                                    <ul class="navbar-nav">
-                                        <li class="nav-item">
-                                            <a class="nav-link" aria-current="page" href="../index.php">Início</a>
-                                        </li>
+  <header>
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 ">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="col-xl-3 col-md-4 col-sm-10 col-sm-offset-1 col-lg-3">
+            <a class="navbar-brand" href="../index.php"><img id="img-logo" class="navbar-img-logo" src="../image/Logo-claro.png"></a>
+          </div>
+          <div class=" col-xl-9 col-md-8 col-sm-10 col-sm-offset-1 col-lg-9">
+            <form class="d-flex">
+              <div class="input-group input-group-navbar">
+                <span class="input-group-text span-icon-buscar" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
+                <input type="text" class="navbar-input-busca form-control" placeholder="descubra algo incrível..." aria-describedby="basic-addon1">
+              </div>
+              <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+            </form>
+          </div>
+        </nav>
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 ">
+        <nav class="navbar navbar-expand-lg w-100">
+          <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <div class="col-xl-12 col-lg-12 col-md-12">
+                <div class="row">
+                  <ul class="navbar-nav">
+                    <li class="nav-item">
+                      <a class="nav-link" aria-current="page" href="../index.php">Início</a>
+                    </li>
 
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Linha do Tempo</a>
-                                        </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Linha do Tempo</a>
+                    </li>
 
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="../view/Sobre-Nos.php">Sobre Nós</a>
-                                        </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="../view/Sobre-Nos.php">Sobre Nós</a>
+                    </li>
 
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Biblioteca</a>
-                                        </li>
-                                        <?php
-                                        if (!empty($_SESSION["usuarioAutenticado"])) {
-                                            $usuario = $_SESSION["usuarioAutenticado"];
-                                            echo " 
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Biblioteca</a>
+                    </li>
+                    <?php
+                    if (!empty($_SESSION["usuarioAutenticado"])) {
+                      $usuario = $_SESSION["usuarioAutenticado"];
+                      echo " 
                                             <li class='nav-item dropdown nav-meu-espaco'>
                                                 <div class='d-flex'>
                                                     <img src='{$usuario['fotoAvatar']}' alt='Foto de Perfil' class='rounded-circle'>
@@ -101,50 +102,52 @@ require_once("../dao/UsuarioDao.php");
                                                                        
                                                     <div class='wrapper'>
                                                         <div class='notification' >";
-                                                        $_SESSION['notificacao'] = array(0 =>array('nome'=>'@natan_pastore','texto'=>'comentou na sua publicação'), 1 => array('nome'=>'@franco_harlos', 'texto'=>'respondeu o seu comentário'), 2=> array('nome'=>'@ju_kashima', 'texto'=>'respondeu o seu comentário'), 3 =>array('nome'=>'@natan_pastore','texto'=>'comentou na sua publicação'), 4 => array('nome'=>'@franco_harlos', 'texto'=>'respondeu o seu comentário'), 5=> array('nome'=>'@ju_kashima', 'texto'=>'respondeu o seu comentário'));
-                                                        $numeroNotificacoes = 0;
-                                                        if($numeroNotificacoes){ 
-                                                            echo"<i class='fa fa-bell'></i> 
+                      $_SESSION['notificacao'] = array(0 => array('nome' => '@natan_pastore', 'texto' => 'comentou na sua publicação'), 1 => array('nome' => '@franco_harlos', 'texto' => 'respondeu o seu comentário'), 2 => array('nome' => '@ju_kashima', 'texto' => 'respondeu o seu comentário'), 3 => array('nome' => '@natan_pastore', 'texto' => 'comentou na sua publicação'), 4 => array('nome' => '@franco_harlos', 'texto' => 'respondeu o seu comentário'), 5 => array('nome' => '@ju_kashima', 'texto' => 'respondeu o seu comentário'));
+                      $numeroNotificacoes = count($_SESSION['notificacao']);
+                      if ($numeroNotificacoes) {
+                        echo "<i class='fa fa-bell'></i> 
                                                             <div class='notify-count count1 common-count' count='{$numeroNotificacoes}'>
                                                                 <div class='value numero-notificacoes'>{$numeroNotificacoes}</div>
                                                             </div>
-                                                            ";}
-                                                            else{echo"<i class='fa fa-bell-o'></i>";
-                                                            } echo"</div>
+                                                            ";
+                      } else {
+                        echo "<i class='fa fa-bell-o'></i>";
+                      }
+                      echo "</div>
                                                         <div class='notification-dropdown dd'>
                                                             <div class='header'>
                                                                 <div class='container'>
                                                                     <div class='text fl'>Notificações</div>
                                                                 </div>
                                                             </div>
-                                                            <div class='items'>";  
-                                                            for($i = 0; $i != count($_SESSION['notificacao']); $i++){
-                                                                $nome = $_SESSION['notificacao'][$i]['nome'];
-                                                                $texto = $_SESSION['notificacao'][$i]['texto'];
-                                                                
-                                                                echo "<div class='list-item noti'>
+                                                            <div class='items'>";
+                      for ($i = 0; $i != count($_SESSION['notificacao']); $i++) {
+                        $nome = $_SESSION['notificacao'][$i]['nome'];
+                        $texto = $_SESSION['notificacao'][$i]['texto'];
+
+                        echo "<div class='list-item noti'>
                                                                         <a id='noticacao-item' href='#' class='text fl'>
-                                                                        <p class='name fl'>".$nome."<span id='texto-notificacao'>".$texto."</span></p></a></div>";
-                                                            }                                                                                                                                                              
-                                                               echo "</div></div></div></div>
+                                                                        <p class='name fl'>" . $nome . "<span id='texto-notificacao'>" . $texto . "</span></p></a></div>";
+                      }
+                      echo "</div></div></div></div>
                                                 </li>";
-                                        } ?>
-                                        <?php
-                                        if (empty($_SESSION["usuarioAutenticado"])) {
-                                            echo "
+                    } ?>
+                    <?php
+                    if (empty($_SESSION["usuarioAutenticado"])) {
+                      echo "
                     <li class='nav-item'>
                     <a class='nav-link btn-navbar-login' href='../view/Login.php'>Fazer Login</a>
                   </li>";
-                                        } ?>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
+                    } ?>
+                  </ul>
+                </div>
+              </div>
             </div>
-        </div>
-    </header>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
   <main id="telas-navbar">
     <div class="row">
       <div class="col-xl-12">
@@ -155,6 +158,27 @@ require_once("../dao/UsuarioDao.php");
               <label class="form-label label-criar-publicacao" for="titulo">título</label>
               <div class="input-group">
                 <input required class="input-criar-conta form-control" type="text" name="titulo">
+                <span class="error"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xl-6">
+            <div class="form-group" x-data="{ fileName: '' }">
+              <label class="form-label label-criar-categoria" for="imagem">imagem</label>
+              <div class="input-group">
+                <input type="file" x-ref="file" @change="fileName = $refs.file.files[0].name" name="img[]" class="d-none">
+                <input type="text" class="input-imagem form-control form-control-lg" x-model="fileName">
+                <button class="browse btn btn-primary px-4" type="button" x-on:click.prevent="$refs.file.click()"><i class="fa fa-image"></i> Carregar</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-6">
+            <div class="form-group">
+              <label class="form-label label-criar-publicacao" for="nomeAutor">nome do autor</label>
+              <div class="input-group">
+                <input required class="input-criar-conta form-control" type="text" name="nomeAutor">
                 <span class="error"></span>
               </div>
             </div>
@@ -195,13 +219,47 @@ require_once("../dao/UsuarioDao.php");
             </div>
           </div>
         </div>
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="form-group">
+              <label class="form-label label-criar-publicacao" for="termos">texto</label>
+              <div class="input-group">
+                <textarea required class=" form-control" type="text" id="texto" name="texto"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <p id="text-revisar-publicacão">revise seus textos<br>antes de publicar</p>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-sm-8 col-lg-6 col-lg-offset-3 col-xl-4 col-xl-offset-4 col-sm-offset-2 col-md-offset-3">
+            <input type="hidden" name="acao" value="publicacao">
+            <input class="btn-publicar btn btn-lg" type="submit" value="publicar">
+          </div>
+        </div>
       </div>
     </div>
 
   </main>
-
-  <script src="../javascript/bootstrap.bundle.min.js">
+  <script src="../plugins/build/ckeditor.js"></script>
+  <script src="../plugins/build/ckeditor.js.map"></script>
+  <script>
+    ClassicEditor
+      .create(document.querySelector('#texto'), {
+        licenseKey: '',
+      })
+      .then(editor => {
+        window.editor = editor;
+      })
+      .catch(error => {
+        console.error('Oops, something went wrong!');
+        console.error('Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:');
+        console.warn('Build id: cuyvxs49p0ly-mzl2w7i12yeq');
+        console.error(error);
+      });
   </script>
+  <script src="../javascript/bootstrap.bundle.min.js"></script>
   <script src="../javascript/scripts.js"></script>
   <script src="../javascript/script-bell.js"></script>
 </body>

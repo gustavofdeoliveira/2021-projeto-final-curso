@@ -36,7 +36,7 @@ require_once("../dao/UsuarioDao.php");
                         <div class="row">
                             <div class="col-xl-8 col-xl-offset-2 col-sm-offset-1 col-lg-offset-2 col-md-10 col-md-offset-1">
                                 <p id="titulo-criar-conta">crie a<br> sua conta</p>
-                                <p id="possui-conta">Já faz parte do blog? <a id="fazer-login" href="">Fazer login</a></p>
+                                <p id="possui-conta">Já faz parte do blog? <a id="fazer-login" href="Login.php">Fazer login</a></p>
                             </div>
                         </div>
 

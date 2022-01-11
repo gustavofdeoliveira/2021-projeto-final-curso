@@ -88,7 +88,7 @@ require_once("../dao/UsuarioDao.php");
                         </div>
                         <div class="row btn-espacamento">
                             <div class="col-xl-8 col-md-offset-1 col-sm-offset-1 col-lg-8 col-lg-offset-2 col-md-10 col-xl-offset-2">
-                                <a class="login-esqueceu-senha" href="">Esqueceu a sua senha?</a>
+                                <a class="login-esqueceu-senha" href="Esqueceu-Senha.php">Esqueceu a sua senha?</a>
                             </div>
                             <div class="col-xl-8 col-lg-offset-2 col-sm-offset-1 col-md-offset-1 col-xl-offset-2">
                                 <p class="novo-registro">Ainda não tem uma conta? <br class="d-block d-sm-none"><a id="novo-registro" href="../view/Cadastrar.php">Registrar-se</a></p>
