@@ -186,6 +186,7 @@ function validacaoEmail(field) {
 
 }
 
+
 function validaSenha() {
     debugger
     var senha = document.getElementById('senha').value;

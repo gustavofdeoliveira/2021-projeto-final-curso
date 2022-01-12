@@ -1,6 +1,6 @@
 <?php
 include_once("../database/Connection.php");
-require_once("../dao/UsuarioDao.php");
+require_once("../dao/TermoDao.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -148,7 +148,7 @@ require_once("../dao/UsuarioDao.php");
         </div>
     </header>
     <main id="telas-navbar">
-        <form>
+        <form action="../control/TermoControl.php" method="POST" class="form-group">
             <div class="row">
                 <div class="col-xl-12">
                     <p id="titulo-cadastrar-rede">cadastrar termo</p>
@@ -168,12 +168,12 @@ require_once("../dao/UsuarioDao.php");
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="form-group">
-                                <label class="form-label label-criar-publicacao" for="nome">tipo do termo</label>
+                                <label class="form-label label-criar-publicacao" for="tipoTermo">tipo do termo</label>
                                 <div class="input-group">
-                                    <input id="tipoConceito" name="conceito" value="conceito" type="checkbox">
-                                    <label for="tipoConceito" class="tipo-termo">conceito</label>
-                                    <input id="tipoTeorico" name="teórico" value="teórico" type="checkbox">
-                                    <label for="tipoTeorico" class="tipo-termo">teórico</label>
+                                    <input id="tipoConceito" name="tipoTermo" class="checkgroup" value="conceito" type="checkbox">
+                                    <label for="tipoConceito" class="tipo-termo checkgroup">conceito</label>
+                                    <input id="tipoTeorico" name="tipoTermo" class="checkgroup" value="teórico" type="checkbox">
+                                    <label for="tipoTeorico" id="tipoTeorico" class="tipo-termo checkgroup">teórico</label>
                                 </div>
                             </div>
                         </div>
@@ -181,9 +181,9 @@ require_once("../dao/UsuarioDao.php");
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="form-group">
-                                <label class="form-label label-criar-publicacao" for="definição">definição</label>
+                                <label class="form-label label-criar-publicacao" for="conceito">definição</label>
                                 <div class="input-group">
-                                    <textarea required class="textarea form-control" rows="4" type="text" name="definição"></textarea>
+                                    <textarea required class="textarea form-control" rows="4" type="text" name="conceito"></textarea>
                                     <span class="error"></span>
                                 </div>
                             </div>
@@ -192,9 +192,9 @@ require_once("../dao/UsuarioDao.php");
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="form-group">
-                                <label class="form-label label-criar-publicacao" for="variacaoNome">variações de nome <span id="texto-opcional">(opcional)</span></label>
+                                <label class="form-label label-criar-publicacao" for="nomeVariavel">variações de nome <span id="texto-opcional">(opcional)</span></label>
                                 <div class="input-group">
-                                    <input required class="input-criar-conta form-control" type="text" name="variacaoNome">
+                                    <input required class="input-criar-conta form-control" type="text" name="nomeVariavel">
                                     <span class="error"></span>
                                 </div>
                             </div>
@@ -219,10 +219,28 @@ require_once("../dao/UsuarioDao.php");
                     </div>
                     <div class="row">
                         <div class="col-xl-10 col-sm-12 col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-offset-0">
-                            <input type="hidden" name="acao" value="redeTermos">
+                            <input type="hidden" name="acao" value="inserir">
                             <input class="btn-adicionar-termo btn btn-lg" type="submit" value="adicionar termo">
                         </div>
                     </div>
+
+                    <?php
+
+                    if (!empty($_SESSION["msg_error"])) {
+                        echo "<div class='row'>
+                            <div class='col-sm-12  col-md-12  col-xl-12  col-lg-12'>
+                                <div class='alert alert-danger' role='alert'><i class='fa fa-exclamation-triangle aria-hidden='true'></i> {$_SESSION["msg_error"]}</div>
+                            </div></div>
+                        ";
+                    } else if (!empty($_SESSION["msg_sucess"])) {
+                        echo "<div class='row'>
+                            <div class='col-sm-12  col-md-12  col-xl-12  col-lg-12'>
+                                <div class='alert alert-success' role='alert'> <i class='fa fa-check-circle-o' aria-hidden='true'></i> {$_SESSION["msg_sucess"]}</div>
+                            </div></div>
+                        ";
+                    } ?>
+
+
                 </div>
 
             </div>

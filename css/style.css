@@ -1172,7 +1172,9 @@ li#texto-estilo span {
   margin-left: 10px !important;
   margin-right: 30px !important;
 }
-
+.alert{
+  margin-top: 10px;
+}
 
 /* p#texto-prebotao {
   font-family: Raleway-Light;

@@ -3,9 +3,9 @@
 session_start();
 require_once(realpath(dirname(__FILE__) . "/../database/Connection.php"));
 //Temporalizador da Mensagem de erro no login
-// if (!empty($_SESSION['msg_error']) && (time() - $_SESSION['tempo_msg_error'] > 10)) {
-//     unset($_SESSION['msg_error']);
-// }
+ if (!empty($_SESSION['msg']) && (time() - $_SESSION['tempo_msg'] > 10)) {
+     unset($_SESSION['msg']);
+ }
 // if (!empty($_SESSION['usuarioAutenticado']) && !empty($_SESSION['manterConectado'])) {
 //     $usuario = $_SESSION['usuarioAutenticado'];
 //     if ($usuario['nivelAcesso'] == 1) {
