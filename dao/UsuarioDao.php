@@ -49,7 +49,7 @@ class UsuarioDao
             $statement->execute();
         }
     }
-    function buscarUsuario(UsuarioModel $modelo)
+    function fazerLogin(UsuarioModel $modelo)
     {
         $_SESSION['manterConectado'] = $modelo->getManterLogin();
         $sql = "SELECT * FROM `usuario` WHERE `nomeUsuario` = :nomeUsuario OR `email`=:nomeUsuario";

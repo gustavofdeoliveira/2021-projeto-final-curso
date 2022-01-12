@@ -909,6 +909,7 @@ main#telas-navbar {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 30px;
 }
 
 p#titulo-criar-publicacao {
@@ -929,22 +930,21 @@ p#titulo-criar-publicacao {
 }
 
 select#select-termo {
-  min-width: 430px;
-  height: 31px;
+  min-width: 100px;
+  width: 100%;
+  height: 38px;
   border: 1px solid var(--cor_vermelha);
   border-radius: 200px;
   font-family: Raleway-Light;
   color: var(--cor_vermelha);
   padding: 0px 10px !important;
-  margin-left: 15px;
-  margin-top: 10px;
   -webkit-appearance: none;
   -moz-appearance: none;
   background: transparent;
   background-image: url("data:image/svg+xml;utf8,<svg fill='rgb(175, 51, 32)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
   background-repeat: no-repeat;
   background-position-x: 98%;
-  background-position-y: 2px;
+  background-position-y: 7px;
   stroke: var(--cor_vermelha);
 }
 
@@ -978,12 +978,18 @@ p#texto-alerta {
   word-break: break-word;
 }
 
-.ck .ck-icon .ck-button__icon{
-stroke: var(--cor_branca);
-fill: var(--cor_branca);
+.ck.ck-icon {
+  stroke: unset !important;
+  fill: var(--cor_branca) !important;
 }
+
 .ck.ck-reset_all, .ck.ck-reset_all * {
-  color: var(--cor_vermelha) !important;
+  color: var(--cor_branca) !important;
+}
+
+.ck .ck-button .ck-off .ck-dropdown__button svg {
+  fill: var(--cor_branca) !important;
+  stroke: var(--cor_branca) !important;
 }
 
 .ck.ck-toolbar {
@@ -1049,6 +1055,8 @@ p strong {
 .input-imagem {
   border: 1px solid var(--cor_vermelha);
   border-radius: 200px 0px 0px 200px !important;
+  min-height: unset !important;
+  height: 38px;
 }
 
 .btn.btn-primary {
@@ -1079,15 +1087,12 @@ p#text-revisar-publicacão {
   line-height: 35px;
   font-family: Raleway-Light;
   color: var(--cor_verde) !important;
-
-
-
 }
+
 .btn-publicar {
   color: var(--cor_branca) !important;
   background-color: var(--cor_verde) !important;
   border-color: var(--cor_verde) !important;
-
   width: 100% !important;
   height: 95px;
   font-family: Raleway-Black;
@@ -1099,7 +1104,7 @@ p#text-revisar-publicacão {
   text-align: center;
 }
 
-p#titulo-cadastrar-rede{
+p#titulo-cadastrar-rede {
   font-size: 65px;
   line-height: 52px;
   font-family: Raleway-Black;
@@ -1108,24 +1113,75 @@ p#titulo-cadastrar-rede{
   word-break: break-word;
 }
 
-p#consideracao{
+p#consideracao {
   font-size: 45px;
   line-height: 45px;
   font-family: Raleway-Black;
   color: var(--cor_verde) !important;
 }
 
-li#texto-estilo{
+li#texto-estilo {
   font-size: 25px;
   line-height: 32px;
   font-family: Raleway-Light;
   color: var(--cor_verde) !important;
+  word-break: break-word;
 }
 
-li#texto-estilo span{
+li#texto-estilo span {
   font-size: 25px;
   line-height: 32px;
   font-family: Raleway-Black;
   color: var(--cor_verde) !important;
 }
- 
+
+.btn-adicionar {
+  color: var(--cor_branca) !important;
+  background-color: var(--cor_verde) !important;
+  border-color: var(--cor_verde) !important;
+  width: 100% !important;
+  height: 45px;
+  font-family: Raleway-Black;
+  font-size: 35px !important;
+  border-radius: 100PX !important;
+  padding: unset !important;
+  line-height: 31px !important;
+  margin-bottom: 35px;
+  text-align: center;
+}
+.btn-adicionar-termo{
+  color: var(--cor_branca) !important;
+  background-color: var(--cor_verde) !important;
+  border-color: var(--cor_verde) !important;
+  width: 100% !important;
+  height: 45px;
+  font-family: Raleway-Black;
+  font-size: 35px !important;
+  border-radius: 100PX !important;
+  padding: unset !important;
+  line-height: 31px !important;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.tipo-termo {
+  font-family: Raleway-Light;
+  color: var(--cor_vermelha);
+  font-size: 18px;
+  word-break: unset;
+  margin-left: 10px !important;
+  margin-right: 30px !important;
+}
+
+
+/* p#texto-prebotao {
+  font-family: Raleway-Light;
+  color: var(--cor_verde);
+  font-size: 35px;
+  text-align: center;
+  width: 2000px;
+  height: 50px;
+  font-family: Raleway-Bold;
+  font-size: 33.35px !important;
+  border-radius: 100PX !important;
+} */

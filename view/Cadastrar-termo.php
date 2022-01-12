@@ -151,10 +151,9 @@ require_once("../dao/UsuarioDao.php");
         <form>
             <div class="row">
                 <div class="col-xl-12">
-                    <p id="titulo-cadastrar-rede">cadastrar rede de termos</p>
+                    <p id="titulo-cadastrar-rede">cadastrar termo</p>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="form-group">
@@ -169,9 +168,22 @@ require_once("../dao/UsuarioDao.php");
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="form-group">
-                                <label class="form-label label-criar-publicacao" for="descricao">breve descrição</label>
+                                <label class="form-label label-criar-publicacao" for="nome">tipo do termo</label>
                                 <div class="input-group">
-                                    <textarea required class="textarea form-control" rows="4" type="text" name="descricao"></textarea>
+                                    <input id="tipoConceito" name="conceito" value="conceito" type="checkbox">
+                                    <label for="tipoConceito" class="tipo-termo">conceito</label>
+                                    <input id="tipoTeorico" name="teórico" value="teórico" type="checkbox">
+                                    <label for="tipoTeorico" class="tipo-termo">teórico</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="form-group">
+                                <label class="form-label label-criar-publicacao" for="definição">definição</label>
+                                <div class="input-group">
+                                    <textarea required class="textarea form-control" rows="4" type="text" name="definição"></textarea>
                                     <span class="error"></span>
                                 </div>
                             </div>
@@ -180,9 +192,9 @@ require_once("../dao/UsuarioDao.php");
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="form-group">
-                                <label class="form-label label-criar-publicacao" for="outrostermos">termos incluídos</label>
+                                <label class="form-label label-criar-publicacao" for="variacaoNome">variações de nome <span id="texto-opcional">(opcional)</span></label>
                                 <div class="input-group">
-                                    <textarea required class="textarea form-control" rows="6" type="text" name="outrostermos"></textarea>
+                                    <input required class="input-criar-conta form-control" type="text" name="variacaoNome">
                                     <span class="error"></span>
                                 </div>
                             </div>
@@ -198,18 +210,18 @@ require_once("../dao/UsuarioDao.php");
                     <div class="row">
                         <div class="col-xl-12">
                             <ul>
-                                <li id="texto-estilo">verifique se a rede de termos que você quer cadastrar <span>já não foi cadastrada</span></li>
+                                <li id="texto-estilo">verifique se o termo que você quer cadastrar <span>já não foi cadastrada</span></li>
                                 <li id="texto-estilo"><span>revise seus textos</span>, eles devem ser redigidos na norma-padrão da língua portuguesa</li>
-                                <li id="texto-estilo">certifique-se de que os termos incluídos na rede <span>estejam correlacionados e que essa relação seja compreensível</span> a partir dos </li>
-                                <li id="texto-estilo">seus textos devem ter <span>caráter didático e descritivo</span>, abstendo-se de opiniões</li>
+                                <li id="texto-estilo">ao cadastrar um teórico, utilize a estrutura <span>[Sobrenome, Nome]</span></li>
+                                <li id="texto-estilo">seu texto deve ter <span>caráter didático e descritivo</span>, abstendo-se de opiniões</li>
                             </ul>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xl-10 col-sm-12 col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-offset-0">
-                        <input type="hidden" name="acao" value="redeTermos">
-                        <input class="btn-adicionar btn btn-lg" type="submit" value="adicionar rede">
-                    </div>
+                            <input type="hidden" name="acao" value="redeTermos">
+                            <input class="btn-adicionar-termo btn btn-lg" type="submit" value="adicionar termo">
+                        </div>
                     </div>
                 </div>
 

@@ -149,126 +149,90 @@ require_once("../dao/UsuarioDao.php");
     </div>
   </header>
   <main id="telas-navbar">
-    <div class="row">
-      <div class="col-xl-12">
-        <p id="titulo-criar-publicacao">criar publicação</p>
-        <div class="row">
-          <div class="col-xl-12">
-            <div class="form-group">
-              <label class="form-label label-criar-publicacao" for="titulo">título</label>
-              <div class="input-group">
-                <input required class="input-criar-conta form-control" type="text" name="titulo">
-                <span class="error"></span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xl-6">
-            <div class="form-group" x-data="{ fileName: '' }">
-              <label class="form-label label-criar-categoria" for="imagem">imagem</label>
-              <div class="input-group">
-                <input type="file" x-ref="file" @change="fileName = $refs.file.files[0].name" name="img[]" class="d-none">
-                <input type="text" class="input-imagem form-control form-control-lg" x-model="fileName">
-                <button class="browse btn btn-primary px-4" type="button" x-on:click.prevent="$refs.file.click()"><i class="fa fa-image"></i> Carregar</button>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-6">
-            <div class="form-group">
-              <label class="form-label label-criar-publicacao" for="nomeAutor">nome do autor</label>
-              <div class="input-group">
-                <input required class="input-criar-conta form-control" type="text" name="nomeAutor">
-                <span class="error"></span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xl-12">
-            <div class="input-group">
-              <label class="form-label label-criar-categoria" for="categoria">categoria</label>
-              <select class="custom-select" id="select-termo" name="categoria">
-                <option selected>Selecionar...</option>
-                <option value="1">Publicacão Conteudista</option>
-                <option value="2">Atualidade Sociológica</option>
-                <!-- <option value="3">Three</option> na verdade esse campo não deveria estar aqui kkkk, 
-                tendo em vista que o outro tipo de publicação (Resumo), deve ser feito por meio do 
-                Meu Espaço e tem uma tela própria -->
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xl-12">
-            <div class="form-group">
-              <label class="form-label label-criar-publicacao" for="resumo">resumo</label>
-              <div class="input-group">
-                <textarea required class="textarea input-criar-conta form-control" type="text" name="resumo"></textarea>
-                <span class="error"></span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xl-12">
-            <div class="form-group">
-              <label class="form-label label-criar-publicacao" for="termos">rede de termos <span id="texto-opcional">(opcional)</span></label>
-              <div class="input-group">
-                <input class="input-criar-conta form-control" type="text" name="termos">
-                <p id="texto-alerta">deixar esse campo vazio pode reduzir o alcance da sua publicação</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xl-12">
-            <div class="form-group">
-              <label class="form-label label-criar-publicacao" for="termos">texto</label>
-              <div class="input-group">
-                <textarea required class=" form-control" type="text" id="texto" name="texto"></textarea>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <p id="text-revisar-publicacão">revise seus textos<br>antes de publicar</p>
-        </div>
-        <div class="row">
-          <div class="col-md-6 col-sm-8 col-lg-6 col-lg-offset-3 col-xl-4 col-xl-offset-4 col-sm-offset-2 col-md-offset-3">
-            <input type="hidden" name="acao" value="publicacao">
-            <input class="btn-publicar btn btn-lg" type="submit" value="publicar">
-          </div>
-        </div>
-      </div>
-    </div>
-        <div class="row">
-          <div class="col-xl-12">
-            <div class="form-group">
-              <label class="form-label label-criar-publicacao" for="texto">texto</label>
-              <div class="input-group">
-                <!-- wysiwyg --> 
-                <input class="input-criar-conta form-control" type="text" name="termos">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- REVISE SEUS TEXTOS + BOTÃO
-    <div class="row">
-          <div class="col-lg-8 col-lg-offset-2 col-md-offset-1 col-md-10 col-xl-8 col-xl-offset-2 col-sm-12 col-sm-offset-0">
-              <div class="row">
-                <div class="col-sm-6 col-sm-offset-3 col-md-offset-2 col-md-8 col-xl-5 col-lg-6 col-lg-8 col-lg-offset-2 col-xl-offset-0">
-                  <p id="texto-prebotao"> revise seus textos antes de publicar </p>                   
-                    <input class="btn-publicar" type="submit" value="Publicar">
+    <form>
+      <div class="row">
+        <div class="col-xl-12">
+          <p id="titulo-criar-publicacao">criar publicação</p>
+          <div class="row">
+            <div class="col-xl-12">
+              <div class="form-group">
+                <label class="form-label label-criar-publicacao" for="titulo">título</label>
+                <div class="input-group">
+                  <input required class="input-criar-conta form-control" type="text" name="titulo">
+                  <span class="error"></span>
                 </div>
               </div>
+            </div>
           </div>
-    </div> 
-     -->                                
+          <div class="row">
+            <div class="col-xl-6 col-lg-6">
+              <div class="form-group" x-data="{ fileName: '' }">
+                <label class="form-label label-criar-categoria" for="imagem">imagem</label>
+                <div class="input-group">
+                  <input type="file" x-ref="file" @change="fileName = $refs.file.files[0].name" name="img[]" class="d-none">
+                  <input type="text" class="input-imagem form-control form-control-lg" x-model="fileName">
+                  <button class="browse btn btn-primary px-4" type="button" x-on:click.prevent="$refs.file.click()"><i class="fa fa-image"></i> Carregar</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-6 col-lg-6">
+              <div class="input-group">
+                <label class="form-label label-criar-categoria" for="categoria">categoria</label>
+                <select class="custom-select" id="select-termo" name="categoria">
+                  <option selected>Selecionar...</option>
+                  <option value="1">Publicacão Conteudista</option>
+                  <option value="2">Atualidade Sociológica</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xl-12">
+              <div class="form-group">
+                <label class="form-label label-criar-publicacao" for="resumo">resumo</label>
+                <div class="input-group">
+                  <textarea required class="textarea input-criar-conta form-control" type="text" name="resumo"></textarea>
+                  <span class="error"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xl-12">
+              <div class="form-group">
+                <label class="form-label label-criar-publicacao" for="termos">rede de termos <span id="texto-opcional">(opcional)</span></label>
+                <div class="input-group">
+                  <input class="input-criar-conta form-control" type="text" name="termos">
+                  <p id="texto-alerta">deixar esse campo vazio pode reduzir o alcance da sua publicação</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xl-12">
+              <div class="form-group">
+                <label class="form-label label-criar-publicacao" for="termos">texto</label>
+                <div class="input-group">
+                  <textarea required class=" form-control" type="text" id="texto" name="texto"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <p id="text-revisar-publicacão">revise seus textos<br>antes de publicar</p>
+          </div>
+          <div class="row">
+            <div class="col-md-6 col-sm-8 col-lg-6 col-lg-offset-3 col-xl-4 col-xl-offset-4 col-sm-offset-2 col-md-offset-3">
+              <input type="hidden" name="acao" value="publicacao">
+              <input class="btn-publicar btn btn-lg" type="submit" value="publicar">
+            </div>
+          </div>
+        </div>
+      </div>
 
+
+
+    </form>
   </main>
   <script src="../plugins/build/ckeditor.js"></script>
   <script src="../plugins/build/ckeditor.js.map"></script>

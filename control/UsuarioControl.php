@@ -38,7 +38,7 @@ class UsuarioControl
             if(!empty($_POST["manterLogin"])){
                 $this->modelo->setManterLogin($_POST["manterLogin"]);
             }
-            $this->dao->buscarUsuario($this->modelo);
+            $this->dao->fazerLogin($this->modelo);
             //Guarda os dados do usuario
             $_SESSION['usuarioAutenticado'];
             //teste nivel de acesso do usuario
