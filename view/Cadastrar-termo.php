@@ -217,13 +217,6 @@ require_once("../dao/TermoDao.php");
                             </ul>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-xl-10 col-sm-12 col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-offset-0">
-                            <input type="hidden" name="acao" value="inserir">
-                            <input class="btn-adicionar-termo btn btn-lg" type="submit" value="adicionar termo">
-                        </div>
-                    </div>
-
                     <?php
 
                     if (!empty($_SESSION["msg_error"])) {
@@ -239,10 +232,13 @@ require_once("../dao/TermoDao.php");
                             </div></div>
                         ";
                     } ?>
-
-
+                    <div class="row">
+                        <div class="col-xl-10 col-sm-12 col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-offset-0">
+                            <input type="hidden" name="acao" value="inserir">
+                            <input class="btn-adicionar-termo btn btn-lg" type="submit" value="adicionar termo">
+                        </div>
+                    </div>
                 </div>
-
             </div>
         </form>
     </main>

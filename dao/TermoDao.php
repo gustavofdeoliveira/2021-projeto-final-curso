@@ -40,7 +40,7 @@ class TermoDao
             $statement = $this->conn->prepare($sql);
             $statement->execute();
             $_SESSION["tempo_msg"] = time();
-            return $_SESSION["msg_sucess"] = "Termo cadastrado";
+            return $_SESSION["msg_sucess"] = "Termo cadastrado com sucesso!";
         }
     }
 }

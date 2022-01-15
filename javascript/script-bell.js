@@ -31,14 +31,15 @@ $(document).ready(function () {
             document.documentElement.classList.remove("menu-ativo");
         }
     }
-    $('input.checkgroup').click(function(){
+    $('input.checkgroup').click(function () {
         debugger
-       if($(this).is(":checked")){
-          $('input.checkgroup').attr('disabled',true);
-          $(this).removeAttr('disabled');
-       }else{
-          $('input.checkgroup').removeAttr('disabled');
-       }
+        if ($(this).is(":checked")) {
+            $('input.checkgroup').attr('disabled', true);
+            $(this).removeAttr('disabled');
+        } else {
+            $('input.checkgroup').removeAttr('disabled');
+        }
     })
 
-})
+    
+});

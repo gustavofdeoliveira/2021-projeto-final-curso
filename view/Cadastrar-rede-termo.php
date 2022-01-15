@@ -1,6 +1,6 @@
 <?php
 include_once("../database/Connection.php");
-require_once("../dao/UsuarioDao.php");
+require_once("../dao/RedeTermosDao.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -148,12 +148,12 @@ require_once("../dao/UsuarioDao.php");
         </div>
     </header>
     <main id="telas-navbar">
-        <form>
+        <form action="../control/RedeTermosControl.php" method="POST" class="form-group">
             <div class="row">
                 <div class="col-xl-12">
                     <p id="titulo-cadastrar-rede">cadastrar rede de termos</p>
                 </div>
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 colunas-esquerda">
 
                     <div class="row">
                         <div class="col-xl-12">
@@ -179,17 +179,25 @@ require_once("../dao/UsuarioDao.php");
                     </div>
                     <div class="row">
                         <div class="col-xl-12">
-                            <div class="form-group">
-                                <label class="form-label label-criar-publicacao" for="outrostermos">termos incluídos</label>
-                                <div class="input-group">
-                                    <textarea required class="textarea form-control" rows="6" type="text" name="outrostermos"></textarea>
-                                    <span class="error"></span>
+                            <form action="../control/TermoControl.php" method="POST" class="form-group" id="pesquisa-temo">
+                                <div class="form-group">
+                                    <label class="form-label label-criar-publicacao" for="outrostermos">termos incluídos</label>
+
+                                    <div class="input-group">
+                                        <div class="balao-container" id="termos-container"></div>
+                                        <input class="input-criar-conta termos form-control" rows="6" onkeyup="carrega_termos(this.value)" type="text" id="outrostermos" name="outrostermos">
+                                        <span id="resultado_pesquisa"></span>
+                                        <input required type="hidden" name="termos" class="form-control" id="termos">
+                                        <span class="error" id="error"></span>
+                                    </div>
+
+
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 colunas-direita">
                     <div class="row">
                         <div class="col-xl-12">
                             <p id="consideracao">considerações<br>importantes</p>
@@ -205,14 +213,28 @@ require_once("../dao/UsuarioDao.php");
                             </ul>
                         </div>
                     </div>
+                    <?php
+
+                    if (!empty($_SESSION["msg_error"])) {
+                        echo "<div class='row'>
+                            <div class='col-sm-12  col-md-12  col-xl-12  col-lg-12'>
+                                <div class='alert alert-danger' role='alert'><i class='fa fa-exclamation-triangle aria-hidden='true'></i> {$_SESSION["msg_error"]}</div>
+                            </div></div>
+                        ";
+                    } else if (!empty($_SESSION["msg_sucess"])) {
+                        echo "<div class='row'>
+                            <div class='col-sm-12  col-md-12  col-xl-12  col-lg-12'>
+                                <div class='alert alert-success' role='alert'> <i class='fa fa-check-circle-o' aria-hidden='true'></i> {$_SESSION["msg_sucess"]}</div>
+                            </div></div>
+                        ";
+                    } ?>
                     <div class="row">
                         <div class="col-xl-10 col-sm-12 col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-offset-0">
-                        <input type="hidden" name="acao" value="redeTermos">
-                        <input class="btn-adicionar btn btn-lg" type="submit" value="adicionar rede">
-                    </div>
+                            <input type="hidden" name="acao" value="redeTermos">
+                            <input class="btn-adicionar btn btn-lg" type="submit" value="adicionar rede">
+                        </div>
                     </div>
                 </div>
-
             </div>
         </form>
     </main>
