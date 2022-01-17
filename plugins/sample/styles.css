@@ -5,7 +5,7 @@
 
 :root {
 	--ck-sample-base-spacing: 2em;
-	--ck-sample-color-white: #fff;
+	--ck-sample-color-white: #AF3320;
 	--ck-sample-color-green: #279863;
 	--ck-sample-color-blue: #1a9aef;
 	--ck-sample-container-width: 1285px;
@@ -14,6 +14,23 @@
 	--ck-sample-editor-z-index: 10;
 }
 
+:root {
+	--cor_branca: #FFFFF8;
+	--cor_vermelha: #AF3320;
+	--cor_verde: #1B3A02;
+	--logo: url(../image/Logo-claro.png);
+	--background: url(../image/Bg-Login-Claro.png) center center no-repeat fixed;
+	--color_preta: #000000;
+  }
+  
+  .darkmode {
+	--cor_branca: #121212;
+	--cor_vermelha: #BE1900;
+	--cor_verde: #4A9B0B;
+	--logo: url('../image/Logo-claro.png');
+	--background: url(../image/Bg-Login-Noturno.png) center center no-repeat fixed;
+	--color_preta: #FFFFFF;
+  }
 /* --------- EDITOR STYLES  ---------------------------------------------------------------------------------------- */
 
 .editor__editable,
@@ -143,7 +160,7 @@ body[data-editor='DecoupledDocumentEditor'] .sidebar {
 }
 
 #sidebar-display-toggle:hover {
-	color: hsl( 0, 0%, 30% );
+	color: var(--cor_verde);
 	cursor: pointer;
 }
 
@@ -225,7 +242,7 @@ body[data-editor='InlineEditor'] .collaboration-demo__row {
 
 .collaboration-demo__topbar .btn:focus,
 .collaboration-demo__topbar .btn:hover {
-	border-color: var( --ck-sample-color-blue );
+	border-color: var( --cor_verde );
 }
 
 .collaboration-demo__share {

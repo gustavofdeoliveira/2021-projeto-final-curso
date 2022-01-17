@@ -458,7 +458,6 @@ a#btn-criar-conta-login {
   border-color: var(--cor_verde);
   border-radius: 0px 200px 200px 0px !important;
   border-width: 1px 1px 1px 0px;
-
 }
 
 .navbar-input-busca::placeholder {
@@ -977,61 +976,21 @@ p#texto-alerta {
   margin-left: 10px;
   word-break: break-word;
 }
-
-.ck.ck-icon {
+.ck.ck-reset_all, .ck.ck-reset_all * svg{
   stroke: unset !important;
-  fill: var(--cor_branca) !important;
+  fill: unset !important;
+  color: var(--cor_branca);
 }
-
-.ck.ck-reset_all, .ck.ck-reset_all * {
-  color: var(--cor_branca) !important;
+.ck.ck-toolbar, .ck .ck-sticky-panel{
+  background-color: var(--cor_vermelha) !important;
 }
-
-.ck .ck-button .ck-off .ck-dropdown__button svg {
-  fill: var(--cor_branca) !important;
-  stroke: var(--cor_branca) !important;
+.ck .ck-button .ck-off:hover{
+  background-color: var(--cor_verde);
 }
-
-.ck.ck-toolbar {
-  background: var(--cor_vermelha) !important;
-  border: 1px solid var(--cor_vermelha) !important;
-  border-radius: 40px 40px 0px 0px !important;
-  padding: 0px 15px !important;
+.ck.ck-editor__main>.ck-editor__editable:not(.ck-focused){
+  border-radius: 0px 0px 40px 40px;
+  border-color: var(--cor_vermelha);
 }
-
-.ck.ck-toolbar .ck.ck-toolbar__separator {
-  background: var(--cor_branca) !important;
-}
-
-.ck .ck-editor__main {
-  border: 1px solid var(--cor_vermelha) !important;
-  border-top-color: var(--cor_branca) !important;
-  background-color: var(--cor_branca) !important;
-  border-radius: 0px 0px 40px 40px !important;
-  min-height: 250px !important;
-  border-top: transparent !important;
-}
-
-.ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {
-  border-color: transparent !important;
-  min-height: 250px !important;
-  border-radius: 0px 0px 40px 40px !important;
-  border-top: transparent !important;
-}
-
-.ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-focused {
-  outline: none !important;
-  border: var(--cor_verde) !important;
-  box-shadow: rgba(0, 0, 0, 0.1), 0 0 !important;
-  min-height: 250px !important;
-  border-radius: 0px 0px 40px 40px !important;
-}
-
-.ck.ck-editor__main>.ck-editor__editable {
-  background: var(--cor_branca) !important;
-  border-radius: 0;
-}
-
 .ck.ck-editor {
   width: 100% !important;
 }
@@ -1238,6 +1197,22 @@ span#resultado_pesquisa{
 .colunas-direita {
   width: 47.5% !important;
   margin-left: auto !important;
+}
+
+.span-icon-buscar-usuarios {
+  color: var(--cor_vermelha) !important;
+  font-size: 40px !important;
+  background-color: var(--cor_branca) !important;
+  border-radius: 200px 0px 0px 200px !important;
+  border-width: 1px 0px 1px 1px !important;
+  border-color: var(--cor_vermelha) !important;
+}
+
+.navbar-input-busca-usuarios {
+  height: 69px;
+  border-color: var(--cor_vermelha);
+  border-radius: 0px 200px 200px 0px !important;
+  border-width: 1px 1px 1px 0px;
 }
 
 /* p#texto-prebotao {

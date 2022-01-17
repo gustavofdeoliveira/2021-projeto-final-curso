@@ -44,7 +44,7 @@ class UsuarioDao
             }
         } else if (empty($statement->rowCount())) {
             $sql = "INSERT INTO `usuario`(`nomeCompleto`,`nomeUsuario`,`senha`,`nivelAcesso`,`email`,`dataInclusao`) 
-             VALUES ( '" . $modelo->getNomeCompleto() . "', '" . $modelo->getNomeUsuario() . "', SHA1('" . $modelo->getSenha() . "'), 1,'" . $modelo->getEmail() . "','" . $modelo->getFotoAvatar() . "',CURRENT_DATE())";
+             VALUES ( '" . $modelo->getNomeCompleto() . "', '" . $modelo->getNomeUsuario() . "', SHA1('" . $modelo->getSenha() . "'), 3,'" . $modelo->getEmail() . "','" . $modelo->getFotoAvatar() . "',CURRENT_DATE())";
             $statement = $this->conn->prepare($sql);
             $statement->execute();
         }
