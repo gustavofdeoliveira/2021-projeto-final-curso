@@ -4,7 +4,7 @@ require_once(realpath(dirname(__FILE__) . "/../database/Connection.php"));
 
 $conn = Connection::conectar();
 
-$query_usuarios = "SELECT `idUsuario`,`nomeCompleto`,`nivelAcesso`,`dataInclusao` FROM `usuario` ORDER BY `idUsuario` ASC";
+$query_usuarios = "SELECT `idUsuario`,`nomeCompleto`,`nivelAcesso`,`dataInclusao` FROM `usuario` ORDER BY `idUsuario` DESC";
 $result = $conn->prepare($query_usuarios);
 $result->execute();
 if (($result) and ($result->rowCount() != 0)) {

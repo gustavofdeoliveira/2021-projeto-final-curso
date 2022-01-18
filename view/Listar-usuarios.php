@@ -175,13 +175,13 @@ require_once("../dao/UsuarioDao.php");
                                     <p id="listar-balao-nome">nome</p>
                                 </div>
                                 <div class="col-xl-3 col-lg-3 col-md-3">
-                                    <p id="listar-balao">nível de acesso</p>
+                                    <p id="listar-balao-nivel">nível de acesso</p>
                                 </div>
                                 <div class="col-xl-3 col-lg-3 col-md-3">
-                                    <p id="listar-balao">data de cadastro</p>
+                                    <p id="listar-balao-data">data de cadastro</p>
                                 </div>
                                 <div class="col-xl-1 col-lg-3 col-md-3">
-                                    
+                                    <div></div>
                                 </div>
                             </div>
                         </div>

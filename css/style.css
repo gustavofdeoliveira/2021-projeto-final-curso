@@ -377,7 +377,7 @@ a#fazer-login {
   border: 1px solid var(--cor_vermelha);
   margin-left: 5%;
   border-width: 1px 1px 1px 0px;
-  border-top-color:var(--cor_vermelha) ;
+  border-top-color: var(--cor_vermelha);
 }
 
 .input-group-nomeUsuario {
@@ -978,21 +978,26 @@ p#texto-alerta {
   margin-left: 10px;
   word-break: break-word;
 }
-.ck.ck-reset_all, .ck.ck-reset_all * svg{
+
+.ck.ck-reset_all, .ck.ck-reset_all * svg {
   stroke: unset !important;
   fill: unset !important;
   color: var(--cor_branca);
 }
-.ck.ck-toolbar, .ck .ck-sticky-panel{
+
+.ck.ck-toolbar, .ck .ck-sticky-panel {
   background-color: var(--cor_vermelha) !important;
 }
-.ck .ck-button .ck-off:hover{
+
+.ck .ck-button .ck-off:hover {
   background-color: var(--cor_verde);
 }
-.ck.ck-editor__main>.ck-editor__editable:not(.ck-focused){
+
+.ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {
   border-radius: 0px 0px 40px 40px;
   border-color: var(--cor_vermelha);
 }
+
 .ck.ck-editor {
   width: 100% !important;
 }
@@ -1162,7 +1167,7 @@ span#resultado_pesquisa ul li {
   width: 100%;
 }
 
-span#resultado_pesquisa{
+span#resultado_pesquisa {
   width: 95%;
   margin-left: 2.5%;
   z-index: 100;
@@ -1217,6 +1222,7 @@ span#resultado_pesquisa{
   border-width: 1px 1px 1px 0px;
   border-top-color: var(--cor_vermelha) !important;
 }
+
 .navbar-input-busca-usuarios::placeholder {
   font-family: Raleway-Medium-Italic;
   font-size: 26.5px !important;
@@ -1224,7 +1230,8 @@ span#resultado_pesquisa{
   color: var(--cor_vermelha) !important;
   height: 100% !important;
 }
-p#listar-balao, p#listar-balao-codigo{
+
+p#listar-balao-codigo, p#listar-balao-nome, p#listar-balao-nivel, p#listar-balao-data {
   width: 100%;
   color: var(--cor_branca) !important;
   font-family: Raleway-Black !important;
@@ -1236,13 +1243,30 @@ p#listar-balao, p#listar-balao-codigo{
   border-radius: 80px;
 }
 
-p#texto-codigo{
+p#texto-codigo {
   font-family: Raleway-Light !important;
   font-size: 25px !important;
   line-height: 24px !important;
   color: var(--color_preta) !important;
   text-align: center;
 }
+
+p#texto-nome {
+  font-family: Raleway-Bold !important;
+  font-size: 25px !important;
+  line-height: 24px !important;
+  color: var(--color_preta) !important;
+  text-align: center;
+}
+
+p#texto-codigo {
+  font-family: Raleway-Light !important;
+  font-size: 23.74px !important;
+  line-height: 23px !important;
+  color: var(--color_preta) !important;
+  text-align: center;
+}
+
 /* p#texto-prebotao {
   font-family: Raleway-Light;
   color: var(--cor_verde);

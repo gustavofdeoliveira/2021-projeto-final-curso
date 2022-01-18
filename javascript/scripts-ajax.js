@@ -1,16 +1,28 @@
 
- $(document).ready(function () {
-     debugger
-     $.post('../ajax/listar-usuarios.php', function (resposta) {
-         resultado = JSON.parse(resposta);
-         for (a = 0; a <= resultado.length; a++) {
-             if (document.getElementById('listar-balao-codigo')) {
-                 document.getElementById('listar-balao-codigo').insertAdjacentHTML('afterend', '<div class="row"><p id="texto-codigo">' + resultado[a]['id'] + '</p></div>')
-             }
-         }
-     })
+$(document).ready(function () {
+    debugger
+    $.post('../ajax/listar-usuarios.php', function (resposta) {
+        resultado = JSON.parse(resposta);
+        for (a = 0; a <= resultado.length; a++) {
+            if (document.getElementById('listar-balao-codigo')) {
+                document.getElementById('listar-balao-codigo').insertAdjacentHTML('afterend', '<div class="row"><p id="texto-codigo">' + resultado[a]['id'] + '</p></div>');
+                document.getElementById('listar-balao-nome').insertAdjacentHTML('afterend', '<div class="row"><p id="texto-nome">' + resultado[a]['nome'] + '</p></div>');
+                if (resultado[a]['nivel'] == 1) {
+                    document.getElementById('listar-balao-nivel').insertAdjacentHTML('afterend', '<div class="row"><p id="texto-codigo">' + resultado[a]['nivel'] + ' - Administrador</p></div>');
+                } if (resultado[a]['nivel'] == 2) {
+                    document.getElementById('listar-balao-nivel').insertAdjacentHTML('afterend', '<div class="row"><p id="texto-codigo">' + resultado[a]['nivel'] + ' - Professor</p></div>');
+                } if (resultado[a]['nivel'] == 3) {
+                    document.getElementById('listar-balao-nivel').insertAdjacentHTML('afterend', '<div class="row"><p id="texto-codigo">' + resultado[a]['nivel'] + ' - Aluno</p></div>');
+                }
+                debugger
+                let data = new Date(resultado[a]['dataInclusao']);
+                let dataInclusao = ((data.getDate())) + "/" + ((data.getMonth() + 1)) + "/" + data.getFullYear();
+                document.getElementById('listar-balao-data').insertAdjacentHTML('afterend', '<div class="row"><p id="texto-codigo">' + dataInclusao + '</p></div>');
+            }
+        }
+    })
 
- })
+})
 
 async function carrega_termos(value) {
 
@@ -37,7 +49,7 @@ async function carrega_termos(value) {
 var ids = [];
 var result
 var controleCampo = 1;
-function get_id_usuario(id,nome) {
+function get_id_usuario(id, nome) {
     document.getElementById('termos-container').insertAdjacentHTML('afterbegin', '<div class="balao" id="' + id + '" value="' + nome + '">' + nome + '<div class="balao-fechar"  onclick="fecharBalao(' + id + ')"><i class="fa fa-times" aria-hidden="true"></i></div></div>');
     ids.push(id);
     debugger
