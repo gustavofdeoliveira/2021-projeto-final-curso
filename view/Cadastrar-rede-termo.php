@@ -17,9 +17,10 @@ require_once("../dao/RedeTermosDao.php");
     <link rel="stylesheet" href="../css/bootstrap.css.map">
     <link rel="shortcut icon" href="../image/Logo-claro.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="../javascript/jquery.js"></script>
     <script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="../javascript/jquery.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
+    
 </head>
 
 
@@ -181,11 +182,11 @@ require_once("../dao/RedeTermosDao.php");
                         <div class="col-xl-12">
                             <form action="../control/TermoControl.php" method="POST" class="form-group" id="pesquisa-temo">
                                 <div class="form-group">
-                                    <label class="form-label label-criar-publicacao" for="outrostermos">termos incluídos</label>
+                                    <label class="form-label label-criar-publicacao" for="termos_incluidos">termos incluídos</label>
 
                                     <div class="input-group">
                                         <div class="balao-container" id="termos-container"></div>
-                                        <input class="input-criar-conta termos form-control" rows="6" onkeyup="carrega_termos(this.value)" type="text" id="outrostermos" name="outrostermos">
+                                        <input class="input-criar-conta termos form-control" rows="6" onkeyup="carrega_termos(this.value)" type="text" name="termos_incluidos" id="termos_incluidos">
                                         <span id="resultado_pesquisa"></span>
                                         <input required type="hidden" name="termos" class="form-control" id="termos">
                                         <span class="error" id="error"></span>
@@ -243,6 +244,7 @@ require_once("../dao/RedeTermosDao.php");
     </script>
     <script src="../javascript/scripts.js"></script>
     <script src="../javascript/script-bell.js"></script>
+    <script src="../javascript/scripts-ajax.js"></script>
 </body>
 
 </html>

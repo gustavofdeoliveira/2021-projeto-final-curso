@@ -131,63 +131,6 @@ darkModeToggle.addEventListener('click', () => {
     }
 });
 
-async function carrega_termos(value) {
-
-    if (value.length >= 3) {
-        const termos = await fetch('../ajax/busca-termo.php?termo=' + value);
-        const resposta = await termos.json();
-
-        var html = "<ul class='list-group'>";
-
-        if (resposta['erro']) {
-            html += "<li class='list-group-item disabled'>" + resposta['msg'] + "</li>";
-        } else {
-            for (i = 0; i < resposta['dados'].length; i++) {
-                html += "<li class='list-group-item list-group-item-action' onclick='get_id_usuario(" + JSON.stringify(resposta['dados'][i].nome) + ")'>" + resposta['dados'][i].nome + "</li>";
-            }
-
-        }
-        html += "</ul>";
-
-        document.getElementById('resultado_pesquisa').innerHTML = html;
-    }
-}
-
-var nomes = [];
-var result
-var controleCampo = 1;
-function get_id_usuario(nome) {
-    document.getElementById('termos-container').insertAdjacentHTML('afterbegin', '<div class="balao" id="termo' + controleCampo + '" value="' + nome + '">' + nome + '<div class="balao-fechar"  onclick="fecharBalao(' + controleCampo + ')"><i class="fa fa-times" aria-hidden="true"></i></div></div>')
-    controleCampo;
-    nomes.push(nome);
-    debugger
-    document.getElementById("termos").value =  JSON.stringify(nomes);
-    document.getElementsByName("termos").value = JSON.stringify(nomes);
-    document.getElementById("outrostermos").value = '';
-}
-
-const fechar = document.querySelector('#outrostermos');
-
-document.addEventListener('click', function (event) {
-    const validar_clique = fechar.contains(event.target);
-    if (!validar_clique) {
-        document.getElementById('resultado_pesquisa').innerHTML = '';
-    }
-});
-
-function fecharBalao(id) {
-    debugger
-    termos = JSON.parse(document.getElementsByName("termos").value);
-    var buscar = document.getElementById('termo' + id).textContent;
-    var indice = termos.indexOf(buscar);
-    while (indice >= 0) {
-        termos.splice(indice, 1);
-        indice = termos.indexOf(buscar);
-    }
-    document.getElementsByName("termos").value = termos;
-    document.getElementById('termo' + id).remove();
-}
-
 //ocultar e mostrar senha
 function mostrar() {
     if ($('#show_hide_password input').attr("type") == "text") {
@@ -256,3 +199,5 @@ function validaSenha() {
     }
     return true;
 }
+
+

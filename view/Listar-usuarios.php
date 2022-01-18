@@ -18,6 +18,7 @@ require_once("../dao/UsuarioDao.php");
     <link rel="shortcut icon" href="../image/Logo-claro.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="../javascript/jquery.js"></script>
+    <script src="../javascript/scripts-ajax.js"></script>
     <script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
 </head>
@@ -153,13 +154,36 @@ require_once("../dao/UsuarioDao.php");
                 <div class="col-xl-12">
                     <p id="titulo-cadastrar-rede">listar usuários</p>
                     <div class="row">
-                        <div class="col-xl-12">
+                        <div class="col-xl-9 col-lg-9 col-lg-md-9 col-sm-12">
                         <form class="d-flex">
                             <div class="input-group">
                                 <span class="input-group-text span-icon-buscar-usuarios" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
                                 <input type="text" class="navbar-input-busca-usuarios form-control" placeholder="digite o nome do usuário" aria-describedby="basic-addon1">
                             </div>
                         </form>
+                        </div>
+                    </div>
+                    <div class="row d-flex">
+                        <div class="col-xl-12">
+                            <div class="row">
+                                <div class="col-xl-1 col-lg-3 col-md-3">
+                                    <p id="listar-balao-codigo" name="texto-codigo">id</p>
+
+                                    
+                                </div>
+                                <div class="col-xl-3 col-lg-3 col-md-3">
+                                    <p id="listar-balao-nome">nome</p>
+                                </div>
+                                <div class="col-xl-3 col-lg-3 col-md-3">
+                                    <p id="listar-balao">nível de acesso</p>
+                                </div>
+                                <div class="col-xl-3 col-lg-3 col-md-3">
+                                    <p id="listar-balao">data de cadastro</p>
+                                </div>
+                                <div class="col-xl-1 col-lg-3 col-md-3">
+                                    
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

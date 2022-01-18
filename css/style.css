@@ -377,6 +377,7 @@ a#fazer-login {
   border: 1px solid var(--cor_vermelha);
   margin-left: 5%;
   border-width: 1px 1px 1px 0px;
+  border-top-color:var(--cor_vermelha) ;
 }
 
 .input-group-nomeUsuario {
@@ -458,6 +459,7 @@ a#btn-criar-conta-login {
   border-color: var(--cor_verde);
   border-radius: 0px 200px 200px 0px !important;
   border-width: 1px 1px 1px 0px;
+  border-top-color: var(--cor_verde);
 }
 
 .navbar-input-busca::placeholder {
@@ -1209,12 +1211,38 @@ span#resultado_pesquisa{
 }
 
 .navbar-input-busca-usuarios {
-  height: 69px;
+  height: 56px;
   border-color: var(--cor_vermelha);
   border-radius: 0px 200px 200px 0px !important;
   border-width: 1px 1px 1px 0px;
+  border-top-color: var(--cor_vermelha) !important;
+}
+.navbar-input-busca-usuarios::placeholder {
+  font-family: Raleway-Medium-Italic;
+  font-size: 26.5px !important;
+  line-height: 26.7px !important;
+  color: var(--cor_vermelha) !important;
+  height: 100% !important;
+}
+p#listar-balao, p#listar-balao-codigo{
+  width: 100%;
+  color: var(--cor_branca) !important;
+  font-family: Raleway-Black !important;
+  font-size: 25px !important;
+  line-height: 24px !important;
+  background-color: var(--cor_verde);
+  text-align: center;
+  padding: 12px;
+  border-radius: 80px;
 }
 
+p#texto-codigo{
+  font-family: Raleway-Light !important;
+  font-size: 25px !important;
+  line-height: 24px !important;
+  color: var(--color_preta) !important;
+  text-align: center;
+}
 /* p#texto-prebotao {
   font-family: Raleway-Light;
   color: var(--cor_verde);

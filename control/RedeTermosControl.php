@@ -27,10 +27,10 @@ class RedeTermosControl
     {
         try {
             $this->modelo->setNome($_POST["nome"]);
-            $this->modelo->setDescricao($_POST["descricao"]);
-            $this->modelo->setTermosIncluidos($_POST["termos"]);
+            $this->modelo->setDescricao($_POST["descricao"]);    
+            $this->modelo->setTermosIncluidos($_POST["termos"]);    
             $this->dao->inserirRedeTermos($this->modelo);
-            // header("Location:../view/Cadastrar-rede-termo.php");
+            header("Location:../view/Cadastrar-rede-termo.php");
         } catch (\Exception $e) {
             $_SESSION["msg_error"] = $e->getMessage();
             $_SESSION["msg_tempo"] = time();

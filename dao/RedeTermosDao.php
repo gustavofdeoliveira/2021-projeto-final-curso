@@ -29,15 +29,27 @@ class RedeTermosDao
                 throw new \Exception('Rede de termos já cadastrado');
             }
         } else if (empty($statement->rowCount())) {
-            $sql = "INSERT INTO `redetermos`(`nome`,`descricao`,`termosIncluidos`,`dataInclusao`) 
+            $sql = "INSERT INTO `redetermos`(`nome`,`descricao`,`dataInclusao`) 
               VALUES (  
                   '" . $modelo->getNome() . "', 
                   '" . $modelo->getDescricao() . "', 
-                  '" . $modelo->getTermosIncluidos() . "', 
                   CURRENT_DATE())";
             $statement = $this->conn->prepare($sql);
             $statement->execute();
+            $id = $this->conn->lastInsertId();
+            $id_termos = explode(",", $modelo->getTermosIncluidos());
+            try{
+            $sql = "INSERT INTO `rede_termos_termo` (`id_rede`,`id_termo`) VALUES (?,?)";
+            $statement = $this->conn->prepare($sql);
+            $statement->bindParam(1, $id);
+            $statement->bindParam(2, $id_termos[0]);
+            $statement->execute();
             $_SESSION["msg_tempo"] = time();
+            }catch(Exception $e){
+                print_r($e->getMessage());
+                exit();
+
+            }
             return $_SESSION["msg_sucess"] = "Rede de termos cadastrado com sucesso!";
         }
     }

@@ -229,6 +229,14 @@
   .nav-item{
     border-bottom: 2px solid var(--cor_vermelha);
   }
+  .colunas-direita{
+    width: unset !important;
+    margin-left: unset !important;
+  }
+  .colunas-esquerda{
+    width: 100% !important;
+    margin-right: unset !important;
+  }
 }
 
 
@@ -316,3 +324,4 @@
     margin-left: unset;
   }
 }
+
