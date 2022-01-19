@@ -101,7 +101,7 @@ require_once("../dao/UsuarioDao.php");
                         </div>
                     </form>
                 </div>
-                <div class="col-sm-12 d-none d-sm-block col-md-6 col-xl-6 col-lg-6 login-right">
+                <div class="col-sm-12 d-hidden col-md-6 col-xl-6 col-lg-6 login-right">
                     <div class="col-lg-10 col-lg-offset-1">
                         <p id="titulo-login">Tudo<br> sobre<br>sociologia<br>em um só<br>lugar</p>
                         <p id="frase-login">participe da nossa comunidade,<br> aprenda de forma interativa</p>
