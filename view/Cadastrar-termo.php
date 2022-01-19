@@ -168,13 +168,12 @@ require_once("../dao/TermoDao.php");
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="form-group">
-                                <label class="form-label label-criar-publicacao" for="tipoTermo">tipo do termo</label>
-                                <div class="input-group">
-                                    <input id="tipoConceito" name="tipoTermo" class="checkgroup" value="conceito" type="checkbox">
-                                    <label for="tipoConceito" class="tipo-termo checkgroup">conceito</label>
-                                    <input id="tipoTeorico" name="tipoTermo" class="checkgroup" value="teórico" type="checkbox">
-                                    <label for="tipoTeorico" id="tipoTeorico" class="tipo-termo checkgroup">teórico</label>
-                                </div>
+                                <label class="form-label label-criar-categoria" for="tipoTermo">tipo de termo</label>
+                                    <select class="custom-select" id="select-termo" name="tipoTermo">
+                                      <option selected>Selecionar...</option>
+                                      <option value="conceito">Conceito (ex: Ação Social, Fato Social, Etnocentrismo)</option>
+                                      <option value="teórico">Teórico (ex: Durkheim, Weber, Comte)</option>
+                                    </select>
                             </div>
                         </div>
                     </div>
@@ -210,7 +209,7 @@ require_once("../dao/TermoDao.php");
                     <div class="row">
                         <div class="col-xl-12">
                             <ul>
-                                <li id="texto-estilo">verifique se o termo que você quer cadastrar <span>já não foi cadastrada</span></li>
+                                <li id="texto-estilo">verifique se o termo que você quer cadastrar <span>já não foi cadastrado</span></li>
                                 <li id="texto-estilo"><span>revise seus textos</span>, eles devem ser redigidos na norma-padrão da língua portuguesa</li>
                                 <li id="texto-estilo">ao cadastrar um teórico, utilize a estrutura <span>[Sobrenome, Nome]</span></li>
                                 <li id="texto-estilo">seu texto deve ter <span>caráter didático e descritivo</span>, abstendo-se de opiniões</li>
