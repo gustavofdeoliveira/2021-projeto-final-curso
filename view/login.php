@@ -96,7 +96,7 @@ require_once("../dao/UsuarioDao.php");
                         </div>
                         <div class="row">
                             <div class="col-sm-10 col-lg-offset-1">
-                                <img id="img-login" class="img-login" src="../image/Bg-Login-Icon-Claro.png">
+                                <img id="icon-login" class="icon-login" src="../image/Bg-Login-Icon-Claro.png">
                             </div>
                         </div>
                     </form>
@@ -107,7 +107,7 @@ require_once("../dao/UsuarioDao.php");
                         <p id="frase-login">participe da nossa comunidade,<br> aprenda de forma interativa</p>
                     </div>
 
-                    <img class="img-login" src="../image/Bg-Login-Icon-Claro.png">
+                    <img id="icon-login-secundario" class="icon-login" src="../image/Bg-Login-Icon-Claro.png">
                 </div>
 
 

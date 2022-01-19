@@ -89,8 +89,11 @@ const enableDarkMode = () => {
     if (document.getElementById('img-logo-index')) {
         document.getElementById('img-logo-index').src = 'image/Logo-noturno.png';
     }
-    if (document.getElementById('img-login')) {
-        document.getElementById('img-login').src = '../image/Bg-Login-Icon-Noturno.png';
+    if (document.getElementById('icon-login')) {
+        document.getElementById('icon-login').src = '../image/Bg-Login-Icon-Noturno.png';
+    }
+    if (document.getElementById('icon-login-secundario')) {
+        document.getElementById('icon-login-secundario').src = '../image/Bg-Login-Icon-Noturno.png';
     }
     localStorage.setItem('darkMode', 'enabled');
 }
@@ -105,8 +108,11 @@ const disableDarkMode = () => {
     if (document.getElementById('img-logo-index')) {
         document.getElementById('img-logo-index').src = 'image/Logo-claro.png';
     }
-    if (document.getElementById('img-login')) {
-        document.getElementById('img-login').src = '../image/Bg-Login-Icon-Claro.png';
+    if (document.getElementById('icon-login')) {
+        document.getElementById('icon-login').src = '../image/Bg-Login-Icon-Claro.png';
+    }
+    if (document.getElementById('icon-login-secundario')) {
+        document.getElementById('icon-login-secundario').src = '../image/Bg-Login-Icon-Claro.png';
     }
     localStorage.setItem('darkMode', null);
 }
