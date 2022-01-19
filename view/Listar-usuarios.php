@@ -155,33 +155,33 @@ require_once("../dao/UsuarioDao.php");
                     <p id="titulo-cadastrar-rede">listar usuários</p>
                     <div class="row">
                         <div class="col-xl-9 col-lg-9 col-lg-md-9 col-sm-12">
-                        <form class="d-flex">
-                            <div class="input-group">
-                                <span class="input-group-text span-icon-buscar-usuarios" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
-                                <input type="text" class="navbar-input-busca-usuarios form-control" placeholder="digite o nome do usuário" aria-describedby="basic-addon1">
-                            </div>
-                        </form>
+                            <form class="d-flex">
+                                <div class="input-group">
+                                    <span class="input-group-text span-icon-buscar-usuarios" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
+                                    <input type="text" class="navbar-input-busca-usuarios form-control" placeholder="digite o nome do usuário" aria-describedby="basic-addon1">
+                                </div>
+                            </form>
                         </div>
                     </div>
-                    <div class="row d-flex">
+                    <div class="row ">
                         <div class="col-xl-12">
-                            <div class="row">
-                                <div class="col-xl-1 col-lg-3 col-md-3">
-                                    <p id="listar-balao-codigo" name="texto-codigo">id</p>
-
-                                    
-                                </div>
-                                <div class="col-xl-3 col-lg-3 col-md-3">
-                                    <p id="listar-balao-nome">nome</p>
-                                </div>
-                                <div class="col-xl-3 col-lg-3 col-md-3">
-                                    <p id="listar-balao-nivel">nível de acesso</p>
-                                </div>
-                                <div class="col-xl-3 col-lg-3 col-md-3">
-                                    <p id="listar-balao-data">data de cadastro</p>
-                                </div>
-                                <div class="col-xl-1 col-lg-3 col-md-3">
-                                    <div></div>
+                            <div class="row ">
+                                <div class="d-flex">
+                                    <div class="col-xl-1">
+                                        <div id="listar-balao-codigo" name="texto-codigo">id</div>
+                                    </div>
+                                    <div class="col-xl-2">
+                                        <div id="listar-balao-nome">nome</div>
+                                    </div>
+                                    <div class="col-xl-3">
+                                        <div id="listar-balao-nivel">nível de acesso</div>
+                                    </div>
+                                    <div class="col-xl-3">
+                                        <div id="listar-balao-data">data de cadastro</div>
+                                    </div>
+                                    <div class="col-xl-1">
+                                        <div id="btn-alteracao"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

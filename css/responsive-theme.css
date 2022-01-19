@@ -31,19 +31,8 @@
   }
 
   .btn-login {
-    width: 150px;
     height: 40px;
     font-size: 19px !important;
-  }
-
-  .img-login {
-    width: 28%;
-    height: 22%;
-    z-index: 5;
-    bottom: 0;
-    right: 0;
-    float: left;
-    position: fixed;
   }
 
   .all-conteudo {
@@ -218,24 +207,52 @@
     margin-top: 35px;
     width: 100%;
   }
+
   .input-group-navbar {
     margin-top: 35px;
-}
-}
-@media screen and (max-width: 991px) {
-  .nav-meu-espaco, .btn-navbar-login,.nav-item{
-    margin:auto;
   }
-  .nav-item{
+
+  .d-hidden {
+    display: none !important;
+  }
+
+  .img-login {
+    width: 159px;
+    height: 200px;
+    z-index: 10;
+    bottom: 0;
+    right: 0;
+    float: left;
+    position: fixed;
+  }
+  .btn-login{
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .nav-meu-espaco, .btn-navbar-login, .nav-item {
+    margin: auto;
+  }
+
+  .nav-item {
     border-bottom: 2px solid var(--cor_vermelha);
   }
-  .colunas-direita{
+
+  .colunas-direita {
     width: unset !important;
     margin-left: unset !important;
   }
-  .colunas-esquerda{
+
+  .colunas-esquerda {
     width: 100% !important;
     margin-right: unset !important;
+  }
+
+  .img-alunos-sobre-nos {
+    width: unset !important;
+    margin-right: unset;
+    margin-left: unset;
   }
 }
 
@@ -246,7 +263,7 @@
     margin-top: 20px;
   }
 
-   .navbar-nav .dropdown-menu {
+  .navbar-nav .dropdown-menu {
     position: absolute !important;
   }
 
@@ -324,4 +341,3 @@
     margin-left: unset;
   }
 }
-

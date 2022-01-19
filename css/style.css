@@ -302,7 +302,7 @@ p#esqueceu-senha {
 p#titulo-cadastro-finalizado {
   font-size: 70px;
   font-family: Raleway-Black;
-  color: var(--cor_branca);
+  color: var(--cor_branca) !important;
   line-height: 65px;
   display: flex;
   margin-top: 10%;
@@ -616,7 +616,7 @@ span#titulo-sobre-nos {
 }
 
 p#titulo-sobre-nos {
-  color: var(--cor_verde);
+  color: var(--cor_verde) !important;
   font-family: Raleway-Black;
   font-size: 63px;
   line-height: 60px;
@@ -1231,8 +1231,7 @@ span#resultado_pesquisa {
   height: 100% !important;
 }
 
-p#listar-balao-codigo, p#listar-balao-nome, p#listar-balao-nivel, p#listar-balao-data {
-  width: 100%;
+#listar-balao-codigo, div#listar-balao-nome, div#listar-balao-nivel, div#listar-balao-data {
   color: var(--cor_branca) !important;
   font-family: Raleway-Black !important;
   font-size: 25px !important;
@@ -1240,10 +1239,12 @@ p#listar-balao-codigo, p#listar-balao-nome, p#listar-balao-nivel, p#listar-balao
   background-color: var(--cor_verde);
   text-align: center;
   padding: 12px;
+  margin-right: 10px;
   border-radius: 80px;
+  width: 100%;
 }
 
-p#texto-codigo {
+div#texto-codigo {
   font-family: Raleway-Light !important;
   font-size: 25px !important;
   line-height: 24px !important;
@@ -1266,6 +1267,13 @@ p#texto-codigo {
   color: var(--color_preta) !important;
   text-align: center;
 }
+
+p#btn-alteracao {
+  width: 100%;
+  min-height: 48px;
+  height: 100%;
+}
+
 
 /* p#texto-prebotao {
   font-family: Raleway-Light;

@@ -152,7 +152,7 @@ require_once("../dao/UsuarioDao.php");
         <div class="col-xl-8">
           <div class="row">
             <div class="col-xl-12 col-md-12">
-              <p id="titulo-sobre-nos">Tudo sobre <span id="titulo-sobre-nos">sociologia</span> um só lugar.</p>
+              <p id="titulo-sobre-nos">Tudo sobre <span id="titulo-sobre-nos">sociologia</span><br>em um só lugar.</p>
             </div>
           </div>
           <div class="row">
@@ -167,7 +167,7 @@ require_once("../dao/UsuarioDao.php");
         <div class="col-xl-4 col-xl-offset-0 col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
           <div class="row">
             <div class="col-xl-12">
-              <img src="../image/avatares/avatar-principal.png" alt="Foto do Professor Autor" class="rounded-circle img-sobre-nos">
+              <img src="../image/Foto-Franco.png" alt="Foto do Professor Autor" class="rounded-circle img-sobre-nos">
             </div>
           </div>
           <div class="row">
@@ -183,15 +183,15 @@ require_once("../dao/UsuarioDao.php");
         </div>
       </div>
       <div class="row">
-        <div class="col-xl-4 col-lg-6 col-md-6 col-md-offset-0 col-sm-10 col-sm-offset-1">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-md-offset-0 col-sm-10 col-sm-offset-1">
           <div class="row">
-            <img src="../image/avatares/avatar-principal.png" alt="Foto do Aluno Autor" class="rounded-circle img-alunos-sobre-nos">
+            <img src="../image/Foto-Gustavo.png" alt="Foto do Aluno Autor" class="rounded-circle img-alunos-sobre-nos">
           </div>
           <div class="row">
             <p id="sobre-nos-nome">Gustavo Ferreira</p>
           </div>
         </div>
-        <div class="col-xl-4 col-lg-6 col-md-6 col-md-offset-0 col-sm-10 col-sm-offset-1">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-md-offset-0 col-sm-10 col-sm-offset-1">
           <div class="row">
             <img src="../image/Foto-Juliana.png" alt="Foto do Aluno Autor" class="rounded-circle img-alunos-sobre-nos">
           </div>
@@ -199,7 +199,7 @@ require_once("../dao/UsuarioDao.php");
             <p id="sobre-nos-nome">Juliana Kashima</p>
           </div>
         </div>
-        <div class="col-xl-4 col-lg-6 col-md-6 col-md-offset-0 col-sm-10 col-sm-offset-1">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-md-offset-0 col-sm-10 col-sm-offset-1">
           <div class="row">
             <img src="../image/Foto-Natan.png" alt="Foto do Aluno Autor" class="rounded-circle img-alunos-sobre-nos">
           </div>

@@ -65,14 +65,14 @@ for (field of fields) {
     field.addEventListener("blur", customValidation)
 }
 
-if (emailVerificado == true) {
+
     document.querySelector("form")
         .addEventListener("submit", event => {
             debugger
             console.log("enviar o formulário")
 
         })
-}
+
 //modo moturno
 
 // check for saved 'darkMode' in localStorage

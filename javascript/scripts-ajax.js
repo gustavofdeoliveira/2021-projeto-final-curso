@@ -3,23 +3,24 @@ $(document).ready(function () {
     debugger
     $.post('../ajax/listar-usuarios.php', function (resposta) {
         resultado = JSON.parse(resposta);
-        for (a = 0; a <= resultado.length; a++) {
-            if (document.getElementById('listar-balao-codigo')) {
-                document.getElementById('listar-balao-codigo').insertAdjacentHTML('afterend', '<div class="row"><p id="texto-codigo">' + resultado[a]['id'] + '</p></div>');
-                document.getElementById('listar-balao-nome').insertAdjacentHTML('afterend', '<div class="row"><p id="texto-nome">' + resultado[a]['nome'] + '</p></div>');
-                if (resultado[a]['nivel'] == 1) {
-                    document.getElementById('listar-balao-nivel').insertAdjacentHTML('afterend', '<div class="row"><p id="texto-codigo">' + resultado[a]['nivel'] + ' - Administrador</p></div>');
-                } if (resultado[a]['nivel'] == 2) {
-                    document.getElementById('listar-balao-nivel').insertAdjacentHTML('afterend', '<div class="row"><p id="texto-codigo">' + resultado[a]['nivel'] + ' - Professor</p></div>');
-                } if (resultado[a]['nivel'] == 3) {
-                    document.getElementById('listar-balao-nivel').insertAdjacentHTML('afterend', '<div class="row"><p id="texto-codigo">' + resultado[a]['nivel'] + ' - Aluno</p></div>');
-                }
-                debugger
-                let data = new Date(resultado[a]['dataInclusao']);
-                let dataInclusao = ((data.getDate())) + "/" + ((data.getMonth() + 1)) + "/" + data.getFullYear();
-                document.getElementById('listar-balao-data').insertAdjacentHTML('afterend', '<div class="row"><p id="texto-codigo">' + dataInclusao + '</p></div>');
-            }
-        }
+        // for (a = 0; a <= resultado.length; a++) {
+        //     if (document.getElementById('listar-balao-codigo')) {
+        //         document.getElementById('listar-balao-codigo').insertAdjacentHTML('afterend', '<th id="texto-codigo">' +  + '</th>');
+        //         document.getElementById('listar-balao-nome').insertAdjacentHTML('afterend', '<div class="row"><p id="texto-nome">' + resultado[a]['nome'] + '</p></div>');
+        //         if (resultado[a]['nivel'] == 1) {
+        //             document.getElementById('listar-balao-nivel').insertAdjacentHTML('afterend', '<div class="row"><p id="texto-codigo">' + resultado[a]['nivel'] + ' - Administrador</p></div>');
+        //         } if (resultado[a]['nivel'] == 2) {
+        //             document.getElementById('listar-balao-nivel').insertAdjacentHTML('afterend', '<div class="row"><p id="texto-codigo">' + resultado[a]['nivel'] + ' - Professor</p></div>');
+        //         } if (resultado[a]['nivel'] == 3) {
+        //             document.getElementById('listar-balao-nivel').insertAdjacentHTML('afterend', '<div class="row"><p id="texto-codigo">' + resultado[a]['nivel'] + ' - Aluno</p></div>');
+        //         }
+        //         debugger
+        //         let data = new Date(resultado[a]['dataInclusao']);
+        //         let dataInclusao = ((data.getDate())) + "/" + ((data.getMonth() + 1)) + "/" + data.getFullYear();
+        //         document.getElementById('listar-balao-data').insertAdjacentHTML('afterend', '<div class="row"><p id="texto-codigo">' + dataInclusao + '</p></div>');
+        //         document.getElementById('btn-alteracao').insertAdjacentHTML('afterend', '<div class="row"><i class="fa fa-long-arrow-up" onclick="atualizarNivel('+resultado[a]['id']+')" aria-hidden="true"></i></div>');
+        //     }
+        // }
     })
 
 })

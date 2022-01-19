@@ -39,15 +39,13 @@ class UsuarioControl
                 $this->modelo->setManterLogin($_POST["manterLogin"]);
             }
             $this->dao->fazerLogin($this->modelo);
-            //Guarda os dados do usuario
             $_SESSION['usuarioAutenticado'];
-            //teste nivel de acesso do usuario
             header("Location:../index.php");
         
         } catch (\Exception $e) {
             $_SESSION["msg_error"] = $e->getMessage();
             $_SESSION["tempo_msg_error"] = time();
-            header("Location:../view/Login.php");
+            header("Location:view/Login.php");
         }
     }
     public function cadastrarUsuario()

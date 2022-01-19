@@ -3,22 +3,12 @@
 session_start();
 require_once(realpath(dirname(__FILE__) . "/../database/Connection.php"));
 //Temporalizador da Mensagem de erro no login
- if (!empty($_SESSION['msg']) && (time() - $_SESSION['tempo_msg'] > 10)) {
-     unset($_SESSION['msg']);
- }
-// if (!empty($_SESSION['usuarioAutenticado']) && !empty($_SESSION['manterConectado'])) {
-//     $usuario = $_SESSION['usuarioAutenticado'];
-//     if ($usuario['nivelAcesso'] == 1) {
-//         header("Location:../view/Dashboard-Administrativo.php");
-//     } else if ($usuario['nivelAcesso'] == 2) {
-//         header("Location:../view/Dashboard-Administrativo.php");
-//     } else if ($usuario['nivelAcesso'] === 3) {
-//         header("Location:../view/Dashboard-Usuario.php");
-//     }
-// } else if (!empty($_SESSION['usuarioAutenticado']) && empty($_SESSION['manterConectado']) && (time() - $_SESSION['tempo_msg_error'] > 3600)) {
-//     unset($_SESSION['usuarioAutenticado']);
-//     header("Location:../view/Login.php");
-// }
+if (!empty($_SESSION['msg']) && (time() - $_SESSION['tempo_msg'] > 10)) {
+    unset($_SESSION['msg']);
+}
+if (!empty($_SESSION['usuarioAutenticado']) and empty($_SESSION['manterConectado']) and (time() - $_SESSION['sessao_usuario'] > 3600)) {
+    unset($_SESSION['usuarioAutenticado']);
+}
 class UsuarioDao
 {
     private $conn;
@@ -63,6 +53,7 @@ class UsuarioDao
             //Se a senha estiver correta
             if ($result['senha'] === sha1($modelo->getSenha())) {
                 $_SESSION['usuarioAutenticado'] = $result;
+                $_SESSION['sessao_usuario'] = time();
                 return true;
             } else {
 
