@@ -44,7 +44,7 @@ require_once("../dao/UsuarioDao.php");
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-12 d-none d-sm-block col-md-6 col-xl-6 col-lg-6 login-right">
+                <div class="col-sm-12 d-hidden col-md-6 col-xl-6 col-lg-6 login-right">
                     <div class="row">
                         <div class="col-lg-10 col-xl-10 col-xl-1 col-lg-offset-1">
                             <p id="titulo-cadastro-finalizado">Toda educação humana deve preparar cada um a viver para os outros.</p>

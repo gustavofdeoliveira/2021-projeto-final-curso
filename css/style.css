@@ -414,7 +414,7 @@ a#fazer-login {
 p#titulo-conta-criada {
   font-size: 93px;
   line-height: 71.6px;
-  color: var(--cor_verde);
+  color: var(--cor_verde) !important;
   font-family: Raleway-Black;
   margin-left: 4%;
   margin-top: 5%;
@@ -422,7 +422,7 @@ p#titulo-conta-criada {
 
 p#texto-conta-criada {
   font-size: 31px;
-  color: var(--cor_vermelha);
+  color: var(--cor_vermelha) !important;
   font-family: Raleway-Light-Italic;
   margin-left: 4%;
   margin-top: 5%;
