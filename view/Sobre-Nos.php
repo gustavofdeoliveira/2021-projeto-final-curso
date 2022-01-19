@@ -11,7 +11,7 @@ require_once("../dao/UsuarioDao.php");
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tereré com Sociologia | Dashboard</title>
+  <title> Sobre Nós | Tereré com Sociologia </title>
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/responsive-theme.css">
   <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -167,7 +167,7 @@ require_once("../dao/UsuarioDao.php");
         <div class="col-xl-4 col-xl-offset-0 col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
           <div class="row">
             <div class="col-xl-12">
-              <img src="../image/avatares/avatar-principal.png" alt="Foto do Professor Autor" class="rounded-circle img-sobre-nos">
+              <img src="../image/Foto-Franco.png" alt="Foto do Professor Autor" class="rounded-circle img-sobre-nos">
             </div>
           </div>
           <div class="row">
@@ -185,7 +185,7 @@ require_once("../dao/UsuarioDao.php");
       <div class="row">
         <div class="col-xl-4 col-lg-6 col-md-6 col-md-offset-0 col-sm-10 col-sm-offset-1">
           <div class="row">
-            <img src="../image/avatares/avatar-principal.png" alt="Foto do Aluno Autor" class="rounded-circle img-alunos-sobre-nos">
+            <img src="../image/Foto-Gustavo.png" alt="Foto do Aluno Autor" class="rounded-circle img-alunos-sobre-nos">
           </div>
           <div class="row">
             <p id="sobre-nos-nome">Gustavo Ferreira</p>
