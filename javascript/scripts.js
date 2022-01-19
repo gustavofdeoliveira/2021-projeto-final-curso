@@ -17,6 +17,9 @@ const enableDarkMode = () => {
     if (document.getElementById('icon-login-secundario')) {
         document.getElementById('icon-login-secundario').src = '../image/Bg-Login-Icon-Noturno.png';
     }
+    if (document.getElementById('img-cadastro-finalizado')) {
+        document.getElementById('img-cadastro-finalizado').src = '../image/Bg-Conta-Criada-Icon-Noturno.png';
+    }
     localStorage.setItem('darkMode', 'enabled');
 }
 
@@ -33,6 +36,9 @@ const disableDarkMode = () => {
     }
     if (document.getElementById('icon-login-secundario')) {
         document.getElementById('icon-login-secundario').src = '../image/Bg-Login-Icon-Claro.png';
+    }
+    if (document.getElementById('img-cadastro-finalizado')) {
+        document.getElementById('img-cadastro-finalizado').src = '../image/Bg-Conta-Criada-Icon-Claro';
     }
     localStorage.setItem('darkMode', null);
 }

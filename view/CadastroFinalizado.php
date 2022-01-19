@@ -52,7 +52,7 @@ require_once("../dao/UsuarioDao.php");
                         </div>
                     </div>
 
-                    <img class="img-cadastro-finalizado" src="../image/Bg-Conta-Criada-Icon-Claro.png">
+                    <img id="img-cadastro-finalizado" class="img-cadastro-finalizado" src="../image/Bg-Conta-Criada-Icon-Claro.png">
 
                 </div>
 
