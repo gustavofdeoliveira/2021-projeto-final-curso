@@ -29,7 +29,7 @@ require_once("../dao/UsuarioDao.php");
                 <div class="col-sm-12 col-md-6 col-xl-6 col-lg-6 login-fundo-branco">
                     <div class="row all-conteudo">
                         <div class="col-xl-6 col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2 col-md-9 col-md-offset-1 col-xl-offset-2">
-                            <img id="img-logo-login" class="img-logo-cadastrar" src="../image/Logo-claro.png">
+                            <img id="img-logo" class="img-logo-cadastrar" src="../image/Logo-claro.png">
                         </div>
                     </div>
                     <form action="../control/UsuarioControl.php" method="POST" class="form-group">
@@ -56,7 +56,7 @@ require_once("../dao/UsuarioDao.php");
                                 <div class="form-group">
                                     <label class="form-label label-criar-conta" for="email">e-mail</label>
                                     <div class="input-group">
-                                        <input required class="input-criar-conta form-control" type="text" onkeypress="validacaoEmail(email)" name="email">
+                                        <input required class="input-criar-conta form-control" type="text" onkeyup="validacaoEmail(email)" id="email" name="email">
                                         <span class="error"></span>
                                     </div>
                                 </div>
@@ -82,8 +82,8 @@ require_once("../dao/UsuarioDao.php");
                                 <div class="form-group input-senha">
                                     <label class="form-label label-criar-conta" for="senha">senha</label>
                                     <div class="input-group" id="show_hide_password">
-                                        <input required class="input-criar-conta form-control" id="senha" onkeyup="validaSenha()" type="password" name="senha">
-                                        <span class="error span-error"></span>
+                                        <input required class="input-criar-conta form-control" id="senha" type="password" onkeyup="senhaValida(senha)" name="senha">
+                                        <span id="error" class="error span-error"></span>
                                         <div class="input-group-addon" onclick="mostrar()" >
                                             <i class="fa fa-eye-slash" aria-hidden="true"></i>
                                         </div>
@@ -102,31 +102,24 @@ require_once("../dao/UsuarioDao.php");
                         } ?>
                         <input name="theme" type="checkbox" class="toggle-dark-mode" />
                         <div class="row btn-espacamento">
-                            <div class="col-lg-6 col-lg-offset-2 col-md-offset-1 col-md-10 col-xl-8 col-xl-offset-2 col-sm-8 col-sm-offset-1 col-sm-offset-0">
+                            <div class="col-lg-6 col-lg-offset-2 col-md-offset-1 col-md-10 col-xl-8 col-xl-offset-2 col-sm-12 col-sm-offset-0 col-sm-offset-0">
                                 <div class="row">
-                                    <div class="col-sm-8 col-sm-offset-1 col-md-offset-0 col-md-8 col-xl-5 col-lg-6 col-lg-8 col-lg-offset-0 col-xl-offset-0">
+                                    <div class="col-sm-6 col-sm-offset-3 col-sm-offset-0 col-md-offset-0 col-md-8 col-xl-5 col-lg-6 col-lg-8 col-lg-offset-0 col-xl-offset-0">
                                         <input type="hidden" name="acao" value="cadastro">
                                         <input class="btn-criar-conta btn btn-lg" type="submit" value="criar conta">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-xl-6">
-                                <button id="dark-mode-toggle" class="dark-mode-toggle">mudar
-                                </button>
-                            </div>
-                        </div>
-
                     </form>
                 </div>
-                <div class="col-sm-12 d-none d-sm-block col-md-6 col-xl-6 col-lg-6 login-right d-none d-sm-block">
+                <div class="col-sm-12 col-md-6 col-xl-6 col-lg-6 login-right d-hidden">
                     <div class="col-lg-10 col-lg-offset-1">
                         <p id="titulo-login">Tudo<br> sobre<br>sociologia<br>em um só<br>lugar</p>
                         <p id="frase-login">participe da nossa comunidade,<br> aprenda de forma interativa</p>
                     </div>
 
-                    <img class="img-login" src="../image/Bg-Login-Icon-Claro.png">
+                    <img id="icon-login" class="icon-login" src="../image/Bg-Login-Icon-Claro.png">
                 </div>
 
 

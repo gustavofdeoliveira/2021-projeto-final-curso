@@ -169,7 +169,7 @@ require_once("../dao/TermoDao.php");
                         <div class="col-xl-12">
                             <div class="form-group">
                                 <label class="form-label label-criar-categoria" for="tipoTermo">tipo de termo</label>
-                                    <select class="custom-select" id="select-termo" name="tipoTermo">
+                                    <select required class="custom-select" id="select-termo" name="tipoTermo">
                                       <option selected>Selecionar...</option>
                                       <option value="conceito">Conceito (ex: Ação Social, Fato Social, Etnocentrismo)</option>
                                       <option value="teórico">Teórico (ex: Durkheim, Weber, Comte)</option>

@@ -2,6 +2,16 @@
 
 let darkMode = localStorage.getItem('darkMode');
 const darkModeToggle = document.querySelector('#dark-mode-toggle');
+if (darkModeToggle != null) {
+    darkModeToggle.addEventListener('click', () => {
+        darkMode = localStorage.getItem('darkMode');
+        if (darkMode !== 'enabled') {
+            enableDarkMode();
+        } else {
+            disableDarkMode();
+        }
+    });
+}
 
 const enableDarkMode = () => {
     document.body.classList.add('darkmode');
@@ -46,16 +56,8 @@ const disableDarkMode = () => {
 if (darkMode === 'enabled') {
     enableDarkMode();
 }
-
-darkModeToggle.addEventListener('click', () => {
-    darkMode = localStorage.getItem('darkMode');
-    if (darkMode !== 'enabled') {
-        enableDarkMode(); 
-    } else {
-        disableDarkMode();
-    }
-});
-
+var msg = [];
+var statusEmail = '';
 const fields = document.querySelectorAll("[required]")
 var emailVerificado;
 function ValidateField(field) {
@@ -63,25 +65,48 @@ function ValidateField(field) {
     // logica para verificar se existem erros
     function verifyErrors() {
         let foundError = false;
-        for (let error in field.validity) {
-            // se não for customError
-            // então verifica se tem erro
-            if (field.validity[error] && !field.validity.valid) {
-                foundError = error
+        if (field.id == "senha" || field.id == "email" && field.value != null || field.value != "") {
+            const spanError = field.parentNode.querySelector("span.error")
+            spanError.innerHTML = '';
+            if (field.id == "senha") {
+                erro = senhaValida(field);
+            } else {
+                erro = validacaoEmail(field);
+            }
+            if (erro == null || erro == "E-mail inválido") {
+                foundError = "valueMissing";
+            }
+        } else {
+            for (let error in field.validity) {
+                // se não for customError
+                // então verifica se tem erro
+                if (field.validity[error] && !field.validity.valid) {
+                    foundError = error
+                }
             }
         }
         return foundError;
     }
     function customMessage(typeError) {
+        debugger
+
         const messages = {
             text: {
                 valueMissing: "Campo obrigatório"
             },
+
             password: {
-                valueMissing: "Campo obrigatório",
+                valueMissing: msg,
+            },
+            email: {
+                valueMissing: statusEmail,
             }
         }
-        return messages[field.type][typeError]
+        if (field.type == "textarea") {
+            return messages[field.type]
+        } else {
+            return messages[field.type][typeError]
+        }
     }
 
     function setCustomMessage(message) {
@@ -98,23 +123,21 @@ function ValidateField(field) {
         const error = verifyErrors()
         if (error) {
             const message = customMessage(error)
-            field.style.borderColor = "#AF3320"
+            field.style.borderColor = "var(--cor_vermelha)"
             setCustomMessage(message)
         } else {
-            field.style.borderColor = "#1B3A02"
+            field.style.borderColor = "var(--cor_verde)"
             setCustomMessage()
         }
     }
 }
 
 function customValidation(event) {
-    debugger;
     const field = event.target
     const validation = ValidateField(field)
     validation()
 }
 for (field of fields) {
-
     field.addEventListener("invalid", event => {
         // eliminar o bubble
         event.preventDefault()
@@ -123,13 +146,11 @@ for (field of fields) {
     field.addEventListener("blur", customValidation)
 }
 
+document.querySelector("form")
+    .addEventListener("submit", event => {
+        console.log("enviar o formulário")
 
-    document.querySelector("form")
-        .addEventListener("submit", event => {
-            debugger
-            console.log("enviar o formulário")
-
-        })
+    })
 
 //ocultar e mostrar senha
 function mostrar() {
@@ -144,6 +165,7 @@ function mostrar() {
     }
 
 };
+
 
 //Validar email
 function validacaoEmail(field) {
@@ -160,44 +182,74 @@ function validacaoEmail(field) {
         (dominio.lastIndexOf(".") < dominio.length - 1)) {
         const spanError = field.parentNode.querySelector("span.error")
         spanError.classList.add("valido")
+        statusEmail = "E-mail válido"
         spanError.innerHTML = "E-mail válido";
-        emailVerificado = true;
+        field.style.borderColor = "var(--cor_verde)"
+        return statusEmail;
     }
     else if (dominio) {
         const spanError = field.parentNode.querySelector("span.error")
         spanError.classList.add("active")
-        spanError.innerHTML = "E-mail inválido";
-        field.style.borderColor = "#AF3320";
-
-
+        statusEmail = "E-mail inválido";
+        spanError.innerHTML = statusEmail;
+        field.style.borderColor = "var(--cor_vermelha)"
+        return statusEmail;
     }
-
 }
 
-
-function validaSenha() {
+function senhaValida(password) {
     debugger
-    var senha = document.getElementById('senha').value;
-    errors = [];
-    if (senha.length < 8) {
-        errors.push("Sua senha deve possuir no mínimo 8 caracteres.<br>");
+    msg = '';
+    var p = password.value;
+    var letrasMaiusculas = /[A-Z]/;
+    var letrasMinusculas = /[a-z]/;
+    var numeros = /[0-9]/;
+    var caracteresEspeciais = /[!|@|#|$|%|^|&|*|(|)|-|_]/;
+    if (p.length < 8) {
+        msg = msg + "A senha deve possuir no mínimo 8 caracteres </br>";
     }
-    if (senha.search(/[A-Z]/) <= 0) {
-        errors.push("Sua senha deve possuir uma letra maiúscula.<br>");
+    var auxMaiuscula = 0;
+    var auxMinuscula = 0;
+    var auxNumero = 0;
+    var auxEspecial = 0;
+    for (var i = 0; i < p.length; i++) {
+        if (letrasMaiusculas.test(p[i]))
+            auxMaiuscula++;
+        else if (letrasMinusculas.test(p[i]))
+            auxMinuscula++;
+        else if (numeros.test(p[i]))
+            auxNumero++;
+        else if (caracteresEspeciais.test(p[i]))
+            auxEspecial++;
     }
-    if (senha.search(/[!|@|#|$|%|^|&|*|(|)|-|_]/) <= 0) {
-        errors.push("Sua senha deve possuir um caractere especial.<br>");
+    if (auxMaiuscula == 0) {
+        msg = msg + "A senha deve possuir no mínimo 1 letra maiuscula </br>";
     }
-    if (senha.search(/[0-9]/i) <= 0) {
-        errors.push("Sua senha deve possuir um número.");
+    if (auxMinuscula == 0) {
+        msg = msg + "A senha deve possuir no mínimo 1 letra minuscula </br>";
     }
-    if (errors.length > 0) {
-        const spanError = field.parentNode.querySelector("span.error")
+    if (auxNumero == 0) {
+        msg = msg + "A senha deve possuir no mínimo 1 número</br>";
+    }
+    if (auxEspecial == 0) {
+        msg = msg + "A senha deve possuir no mínimo 1 caractere especial</br>";
+    }
+
+
+
+    if (msg) {
+        const spanError = password.parentNode.querySelector("span.error")
         spanError.classList.add("active")
-        spanError.innerHTML = errors.join("\n");
-        return false;
+        spanError.innerHTML = msg;
+        password.style.borderColor = "var(--cor_vermelha)"
+
+    } else {
+        const spanError = password.parentNode.querySelector("span.error")
+        spanError.classList.remove("active")
+        spanError.innerHTML = null;
+        password.style.borderColor = "var(--cor_verde)"
     }
-    return true;
+    return msg;
 }
 
 

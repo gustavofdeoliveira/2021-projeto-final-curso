@@ -389,8 +389,8 @@ a#fazer-login {
   line-height: 1.5;
   text-align: center;
   white-space: nowrap;
-  border: 1px solid #AF3320;
-  color: #AF3320;
+  border: 1px solid var(--cor_vermelha);
+  color: var(--cor_vermelha);
   height: 38px;
   border-radius: 200px 0px 0px 200px;
   background-color: var(--cor_branca);
@@ -560,6 +560,7 @@ div .count1 {
 
 .form-control {
   background-color: var(--cor_branca) !important;
+  color: var(--cor_vermelha) !important;
 }
 
 .common-count {
