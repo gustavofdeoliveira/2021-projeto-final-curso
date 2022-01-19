@@ -9,7 +9,7 @@ require_once("../dao/RedeTermosDao.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tereré com Sociologia | Cadastrar rede de termos</title>
+    <title>Cadastrar rede de termos | Tereré com Sociologia</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/responsive-theme.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
