@@ -200,10 +200,14 @@ require_once("../dao/UsuarioDao.php");
           <div class="row">
             <div class="col-xl-12">
               <div class="form-group">
-                <label class="form-label label-criar-publicacao" for="termos">rede de termos <span id="texto-opcional">(opcional)</span></label>
+                <label class="form-label label-criar-publicacao" for="redeTermos">rede de termos <span id="texto-opcional">(opcional)</span></label>
                 <div class="input-group">
-                  <input class="input-criar-conta form-control" type="text" name="termos">
+                  
+                  <input class="input-criar-conta form-control" type="text" id="redeTermos" onkeyup="carrega_redes(this.value)" name="redeTermos">
+                  <span id="resultado_pesquisa"></span>
+                  <div class="rede-container" id="termos-container"></div>
                   <p id="texto-alerta">deixar esse campo vazio pode reduzir o alcance da sua publicação</p>
+                  <input required type="hidden" name="rede" class="form-control" id="rede">
                 </div>
               </div>
             </div>
@@ -254,6 +258,7 @@ require_once("../dao/UsuarioDao.php");
   <script src="../javascript/bootstrap.bundle.min.js"></script>
   <script src="../javascript/scripts.js"></script>
   <script src="../javascript/script-bell.js"></script>
+  <script src="../ajax/scripts-ajax.js"></script>
 </body>
 
 </html>

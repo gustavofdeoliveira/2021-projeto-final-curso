@@ -244,7 +244,7 @@ require_once("../dao/RedeTermosDao.php");
     </script>
     <script src="../javascript/scripts.js"></script>
     <script src="../javascript/script-bell.js"></script>
-    <script src="../javascript/scripts-ajax.js"></script>
+    <script src="../ajax/scripts-ajax.js"></script>
 </body>
 
 </html>
