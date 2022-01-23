@@ -186,12 +186,12 @@ require_once("../dao/UsuarioDao.php");
                                         </td>
                                         <td scope="col" style="width: 300px;">
                                             <div class="listar-balao">nome</div>
-                                            </>
-                                        <td scope="col" style="width: 220px;">
-                                            <div class="listar-balao">nível</div>
+                                            
+                                        <td scope="col" style="width: 200px;">
+                                            <div class="listar-balao">nível de acesso</div>
                                         </td>
-                                        <td scope="col" style="width: 100px;">
-                                            <div class="listar-balao">data</div>
+                                        <td scope="col" style="width: 170px;">
+                                            <div class="listar-balao">data de cadastro</div>
                                         </td>
                                         <th style="width: 75px;text-align: center;">
                                             <div class="row"></div>
