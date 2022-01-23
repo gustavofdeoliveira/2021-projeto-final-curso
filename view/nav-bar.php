@@ -115,9 +115,9 @@ error_reporting(E_ERROR | E_PARSE);
                                         <?php
                                         if (empty($_SESSION["usuarioAutenticado"])) {
                                             echo "
-                    <li class='nav-item'>
-                    <a class='nav-link btn-navbar-login' href='../view/Login.php'>Fazer Login</a>
-                  </li>";
+                                            <li class='nav-item'>
+                                            <a class='nav-link btn-navbar-login' href='../view/Login.php'>Fazer Login</a>
+                                        </li>";
                                         } ?>
                                         
                                     </ul>

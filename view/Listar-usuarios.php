@@ -24,7 +24,7 @@ require_once("../dao/UsuarioDao.php");
 
 
 <body id="dark-mode">
-    <header>
+<header>
         <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 ">
                 <nav class="navbar navbar-expand-lg navbar-light">
@@ -77,28 +77,8 @@ require_once("../dao/UsuarioDao.php");
                                             <li class='nav-item dropdown nav-meu-espaco'>
                                                 <div class='d-flex'>
                                                     <img src='{$usuario['fotoAvatar']}' alt='Foto de Perfil' class='rounded-circle'>
-                                                    <a class='nav-link dropdown-toggle nav-meu-espaco' href='#' id='navbarDropdownMenuLink' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
-                                                    Meu espaço</a>
-                                                    <ul class='dropdown-menu' aria-labelledby='navbarDropdownMenuLink'>
-                                                        <li><a class='dropdown-item' href='#'>Action</a></li>
-                                                        <li><a class='dropdown-item' href='#'>Another action</a></li>
-                                                        <li><button id='dark-mode-toggle' class='dropdown-item'>
-                                                        <div class='d-flex'>
-                                                        Modo noturno
-                                                        <div class='dark-light'>
-                                                        <svg viewBox='0 0 24 24' stroke='currentColor' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'>
-                                                        <path d='M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z' /></svg>
-                                                        </div>
-                                                        </div></button>
-                                                        </li>
-                                                        <li><form action='../control/UsuarioControl.php' method='POST' class='form-group'>
-                                                        <div class='d-flex'>
-                                                        <input type='hidden' name='acao' value='sair'>
-                                                        <input class='dropdown-item input-sair' type='submit' value='Sair'>
-                                                        <i class='fa fa-sign-out' aria-hidden='true'></i>
-                                                        </div></form></li>
-                                                    </ul>
-                                                                       
+                                                    <a class='nav-link nav-meu-espaco' href='#'  role='button' data-bs-toggle='dropdown' aria-expanded='false'>
+                                                    Meu espaço</a>                  
                                                     <div class='wrapper'>
                                                         <div class='notification' >";
                                             $_SESSION['notificacao'] = array(0 => array('nome' => '@natan_pastore', 'texto' => 'comentou na sua publicação'), 1 => array('nome' => '@franco_harlos', 'texto' => 'respondeu o seu comentário'), 2 => array('nome' => '@ju_kashima', 'texto' => 'respondeu o seu comentário'), 3 => array('nome' => '@natan_pastore', 'texto' => 'comentou na sua publicação'), 4 => array('nome' => '@franco_harlos', 'texto' => 'respondeu o seu comentário'), 5 => array('nome' => '@ju_kashima', 'texto' => 'respondeu o seu comentário'));
@@ -134,16 +114,99 @@ require_once("../dao/UsuarioDao.php");
                                         <?php
                                         if (empty($_SESSION["usuarioAutenticado"])) {
                                             echo "
-                    <li class='nav-item'>
-                    <a class='nav-link btn-navbar-login' href='../view/Login.php'>Fazer Login</a>
-                  </li>";
+                                            <li class='nav-item'>
+                                            <a class='nav-link btn-navbar-login' href='../view/Login.php'>Fazer Login</a>
+                                        </li>";
                                         } ?>
+                                        
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </nav>
+                <?php 
+                    $usuario = $_SESSION["usuarioAutenticado"];
+                    if($usuario != null){
+                        echo"
+                    <div class='header-tools ion-ios-navicon pull-right'>
+                        <i class='fa fa-cog' aria-hidden='true'></i>
+                    </div> 
+                    <div class='sidebar'>
+                    <div class='sidebar-overlay animated fadeOut'></div>
+                        <div class='sidebar-content'>
+                            <p id='configuracao'>Configurações</p>"; 
+                            if($usuario['nivelAcesso'] == 3){
+                            echo "
+                            <div class='nav-left'>
+                                <a class='btn-tools'><span class='ion-ios-home-outline'></span>Meus Dados</a>
+                                <a class='btn-tools'><span class='ion-ios-list-outline'></span>Sugerir Termo</a>
+                                <a class='btn-tools' id='dark-mode-toggle'><span class='ion-ios-list-outline'></span>
+                                    <div class='d-flex modo-noturno'>
+                                        <div class='texto-modo-noturno'>Modo noturno</div>
+                                        <div class='dark-light'>
+                                            <svg viewBox='0 0 24 24' stroke='currentColor' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'>
+                                                <path d='M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z' />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </a>
+                                
+                                <a><span class='ion-ios-list-outline'></span>
+                                    <form action='../control/UsuarioControl.php' method='POST' class='form-group'>
+                                        <div class='d-flex pull-right btn-sair'>
+                                            <input type='hidden' name='acao' value='sair'>
+                                            <input class='input-sair' type='submit' value='Sair'>
+                                            <i class='fa fa-sign-out' aria-hidden='true'></i>
+                                        </div>
+                                    </form>
+                                </a>
+                                
+                            </div>";}                         
+                            if($usuario['nivelAcesso'] == 1|| $usuario['nivelAcesso']==2){
+                            echo "
+                            <div class='nav-left'>
+                            <div id='texto-usuario'>Usuário</div>
+                                <a class='btn-tools'><span class='ion-ios-home-outline'></span>Meus Dados</a>";
+                                if($usuario['nivelAcesso'] == 1){
+                                    echo"
+                                <a href='../view/Listar-usuarios.php' class='btn-tools'><span class='ion-ios-home-outline'></span>Listar Usuários</a>";}
+                                echo"
+                                <a class='btn-tools' id='dark-mode-toggle'><span class='ion-ios-list-outline'></span>
+                                    <div class='d-flex modo-noturno'>
+                                        <div class='texto-modo-noturno'>Modo noturno</div>
+                                        <div class='dark-light'>
+                                            <svg viewBox='0 0 24 24' stroke='currentColor' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'>
+                                                <path d='M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z' />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div id='texto-usuario'>Publicações</div>
+                                <a href='../view/Cadastrar-publicacao.php' class='btn-tools'><span class='ion-ios-list-outline'></span>+ Nova Publicação</a>
+                                <a href='../view/' class='btn-tools'><span class='ion-ios-list-outline'></span>Listar Publicações</a>
+                                <div id='texto-usuario'>Termos</div>
+                                <a href='../view/Cadastrar-termo.php' class='btn-tools'><span class='ion-ios-list-outline'></span>+ Novo Termo</a>
+                                <a href='../view/' class='btn-tools'><span class='ion-ios-list-outline'></span>Listar Termos</a>
+                                <a href='../view/' class='btn-tools'><span class='ion-ios-list-outline'></span>Ver Sugestões</a>
+                                <div id='texto-usuario'>Rede de Termos</div>
+                                <a href='../view/' class='btn-tools'><span class='ion-ios-list-outline'></span>+ Nova Rede</a>
+                                <a href='../view/' class='btn-tools'><span class='ion-ios-list-outline'></span>Listar Redes</a>
+                                
+                                <a><span class='ion-ios-list-outline'></span>
+                                    <form action='../control/UsuarioControl.php' method='POST' class='form-group'>
+                                        <div class='d-flex pull-right btn-sair'>
+                                            <input type='hidden' name='acao' value='sair'>
+                                            <input class='input-sair' type='submit' value='Sair'>
+                                            <i class='fa fa-sign-out' aria-hidden='true'></i>
+                                        </div>
+                                    </form>
+                                </a>
+                                
+                            </div>";}
+                        echo "</div>
+                    </div>";}
+                    ?> 
             </div>
         </div>
     </header>
@@ -187,10 +250,10 @@ require_once("../dao/UsuarioDao.php");
                                         <td scope="col" style="width: 300px;">
                                             <div class="listar-balao">nome</div>
                                             
-                                        <td scope="col" style="width: 200px;">
+                                        <td scope="col" style="width: 180px;">
                                             <div class="listar-balao">nível de acesso</div>
                                         </td>
-                                        <td scope="col" style="width: 170px;">
+                                        <td scope="col" style="width: 180px;">
                                             <div class="listar-balao">data de cadastro</div>
                                         </td>
                                         <th style="width: 75px;text-align: center;">
