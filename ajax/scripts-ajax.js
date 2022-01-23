@@ -4,7 +4,6 @@ $(document).ready(function () {
         for (a = 0; a != resultado.length; a++) {
             if (document.getElementById('id')) {
                 var nivel = '';
-                debugger
                 if (resultado[a]['nivel'] == 1) {
                     nivel = '<td class="texto-codigo">' + resultado[a]['nivel'] + ' - Administrador</td>';
                 } if (resultado[a]['nivel'] == 2) {
@@ -50,8 +49,8 @@ $(document).ready(function () {
                      '<a href="../view/Editar-termo.php?id='+resultado[a]['id']+'"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>'+
                     
                      '<form action="../control/TermoControl.php" method="POST" class="form-group">'+
-                     '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirUsuario">' +
-                     '<button class="btn-excluir-atualizar" type="submit" name="Usuario" value="'+resultado[a]['id']+'">' +
+                     '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirTermo">' +
+                     '<button class="btn-excluir-atualizar" type="submit" name="Termo" value="'+resultado[a]['id']+'">' +
                      '<i class="fa fa-trash-o" aria-hidden="true"></i></button></form></td>'
                 );
             }
@@ -64,9 +63,7 @@ $(document).ready(function () {
 
 //Carrega Termo
 async function carrega_termos(value) {
-
     if (value.length >= 3) {
-        debugger
         const termos = await fetch('../ajax-php/busca-termo.php?termo=' + value);
         const resposta = await termos.json();
         var html = "<ul class='list-group'>";
@@ -115,23 +112,18 @@ function fecharBalao(id) {
 
 //Carrega rede de Termos
 async function carrega_redes(value) {
-    if (value.length >= 3) {
-        debugger
+    if (value.length >= 3) {       
         const termos = await fetch('../ajax-php/busca-redeTermos.php?rede=' + value);
         const resposta = await termos.json();
-
         var html = "<ul class='list-group'>";
-
         if (resposta['erro']) {
             html += "<li class='list-group-item disabled'>" + resposta['msg'] + "</li>";
         } else {
             for (i = 0; i < resposta['dados'].length; i++) {
                 html += "<li class='list-group-item list-group-item-action' onclick='get_rede(" + JSON.stringify(resposta['dados'][i].id) + "," + JSON.stringify(resposta['dados'][i].nome) + ")'>" + resposta['dados'][i].nome + "</li>";
             }
-
         }
         html += "</ul>";
-
         document.getElementById('resultado_pesquisa').innerHTML = html;
     }
 }

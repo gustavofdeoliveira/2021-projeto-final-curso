@@ -43,4 +43,15 @@ class TermoDao
             return $_SESSION["msg_sucess"] = "Termo cadastrado com sucesso!";
         }
     }
+
+    function deletarTermo(TermoModel $modelo)
+    {
+
+        $sql = "DELETE FROM `termo` WHERE `id`=:id";
+        $statement = $this->conn->prepare($sql);
+        $statement->bindValue("id", $modelo->getId());
+        $statement->execute();
+        $_SESSION["msg_sucess"] = "Termo " . $modelo->getId() . " excluído!";
+        $_SESSION["tempo_msg_sucess"] = time();
+    }
 }

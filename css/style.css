@@ -1389,8 +1389,6 @@ p#btn-alteracao {
 .sidebar.active .sidebar-overlay {
   opacity: 0.4;
   transform: scale(1);
-  filter: blur(10px);
-  background: #fff;
 }
 
 .sidebar .sidebar-content .top-head .name {
@@ -1483,13 +1481,13 @@ div#texto-usuario {
   margin-top: 15px;
 }
 
-.fa-trash-o {
+.fa-trash-o, .fa-pencil-square-o {
   color: var(--cor_vermelha);
   font-size: 35px !important;
   margin-left: 15px;
 }
 
-.fa-long-arrow-up, .fa-pencil-square-o {
+.fa-long-arrow-up {
   color: var(--cor_vermelha);
   font-size: 30px !important;
   margin-right: 15px;

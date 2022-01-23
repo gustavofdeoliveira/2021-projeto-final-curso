@@ -193,8 +193,7 @@ require_once("../dao/TermoDao.php");
                             <div class="form-group">
                                 <label class="form-label label-criar-publicacao" for="nomeVariavel">variações de nome <span id="texto-opcional">(opcional)</span></label>
                                 <div class="input-group">
-                                    <input required class="input-criar-conta form-control" type="text" name="nomeVariavel">
-                                    <span class="error"></span>
+                                    <input class="input-criar-conta form-control" type="text" name="nomeVariavel">
                                 </div>
                             </div>
                         </div>
@@ -233,7 +232,7 @@ require_once("../dao/TermoDao.php");
                     } ?>
                     <div class="row">
                         <div class="col-xl-10 col-sm-12 col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-offset-0">
-                            <input type="hidden" name="acao" value="inserir">
+                            <input type="hidden" name="acao" value="inserirTermo">
                             <input class="btn-adicionar-termo btn btn-lg" type="submit" value="adicionar termo">
                         </div>
                     </div>

@@ -18,24 +18,39 @@ class TermoControl
     public function verificaAcao()
     {
         if ($this->acao) {
-            if ($this->acao == "inserir") {
+            if ($this->acao == "inserirTermo") {
                 $this->cadastrarTermo();
+            }
+            if ($this->acao == "excluirTermo") {
+                $this->excluirTermo();
             }
         }
     }
     public function cadastrarTermo()
     {
-        try {    
+        try {
             $this->modelo->setTipoTermo($_POST["tipoTermo"]);
             $this->modelo->setNome($_POST["nome"]);
             $this->modelo->setNomeVariavel($_POST["nomeVariavel"]);
             $this->modelo->setConceito($_POST["conceito"]);
-            $this->dao->inserirTermo($this->modelo);           
+            $this->dao->inserirTermo($this->modelo);
             header("Location:../view/Cadastrar-termo.php");
         } catch (\Exception $e) {
             $_SESSION["msg_error"] = $e->getMessage();
             $_SESSION["tempo_msg"] = time();
             header("Location:../view/Cadastrar-termo.php");
+        }
+    }
+    public function excluirTermo()
+    {
+        try {
+            print_r($this->modelo->setId($_POST['Termo']));
+            $this->dao->deletarTermo($this->modelo);
+            header("Location:../view/Listar-termos.php");
+        } catch (\Exception $e) {
+            $_SESSION["msg_error"] = $e->getMessage();
+            $_SESSION["tempo_msg_error"] = time();
+            header("Location:../view/Listar-termos.php");
         }
     }
 }
