@@ -22,11 +22,12 @@ $(document).ready(function () {
     })
 
 })
-
+debugger
 //Carrega Termo
 async function carrega_termos(value) {
 
     if (value.length >= 3) {
+        debugger
         const termos = await fetch('../ajax-php/busca-termo.php?termo=' + value);
         const resposta = await termos.json();
         var html = "<ul class='list-group'>";

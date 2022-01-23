@@ -70,11 +70,12 @@ function ValidateField(field) {
             spanError.innerHTML = '';
             if (field.id == "senha") {
                 erro = senhaValida(field);
-            } else {
+            } else if (field.id == "email") {
                 erro = validacaoEmail(field);
-            }
-            if (erro == null || erro == "E-mail inválido") {
-                foundError = "valueMissing";
+
+                if (erro == null || erro == "E-mail inválido") {
+                    foundError = "valueMissing";
+                }
             }
         } else {
             for (let error in field.validity) {

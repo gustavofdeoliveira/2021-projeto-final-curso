@@ -61,10 +61,10 @@ require_once("../dao/UsuarioDao.php");
                         </div>
                         <?php
 
-                        if (!empty($_SESSION["msg_error"])) {
+                        if (!empty($_SESSION["msg"])) {
                             echo "
                             <div class='col-sm-10 col-sm-offset-1 col-sm-offset-0 col-md-10 col-md-offset-1 col-xl-8 col-xl-offset-2 col-lg-8 col-lg-offset-2'>
-                                <div class='alert alert-danger' role='alert'>{$_SESSION["msg_error"]}                      </div>
+                                <div class='alert alert-danger' role='alert'>{$_SESSION["msg"]}                      </div>
                             </div>
                         ";
                         } ?>

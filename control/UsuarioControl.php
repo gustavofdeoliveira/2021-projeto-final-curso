@@ -43,8 +43,8 @@ class UsuarioControl
             header("Location:../index.php");
         
         } catch (\Exception $e) {
-            $_SESSION["msg_error"] = $e->getMessage();
-            $_SESSION["tempo_msg_error"] = time();
+            $_SESSION["msg"] = $e->getMessage();
+            $_SESSION["tempo_msg"] = time();
             header("Location:view/Login.php");
         }
     }

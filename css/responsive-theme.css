@@ -231,6 +231,27 @@
   .btn-criar-conta{
     width: 100%;
   }
+  p#configuracao{
+    font-size: 25px !important;
+  }
+  .sidebar .sidebar-content .nav-left>a{
+    font-size: 22px;
+  }
+  .dropdown-transition{
+    width: 250px;
+  }
+  .sidebar .sidebar-content{
+    margin-top: auto;
+  }
+  .fa-sign-out{
+    font-size: 50px !important;
+  }
+  .input-sair{
+    font-size: 35px;
+  }
+  div#texto-usuario{
+    font-size: 23px !important;
+  }
 }
 
 @media screen and (max-width: 991px) {
