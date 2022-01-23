@@ -168,8 +168,11 @@ error_reporting(E_ERROR | E_PARSE);
                             echo "
                             <div class='nav-left'>
                             <div id='texto-usuario'>Usuário</div>
-                                <a class='btn-tools'><span class='ion-ios-home-outline'></span>Meus Dados</a>
-                                <a href='../view/Listar-usuarios.php' class='btn-tools'><span class='ion-ios-home-outline'></span>Listar Usuários</a>
+                                <a class='btn-tools'><span class='ion-ios-home-outline'></span>Meus Dados</a>";
+                                if($usuario['nivelAcesso'] == 1){
+                                    echo"
+                                <a href='../view/Listar-usuarios.php' class='btn-tools'><span class='ion-ios-home-outline'></span>Listar Usuários</a>";}
+                                echo"
                                 <a class='btn-tools' id='dark-mode-toggle'><span class='ion-ios-list-outline'></span>
                                     <div class='d-flex modo-noturno'>
                                         <div class='texto-modo-noturno'>Modo noturno</div>

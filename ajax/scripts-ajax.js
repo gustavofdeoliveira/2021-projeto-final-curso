@@ -1,28 +1,44 @@
-
 $(document).ready(function () {
     $.post('../ajax-php/listar-usuarios.php', function (resposta) {
         resultado = JSON.parse(resposta);
-        for (a = 0; a <= resultado.length; a++) {
-            if (document.getElementById('listar-balao-codigo')) {
-                document.getElementById('listar-balao-codigo').insertAdjacentHTML('afterend', '<th id="texto-codigo">' + + '</th>');
-                document.getElementById('listar-balao-nome').insertAdjacentHTML('afterend', '<div class="row"><p id="texto-nome">' + resultado[a]['nome'] + '</p></div>');
+        for (a = 0; a != resultado.length; a++) {
+            if (document.getElementById('id')) {
+                var nivel = '';
+                debugger
                 if (resultado[a]['nivel'] == 1) {
-                    document.getElementById('listar-balao-nivel').insertAdjacentHTML('afterend', '<div class="row"><p id="texto-codigo">' + resultado[a]['nivel'] + ' - Administrador</p></div>');
+                    nivel = '<td class="texto-codigo">' + resultado[a]['nivel'] + ' - Administrador</td>';
                 } if (resultado[a]['nivel'] == 2) {
-                    document.getElementById('listar-balao-nivel').insertAdjacentHTML('afterend', '<div class="row"><p id="texto-codigo">' + resultado[a]['nivel'] + ' - Professor</p></div>');
+                    nivel = '<td class="texto-codigo">' + resultado[a]['nivel'] + ' - Professor</td>';
                 } if (resultado[a]['nivel'] == 3) {
-                    document.getElementById('listar-balao-nivel').insertAdjacentHTML('afterend', '<div class="row"><p id="texto-codigo">' + resultado[a]['nivel'] + ' - Aluno</p></div>');
+                    nivel = '<td class="texto-codigo">' + resultado[a]['nivel'] + ' - Aluno</td>>';
                 }
                 let data = new Date(resultado[a]['dataInclusao']);
                 let dataInclusao = ((data.getDate())) + "/" + ((data.getMonth() + 1)) + "/" + data.getFullYear();
-                document.getElementById('listar-balao-data').insertAdjacentHTML('afterend', '<div class="row"><p id="texto-codigo">' + dataInclusao + '</p></div>');
-                document.getElementById('btn-alteracao').insertAdjacentHTML('afterend', '<div class="row"><i class="fa fa-long-arrow-up" onclick="atualizarNivel(' + resultado[a]['id'] + ')" aria-hidden="true"></i></div>');
+
+                document.getElementById('id').insertAdjacentHTML('afterend',
+                    '<td class="texto-codigo">' + resultado[a]['id'] + '</td>' +
+                    '<td class="texto-nome">' + resultado[a]['nome'] + '</td>' +
+                    nivel + '<td class="texto-data">' + dataInclusao + '</td>' +
+                    '<td style="text-align:center;display:flex">' +
+                    '<form action="../control/UsuarioControl.php" method="POST" class="form-group">'+
+                    '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="atualizaNivel">' +
+                    '<button class="btn-excluir-atualizar" type="submit" name="Usuario" value="'+resultado[a]['id']+'" >' +
+                    '<i class="fa fa-long-arrow-up" aria-hidden="true"></i></button></form>'+
+                    
+                    '<form action="../control/UsuarioControl.php" method="POST" class="form-group">'+
+                    '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirUsuario">' +
+                    '<button class="btn-excluir-atualizar" type="submit" name="Usuario" value="'+resultado[a]['id']+'" >' +
+                    '<i class="fa fa-trash-o" aria-hidden="true"></i></button></form></td>'
+                );
             }
         }
     })
 
 })
-debugger
+
+
+
+
 //Carrega Termo
 async function carrega_termos(value) {
 

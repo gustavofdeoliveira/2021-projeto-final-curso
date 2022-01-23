@@ -78,13 +78,6 @@ require_once("../dao/UsuarioDao.php");
                                 <a href="../index.php" id="pagina-inicial">voltar para a página inicial</a>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-xl-6">
-                                <button id="dark-mode-toggle" class="dark-mode-toggle">mudar
-                                </button>
-                            </div>
-                        </div>
-
                     </form>
                 </div>
                 <div class="col-sm-12 d-none d-sm-block col-md-6 col-xl-6 col-lg-6 login-right d-none d-sm-block">

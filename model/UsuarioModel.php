@@ -2,6 +2,7 @@
 
 class UsuarioModel
 {
+    private $id;
     private $nomeCompleto;
     private $nomeUsuario;
     private $senha;
@@ -9,6 +10,21 @@ class UsuarioModel
     private $manterLogin;
     private $fotoAvatar;
 
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed 
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
     /**
      * @return mixed
      */

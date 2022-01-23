@@ -18,7 +18,6 @@ require_once("../dao/UsuarioDao.php");
     <link rel="shortcut icon" href="../image/Logo-claro.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="../javascript/jquery.js"></script>
-    <script src="../javascript/scripts-ajax.js"></script>
     <script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
 </head>
@@ -149,46 +148,67 @@ require_once("../dao/UsuarioDao.php");
         </div>
     </header>
     <main id="telas-navbar">
-        <form action="../control/ListarUsuariosControl.php" method="POST" class="form-group">
-            <div class="row">
-                <div class="col-xl-12">
-                    <p id="titulo-cadastrar-rede">listar usuários</p>
-                    <div class="row">
-                        <div class="col-xl-9 col-lg-9 col-lg-md-9 col-sm-12">
-                            <form class="d-flex">
-                                <div class="input-group">
-                                    <span class="input-group-text span-icon-buscar-usuarios" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
-                                    <input type="text" class="navbar-input-busca-usuarios form-control" placeholder="digite o nome do usuário" aria-describedby="basic-addon1">
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="row ">
-                        <div class="col-xl-12">
-                            <div class="row ">
-                                <div class="d-flex">
-                                    <div class="col-xl-1">
-                                        <div id="listar-balao-codigo" name="texto-codigo">id</div>
-                                    </div>
-                                    <div class="col-xl-2">
-                                        <div id="listar-balao-nome">nome</div>
-                                    </div>
-                                    <div class="col-xl-3">
-                                        <div id="listar-balao-nivel">nível de acesso</div>
-                                    </div>
-                                    <div class="col-xl-3">
-                                        <div id="listar-balao-data">data de cadastro</div>
-                                    </div>
-                                    <div class="col-xl-1">
-                                        <div id="btn-alteracao"></div>
-                                    </div>
-                                </div>
+        <div class="row">
+            <div class="col-xl-12">
+                <p id="titulo-cadastrar-rede">listar usuários</p>
+                <div class="row">
+                    <div class="col-xl-9 col-lg-9 col-lg-md-9 col-sm-12">
+                        <form class="d-flex">
+                            <div class="input-group">
+                                <span class="input-group-text span-icon-buscar-usuarios" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
+                                <input type="text" class="navbar-input-busca-usuarios form-control" placeholder="digite o nome do usuário" aria-describedby="basic-addon1">
                             </div>
+                        </form>
+                    </div>
+                </div>
+                <?php
+                    if (!empty($_SESSION["msg_error"])) {
+                        echo "<div class='row'>
+                            <div class='col-sm-12  col-md-12  col-xl-9  col-lg-9'>
+                                <div class='alert alert-danger' role='alert'><i class='fa fa-exclamation-triangle aria-hidden='true'></i> {$_SESSION["msg_error"]}</div>
+                            </div></div>
+                        ";
+                    } if (!empty($_SESSION["msg_sucess"])) {
+                        echo "<div class='row'>
+                            <div class='col-sm-12  col-md-12  col-xl-12  col-lg-12'>
+                                <div class='alert alert-success' role='alert'> <i class='fa fa-check-circle-o' aria-hidden='true'></i> {$_SESSION["msg_sucess"]}</div>
+                            </div></div>
+                        ";
+                    } ?>
+                <div class="row ">
+                    <div class="col-xl-12">
+                        <div class="row">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td scope="col" style="width: 50px;">
+                                            <div class="listar-balao">id</div>
+                                        </td>
+                                        <td scope="col" style="width: 300px;">
+                                            <div class="listar-balao">nome</div>
+                                            </>
+                                        <td scope="col" style="width: 220px;">
+                                            <div class="listar-balao">nível</div>
+                                        </td>
+                                        <td scope="col" style="width: 100px;">
+                                            <div class="listar-balao">data</div>
+                                        </td>
+                                        <th style="width: 75px;text-align: center;">
+                                            <div class="row"></div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr id="id">
+
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
-        </form>
+        </div>
 
     </main>
 
@@ -196,6 +216,7 @@ require_once("../dao/UsuarioDao.php");
     </script>
     <script src="../javascript/scripts.js"></script>
     <script src="../javascript/script-bell.js"></script>
+    <script src="../ajax/scripts-ajax.js"></script>
 </body>
 
 </html>

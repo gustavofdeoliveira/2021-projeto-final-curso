@@ -1,6 +1,7 @@
 <?php
 require_once "../dao/UsuarioDao.php";
 require_once "../model/UsuarioModel.php";
+
 class UsuarioControl
 {
 
@@ -12,7 +13,8 @@ class UsuarioControl
     {
         $this->dao = new UsuarioDao();
         $this->modelo = new UsuarioModel();
-        $this->acao = $_REQUEST["acao"];
+        $this->acao = $_REQUEST["acao"]; 
+        print_r($this->acao); 
         $this->verificaAcao();
     }
 
@@ -21,12 +23,21 @@ class UsuarioControl
         if ($this->acao) {
             if ($this->acao == "login") {
                 $this->login();
-            } elseif ($this->acao == "cadastro") {
+            }
+            if ($this->acao == "cadastro") {
                 $this->cadastrarUsuario();
-            } elseif ($this->acao == "recuperar") {
+            }
+            if ($this->acao == "recuperar") {
                 $this->recuperarSenha();
-            } elseif ($this->acao == "sair") {
+            }
+            if ($this->acao == "sair") {
                 $this->desconectarUsuario();
+            }
+            if ($this->acao == "atualizaNivel") {
+                $this->atualizarNivelUsuario(); 
+            }
+            if ($this->acao == "excluirUsuario") {
+                $this->excluirUsuario();                
             }
         }
     }
@@ -35,16 +46,15 @@ class UsuarioControl
         try {
             $this->modelo->setNomeUsuario($_POST["nomeUsuario"]);
             $this->modelo->setSenha($_POST["senha"]);
-            if(!empty($_POST["manterLogin"])){
+            if (!empty($_POST["manterLogin"])) {
                 $this->modelo->setManterLogin($_POST["manterLogin"]);
             }
             $this->dao->fazerLogin($this->modelo);
             $_SESSION['usuarioAutenticado'];
             header("Location:../index.php");
-        
         } catch (\Exception $e) {
-            $_SESSION["msg"] = $e->getMessage();
-            $_SESSION["tempo_msg"] = time();
+            $_SESSION["msg_error"] = $e->getMessage();
+            $_SESSION["tempo_msg_error"] = time();
             header("Location:view/Login.php");
         }
     }
@@ -55,8 +65,8 @@ class UsuarioControl
             $this->modelo->setNomeUsuario($_POST["nomeUsuario"]);
             $this->modelo->setSenha($_POST["senha"]);
             $this->modelo->setEmail($_POST["email"]);
-            $avatarNumero = rand(1,6);
-            $this->modelo->setFotoAvatar("http://localhost/2021-projeto-final-curso/image/avatares/Avatar-".$avatarNumero.".png");
+            $avatarNumero = rand(1, 6);
+            $this->modelo->setFotoAvatar("http://localhost/2021-projeto-final-curso/image/avatares/Avatar-" . $avatarNumero . ".png");
             $this->dao->inserirUsuario($this->modelo);
             header("Location:../view/CadastroFinalizado.php");
         } catch (\Exception $e) {
@@ -83,6 +93,30 @@ class UsuarioControl
         } catch (\Exception $e) {
             print_r($e->getMessage());
             header("Location:../view/index.php");
+        }
+    }
+    public function atualizarNivelUsuario()
+    {
+        try {
+            print_r($this->modelo->setId($_POST['Usuario']));
+            $this->dao->atualizarNivel($this->modelo);
+            header("Location:../view/Listar-usuarios.php");
+        } catch (\Exception $e) {
+            $_SESSION["msg_error"] = $e->getMessage();
+            $_SESSION["tempo_msg_error"] = time();
+            header("Location:../view/Listar-usuarios.php");
+        }
+    }
+    public function excluirUsuario()
+    {
+        try {
+            print_r($this->modelo->setId($_POST['Usuario']));
+            $this->dao->deletarUsuario($this->modelo);
+            header("Location:../view/Listar-usuarios.php");
+        } catch (\Exception $e) {
+            $_SESSION["msg_error"] = $e->getMessage();
+            $_SESSION["tempo_msg_error"] = time();
+            header("Location:../view/Listar-usuarios.php");
         }
     }
 }

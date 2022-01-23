@@ -3,8 +3,11 @@
 session_start();
 require_once(realpath(dirname(__FILE__) . "/../database/Connection.php"));
 //Temporalizador da Mensagem de erro no login
-if (!empty($_SESSION['msg']) && (time() - $_SESSION['tempo_msg'] > 10)) {
-    unset($_SESSION['msg']);
+if (!empty($_SESSION['msg_error']) && (time() - $_SESSION['tempo_msg_error'] > 15)) {
+    unset($_SESSION['msg_error']);
+}
+if (!empty($_SESSION['msg_sucess']) && (time() - $_SESSION['tempo_msg_sucess'] > 15)) {
+    unset($_SESSION['msg_sucess']);
 }
 if (!empty($_SESSION['usuarioAutenticado']) and empty($_SESSION['manterConectado']) and (time() - $_SESSION['sessao_usuario'] > 3600)) {
     unset($_SESSION['usuarioAutenticado']);
@@ -33,7 +36,7 @@ class UsuarioDao
                 throw new \Exception('Nome de Usuário já cadastrado');
             }
         } else if (empty($statement->rowCount())) {
-            $sql = "INSERT INTO `usuario`(`nomeCompleto`,`nomeUsuario`,`senha`,`nivelAcesso`,`email`,`dataInclusao`) 
+            $sql = "INSERT INTO `usuario`(`nomeCompleto`,`nomeUsuario`,`senha`,`nivelAcesso`,`email`,`fotoAvatar`,`dataInclusao`) 
              VALUES ( '" . $modelo->getNomeCompleto() . "', '" . $modelo->getNomeUsuario() . "', SHA1('" . $modelo->getSenha() . "'), 3,'" . $modelo->getEmail() . "','" . $modelo->getFotoAvatar() . "',CURRENT_DATE())";
             $statement = $this->conn->prepare($sql);
             $statement->execute();
@@ -91,5 +94,45 @@ class UsuarioDao
     {
         unset($_SESSION['usuarioAutenticado']);
         header("Location:../index.php");
+    }
+
+    function atualizarNivel(UsuarioModel $modelo)
+    {
+
+        $sql = "SELECT * FROM `usuario` WHERE `idUsuario`=:id";
+        $statement = $this->conn->prepare($sql);
+        $statement->bindValue("id", $modelo->getId());
+        $statement->execute();
+
+        //Se achar o usuario
+        if (!empty($statement->rowCount())) {
+            //Guarda em um array os dados retornado do banco
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            if ($result['nivelAcesso'] == 1) {
+                $novoNivel = 2;
+            } else if ($result['nivelAcesso'] == 2) {
+                $novoNivel = 3;
+            } else if ($result['nivelAcesso'] == 3) {
+                $novoNivel = 1;
+            }
+            $sql = "UPDATE `usuario` SET `nivelAcesso`= $novoNivel WHERE `idUsuario`=:id";
+            $statement = $this->conn->prepare($sql);
+            $statement->bindValue("id", $modelo->getId());
+            $statement->execute();
+            $_SESSION["msg_sucess"] = "Nível de acesso do usuário " . $modelo->getId() . " atualizado!";
+            $_SESSION["tempo_msg_sucess"] = time();
+        } else {
+            throw new \Exception('Usuário não encontrado');
+        }
+    }
+    function deletarUsuario(UsuarioModel $modelo)
+    {
+
+        $sql = "DELETE FROM `usuario` WHERE `idUsuario`=:id";
+        $statement = $this->conn->prepare($sql);
+        $statement->bindValue("id", $modelo->getId());
+        $statement->execute();
+        $_SESSION["msg_sucess"] = "Usuário " . $modelo->getId() . " excluído!";
+        $_SESSION["tempo_msg_sucess"] = time();
     }
 }

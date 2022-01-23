@@ -284,7 +284,7 @@ p#titulo-criar-conta {
 p#titulo-esqueceu-senha {
   font-size: 95px;
   font-family: Raleway-Black;
-  color: var(--cor_branca);
+  color: var(--cor_branca) !important;
   display: flex;
   line-height: 95px;
   margin-top: 5%;
@@ -697,7 +697,7 @@ a#pagina-inicial {
   height: 26px;
   background-color: var(--cor_vermelha);
   border-radius: 200px;
-  color: var(--cor_branca);
+  color: var(--cor_branca) !important;
   padding: 5px 15px;
   text-decoration: none;
 }
@@ -1245,7 +1245,7 @@ span#resultado_pesquisa {
   height: 100% !important;
 }
 
-#listar-balao-codigo, div#listar-balao-nome, div#listar-balao-nivel, div#listar-balao-data {
+.listar-balao {
   color: var(--cor_branca) !important;
   font-family: Raleway-Black !important;
   font-size: 25px !important;
@@ -1255,10 +1255,9 @@ span#resultado_pesquisa {
   padding: 12px;
   margin-right: 10px;
   border-radius: 80px;
-  width: 100%;
 }
 
-div#texto-codigo {
+.texto-codigo {
   font-family: Raleway-Light !important;
   font-size: 25px !important;
   line-height: 24px !important;
@@ -1266,7 +1265,7 @@ div#texto-codigo {
   text-align: center;
 }
 
-p#texto-nome {
+.texto-nome {
   font-family: Raleway-Bold !important;
   font-size: 25px !important;
   line-height: 24px !important;
@@ -1274,7 +1273,7 @@ p#texto-nome {
   text-align: center;
 }
 
-p#texto-codigo {
+.texto-data {
   font-family: Raleway-Light !important;
   font-size: 23.74px !important;
   line-height: 23px !important;
@@ -1482,4 +1481,22 @@ div#texto-usuario {
   font-family: Raleway-Black;
   color: var(--cor_branca) !important;
   margin-top: 15px;
+}
+
+.fa-trash-o {
+  color: var(--cor_vermelha);
+  font-size: 35px !important;
+  margin-left: 15px;
+}
+
+.fa-long-arrow-up {
+  color: var(--cor_vermelha);
+  font-size: 30px !important;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+.btn-excluir-atualizar {
+  background-color: transparent;
+  border: none;
 }
