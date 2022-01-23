@@ -1,10 +1,27 @@
 <?php
 class TermoModel
 {
+    private $id;
     private $tipoTermo;
     private $nome;
     private $nomeVariavel;
     private $conceito;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed 
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
     /**
      * @return mixed
      */

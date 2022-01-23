@@ -1258,7 +1258,7 @@ span#resultado_pesquisa {
 }
 
 .texto-codigo {
-  font-family: Raleway-Light !important;
+  font-family: Raleway-Regular !important;
   font-size: 25px !important;
   line-height: 24px !important;
   color: var(--color_preta) !important;
@@ -1489,7 +1489,7 @@ div#texto-usuario {
   margin-left: 15px;
 }
 
-.fa-long-arrow-up {
+.fa-long-arrow-up, .fa-pencil-square-o {
   color: var(--cor_vermelha);
   font-size: 30px !important;
   margin-right: 15px;

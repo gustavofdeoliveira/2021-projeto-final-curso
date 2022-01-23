@@ -118,26 +118,26 @@ require_once("../dao/UsuarioDao.php");
                                             <a class='nav-link btn-navbar-login' href='../view/Login.php'>Fazer Login</a>
                                         </li>";
                                         } ?>
-                                        
+
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </nav>
-                <?php 
-                    $usuario = $_SESSION["usuarioAutenticado"];
-                    if($usuario != null){
-                        echo"
+                <?php
+                $usuario = $_SESSION["usuarioAutenticado"];
+                if ($usuario != null) {
+                    echo "
                     <div class='header-tools ion-ios-navicon pull-right'>
                         <i class='fa fa-cog' aria-hidden='true'></i>
                     </div> 
                     <div class='sidebar'>
                     <div class='sidebar-overlay animated fadeOut'></div>
                         <div class='sidebar-content'>
-                            <p id='configuracao'>Configurações</p>"; 
-                            if($usuario['nivelAcesso'] == 3){
-                            echo "
+                            <p id='configuracao'>Configurações</p>";
+                    if ($usuario['nivelAcesso'] == 3) {
+                        echo "
                             <div class='nav-left'>
                                 <a class='btn-tools'><span class='ion-ios-home-outline'></span>Meus Dados</a>
                                 <a class='btn-tools'><span class='ion-ios-list-outline'></span>Sugerir Termo</a>
@@ -162,16 +162,18 @@ require_once("../dao/UsuarioDao.php");
                                     </form>
                                 </a>
                                 
-                            </div>";}                         
-                            if($usuario['nivelAcesso'] == 1|| $usuario['nivelAcesso']==2){
-                            echo "
+                            </div>";
+                    }
+                    if ($usuario['nivelAcesso'] == 1 || $usuario['nivelAcesso'] == 2) {
+                        echo "
                             <div class='nav-left'>
                             <div id='texto-usuario'>Usuário</div>
                                 <a class='btn-tools'><span class='ion-ios-home-outline'></span>Meus Dados</a>";
-                                if($usuario['nivelAcesso'] == 1){
-                                    echo"
-                                <a href='../view/Listar-usuarios.php' class='btn-tools'><span class='ion-ios-home-outline'></span>Listar Usuários</a>";}
-                                echo"
+                        if ($usuario['nivelAcesso'] == 1) {
+                            echo "
+                                <a href='../view/Listar-usuarios.php' class='btn-tools'><span class='ion-ios-home-outline'></span>Listar Usuários</a>";
+                        }
+                        echo "
                                 <a class='btn-tools' id='dark-mode-toggle'><span class='ion-ios-list-outline'></span>
                                     <div class='d-flex modo-noturno'>
                                         <div class='texto-modo-noturno'>Modo noturno</div>
@@ -203,13 +205,17 @@ require_once("../dao/UsuarioDao.php");
                                     </form>
                                 </a>
                                 
-                            </div>";}
-                        echo "</div>
-                    </div>";}
-                    ?> 
+                            </div>";
+                    }
+                    echo "</div>
+                    </div>";
+                }
+                ?>
             </div>
         </div>
     </header>
+
+
     <main id="telas-navbar">
         <div class="row">
             <div class="col-xl-12">
@@ -225,19 +231,20 @@ require_once("../dao/UsuarioDao.php");
                     </div>
                 </div>
                 <?php
-                    if (!empty($_SESSION["msg_error"])) {
-                        echo "<div class='row'>
+                if (!empty($_SESSION["msg_error"])) {
+                    echo "<div class='row'>
                             <div class='col-sm-12  col-md-12  col-xl-9  col-lg-9'>
                                 <div class='alert alert-danger' role='alert'><i class='fa fa-exclamation-triangle aria-hidden='true'></i> {$_SESSION["msg_error"]}</div>
                             </div></div>
                         ";
-                    } if (!empty($_SESSION["msg_sucess"])) {
-                        echo "<div class='row'>
+                }
+                if (!empty($_SESSION["msg_sucess"])) {
+                    echo "<div class='row'>
                             <div class='col-sm-12  col-md-12  col-xl-12  col-lg-12'>
                                 <div class='alert alert-success' role='alert'> <i class='fa fa-check-circle-o' aria-hidden='true'></i> {$_SESSION["msg_sucess"]}</div>
                             </div></div>
                         ";
-                    } ?>
+                } ?>
                 <div class="row ">
                     <div class="col-xl-12">
                         <div class="row">
@@ -247,14 +254,14 @@ require_once("../dao/UsuarioDao.php");
                                         <td scope="col" style="width: 50px;">
                                             <div class="listar-balao">id</div>
                                         </td>
-                                        <td scope="col" style="width: 300px;">
+                                        <td scope="col" style="width: 200px;">
                                             <div class="listar-balao">nome</div>
-                                            
-                                        <td scope="col" style="width: 180px;">
-                                            <div class="listar-balao">nível de acesso</div>
+
+                                        <td scope="col" style="width: 100px;">
+                                            <div class="listar-balao">tipo</div>
                                         </td>
-                                        <td scope="col" style="width: 180px;">
-                                            <div class="listar-balao">data de cadastro</div>
+                                        <td scope="col" style="width: 300px;">
+                                            <div class="listar-balao">descrição</div>
                                         </td>
                                         <th style="width: 75px;text-align: center;">
                                             <div class="row"></div>
@@ -262,7 +269,7 @@ require_once("../dao/UsuarioDao.php");
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr id="id">
+                                    <tr id="id-termos">
 
                                     </tr>
                                 </tbody>

@@ -35,6 +35,30 @@ $(document).ready(function () {
     })
 })
 
+$(document).ready(function () {
+    $.post('../ajax-php/listar-termos.php', function (resposta) {
+        resultado = JSON.parse(resposta);
+        for (a = 0; a != resultado.length; a++) {
+            if (document.getElementById('id-termos')) {
+                document.getElementById('id-termos').insertAdjacentHTML('afterend',
+                    '<td class="texto-codigo">' + resultado[a]['id'] + '</td>' +
+                    '<td class="texto-nome">' + resultado[a]['nome'] + '</td>' +
+                    '<td class="texto-codigo">' + resultado[a]['tipo'] + '</td>' +
+                    '<td class="texto-codigo">' + resultado[a]['conceito'] + '</td>' +
+                    
+                     '<td style="text-align:center;display:flex">' +
+                     '<a href="../view/Editar-termo.php?id='+resultado[a]['id']+'"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>'+
+                    
+                     '<form action="../control/TermoControl.php" method="POST" class="form-group">'+
+                     '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirUsuario">' +
+                     '<button class="btn-excluir-atualizar" type="submit" name="Usuario" value="'+resultado[a]['id']+'">' +
+                     '<i class="fa fa-trash-o" aria-hidden="true"></i></button></form></td>'
+                );
+            }
+        }
+    })
+})
+
 
 
 

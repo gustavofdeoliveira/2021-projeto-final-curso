@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 17-Jan-2022 às 14:33
+-- Tempo de geração: 24-Jan-2022 às 00:15
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 8.1.1
 
@@ -31,10 +31,37 @@ CREATE TABLE `redetermos` (
   `id` int(11) NOT NULL,
   `nome` varchar(150) NOT NULL,
   `descricao` text NOT NULL,
-  `termosIncluidos` text NOT NULL,
-  `idTermos` int(11) NOT NULL,
   `dataInclusao` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `redetermos`
+--
+
+INSERT INTO `redetermos` (`id`, `nome`, `descricao`, `dataInclusao`) VALUES
+(12, 'Utopia', 'Descrição de Utopia', '2022-01-17'),
+(13, 'Rede de Termos teste', 'Rede de termos teste', '2022-01-17'),
+(14, 'Rede de Termos teste 1', 'Rede de termos teste', '2022-01-17'),
+(15, 'Rede de Termos teste 2', 'Rede de termos teste', '2022-01-17');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `rede_termos_termo`
+--
+
+CREATE TABLE `rede_termos_termo` (
+  `id` int(11) NOT NULL,
+  `id_rede` int(11) NOT NULL,
+  `id_termo` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `rede_termos_termo`
+--
+
+INSERT INTO `rede_termos_termo` (`id`, `id_rede`, `id_termo`) VALUES
+(1, 15, 1);
 
 -- --------------------------------------------------------
 
@@ -83,7 +110,7 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`idUsuario`, `nomeCompleto`, `nomeUsuario`, `senha`, `nivelAcesso`, `email`, `fotoAvatar`, `dataInclusao`) VALUES
 (1, 'Administrador', 'admin@admin', 'a1ba0d7140693d4c80041b5940815128b208b7a5', 1, 'admin@admin.org.br', 'http://localhost/2021-projeto-final-curso/image/avatares/Avatar-1.png', '2021-12-12'),
-(2, 'Gustavo Ferreira de Oliveira', 'gustavoof', 'f7c8dfd35867effa9e9b26084f475439caf0c66f', 1, 'gustavoofdeoliveira@hotmail.com', 'http://localhost/2021-projeto-final-curso/image/avatares/Avatar-6.png', '2021-12-20');
+(5, 'Gustavo Ferreira de Oliveira', 'gustavoof', '4813c1999df1bef5063e81fd6d1b02230845b6bf', 1, 'gustavoofdeooliveira@gmail.com', 'http://localhost/2021-projeto-final-curso/image/avatares/Avatar-5.png', '2022-01-23');
 
 --
 -- Índices para tabelas despejadas
@@ -93,8 +120,13 @@ INSERT INTO `usuario` (`idUsuario`, `nomeCompleto`, `nomeUsuario`, `senha`, `niv
 -- Índices para tabela `redetermos`
 --
 ALTER TABLE `redetermos`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id` (`idTermos`);
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `rede_termos_termo`
+--
+ALTER TABLE `rede_termos_termo`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Índices para tabela `termo`
@@ -116,7 +148,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `redetermos`
 --
 ALTER TABLE `redetermos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT de tabela `rede_termos_termo`
+--
+ALTER TABLE `rede_termos_termo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `termo`
@@ -128,17 +166,7 @@ ALTER TABLE `termo`
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- Restrições para despejos de tabelas
---
-
---
--- Limitadores para a tabela `redetermos`
---
-ALTER TABLE `redetermos`
-  ADD CONSTRAINT `id` FOREIGN KEY (`idTermos`) REFERENCES `termo` (`id`);
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
