@@ -212,9 +212,8 @@ require_once("../dao/TermoDao.php");
                     <div class="row">
                         <div class="col-xl-12">
                             <ul>
-                                <li id="texto-estilo">verifique se o termo que você quer cadastrar <span>já não foi cadastrado</span></li>
+                                <li id="texto-estilo">verifique se suas <span>alterações</span> não vão defasar o significado do termo</li>
                                 <li id="texto-estilo"><span>revise seus textos</span>, eles devem ser redigidos na norma-padrão da língua portuguesa</li>
-                                <li id="texto-estilo">ao cadastrar um teórico, utilize a estrutura <span>[Sobrenome, Nome]</span></li>
                                 <li id="texto-estilo">seu texto deve ter <span>caráter didático e descritivo</span>, abstendo-se de opiniões</li>
                             </ul>
                         </div>
@@ -237,7 +236,7 @@ require_once("../dao/TermoDao.php");
                     <div class="row">
                         <div class="col-xl-10 col-sm-12 col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-offset-0">
                             <input type="hidden" name="acao" value="editarTermo">
-                            <input class="btn-adicionar-termo btn btn-lg" type="submit"  onclick="habilitaCampoTermo()" value="adicionar termo">
+                            <input class="btn-adicionar-termo btn btn-lg" type="submit"  onclick="habilitaCampoTermo()" value="salvar alterações">
                         </div>
                     </div>
                 </div>
