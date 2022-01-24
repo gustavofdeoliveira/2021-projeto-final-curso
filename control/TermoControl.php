@@ -59,7 +59,6 @@ class TermoControl
     public function editarTermo()
     {
         try {
-            
             $this->modelo->setId($_POST["idTermo"]);
             $this->modelo->setTipoTermo($_POST["tipoTermo"]);
             $this->modelo->setNome($_POST["nome"]);
