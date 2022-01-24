@@ -9,7 +9,7 @@ require_once("../dao/UsuarioDao.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listar Usuários | Tereré com Sociologia</title>
+    <title>Listar Termos | Tereré com Sociologia</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/responsive-theme.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -219,13 +219,13 @@ require_once("../dao/UsuarioDao.php");
     <main id="telas-navbar">
         <div class="row">
             <div class="col-xl-12">
-                <p id="titulo-cadastrar-rede">listar usuários</p>
+                <p id="titulo-cadastrar-rede">listar termos</p>
                 <div class="row">
                     <div class="col-xl-9 col-lg-9 col-lg-md-9 col-sm-12">
                         <form class="d-flex">
                             <div class="input-group">
                                 <span class="input-group-text span-icon-buscar-usuarios" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
-                                <input type="text" class="navbar-input-busca-usuarios form-control" placeholder="digite o nome do usuário" aria-describedby="basic-addon1">
+                                <input type="text" class="navbar-input-busca-usuarios form-control" placeholder="digite o nome do termo" aria-describedby="basic-addon1">
                             </div>
                         </form>
                     </div>

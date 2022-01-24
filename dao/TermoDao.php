@@ -3,7 +3,7 @@
 session_start();
 require_once(realpath(dirname(__FILE__) . "/../database/Connection.php"));
 
-if (!empty($_SESSION['msg_error']) ||!empty($_SESSION['msg_sucess']) && (time() - $_SESSION['tempo_msg'] > 10)) {
+if (!empty($_SESSION['msg_error']) || !empty($_SESSION['msg_sucess']) && (time() - $_SESSION['tempo_msg'] > 10)) {
     unset($_SESSION['msg_error']);
     unset($_SESSION['msg_sucess']);
 }
@@ -46,8 +46,9 @@ class TermoDao
 
     function deletarTermo(TermoModel $modelo)
     {
-
-        $sql = "DELETE FROM `termo` WHERE `id`=:id";
+        $sql = "DELETE `termo`, `rede_termos_termo` FROM `termo`
+                LEFT JOIN `rede_termos_termo` ON `termo`.`id` = `rede_termos_termo`.`id_termo`
+                WHERE `termo`.`id` = :id";
         $statement = $this->conn->prepare($sql);
         $statement->bindValue("id", $modelo->getId());
         $statement->execute();
