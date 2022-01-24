@@ -18,16 +18,16 @@ $(document).ready(function () {
                     '<td class="texto-codigo">' + resultado[a]['id'] + '</td>' +
                     '<td class="texto-nome">' + resultado[a]['nome'] + '</td>' +
                     nivel + '<td class="texto-data">' + dataInclusao + '</td>' +
-                     '<td style="text-align:center;display:flex">' +
-                     '<form action="../control/UsuarioControl.php" method="POST" class="form-group">'+
-                     '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="atualizaNivel">' +
-                     '<button class="btn-excluir-atualizar" type="submit" name="Usuario" value="'+resultado[a]['id']+'" >' +
-                     '<i class="fa fa-long-arrow-up" aria-hidden="true"></i></button></form>'+
-                    
-                     '<form action="../control/UsuarioControl.php" method="POST" class="form-group">'+
-                     '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirUsuario">' +
-                     '<button class="btn-excluir-atualizar" type="submit" name="Usuario" value="'+resultado[a]['id']+'">' +
-                     '<i class="fa fa-trash-o" aria-hidden="true"></i></button></form></td>'
+                    '<td style="text-align:center;display:flex">' +
+                    '<form action="../control/UsuarioControl.php" method="POST" class="form-group">' +
+                    '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="atualizaNivel">' +
+                    '<button class="btn-excluir-atualizar" type="submit" name="Usuario" value="' + resultado[a]['id'] + '" >' +
+                    '<i class="fa fa-long-arrow-up" aria-hidden="true"></i></button></form>' +
+
+                    '<form action="../control/UsuarioControl.php" method="POST" class="form-group">' +
+                    '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirUsuario">' +
+                    '<button class="btn-excluir-atualizar" type="submit" name="Usuario" value="' + resultado[a]['id'] + '">' +
+                    '<i class="fa fa-trash-o" aria-hidden="true"></i></button></form></td>'
                 );
             }
         }
@@ -44,14 +44,14 @@ $(document).ready(function () {
                     '<td class="texto-nome">' + resultado[a]['nome'] + '</td>' +
                     '<td class="texto-codigo">' + resultado[a]['tipo'] + '</td>' +
                     '<td class="texto-codigo">' + resultado[a]['conceito'] + '</td>' +
-                    
-                     '<td style="text-align:center;display:flex">' +
-                     '<a href="../view/Editar-termo.php?php'+resultado[a]['id']+'"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>'+
-                    
-                     '<form action="../control/TermoControl.php" method="POST" class="form-group">'+
-                     '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirTermo">' +
-                     '<button class="btn-excluir-atualizar" type="submit" name="Termo" value="'+resultado[a]['id']+'">' +
-                     '<i class="fa fa-trash-o" aria-hidden="true"></i></button></form></td>'
+
+                    '<td style="text-align:center;display:flex">' +
+                    '<a href="../view/Editar-termo.php?id=' + resultado[a]['id'] + '"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>' +
+
+                    '<form action="../control/TermoControl.php" method="POST" class="form-group">' +
+                    '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirTermo">' +
+                    '<button class="btn-excluir-atualizar" type="submit" name="Termo" value="' + resultado[a]['id'] + '">' +
+                    '<i class="fa fa-trash-o" aria-hidden="true"></i></button></form></td>'
                 );
             }
         }
@@ -60,16 +60,21 @@ $(document).ready(function () {
 
 $(document).ready(function () {
     debugger
-    var url = window.location.href; 
-    $.post('../ajax-php/editar-termo.php?url='+ url, function (resposta) {
-        debugger
-resultado = JSON.parse(resposta);
-    })
+    var editar = document.getElementsByName("editar-termo");
+    if (editar) {
+        var url = window.location.href;
+        var valores_url = url.split("=");
+        $.post('../ajax-php/editar-termo.php?id=' + valores_url[1], function (resposta) {
+            debugger
+            resultado = JSON.parse(resposta);
+            document.getElementById("idTermo").value = resultado["dados"][0]["id"];
+            document.getElementById("nome").value = resultado["dados"][0]["nome"];
+            document.getElementById("select-termo").value = resultado["dados"][0]["tipo"];
+            document.getElementById("conceito").value = resultado["dados"][0]["conceito"];
+            document.getElementById("nomeVariavel").value = resultado["dados"][0]["nomeVariavel"];
+        })
+    }
 })
-
-
-
-
 
 //Carrega Termo
 async function carrega_termos(value) {
@@ -122,7 +127,7 @@ function fecharBalao(id) {
 
 //Carrega rede de Termos
 async function carrega_redes(value) {
-    if (value.length >= 3) {       
+    if (value.length >= 3) {
         const termos = await fetch('../ajax-php/busca-redeTermos.php?rede=' + value);
         const resposta = await termos.json();
         var html = "<ul class='list-group'>";

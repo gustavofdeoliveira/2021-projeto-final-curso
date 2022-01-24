@@ -55,4 +55,18 @@ class TermoDao
         $_SESSION["msg_sucess"] = "Termo " . $modelo->getId() . " excluído!";
         $_SESSION["tempo_msg_sucess"] = time();
     }
+    
+    function atualizarTermo(TermoModel $modelo){
+
+        $sql = "UPDATE `termo` SET 
+        `tipoTermo` = '" . $modelo->getTipoTermo() . "',
+        `nome` = '" . $modelo->getNome() . "',
+        `nomeVariavel` ='" . $modelo->getNomeVariavel() . "',
+        `conceito` ='" . $modelo->getConceito() . "' WHERE `id`=:id";
+       $statement = $this->conn->prepare($sql);
+       $statement->bindValue("id", $modelo->getId());
+       $statement->execute();
+       $_SESSION["tempo_msg"] = time();
+       return $_SESSION["msg_sucess"] = "Termo atualizado com sucesso!";
+    }
 }

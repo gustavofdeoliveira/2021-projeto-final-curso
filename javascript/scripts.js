@@ -61,7 +61,6 @@ var statusEmail = '';
 const fields = document.querySelectorAll("[required]")
 var emailVerificado;
 function ValidateField(field) {
-    debugger
     // logica para verificar se existem erros
     function verifyErrors() {
         let foundError = false;
@@ -89,8 +88,6 @@ function ValidateField(field) {
         return foundError;
     }
     function customMessage(typeError) {
-        debugger
-
         const messages = {
             text: {
                 valueMissing: "Campo obrigatório"
@@ -199,7 +196,6 @@ function validacaoEmail(field) {
 }
 
 function senhaValida(password) {
-    debugger
     msg = '';
     var p = password.value;
     var letrasMaiusculas = /[A-Z]/;
@@ -236,8 +232,6 @@ function senhaValida(password) {
         msg = msg + "A senha deve possuir no mínimo 1 caractere especial</br>";
     }
 
-
-
     if (msg) {
         const spanError = password.parentNode.querySelector("span.error")
         spanError.classList.add("active")
@@ -253,4 +247,14 @@ function senhaValida(password) {
     return msg;
 }
 
+function ativaCampo(campo) {
+    campo.disabled = false;
+}
+
+function habilitaCampoTermo(){
+    debugger
+    document.getElementById("nome").disabled = false;
+    document.getElementById("conceito").disabled = false;
+    document.getElementById("nomeVariavel").disabled = false;
+}
 

@@ -951,7 +951,7 @@ select#select-termo {
 .textarea {
   min-height: 115px !important;
   border-radius: 40px !important;
-  padding: 5px 20px !important;
+  padding: 5px 45px !important;
   border-color: var(--cor_vermelha);
 }
 
@@ -991,6 +991,20 @@ p#texto-alerta {
 
 .ck.ck-editor {
   width: 100% !important;
+}
+
+.ck-link-form, .ck-find-and-replace-form, .ck-list__item, .ck-dropdown__panel_se, .ck-dropdown__panel_nw, .ck-dropdown__panel-visible {
+  background-color: var(--cor_vermelha) !important;
+
+}
+
+.ck-button__label, .ck-form__header__label, .ck-insert-table-dropdown__label, .ck-character-info, .ck-labeled-field-view__status, .ck-insert-table-dropdown__grid, .ck-dropdown__panel_nw, .ck-dropdown__panel-visible, .ck-character-info {
+  color: var(--cor_branca) !important;
+  font-family: Raleway-Regular !important;
+}
+
+.ck.ck-list__item .ck-button.ck-on:hover:not(.ck-disabled) {
+  background-color: var(--cor_verde) !important;
 }
 
 p {
@@ -1497,4 +1511,12 @@ div#texto-usuario {
 .btn-excluir-atualizar {
   background-color: transparent;
   border: none;
+}
+
+.editar {
+  position: absolute;
+  right: 20px;
+  margin-top: 5px;
+  font-size: 30px !important;
+  z-index: 100;
 }

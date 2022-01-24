@@ -147,7 +147,7 @@ require_once("../dao/TermoDao.php");
             </div>
         </div>
     </header>
-    <main id="telas-navbar">
+    <main id="telas-navbar" name="editar-termo">
         <form action="../control/TermoControl.php" method="POST" class="form-group">
             <div class="row">
                 <div class="col-xl-12">
@@ -159,7 +159,9 @@ require_once("../dao/TermoDao.php");
                             <div class="form-group">
                                 <label class="form-label label-criar-publicacao" for="nome">nome</label>
                                 <div class="input-group">
-                                    <input required class="input-criar-conta form-control" type="text" name="nome">
+                                    <input class="input-criar-conta form-control" type="hidden" style="display: none;" id="idTermo" name="idTermo">
+                                    <input required class="input-criar-conta form-control" type="text" id="nome" name="nome" disabled>
+                                    <i class="editar fa fa-pencil-square-o" aria-hidden="true" onclick="ativaCampo(nome)"></i>
                                     <span class="error"></span>
                                 </div>
                             </div>
@@ -182,7 +184,8 @@ require_once("../dao/TermoDao.php");
                             <div class="form-group">
                                 <label class="form-label label-criar-publicacao" for="conceito">definição</label>
                                 <div class="input-group">
-                                    <textarea required class="textarea form-control" rows="4" type="text" name="conceito"></textarea>
+                                    <textarea required class="textarea form-control" rows="4" type="text" id="conceito" name="conceito" disabled></textarea>
+                                    <i class="editar fa fa-pencil-square-o" aria-hidden="true" onclick="ativaCampo(conceito)"></i>
                                     <span class="error"></span>
                                 </div>
                             </div>
@@ -193,7 +196,8 @@ require_once("../dao/TermoDao.php");
                             <div class="form-group">
                                 <label class="form-label label-criar-publicacao" for="nomeVariavel">variações de nome <span id="texto-opcional">(opcional)</span></label>
                                 <div class="input-group">
-                                    <input class="input-criar-conta form-control" type="text" name="nomeVariavel">
+                                    <input class="input-criar-conta form-control" type="text" id="nomeVariavel" name="nomeVariavel" disabled>
+                                    <i class="editar fa fa-pencil-square-o" aria-hidden="true" onclick="ativaCampo(nomeVariavel)"></i>
                                 </div>
                             </div>
                         </div>
@@ -232,8 +236,8 @@ require_once("../dao/TermoDao.php");
                     } ?>
                     <div class="row">
                         <div class="col-xl-10 col-sm-12 col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-offset-0">
-                            <input type="hidden" name="acao" value="inserirTermo">
-                            <input class="btn-adicionar-termo btn btn-lg" type="submit" value="adicionar termo">
+                            <input type="hidden" name="acao" value="editarTermo">
+                            <input class="btn-adicionar-termo btn btn-lg" type="submit"  onclick="habilitaCampoTermo()" value="adicionar termo">
                         </div>
                     </div>
                 </div>

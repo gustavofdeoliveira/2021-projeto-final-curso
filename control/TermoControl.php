@@ -24,6 +24,9 @@ class TermoControl
             if ($this->acao == "excluirTermo") {
                 $this->excluirTermo();
             }
+            if ($this->acao == "editarTermo") {
+                $this->editarTermo();
+            }
         }
     }
     public function cadastrarTermo()
@@ -51,6 +54,23 @@ class TermoControl
             $_SESSION["msg_error"] = $e->getMessage();
             $_SESSION["tempo_msg_error"] = time();
             header("Location:../view/Listar-termos.php");
+        }
+    }
+    public function editarTermo()
+    {
+        try {
+            
+            $this->modelo->setId($_POST["idTermo"]);
+            $this->modelo->setTipoTermo($_POST["tipoTermo"]);
+            $this->modelo->setNome($_POST["nome"]);
+            $this->modelo->setNomeVariavel($_POST["nomeVariavel"]);
+            $this->modelo->setConceito($_POST["conceito"]);
+            $this->dao->atualizarTermo($this->modelo);
+            header("Location:../view/Editar-termo.php");
+        } catch (\Exception $e) {
+            $_SESSION["msg_error"] = $e->getMessage();
+            $_SESSION["tempo_msg"] = time();
+            header("Location:../view/Editar-termo.php");
         }
     }
 }
