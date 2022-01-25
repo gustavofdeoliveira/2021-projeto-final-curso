@@ -140,7 +140,7 @@ error_reporting(E_ERROR | E_PARSE);
                             if($usuario['nivelAcesso'] == 3){
                             echo "
                             <div class='nav-left'>
-                                <a href='../view/Meus-dados.php' class='btn-tools'><span class='ion-ios-home-outline'></span>Meus Dados</a>
+                                <a href='Meus-dados.php' class='btn-tools'><span class='ion-ios-home-outline'></span>Meus Dados</a>
                                 <a class='btn-tools'><span class='ion-ios-list-outline'></span>Sugerir Termo</a>
                                 <a class='btn-tools' id='dark-mode-toggle'><span class='ion-ios-list-outline'></span>
                                     <div class='d-flex modo-noturno'>
@@ -184,15 +184,15 @@ error_reporting(E_ERROR | E_PARSE);
                                     </div>
                                 </a>
                                 <div id='texto-usuario'>Publicações</div>
-                                <a href='../view/Cadastrar-publicacao.php' class='btn-tools'><span class='ion-ios-list-outline'></span>+ Nova Publicação</a>
-                                <a href='../view/' class='btn-tools'><span class='ion-ios-list-outline'></span>Listar Publicações</a>
+                                <a href='Cadastrar-publicacao.php' class='btn-tools'><span class='ion-ios-list-outline'></span>+ Nova Publicação</a>
+                                <a href='Listar-publicacao.php' class='btn-tools'><span class='ion-ios-list-outline'></span>Listar Publicações</a>
                                 <div id='texto-usuario'>Termos</div>
-                                <a href='../view/Cadastrar-termo.php' class='btn-tools'><span class='ion-ios-list-outline'></span>+ Novo Termo</a>
-                                <a href='../view/' class='btn-tools'><span class='ion-ios-list-outline'></span>Listar Termos</a>
-                                <a href='../view/' class='btn-tools'><span class='ion-ios-list-outline'></span>Ver Sugestões</a>
+                                <a href='Cadastrar-termo.php' class='btn-tools'><span class='ion-ios-list-outline'></span>+ Novo Termo</a>
+                                <a href='Listar-termos.php' class='btn-tools'><span class='ion-ios-list-outline'></span>Listar Termos</a>
+                                <a href='' class='btn-tools'><span class='ion-ios-list-outline'></span>Ver Sugestões</a>
                                 <div id='texto-usuario'>Rede de Termos</div>
-                                <a href='../view/' class='btn-tools'><span class='ion-ios-list-outline'></span>+ Nova Rede</a>
-                                <a href='../view/' class='btn-tools'><span class='ion-ios-list-outline'></span>Listar Redes</a>
+                                <a href='Cadastrar-rede-termo.php' class='btn-tools'><span class='ion-ios-list-outline'></span>+ Nova Rede</a>
+                                <a href='Listar-redes.php' class='btn-tools'><span class='ion-ios-list-outline'></span>Listar Redes</a>
                                 
                                 <a><span class='ion-ios-list-outline'></span>
                                     <form action='../control/UsuarioControl.php' method='POST' class='form-group'>

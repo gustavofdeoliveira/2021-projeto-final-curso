@@ -68,7 +68,6 @@ $(document).ready(function () {
 })
 //Carrega termo para editar
 $(document).ready(function () {
-    debugger
     var editar = document.getElementsByName("editar-termo");
     if (editar) {
         var url = window.location.href;
@@ -110,13 +109,11 @@ $(document).ready(function () {
 
 //Carrega rede para editar
 $(document).ready(function () {
-    debugger
     var editar = document.getElementsByName("editar-rede");
     if (editar) {
         var url = window.location.href;
         var valores_url = url.split("=");
         $.post('../ajax-php/editar-rede.php?id=' + valores_url[1], function (resposta) {
-            debugger
             resultado = JSON.parse(resposta);
             console.log(resultado)
             document.getElementById("idRede").value = resultado["dados"][0]["id"];
@@ -158,7 +155,6 @@ async function carrega_termos(value) {
 
 
 function get_termo(id, nome) {
-    debugger
     document.getElementById('termos-container').insertAdjacentHTML('afterbegin', '<div class="balao" id="' + id + '" value="' + nome + '">' + nome + '<div class="balao-fechar"  onclick="fecharBalao(' + id + ')"><i class="fa fa-times" aria-hidden="true"></i></div></div>');
     ids.push(id);
     document.getElementById("termos").value = ids;
