@@ -232,7 +232,7 @@ error_reporting(E_ERROR | E_PARSE);
                         <div class='row'>
                             <div class='col-xl-9 col-lg-9'>
                                 <div class='form-group'>
-                                    <label class='form-label label-criar-publicacao' for='nomeCompleto'>nome Completo</span></label>
+                                    <label class='form-label label-criar-publicacao' for='nomeCompleto'>nome completo</span></label>
                                     <div class='input-group'>
                                         <input class='input-criar-conta form-control' value='{$usuario['nomeCompleto']}' type='text' id='nomeCompleto' name='nomeCompleto' disabled>
                                         <i class='editar fa fa-pencil-square-o' aria-hidden='true' onclick='ativaCampo(nomeCompleto)'></i>
@@ -243,7 +243,7 @@ error_reporting(E_ERROR | E_PARSE);
                         <div class='row'>
                             <div class='col-xl-7 col-lg-8'>
                                 <div class='form-group'>
-                                    <label class='form-label label-criar-publicacao' for='nomeUsuario'>nome de Usuário</span></label>
+                                    <label class='form-label label-criar-publicacao' for='nomeUsuario'>nome de usuário</span></label>
                                     <div class='input-group'>
                                         <input class='input-criar-conta form-control' type='text' id='nomeUsuario' value='{$usuario['nomeUsuario']}' name='nomeUsuario' disabled>
                                         <i class='editar fa fa-pencil-square-o' aria-hidden='true' onclick='ativaCampo(nomeUsuario)''></i>
