@@ -13,8 +13,7 @@ class UsuarioControl
     {
         $this->dao = new UsuarioDao();
         $this->modelo = new UsuarioModel();
-        $this->acao = $_REQUEST["acao"]; 
-        print_r($this->acao); 
+        $this->acao = $_REQUEST["acao"];
         $this->verificaAcao();
     }
 
@@ -34,10 +33,13 @@ class UsuarioControl
                 $this->desconectarUsuario();
             }
             if ($this->acao == "atualizaNivel") {
-                $this->atualizarNivelUsuario(); 
+                $this->atualizarNivelUsuario();
             }
             if ($this->acao == "excluirUsuario") {
-                $this->excluirUsuario();                
+                $this->excluirUsuario();
+            }
+            if ($this->acao == "atualizarUsuario") {
+                $this->atualizarUsuario();
             }
         }
     }
@@ -55,7 +57,7 @@ class UsuarioControl
         } catch (\Exception $e) {
             $_SESSION["msg_error"] = $e->getMessage();
             $_SESSION["tempo_msg_error"] = time();
-            header("Location:view/Login.php");
+            header("Location:../view/Login.php");
         }
     }
     public function cadastrarUsuario()
@@ -98,7 +100,7 @@ class UsuarioControl
     public function atualizarNivelUsuario()
     {
         try {
-            print_r($this->modelo->setId($_POST['Usuario']));
+            $this->modelo->setId($_POST['Usuario']);
             $this->dao->atualizarNivel($this->modelo);
             header("Location:../view/Listar-usuarios.php");
         } catch (\Exception $e) {
@@ -110,13 +112,45 @@ class UsuarioControl
     public function excluirUsuario()
     {
         try {
-            print_r($this->modelo->setId($_POST['Usuario']));
+            if (!empty($_POST["senhaExcluir"])) {
+                $this->modelo->setSenha($_POST['senhaExcluir']);
+            }
+
+            if (!empty($_POST["Usuario"])) {
+                $this->modelo->setId($_POST['Usuario']);
+            }
             $this->dao->deletarUsuario($this->modelo);
-            header("Location:../view/Listar-usuarios.php");
         } catch (\Exception $e) {
             $_SESSION["msg_error"] = $e->getMessage();
             $_SESSION["tempo_msg_error"] = time();
-            header("Location:../view/Listar-usuarios.php");
+            if ($_SESSION["msg_error"] == 'Senha incorreta!') {
+                header("Location:../view/Meus-dados.php");
+            } else {
+                header("Location:../view/Listar-usuarios.php");
+            }
+        }
+    }
+    public function atualizarUsuario()
+    {
+        try {
+            if (!empty($_POST["nomeCompleto"])) {
+                $this->modelo->setNomeCompleto($_POST["nomeCompleto"]);
+            }
+            if (!empty($_POST["nomeUsuario"])) {
+                $this->modelo->setNomeUsuario($_POST["nomeUsuario"]);
+            }
+            if (!empty($_POST["senhaNova"])) {
+                $this->modelo->setSenha($_POST["senhaNova"]);
+            }
+            if (!empty($_POST["email"])) {
+                $this->modelo->setEmail($_POST["email"]);
+            }
+            $this->dao->atualizarUsuario($this->modelo);
+            header("Location:../view/Meus-dados.php");
+        } catch (\Exception $e) {
+            $_SESSION["msg_error"] = $e->getMessage();
+            $_SESSION["tempo_msg_error"] = time();
+            header("Location:../view/Meus-dados.php");
         }
     }
 }

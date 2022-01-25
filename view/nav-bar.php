@@ -78,7 +78,7 @@ error_reporting(E_ERROR | E_PARSE);
                                             <li class='nav-item dropdown nav-meu-espaco'>
                                                 <div class='d-flex'>
                                                     <img src='{$usuario['fotoAvatar']}' alt='Foto de Perfil' class='rounded-circle'>
-                                                    <a class='nav-link nav-meu-espaco' href='#'  role='button' data-bs-toggle='dropdown' aria-expanded='false'>
+                                                    <a class='nav-link nav-meu-espaco' href='../view/'  role='button' data-bs-toggle='dropdown' aria-expanded='false'>
                                                     Meu espaço</a>                  
                                                     <div class='wrapper'>
                                                         <div class='notification' >";
@@ -140,7 +140,7 @@ error_reporting(E_ERROR | E_PARSE);
                             if($usuario['nivelAcesso'] == 3){
                             echo "
                             <div class='nav-left'>
-                                <a class='btn-tools'><span class='ion-ios-home-outline'></span>Meus Dados</a>
+                                <a href='../view/Meus-dados.php' class='btn-tools'><span class='ion-ios-home-outline'></span>Meus Dados</a>
                                 <a class='btn-tools'><span class='ion-ios-list-outline'></span>Sugerir Termo</a>
                                 <a class='btn-tools' id='dark-mode-toggle'><span class='ion-ios-list-outline'></span>
                                     <div class='d-flex modo-noturno'>
@@ -168,10 +168,10 @@ error_reporting(E_ERROR | E_PARSE);
                             echo "
                             <div class='nav-left'>
                             <div id='texto-usuario'>Usuário</div>
-                                <a class='btn-tools'><span class='ion-ios-home-outline'></span>Meus Dados</a>";
+                                <a href='view/Meus-dados.php' class='btn-tools'><span class='ion-ios-home-outline'></span>Meus Dados</a>";
                                 if($usuario['nivelAcesso'] == 1){
                                     echo"
-                                <a href='../view/Listar-usuarios.php' class='btn-tools'><span class='ion-ios-home-outline'></span>Listar Usuários</a>";}
+                                <a href='view/Listar-usuarios.php' class='btn-tools'><span class='ion-ios-home-outline'></span>Listar Usuários</a>";}
                                 echo"
                                 <a class='btn-tools' id='dark-mode-toggle'><span class='ion-ios-list-outline'></span>
                                     <div class='d-flex modo-noturno'>

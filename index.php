@@ -1,6 +1,7 @@
 <?php
 include_once("database/Connection.php");
 require_once("dao/UsuarioDao.php");
+error_reporting(E_ERROR | E_PARSE);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -139,7 +140,7 @@ require_once("dao/UsuarioDao.php");
                             if($usuario['nivelAcesso'] == 3){
                             echo "
                             <div class='nav-left'>
-                                <a class='btn-tools'><span class='ion-ios-home-outline'></span>Meus Dados</a>
+                                <a href='view/Meus-dados.php' class='btn-tools'><span class='ion-ios-home-outline'></span>Meus Dados</a>
                                 <a class='btn-tools'><span class='ion-ios-list-outline'></span>Sugerir Termo</a>
                                 <a class='btn-tools' id='dark-mode-toggle'><span class='ion-ios-list-outline'></span>
                                     <div class='d-flex modo-noturno'>
@@ -167,7 +168,7 @@ require_once("dao/UsuarioDao.php");
                             echo "
                             <div class='nav-left'>
                             <div id='texto-usuario'>Usuário</div>
-                                <a class='btn-tools'><span class='ion-ios-home-outline'></span>Meus Dados</a>";
+                                <a href='view/Meus-dados.php' class='btn-tools'><span class='ion-ios-home-outline'></span>Meus Dados</a>";
                                 if($usuario['nivelAcesso'] == 1){
                                     echo"
                                 <a href='view/Listar-usuarios.php' class='btn-tools'><span class='ion-ios-home-outline'></span>Listar Usuários</a>";}

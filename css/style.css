@@ -1518,5 +1518,163 @@ div#texto-usuario {
   right: 20px;
   margin-top: 5px;
   font-size: 30px !important;
+  z-index: 10;
+}
+
+p#meus-dados {
+  font-size: 65px;
+  font-family: Raleway-Black;
+  line-height: 52px;
+  margin-top: 20px;
+}
+
+.img-meus-dados {
+  width: 85% !important;
+  height: 100%;
+  float: right;
+  margin-top: 80px !important;
+}
+
+.btn-alterar-senha {
+  width: 100%;
+  min-width: 191px;
+  height: 51px;
+  background-color: var(--cor_vermelha);
+  font-size: 23px;
+  font-family: Raleway-Black;
+  line-height: 22px;
+  color: var(--cor_branca);
+  border: none;
+  border-radius: 92px;
+  margin-bottom: 15px;
+}
+
+.btn-excluir-conta {
+  width: 100%;
+  min-width: 191px;
+  height: 51px;
+  background-color: var(--cor_vermelha);
+  font-size: 23px;
+  font-family: Raleway-Black;
+  line-height: 22px;
+  color: var(--cor_branca);
+  border: none;
+  border-radius: 92px;
+  opacity: 0.8;
+  margin-bottom: 15px;
+}
+
+div#modal-senha, div#modal-conta {
+  background-color: var(--cor_vermelha);
+  height: 90%;
+  min-height: 80vh;
+  position: fixed;
   z-index: 100;
+  top: 5%;
+  left: 0;
+  box-shadow: 1px 1px 5px var(--color_preta);
+  border-radius: 50px;
+  display: none;
+}
+
+.btn-fechar-senha {
+  color: var(--cor_branca);
+  font-size: 40px;
+  font-family: Raleway-Light;
+  line-height: 53px;
+  float: right;
+  margin-right: 20px;
+  margin-top: 20px;
+  border: none;
+  background-color: transparent;
+}
+
+.modal-ativa {
+  display: unset !important;
+}
+
+p#texto-senha, p#texto-excluir {
+  font-family: Raleway-Black;
+  color: var(--cor_branca) !important;
+  font-size: 50px;
+  margin-top: -20px;
+}
+
+.label-nova-senha {
+  font-size: 32px;
+  font-family: Raleway-Light;
+  color: var(--cor_branca);
+  line-height: 29px;
+}
+
+.input-nova-senha {
+  border-radius: 200px !important;
+  border: 1px solid var(--cor_branca);
+  width: 100% !important;
+  background-color: var(--cor_vermelha) !important;
+  color: var(--cor_branca) !important;
+}
+
+.input-group-addon-senha {
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.25;
+  text-align: center;
+  border-radius: 0.25rem;
+  position: absolute;
+  z-index: 10;
+  right: 0;
+  color: var(--cor_branca);
+}
+
+p#descricao-excluir {
+  font-size: 29px;
+  font-family: Raleway-Light;
+  line-height: 29px;
+  color: var(--cor_branca) !important;
+}
+
+p#descricao-excluir span {
+  font-family: Raleway-Bold;
+}
+
+.label-excluir-conta {
+  font-size: 32px;
+  font-family: Raleway-Bold;
+  color: var(--cor_branca);
+  line-height: 29px;
+}
+
+.btn-excluir {
+  color: var(--cor_vermelha) !important;
+  background-color: var(--cor_branca) !important;
+  border-color: var(--cor_branca) !important;
+  width: 100%;
+  height: 56px;
+  font-family: Raleway-Bold;
+  font-size: 30px !important;
+  border-radius: 100PX !important;
+  padding: unset !important;
+  line-height: 31px;
+  margin-bottom: 50px;
+  margin-top: 20px;
+}
+
+.btn-salvar-alteracao {
+  color: var(--cor_branca) !important;
+  background-color: var(--cor_verde) !important;
+  border-color: var(--cor_verde) !important;
+  width: 100%;
+  height: 56px;
+  font-family: Raleway-Black;
+  font-size: 35px !important;
+  border-radius: 100PX !important;
+  padding: unset !important;
+  line-height: 31px;
+  margin-bottom: 50px;
+  margin-top: 20px;
+
+
 }

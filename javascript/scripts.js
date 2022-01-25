@@ -252,9 +252,13 @@ function ativaCampo(campo) {
 }
 
 function habilitaCampoTermo(){
-    debugger
     document.getElementById("nome").disabled = false;
     document.getElementById("conceito").disabled = false;
     document.getElementById("nomeVariavel").disabled = false;
 }
 
+function habilitaCampoDados(){
+    document.getElementById("nomeCompleto").disabled = false;
+    document.getElementById("nomeUsuario").disabled = false;
+    document.getElementById("email").disabled = false;
+}

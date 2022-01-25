@@ -127,12 +127,88 @@ class UsuarioDao
     }
     function deletarUsuario(UsuarioModel $modelo)
     {
+        $usuario =  $_SESSION['usuarioAutenticado'];
+        if ($usuario['nivelAcesso'] != 1) {
+            $sql = "SELECT * FROM `usuario` WHERE `idUsuario`=:id";
+            $statement = $this->conn->prepare($sql);
+            $statement->bindValue("id", $usuario['idUsuario']);
 
-        $sql = "DELETE FROM `usuario` WHERE `idUsuario`=:id";
-        $statement = $this->conn->prepare($sql);
-        $statement->bindValue("id", $modelo->getId());
-        $statement->execute();
-        $_SESSION["msg_sucess"] = "Usuário " . $modelo->getId() . " excluído!";
-        $_SESSION["tempo_msg_sucess"] = time();
+            $statement->execute();
+            if ($statement->rowCount()) {
+                //Guarda em um array os dados retornado do banco
+                $result = $statement->fetch(PDO::FETCH_ASSOC);
+                //Se a senha estiver correta
+                if ($result['senha'] === sha1($modelo->getSenha())) {
+                    $sql = "DELETE FROM `usuario` WHERE `idUsuario`=:id";
+                    $statement = $this->conn->prepare($sql);
+                    $statement->bindValue("id", $usuario['idUsuario']);
+                    $statement->execute();
+                    unset($_SESSION['usuarioAutenticado']);
+                    header("Location:../index.php");
+                } else {
+                    throw new \Exception('Senha incorreta!');
+                }
+            } else {
+                throw new \Exception('Usuário não encontrado');
+            }
+        }
+
+        if ($usuario['nivelAcesso'] == 1) {
+            $sql = "DELETE FROM `usuario` WHERE `idUsuario`=:id";
+            $statement = $this->conn->prepare($sql);
+            $statement->bindValue("id", $modelo->getId());
+            $statement->execute();
+            $_SESSION["msg_sucess"] = "Usuário " . $modelo->getId() . " excluído!";
+            $_SESSION["tempo_msg_sucess"] = time();
+            header("Location:../view/Listar-usuarios.php");
+        }
+    }
+    function atualizarUsuario(UsuarioModel $modelo)
+    {
+        $usuario =  $_SESSION['usuarioAutenticado'];
+        if (empty($modelo->getSenha())) {
+            $sql = "SELECT * FROM `usuario` WHERE `nomeUsuario` = :nomeUsuario OR `email`=:email";
+            $statement = $this->conn->prepare($sql);
+            $statement->execute(array(':nomeUsuario' => $modelo->getNomeUsuario(), ':email' => $modelo->getEmail()));
+            $statement->execute();
+            if ($statement->rowCount()) {
+                $sql = "UPDATE `usuario` SET 
+            `nomeCompleto` = '" . $modelo->getNomeCompleto() . "',
+            `nomeUsuario` = '" . $modelo->getNomeUsuario() . "',
+            `email` ='" . $modelo->getEmail() . "' WHERE `idUsuario`=:id";
+                $statement = $this->conn->prepare($sql);
+                $statement->bindValue("id", $usuario['idUsuario']);
+                $statement->execute();
+                $_SESSION["msg_sucess"] = "Dados do usuário atualizados!";
+                $_SESSION["tempo_msg_sucess"] = time();
+
+                $sql = "SELECT * FROM `usuario` WHERE `idUsuario` = :id";
+                $statement = $this->conn->prepare($sql);
+                $statement->bindValue("id", $usuario['idUsuario']);
+                $statement->execute();
+                $result = $statement->fetch(PDO::FETCH_ASSOC);
+                $_SESSION['usuarioAutenticado'] = $result;
+            } else {
+                throw new \Exception('nome de usuário | e-mail já cadastrado!');
+            }
+        }
+
+        if (!empty($modelo->getSenha())) {
+            $sql = "UPDATE `usuario` SET 
+            `senha` =SHA1('" . $modelo->getSenha() . "') WHERE `idUsuario`=:id";
+
+            $statement = $this->conn->prepare($sql);
+            $statement->bindValue("id", $usuario['idUsuario']);
+            $statement->execute();
+            $_SESSION["msg_sucess"] = "Dados do usuário atualizados!";
+            $_SESSION["tempo_msg_sucess"] = time();
+
+            $sql = "SELECT * FROM `usuario` WHERE `idUsuario` = :id";
+            $statement = $this->conn->prepare($sql);
+            $statement->bindValue("id", $usuario['idUsuario']);
+            $statement->execute();
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            $_SESSION['usuarioAutenticado'] = $result;
+        }
     }
 }

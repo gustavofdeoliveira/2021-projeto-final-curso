@@ -20,10 +20,8 @@ $(document).ready(function () {
                     e.preventDefault(), $(".ion-ios-navicon").click(), $(this).removeClass("fadeIn").addClass("fadeOut")
                 })
             },
-    
+
         },
-    
-    
     };
 
     // click on notification bell
@@ -36,14 +34,15 @@ $(document).ready(function () {
     })
 
     // handler to close dropdown on clicking outside of it
-     $(document).on('click', function (e) {
-         var target = $(e.target)
-         if (!target.closest('.notification').length && !target.closest('.dropdown-transition').length) {
-             if (!$(document).find('.notification-dropdown').hasClass('dd')) {
-                 hide_dropdown()
-             }   
-         }
-     })
+    $(document).on('click', function (e) {
+        var target = $(e.target)
+        if (!target.closest('.notification').length && !target.closest('.dropdown-transition').length) {
+            if (!$(document).find('.notification-dropdown').hasClass('dd')) {
+                hide_dropdown()
+            }
+           
+        }
+    })
 
     // function to close dropdown and setting notification count to 0
     function hide_dropdown() {
@@ -56,7 +55,6 @@ $(document).ready(function () {
         }
     }
     $('input.checkgroup').click(function () {
-        debugger
         if ($(this).is(":checked")) {
             $('input.checkgroup').attr('disabled', true);
             $(this).removeAttr('disabled');
@@ -67,3 +65,31 @@ $(document).ready(function () {
 
 
 });
+
+$('#alterarSenha').click(function () {
+    $('#modal-senha').addClass('modal-ativa');
+})
+
+$('#fechar-modal-senha').click(function () {
+    $('#modal-senha').removeClass('modal-ativa');
+})
+
+$('#excluirConta').click(function () {
+    $('#modal-conta').addClass('modal-ativa');
+})
+
+$('#fechar-modal-conta').click(function () {
+    $('#modal-conta').removeClass('modal-ativa');
+})
+
+$('#cofirmaSenha').keyup(function () {
+    debugger
+    var novaSenha = document.getElementById('novaSenha').value; 
+    var confirmaSenha = document.getElementById('cofirmaSenha').value;
+    if(novaSenha == confirmaSenha){
+        alert("senhas iguais");
+
+    }else{
+        alert("senhas não são iguais");
+    }
+})
