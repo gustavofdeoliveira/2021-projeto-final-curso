@@ -40,7 +40,8 @@ class TermoControl
             header("Location:../view/Cadastrar-termo.php");
         } catch (\Exception $e) {
             $_SESSION["msg_error"] = $e->getMessage();
-            $_SESSION["tempo_msg"] = time();
+            $_SESSION["tempo_msg_error"] = time();
+
             header("Location:../view/Cadastrar-termo.php");
         }
     }
@@ -68,7 +69,7 @@ class TermoControl
             header("Location:../view/Editar-termo.php");
         } catch (\Exception $e) {
             $_SESSION["msg_error"] = $e->getMessage();
-            $_SESSION["tempo_msg"] = time();
+            $_SESSION["tempo_msg_error"] = time();
             header("Location:../view/Editar-termo.php");
         }
     }

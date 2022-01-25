@@ -3,11 +3,12 @@
 session_start();
 require_once(realpath(dirname(__FILE__) . "/../database/Connection.php"));
 
-if (!empty($_SESSION['msg_error']) || !empty($_SESSION['msg_sucess']) && (time() - $_SESSION['tempo_msg'] > 10)) {
+if (!empty($_SESSION['msg_error']) && (time() - $_SESSION['tempo_msg_error'] > 20)) {
     unset($_SESSION['msg_error']);
+}
+if (!empty($_SESSION['msg_sucess']) && (time() - $_SESSION['tempo_msg_error'] > 20)) {
     unset($_SESSION['msg_sucess']);
 }
-
 class TermoDao
 {
     private $conn;
@@ -24,12 +25,14 @@ class TermoDao
         //Se achar o usuario
         if (!empty($statement->rowCount())) {
             //Guarda em um array os dados retornado do banco
+
             $result = $statement->fetch(PDO::FETCH_ASSOC);
             //Se a senha estiver correta
             if ($result['nome'] === $modelo->getNome()) {
                 throw new \Exception('Termo já cadastrado');
             }
-        } else if (empty($statement->rowCount())) {
+        }
+        if (empty($statement->rowCount())) {
             $sql = "INSERT INTO `termo`(`tipoTermo`,`nome`,`nomeVariavel`,`conceito`,`dataInclusao`) 
              VALUES ( 
                  '" . $modelo->getTipoTermo() . "', 
@@ -39,7 +42,7 @@ class TermoDao
                  CURRENT_DATE())";
             $statement = $this->conn->prepare($sql);
             $statement->execute();
-            $_SESSION["tempo_msg"] = time();
+            $_SESSION["tempo_msg_sucess"] = time();
             return $_SESSION["msg_sucess"] = "Termo cadastrado com sucesso!";
         }
     }
@@ -55,18 +58,19 @@ class TermoDao
         $_SESSION["msg_sucess"] = "Termo " . $modelo->getId() . " excluído!";
         $_SESSION["tempo_msg_sucess"] = time();
     }
-    
-    function atualizarTermo(TermoModel $modelo){
+
+    function atualizarTermo(TermoModel $modelo)
+    {
 
         $sql = "UPDATE `termo` SET 
         `tipoTermo` = '" . $modelo->getTipoTermo() . "',
         `nome` = '" . $modelo->getNome() . "',
         `nomeVariavel` ='" . $modelo->getNomeVariavel() . "',
         `conceito` ='" . $modelo->getConceito() . "' WHERE `id`=:id";
-       $statement = $this->conn->prepare($sql);
-       $statement->bindValue("id", $modelo->getId());
-       $statement->execute();
-       $_SESSION["tempo_msg"] = time();
-       return $_SESSION["msg_sucess"] = "Termo atualizado com sucesso!";
+        $statement = $this->conn->prepare($sql);
+        $statement->bindValue("id", $modelo->getId());
+        $statement->execute();
+        $_SESSION["tempo_msg"] = time();
+        return $_SESSION["msg_sucess"] = "Termo atualizado com sucesso!";
     }
 }

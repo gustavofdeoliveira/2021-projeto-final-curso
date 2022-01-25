@@ -262,3 +262,7 @@ function habilitaCampoDados(){
     document.getElementById("nomeUsuario").disabled = false;
     document.getElementById("email").disabled = false;
 }
+function habilitaCampoRedes(){
+    document.getElementById("nome").disabled = false;
+    document.getElementById("descricao").disabled = false;
+}

@@ -1,3 +1,6 @@
+var ids = [];
+var result
+var controleCampo = 1;
 $(document).ready(function () {
     $.post('../ajax-php/listar-usuarios.php', function (resposta) {
         resultado = JSON.parse(resposta);
@@ -34,6 +37,53 @@ $(document).ready(function () {
     })
 })
 
+
+
+$(document).ready(function () {
+    $.post('../ajax-php/listar-rede.php', function (resposta) {
+        resultado = JSON.parse(resposta);
+        for (a = 0; a != resultado.length; a++) {
+            if (document.getElementById('id-redes')) {
+                let data = new Date(resultado[a]['dataInclusao']);
+                let dataInclusao = ((data.getDate())) + "/" + ((data.getMonth() + 1)) + "/" + data.getFullYear();
+
+                document.getElementById('id-redes').insertAdjacentHTML('afterend',
+                    '<td class="texto-codigo">' + resultado[a]['id'] + '</td>' +
+                    '<td class="texto-nome">' + resultado[a]['nome'] + '</td>' +
+                    '<td class="texto-nome">' + resultado[a]['descricao'] + '</td>' +
+                    '<td class="texto-data">' + dataInclusao + '</td>' +
+                    '<td style="text-align:center;display:flex">' +
+
+                    '<td style="text-align:center;display:flex">' +
+                    '<a href="../view/Editar-rede-termo.php?id=' + resultado[a]['id'] + '"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>' +
+
+                    '<form action="../control/RedeTermosControl.php" method="POST" class="form-group">' +
+                    '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirRede">' +
+                    '<button class="btn-excluir-atualizar" type="submit" name="idRede" value="' + resultado[a]['id'] + '">' +
+                    '<i class="fa fa-trash-o" aria-hidden="true"></i></button></form></td>'
+                );
+            }
+        }
+    })
+})
+//Carrega termo para editar
+$(document).ready(function () {
+    debugger
+    var editar = document.getElementsByName("editar-termo");
+    if (editar) {
+        var url = window.location.href;
+        var valores_url = url.split("=");
+        $.post('../ajax-php/editar-termo.php?id=' + valores_url[1], function (resposta) {
+            resultado = JSON.parse(resposta);
+            document.getElementById("idTermo").value = resultado["dados"][0]["id"];
+            document.getElementById("nome").value = resultado["dados"][0]["nome"];
+            document.getElementById("select-termo").value = resultado["dados"][0]["tipo"];
+            document.getElementById("conceito").value = resultado["dados"][0]["conceito"];
+            document.getElementById("nomeVariavel").value = resultado["dados"][0]["nomeVariavel"];
+        })
+    }
+})
+
 $(document).ready(function () {
     $.post('../ajax-php/listar-termos.php', function (resposta) {
         resultado = JSON.parse(resposta);
@@ -58,20 +108,32 @@ $(document).ready(function () {
     })
 })
 
+//Carrega rede para editar
 $(document).ready(function () {
     debugger
-    var editar = document.getElementsByName("editar-termo");
+    var editar = document.getElementsByName("editar-rede");
     if (editar) {
         var url = window.location.href;
         var valores_url = url.split("=");
-        $.post('../ajax-php/editar-termo.php?id=' + valores_url[1], function (resposta) {
+        $.post('../ajax-php/editar-rede.php?id=' + valores_url[1], function (resposta) {
             debugger
             resultado = JSON.parse(resposta);
-            document.getElementById("idTermo").value = resultado["dados"][0]["id"];
+            console.log(resultado)
+            document.getElementById("idRede").value = resultado["dados"][0]["id"];
             document.getElementById("nome").value = resultado["dados"][0]["nome"];
-            document.getElementById("select-termo").value = resultado["dados"][0]["tipo"];
-            document.getElementById("conceito").value = resultado["dados"][0]["conceito"];
-            document.getElementById("nomeVariavel").value = resultado["dados"][0]["nomeVariavel"];
+            document.getElementById("descricao").value = resultado["dados"][0]["descricao"];
+            console.log(resultado)
+            for (a = 0; a != resultado["dados"][1]["termos"].length; a++) {
+                ids.push(resultado["dados"][1]["termos"][a]["id"]);
+                document.getElementById("termos").value = ids;
+                document.getElementById('termos-container').insertAdjacentHTML('afterbegin',
+                
+                    '<div class="balao" id="' + resultado["dados"][1]["termos"][a]["id"] +
+                    '" value="' + resultado["dados"][1]["termos"][a]["nome"] + '">' +
+                    resultado["dados"][1]["termos"][a]["nome"] +
+                    '<input class="btn-excluir-atualizar"style="display:none" name="acao" value="excluirTermo" type="hidden">'+
+                    '<button class="balao-fechar" type="submit" name="idTermo" value="'+ resultado["dados"][1]["termos"][a]["id"]+'"><i class="fa fa-times" aria-hidden="true"></i></button></div>');
+            }
         })
     }
 })
@@ -94,10 +156,9 @@ async function carrega_termos(value) {
     }
 }
 
-var ids = [];
-var result
-var controleCampo = 1;
+
 function get_termo(id, nome) {
+    debugger
     document.getElementById('termos-container').insertAdjacentHTML('afterbegin', '<div class="balao" id="' + id + '" value="' + nome + '">' + nome + '<div class="balao-fechar"  onclick="fecharBalao(' + id + ')"><i class="fa fa-times" aria-hidden="true"></i></div></div>');
     ids.push(id);
     document.getElementById("termos").value = ids;

@@ -951,7 +951,7 @@ select#select-termo {
 .textarea {
   min-height: 115px !important;
   border-radius: 40px !important;
-  padding: 5px 45px !important;
+  padding: 5px 45px 5px 20px !important;
   border-color: var(--cor_vermelha);
 }
 
@@ -1222,6 +1222,9 @@ span#resultado_pesquisa {
 .balao-fechar {
   margin-left: 10px;
   margin-right: 10px;
+  background: transparent;
+  border: none;
+  color: var(--cor_branca);
 }
 
 .colunas-esqueda {
@@ -1675,6 +1678,8 @@ p#descricao-excluir span {
   line-height: 31px;
   margin-bottom: 50px;
   margin-top: 20px;
+}
 
-
+.pencil-termos {
+  margin-top: 46px !important;
 }

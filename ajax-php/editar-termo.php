@@ -25,7 +25,6 @@ if (!empty($id_pesquisa)) {
                 'id' => $row_termo['id'],
                 'nome' => $row_termo['nome'],
                 'tipo' => $row_termo['tipoTermo'],
-                'nome' => $row_termo['nome'],
                 'nomeVariavel' => $row_termo['nomeVariavel'],
                 'conceito' => $row_termo['conceito']
             ];
