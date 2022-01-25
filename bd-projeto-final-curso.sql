@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24-Jan-2022 às 00:15
+-- Tempo de geração: 26-Jan-2022 às 00:15
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 8.1.1
 
@@ -39,10 +39,9 @@ CREATE TABLE `redetermos` (
 --
 
 INSERT INTO `redetermos` (`id`, `nome`, `descricao`, `dataInclusao`) VALUES
-(12, 'Utopia', 'Descrição de Utopia', '2022-01-17'),
+(12, 'Utopia 1980', 'Descrição de Utopia', '2022-01-17'),
 (13, 'Rede de Termos teste', 'Rede de termos teste', '2022-01-17'),
-(14, 'Rede de Termos teste 1', 'Rede de termos teste', '2022-01-17'),
-(15, 'Rede de Termos teste 2', 'Rede de termos teste', '2022-01-17');
+(14, 'Rede de Termos teste 1', 'Rede de termos teste', '2022-01-17');
 
 -- --------------------------------------------------------
 
@@ -61,7 +60,10 @@ CREATE TABLE `rede_termos_termo` (
 --
 
 INSERT INTO `rede_termos_termo` (`id`, `id_rede`, `id_termo`) VALUES
-(1, 15, 1);
+(13, 12, 7),
+(14, 13, 7),
+(15, 14, 7),
+(16, 12, 8);
 
 -- --------------------------------------------------------
 
@@ -83,9 +85,8 @@ CREATE TABLE `termo` (
 --
 
 INSERT INTO `termo` (`id`, `tipoTermo`, `nome`, `nomeVariavel`, `conceito`, `dataInclusao`) VALUES
-(1, 'teórico', 'Termo teste', 'termo teste 1', 'Termo texte de inserção no banco de dados', '2022-01-12'),
-(3, 'conceito', 'Termo teste 1', 'termo teste 1', 'Termo teste para inserção no banco de dados', '2022-01-12'),
-(4, 'teórico', 'Termo teste 2', 'termo teste 1', 'Termo teste para inserção no BD', '2022-01-12');
+(7, 'teórico', 'Termos teste ', 'Termo teste2', 'Termo teste para inserção no BD', '2022-01-25'),
+(8, 'conceito', 'Termo teste', 'Termo teste1', 'Termo teste', '2022-01-25');
 
 -- --------------------------------------------------------
 
@@ -110,7 +111,7 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`idUsuario`, `nomeCompleto`, `nomeUsuario`, `senha`, `nivelAcesso`, `email`, `fotoAvatar`, `dataInclusao`) VALUES
 (1, 'Administrador', 'admin@admin', 'a1ba0d7140693d4c80041b5940815128b208b7a5', 1, 'admin@admin.org.br', 'http://localhost/2021-projeto-final-curso/image/avatares/Avatar-1.png', '2021-12-12'),
-(5, 'Gustavo Ferreira de Oliveira', 'gustavoof', '4813c1999df1bef5063e81fd6d1b02230845b6bf', 1, 'gustavoofdeooliveira@gmail.com', 'http://localhost/2021-projeto-final-curso/image/avatares/Avatar-5.png', '2022-01-23');
+(6, 'Gustavo Ferreira de Oliveira', 'gustavoof', '2b01ee18651ff42b35cddb707c3d4e8caba6bb0a', 3, 'gustavoofdeoliveira@hotmail.com', 'http://localhost/2021-projeto-final-curso/image/avatares/Avatar-5.png', '2022-01-24');
 
 --
 -- Índices para tabelas despejadas
@@ -148,25 +149,25 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `redetermos`
 --
 ALTER TABLE `redetermos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de tabela `rede_termos_termo`
 --
 ALTER TABLE `rede_termos_termo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de tabela `termo`
 --
 ALTER TABLE `termo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
