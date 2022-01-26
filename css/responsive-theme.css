@@ -225,35 +225,67 @@
     float: left;
     position: fixed;
   }
-  .btn-login{
+
+  .btn-login {
     width: 100%;
   }
-  .btn-criar-conta{
+
+  .btn-criar-conta {
     width: 100%;
   }
-  p#configuracao{
+
+  p#configuracao {
     font-size: 25px !important;
   }
-  .sidebar .sidebar-content .nav-left>a{
+
+  .sidebar .sidebar-content .nav-left>a {
     font-size: 22px;
   }
-  .dropdown-transition{
+
+  .dropdown-transition {
     width: 250px;
   }
-  .sidebar .sidebar-content{
+
+  .sidebar .sidebar-content {
     margin-top: auto;
   }
-  .fa-sign-out{
+
+  .fa-sign-out {
     font-size: 50px !important;
   }
-  .input-sair{
+
+  .input-sair {
     font-size: 35px;
   }
-  div#texto-usuario{
+
+  div#texto-usuario {
     font-size: 23px !important;
   }
-}
+  .balao-vermelho{
+    width: 45% !important;
+    margin-left: 2.5%;
+    margin-right: 2.5%;  
+  }
 
+  .balao-verde{
+    width: 45% !important;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+  }
+}
+@media screen and (min-width:768px) and (max-width: 991px) {
+  .balao-vermelho{
+    width: 19% !important;
+    margin-left: 0.5%;
+    margin-right: 0.5%;  
+  }
+
+  .balao-verde{
+    width: 19% !important;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+  }
+}
 @media screen and (max-width: 991px) {
   .nav-meu-espaco, .btn-navbar-login, .nav-item {
     margin: auto;

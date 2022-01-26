@@ -25032,13 +25032,16 @@
                 this.bind("isFocused").to(this.focusTracker);
                 this.set("isEmpty", true);
                 const e = this.bindTemplate;
+                var codigo_id = e.to("id");
                 this.setTemplate({
                     tag: "input",
                     attributes: {
                         type: "text",
-                        class: ["ck", "ck-input", "ck-input-text", "ck-input-text", e.if("isFocused", "ck-input_focused"), e.if("isEmpty", "ck-input-text_empty"), e.if("hasError", "ck-error")],
-                        id: e.to("id"),
-                        onkeyup:"carrega_termos(this.value)",
+                        class: ["ck", "ck-input", "ck-input-text", e.if("isFocused", "ck-input_focused"), e.if("isEmpty", "ck-input-text_empty"), e.if("hasError", "ck-error")],
+                        id: codigo_id,
+                        name: "input-link",
+                        onkeyup:"carrega_termos_publicacao(this.value)",
+                        onclick: "passa_id_input()",
                         placeholder: e.to("placeholder"),
                         readonly: e.to("isReadOnly"),
                         "aria-invalid": e.if("hasError", true),
@@ -25053,6 +25056,7 @@
                         change: e.to(this._updateIsEmpty.bind(this))
                     }
                 })
+                console.log(codigo_id["emitter"])
             }
             render() {
                 super.render();
@@ -25144,7 +25148,7 @@
                     children: [{
                         tag: "div",
                         attributes: {
-                            class: ["ck", "ck-labeled-field-view__input-wrapper"]                           
+                            class: ["ck", "ck-labeled-field-view__input-wrapper"]                                              
                         },
                         children: [this.fieldView, this.labelView]
                     }, this.statusView],
@@ -25898,7 +25902,8 @@
                     tag: "div",
                     attributes: {
                         class: ["ck", "ck-balloon-rotator"],
-                        "z-index": "-1"
+                        "z-index": "-1",
+                        id:"hiper-link"
                     },
                     children: [{
                         tag: "div",
@@ -39336,8 +39341,7 @@
                     tag: "form",
                     attributes: {
                         class: i,
-                        tabindex: "-1",
-                        
+                        tabindex: "-1"
                     },
                     children: this.children,  
                 });

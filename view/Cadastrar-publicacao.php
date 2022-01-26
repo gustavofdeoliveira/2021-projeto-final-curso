@@ -282,6 +282,7 @@ require_once("../dao/UsuarioDao.php");
               <div class="form-group">
                 <label class="form-label label-criar-publicacao" for="termos">texto</label>
                 <div class="input-group">
+                  <input class=" form-control" type="hidden" id="id-hiper-input" name="id-hiper-input">
                   <textarea required class=" form-control" type="text" id="texto" name="texto"></textarea>
                 </div>
               </div>

@@ -1,4 +1,6 @@
 var ids = [];
+var ids_termos = [];
+var nomes = [];
 var result
 var controleCampo = 1;
 $(document).ready(function () {
@@ -109,8 +111,9 @@ $(document).ready(function () {
 
 //Carrega rede para editar
 $(document).ready(function () {
+    debugger
     var editar = document.getElementsByName("editar-rede");
-    if (editar) {
+    if (editar.length != 0) {
         var url = window.location.href;
         var valores_url = url.split("=");
         $.post('../ajax-php/editar-rede.php?id=' + valores_url[1], function (resposta) {
@@ -152,7 +155,39 @@ async function carrega_termos(value) {
         document.getElementById('resultado_pesquisa').innerHTML = html;
     }
 }
+const id_input = '';
+function passa_id_input(codigo_id){
+    id_iput = codigo_id;
+}
+//Carrega Termo hiperlink
+async function carrega_termos_publicacao(value) {
+    debugger
+    document.getElementById("hiper-link").insertAdjacentHTML('afterend','<span id="resultado_pesquisa_termo"></span>');
+    if (value.length >= 3) {
+        debugger
+        const termos = await fetch('../ajax-php/busca-termo.php?termo=' + value);
+        const resposta = await termos.json();
+        var html = "<ul class='list-group'>";
+        if (resposta['erro']) {
+            html += "<li class='list-group-item disabled'>" + resposta['msg'] + "</li>";
+        } else {
+            for (i = 0; i < resposta['dados'].length; i++) {
+                html += "<li class='list-group-item list-group-item-action' onclick='get_termo_publicacao(" + JSON.stringify(resposta['dados'][i].id) + "," + JSON.stringify(resposta['dados'][i].nome) + ")'>" + resposta['dados'][i].nome + "</li>";
+            }
+        }
+        html += "</ul>";
+        
+        document.getElementById('resultado_pesquisa_termo').innerHTML = html;
+    }
+}
 
+function get_termo_publicacao(id, nome) {
+    debugger
+    document.getElementById(id_iput).value = nome
+    ids_termos.push(id);
+    nomes.push(nome);
+    // document.getElementById("termos").value = ids;
+}
 
 function get_termo(id, nome) {
     document.getElementById('termos-container').insertAdjacentHTML('afterbegin', '<div class="balao" id="' + id + '" value="' + nome + '">' + nome + '<div class="balao-fechar"  onclick="fecharBalao(' + id + ')"><i class="fa fa-times" aria-hidden="true"></i></div></div>');
@@ -199,6 +234,8 @@ async function carrega_redes(value) {
         document.getElementById('resultado_pesquisa').innerHTML = html;
     }
 }
+
+
 var input = document.querySelector("#redeTermos");
 function get_rede(id, nome) {
     document.getElementById('termos-container').insertAdjacentHTML('afterbegin', '<div class="rede-balao" id="' + id + '" value="' + nome + '">' + nome + '<div class="balao-fechar"  onclick="fecharRedeBalao(' + id + ')"><i class="fa fa-times" aria-hidden="true"></i></div></div>');

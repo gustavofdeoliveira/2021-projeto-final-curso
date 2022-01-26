@@ -61,7 +61,7 @@ require_once("../dao/RedeTermosDao.php");
                     </li>
 
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Linha do Tempo</a>
+                      <a class="nav-link" href="../view/Linha-tempo.php">Linha do Tempo</a>
                     </li>
 
                     <li class="nav-item">
@@ -69,7 +69,7 @@ require_once("../dao/RedeTermosDao.php");
                     </li>
 
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Biblioteca</a>
+                      <a class="nav-link" href="../view/Biblioteca.php">Biblioteca</a>
                     </li>
                     <?php
                     if (!empty($_SESSION["usuarioAutenticado"])) {
