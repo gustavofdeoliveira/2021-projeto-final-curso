@@ -6,7 +6,7 @@ require_once(realpath(dirname(__FILE__) . "/../database/Connection.php"));
 if (!empty($_SESSION['msg_error']) && (time() - $_SESSION['tempo_msg_error'] > 20)) {
     unset($_SESSION['msg_error']);
 }
-if (!empty($_SESSION['msg_sucess']) && (time() - $_SESSION['tempo_msg_error'] > 20)) {
+if (!empty($_SESSION['msg_sucess']) && (time() - $_SESSION['tempo_msg_sucess'] > 20)) {
     unset($_SESSION['msg_sucess']);
 }
 class TermoDao

@@ -4,6 +4,10 @@ var nomes = [];
 var result
 var controleCampo = 1;
 $(document).ready(function () {
+    document.getElementById("hiper-link").insertAdjacentHTML('afterend', '<span id="resultado_pesquisa_termo"></span>');
+})
+
+$(document).ready(function () {
     $.post('../ajax-php/listar-usuarios.php', function (resposta) {
         resultado = JSON.parse(resposta);
         for (a = 0; a != resultado.length; a++) {
@@ -127,12 +131,12 @@ $(document).ready(function () {
                 ids.push(resultado["dados"][1]["termos"][a]["id"]);
                 document.getElementById("termos").value = ids;
                 document.getElementById('termos-container').insertAdjacentHTML('afterbegin',
-                
+
                     '<div class="balao" id="' + resultado["dados"][1]["termos"][a]["id"] +
                     '" value="' + resultado["dados"][1]["termos"][a]["nome"] + '">' +
                     resultado["dados"][1]["termos"][a]["nome"] +
-                    '<input class="btn-excluir-atualizar"style="display:none" name="acao" value="excluirTermo" type="hidden">'+
-                    '<button class="balao-fechar" type="submit" name="idTermo" value="'+ resultado["dados"][1]["termos"][a]["id"]+'"><i class="fa fa-times" aria-hidden="true"></i></button></div>');
+                    '<input class="btn-excluir-atualizar"style="display:none" name="acao" value="excluirTermo" type="hidden">' +
+                    '<button class="balao-fechar" type="submit" name="idTermo" value="' + resultado["dados"][1]["termos"][a]["id"] + '"><i class="fa fa-times" aria-hidden="true"></i></button></div>');
             }
         })
     }
@@ -156,15 +160,12 @@ async function carrega_termos(value) {
     }
 }
 const id_input = '';
-function passa_id_input(codigo_id){
+function passa_id_input(codigo_id) {
     id_iput = codigo_id;
 }
 //Carrega Termo hiperlink
 async function carrega_termos_publicacao(value) {
-    debugger
-    document.getElementById("hiper-link").insertAdjacentHTML('afterend','<span id="resultado_pesquisa_termo"></span>');
     if (value.length >= 3) {
-        debugger
         const termos = await fetch('../ajax-php/busca-termo.php?termo=' + value);
         const resposta = await termos.json();
         var html = "<ul class='list-group'>";
@@ -176,17 +177,19 @@ async function carrega_termos_publicacao(value) {
             }
         }
         html += "</ul>";
-        
+
         document.getElementById('resultado_pesquisa_termo').innerHTML = html;
     }
 }
 
 function get_termo_publicacao(id, nome) {
     debugger
-    document.getElementById(id_iput).value = nome
+    document.getElementsByName('input-link').value = nome
+    input_id = document.getElementsByName('input-link')
+    document.getElementById(input_id[3]["id"]).value = nome;
     ids_termos.push(id);
     nomes.push(nome);
-    // document.getElementById("termos").value = ids;
+    document.getElementById('resultado_pesquisa_termo').innerHTML = '';
 }
 
 function get_termo(id, nome) {

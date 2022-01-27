@@ -2998,7 +2998,7 @@
             sourceRoot: ""
         }]);
         e["a"] = a
-    }, function(t, e, n) {
+    },  function(t, e, n) {
         "use strict";
         var i = n(2);
         var o = n.n(i);
@@ -39517,7 +39517,7 @@
                 t.extendTemplate({
                     attributes: {
                         class: ["ck", "ck-link-actions__preview"],
-                        href: e.to("href", (t => t && Jx(t))),
+                        href: "../view/Vizualizar-publicacao.php?termo=" + e.to("href", (t => t && Jx(t))),
                         target: "_blank",
                         rel: "noopener noreferrer"
                     }

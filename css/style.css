@@ -993,7 +993,7 @@ p#texto-alerta {
   width: 100% !important;
 }
 
-.ck-link-form, .ck-find-and-replace-form, .ck-list__item, .ck-dropdown__panel_se, .ck-dropdown__panel_nw, .ck-dropdown__panel-visible {
+.ck-link-form, .ck-link-actions,.ck-find-and-replace-form, .ck-list__item, .ck-dropdown__panel_se, .ck-dropdown__panel_nw, .ck-dropdown__panel-visible {
   background-color: var(--cor_vermelha) !important;
 
 }
@@ -1725,6 +1725,17 @@ p#texto-biblioteca {
 
 }
 
-.container-balao{
+.container-balao {
   margin-top: 20px !important;
+}
+
+span#resultado_pesquisa_termo ul li {
+  background-color: var(--cor_vermelha);
+    color: var(--cor_branca);
+    font-family: Raleway-Light;
+    width: 100%;
+    border-radius: 0px;
+    border: 1px solid var(--cor_branca);
+    padding: 10px;
+    font-size: 18px;
 }

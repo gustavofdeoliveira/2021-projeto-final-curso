@@ -69,7 +69,7 @@ require_once("../dao/UsuarioDao.php");
                     </li>
 
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Biblioteca</a>
+                      <a class="nav-link" href="../view/Biblioteca.php">Biblioteca</a>
                     </li>
                     <?php
                     if (!empty($_SESSION["usuarioAutenticado"])) {

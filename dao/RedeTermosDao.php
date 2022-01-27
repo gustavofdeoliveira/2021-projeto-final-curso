@@ -52,7 +52,7 @@ class RedeTermosDao
                     exit();
                 }
             }
-            return $_SESSION["msg_sucess"] = "Rede de termos cadastrado com sucesso!";
+            $_SESSION["msg_sucess"] = "Rede de termos cadastrado com sucesso!";
         }
     }
     function excluirRedeTermos(RedeTermosModel $modelo)

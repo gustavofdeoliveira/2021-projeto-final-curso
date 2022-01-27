@@ -1,25 +1,4 @@
-<?php
-class RedeTermosModel
-{
-    private $id;
-    private $nome;
-    private $descricao;
-    private $termosIncluidos;
-    /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
-    /**
-     * @param mixed 
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
     /**
      * @return mixed
      */
