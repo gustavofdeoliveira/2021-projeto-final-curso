@@ -221,7 +221,7 @@ error_reporting(E_ERROR | E_PARSE);
                 <div class="row">
                     <p id="texto-biblioteca">Biblioteca</p>
 
-
+                    <p>Encontre todos os termos de sociologia aqui, separados por ordem alfabética</p>
 
                     <a class="balao-vermelho" href="">A</a>
                     <a class="balao-verde" href="">B</a>
