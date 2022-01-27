@@ -6,7 +6,7 @@ class PublicacaoModel
     private $categoria;
     private $numeroVisualizacao;
     private $resumo;
-    private $imagemTeorico;
+    private $imagem;
     private $texto;
     /**
      * @return mixed
@@ -86,16 +86,31 @@ class PublicacaoModel
     /**
      * @return mixed
      */
-    public function getResumo()
+    public function getImagem()
     {
-        return $this->resumo;
+        return $this->imagem;
     }
 
     /**
      * @param mixed 
      */
-    public function setImagem($resumo)
+    public function setImagem($imagem)
     {
-        $this->resumo = $resumo;
+        $this->imagem = $imagem;
+    }
+    /**
+     * @return mixed
+     */
+    public function getTexto()
+    {
+        return $this->texto;
+    }
+
+    /**
+     * @param mixed 
+     */
+    public function setTexto($texto)
+    {
+        $this->texto = $texto;
     }
 }
