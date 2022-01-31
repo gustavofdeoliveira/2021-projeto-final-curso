@@ -75,7 +75,7 @@ $(document).ready(function () {
 //Carrega termo para editar
 $(document).ready(function () {
     var editar = document.getElementsByName("editar-termo");
-    if (editar) {
+    if (editar.length != 0) {
         var url = window.location.href;
         var valores_url = url.split("=");
         $.post('../ajax-php/editar-termo.php?id=' + valores_url[1], function (resposta) {
@@ -115,7 +115,6 @@ $(document).ready(function () {
 
 //Carrega rede para editar
 $(document).ready(function () {
-    debugger
     var editar = document.getElementsByName("editar-rede");
     if (editar.length != 0) {
         var url = window.location.href;
@@ -188,7 +187,7 @@ function get_termo_publicacao(id, nome) {
     input_id = document.getElementsByName('input-link')
     document.getElementById(input_id[3]["id"]).value = nome;
     ids_termos.push(id);
-    nomes.push(nome);
+    document.getElementById("termosId").value = ids_termos;
     document.getElementById('resultado_pesquisa_termo').innerHTML = '';
 }
 

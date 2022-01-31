@@ -24872,7 +24872,8 @@
                         tag: "div",
                         attributes: {
                             class: ["ck", "ck-editor__main"],
-                            role: "presentation"
+                            role: "presentation",
+                            name: "texto"
                         },
                         children: this.main
                     }]
@@ -25056,7 +25057,6 @@
                         change: e.to(this._updateIsEmpty.bind(this))
                     }
                 })
-                console.log(codigo_id["emitter"])
             }
             render() {
                 super.render();

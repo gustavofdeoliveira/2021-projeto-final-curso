@@ -251,18 +251,39 @@ function ativaCampo(campo) {
     campo.disabled = false;
 }
 
-function habilitaCampoTermo(){
+function habilitaCampoTermo() {
     document.getElementById("nome").disabled = false;
     document.getElementById("conceito").disabled = false;
     document.getElementById("nomeVariavel").disabled = false;
 }
 
-function habilitaCampoDados(){
+function habilitaCampoDados() {
     document.getElementById("nomeCompleto").disabled = false;
     document.getElementById("nomeUsuario").disabled = false;
     document.getElementById("email").disabled = false;
 }
-function habilitaCampoRedes(){
+function habilitaCampoRedes() {
     document.getElementById("nome").disabled = false;
     document.getElementById("descricao").disabled = false;
 }
+
+function encodeImageFileAsURL() {
+    var filesSelected = document.getElementById("img").files;
+    if (filesSelected.length > 0) {
+        debugger
+        var fileToLoad = filesSelected[0];
+        var fileReader = new FileReader();
+        fileReader.onload = function (fileLoadedEvent) {
+            debugger
+            var srcData = fileLoadedEvent.target.result; // <--- data: base64
+            document.getElementById("file-img").value = srcData;
+
+        }
+        fileReader.readAsDataURL(fileToLoad);
+    }
+}
+
+var inputFileToLoad = document.getElementById("img");
+inputFileToLoad.addEventListener("change", function () {
+    encodeImageFileAsURL()
+});

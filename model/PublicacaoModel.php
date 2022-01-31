@@ -8,6 +8,8 @@ class PublicacaoModel
     private $resumo;
     private $imagem;
     private $texto;
+    private $redeTermosId;
+    private $termosId;
     /**
      * @return mixed
      */
@@ -112,5 +114,35 @@ class PublicacaoModel
     public function setTexto($texto)
     {
         $this->texto = $texto;
+    }
+    /**
+     * @return mixed
+     */
+    public function getRedeTermosId()
+    {
+        return $this->redeTermosId;
+    }
+
+    /**
+     * @param mixed 
+     */
+    public function setRedeTermosId($redeTermosId)
+    {
+        $this->redeTermosId = $redeTermosId;
+    }
+    /**
+     * @return mixed
+     */
+    public function getTermosId()
+    {
+        return $this->termosId;
+    }
+
+    /**
+     * @param mixed 
+     */
+    public function setTermosId($termosId)
+    {
+        $this->termosId = $termosId;
     }
 }

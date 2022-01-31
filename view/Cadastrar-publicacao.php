@@ -1,6 +1,6 @@
 <?php
 include_once("../database/Connection.php");
-require_once("../dao/UsuarioDao.php");
+require_once("../dao/PublicacaoDao.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -209,15 +209,29 @@ require_once("../dao/UsuarioDao.php");
                             </div>";
           }
           echo "</div></div>";
-        }?>
+        } ?>
       </div>
     </div>
   </header>
   <main id="telas-navbar">
-    <form>
+    <form action="../control/PublicacaoControl.php" method="POST" class="form-group">
       <div class="row">
         <div class="col-xl-12">
           <p id="titulo-criar-publicacao">criar publicação</p>
+          <?php
+
+          if (!empty($_SESSION["msg_error"])) {
+            echo "<div class='row'>
+                    <div class='col-sm-12  col-md-12  col-xl-12  col-lg-12'>
+                      <div class='alert alert-danger' role='alert'><i class='fa fa-exclamation-triangle aria-hidden='true'></i> {$_SESSION["msg_error"]}</div>
+                    </div>
+                  </div>";}
+          if (!empty($_SESSION["msg_sucess"])) {
+            echo "<div class='row'>
+                    <div class='col-sm-12  col-md-12  col-xl-12  col-lg-12'>
+                      <div class='alert alert-success' role='alert'> <i class='fa fa-check-circle-o' aria-hidden='true'></i> {$_SESSION["msg_sucess"]}</div>              
+                      </div>
+                      </div>";} ?>
           <div class="row">
             <div class="col-xl-12">
               <div class="form-group">
@@ -234,7 +248,8 @@ require_once("../dao/UsuarioDao.php");
               <div class="form-group" x-data="{ fileName: '' }">
                 <label class="form-label label-criar-categoria" for="imagem">imagem</label>
                 <div class="input-group">
-                  <input type="file" x-ref="file" @change="fileName = $refs.file.files[0].name" name="img[]" class="d-none">
+                  <input class="input-criar-conta form-control" type="hidden" id="file-img" name="file-img">
+                  <input type="file" x-ref="file" @change="fileName = $refs.file.files[0].name" name="img" id="img" class="d-none">
                   <input type="text" class="input-imagem form-control form-control-lg" x-model="fileName">
                   <button class="browse btn btn-primary px-4" type="button" x-on:click.prevent="$refs.file.click()"><i class="fa fa-image"></i> Carregar</button>
                 </div>
@@ -243,11 +258,12 @@ require_once("../dao/UsuarioDao.php");
             <div class="col-xl-6 col-lg-6">
               <div class="input-group">
                 <label class="form-label label-criar-categoria" for="categoria">categoria</label>
-                <select class="custom-select" id="select-termo" name="categoria">
+                <select required class="custom-select" id="select-termo" name="categoria">
                   <option selected>Selecionar...</option>
-                  <option value="1">Publicacão Conteudista</option>
-                  <option value="2">Atualidade Sociológica</option>
+                  <option value="Conteudista">Publicacão Conteudista</option>
+                  <option value="Sociológica">Atualidade Sociológica</option>
                 </select>
+                <span class="error"></span>
               </div>
             </div>
           </div>
@@ -256,7 +272,7 @@ require_once("../dao/UsuarioDao.php");
               <div class="form-group">
                 <label class="form-label label-criar-publicacao" for="resumo">resumo</label>
                 <div class="input-group">
-                  <textarea required class="textarea input-criar-conta form-control" type="text" name="resumo"></textarea>
+                  <textarea class="textarea input-criar-conta form-control" type="text" name="resumo"></textarea>
                   <span class="error"></span>
                 </div>
               </div>
@@ -267,12 +283,11 @@ require_once("../dao/UsuarioDao.php");
               <div class="form-group">
                 <label class="form-label label-criar-publicacao" for="redeTermos">rede de termos <span id="texto-opcional">(opcional)</span></label>
                 <div class="input-group">
-
                   <input class="input-criar-conta form-control" type="text" id="redeTermos" onkeyup="carrega_redes(this.value)" name="redeTermos">
                   <span id="resultado_pesquisa"></span>
                   <div class="rede-container" id="termos-container"></div>
                   <p id="texto-alerta">deixar esse campo vazio pode reduzir o alcance da sua publicação</p>
-                  <input required type="hidden" name="rede" class="form-control" id="rede">
+                  <input type="hidden" name="rede" class="form-control" id="rede">
                 </div>
               </div>
             </div>
@@ -282,8 +297,8 @@ require_once("../dao/UsuarioDao.php");
               <div class="form-group">
                 <label class="form-label label-criar-publicacao" for="termos">texto</label>
                 <div class="input-group">
-                  <input class=" form-control" type="hidden" id="id-hiper-input" name="id-hiper-input">
-                  <textarea required class=" form-control" type="text" id="texto" name="texto"></textarea>
+                  <input class=" form-control" type="hidden" id="termosId" name="termosId">
+                  <textarea class=" form-control" type="text" id="texto" name="texto"></textarea>
                 </div>
               </div>
             </div>
@@ -293,15 +308,12 @@ require_once("../dao/UsuarioDao.php");
           </div>
           <div class="row">
             <div class="col-md-6 col-sm-8 col-lg-6 col-lg-offset-3 col-xl-4 col-xl-offset-4 col-sm-offset-2 col-md-offset-3">
-              <input type="hidden" name="acao" value="publicacao">
+              <input type="hidden" name="acao" value="cadastrarPublicacao">
               <input class="btn-publicar btn btn-lg" type="submit" value="publicar">
             </div>
           </div>
         </div>
       </div>
-
-
-
     </form>
   </main>
   <script src="../plugins/build/ckeditor.js"></script>
