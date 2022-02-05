@@ -1,6 +1,8 @@
 <?php
 include_once("../database/Connection.php");
 require_once("../dao/UsuarioDao.php");
+error_reporting(E_ERROR | E_PARSE);
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -68,7 +70,7 @@ require_once("../dao/UsuarioDao.php");
                     </li>
 
                     <li class="nav-item">
-                      <a class="nav-link" href="../view/Biblioteca.php">Biblioteca</a>
+                      <a class="nav-link" href="../view//Biblioteca.php">Biblioteca</a>
                     </li>
                     <?php
                     if (!empty($_SESSION["usuarioAutenticado"])) {
@@ -212,7 +214,6 @@ require_once("../dao/UsuarioDao.php");
       </div>
     </div>
   </header>
-
     <main id="telas-navbar">
         <div class="row">
             <div class="col-xl-12">

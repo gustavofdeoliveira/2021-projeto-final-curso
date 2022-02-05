@@ -69,7 +69,7 @@ error_reporting(E_ERROR | E_PARSE);
                     </li>
 
                     <li class="nav-item">
-                      <a class="nav-link" href="../view/Biblioteca.php">Biblioteca</a>
+                      <a class="nav-link" href="../view//Biblioteca.php">Biblioteca</a>
                     </li>
                     <?php
                     if (!empty($_SESSION["usuarioAutenticado"])) {
@@ -217,7 +217,7 @@ error_reporting(E_ERROR | E_PARSE);
     <main id="telas-navbar">
         <div class="row">
             <div class="col-xl-12">
-                <p id="titulo-cadastrar-rede">listar rede de termos</p>
+                <p id="titulo-cadastrar-rede">listar publicações</p>
                 <div class="row">
                     <div class="col-xl-9 col-lg-9 col-lg-md-9 col-sm-12">
                         <form class="d-flex">
@@ -252,7 +252,7 @@ error_reporting(E_ERROR | E_PARSE);
                                         <td scope="col" style="width: 50px;">
                                             <div class="listar-balao">id</div>
                                         </td>
-                                        <td scope="col" style="width: 200px;">
+                                        <td scope="col" style="width: 250px;">
                                             <div class="listar-balao">título da publicação</div>
 
                                         <td scope="col" style="width: 250px;">

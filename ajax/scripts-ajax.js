@@ -13,8 +13,10 @@ $(document).ready(function () {
 $(document).ready(function () {
     $.post('../ajax-php/listar-usuarios.php', function (resposta) {
         resultado = JSON.parse(resposta);
-        for (a = 0; a != resultado.length; a++) {
-            if (document.getElementById('id')) {
+        debugger
+        listar_usuarios = document.getElementById('id-usuarios');
+        if (listar_usuarios != null) {
+            for (a = 0; a != resultado.length; a++) {
                 var nivel = '';
                 if (resultado[a]['nivel'] == 1) {
                     nivel = '<td class="texto-codigo">' + resultado[a]['nivel'] + ' - Administrador</td>';
@@ -26,7 +28,7 @@ $(document).ready(function () {
                 let data = new Date(resultado[a]['dataInclusao']);
                 let dataInclusao = ((data.getDate())) + "/" + ((data.getMonth() + 1)) + "/" + data.getFullYear();
 
-                document.getElementById('id').insertAdjacentHTML('afterend',
+                document.getElementById('id-usuarios').insertAdjacentHTML('afterend',
                     '<td class="texto-codigo">' + resultado[a]['id'] + '</td>' +
                     '<td class="texto-nome">' + resultado[a]['nome'] + '</td>' +
                     nivel + '<td class="texto-data">' + dataInclusao + '</td>' +
@@ -51,8 +53,9 @@ $(document).ready(function () {
 $(document).ready(function () {
     $.post('../ajax-php/listar-rede.php', function (resposta) {
         resultado = JSON.parse(resposta);
-        for (a = 0; a != resultado.length; a++) {
-            if (document.getElementById('id-redes')) {
+        listar_redes = document.getElementById('id-redes');
+        if (listar_redes != null) {
+            for (a = 0; a != resultado.length; a++) {
                 let data = new Date(resultado[a]['dataInclusao']);
                 let dataInclusao = ((data.getDate())) + "/" + ((data.getMonth() + 1)) + "/" + data.getFullYear();
 
@@ -95,8 +98,9 @@ $(document).ready(function () {
 $(document).ready(function () {
     $.post('../ajax-php/listar-termos.php', function (resposta) {
         resultado = JSON.parse(resposta);
-        for (a = 0; a != resultado.length; a++) {
-            if (document.getElementById('id-termos')) {
+        listar_termos = document.getElementById('id-termos');
+        if (listar_redes != null) {
+            for (a = 0; a != resultado.length; a++) {
                 document.getElementById('id-termos').insertAdjacentHTML('afterend',
                     '<td class="texto-codigo">' + resultado[a]['id'] + '</td>' +
                     '<td class="texto-nome">' + resultado[a]['nome'] + '</td>' +
@@ -120,13 +124,13 @@ $(document).ready(function () {
 $(document).ready(function () {
     $.post('../ajax-php/listar-publicacao.php', function (resposta) {
         resultado = JSON.parse(resposta);
-        for (a = 0; a != resultado.length; a++) {
-            if (document.getElementById('id-publicacao')) {
-                console.log(resultado)
+        listar_publicacoes = document.getElementById('id-publicacao');
+        if (listar_publicacoes != null) {
+            for (a = 0; a != resultado.length; a++) {
                 document.getElementById('id-publicacao').insertAdjacentHTML('afterend',
                     '<td class="texto-codigo">' + resultado[a]['id'] + '</td>' +
                     '<td class="texto-nome">' + resultado[a]['titulo'] + '</td>' +
-                    '<td class="texto-codigo">' +'Publicação ' + resultado[a]['categoria'] + '</td>' +
+                    '<td class="texto-codigo">' + 'Publicação ' + resultado[a]['categoria'] + '</td>' +
 
                     '<td style="text-align:center;display:flex">' +
                     '<a href="../view/Ver-publicacao.php?id=' + resultado[a]['id'] + '" target="_blank"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>' +
@@ -319,12 +323,12 @@ $(document).ready(function () {
             document.getElementById('categoria-publicacao').insertAdjacentHTML('afterend', '<p id="rede-publicacao">' + resultado['dados']['redeTermos'][0]['nome'] + '</p>');
         }
         if (resultado['dados']['semelhantes'].length != 0) {
-            document.getElementById('publicacao-semelhantes').insertAdjacentHTML('afterbegin','<p id="texto-publicacao-semelhante">Publicações semelhantes</p>')
-           debugger
+            document.getElementById('publicacao-semelhantes').insertAdjacentHTML('afterbegin', '<p id="texto-publicacao-semelhante">Publicações semelhantes</p>')
+            debugger
             for (a = 0; a != resultado['dados']['semelhantes'].length; a++) {
-            document.getElementById('texto-publicacao-semelhante').insertAdjacentHTML('afterend','<img class="img-publicacao-semelhante" id="img-publicacao-semelhante" src="'+resultado['dados']['semelhantes'][a]['imagem']+'">')
-            document.getElementById('img-publicacao-semelhante').insertAdjacentHTML('afterend','<a class="titulo-publicacao-semelhante" target="_blank" href="//localhost/2021-projeto-final-curso/view/Ver-publicacao.php?id='+resultado['dados']['semelhantes'][a]['id']+'">'+resultado['dados']['semelhantes'][a]['titulo']+'</a>')
-                
+                document.getElementById('texto-publicacao-semelhante').insertAdjacentHTML('afterend', '<img class="img-publicacao-semelhante" id="img-publicacao-semelhante" src="' + resultado['dados']['semelhantes'][a]['imagem'] + '">')
+                document.getElementById('img-publicacao-semelhante').insertAdjacentHTML('afterend', '<a class="titulo-publicacao-semelhante" target="_blank" href="//localhost/2021-projeto-final-curso/view/Ver-publicacao.php?id=' + resultado['dados']['semelhantes'][a]['id'] + '">' + resultado['dados']['semelhantes'][a]['titulo'] + '</a>')
+
             }
         }
     })
