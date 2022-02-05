@@ -61,7 +61,7 @@ error_reporting(E_ERROR | E_PARSE);
                                         </li>
 
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Linha do Tempo</a>
+                                            <a class="nav-link" href="../view/Linha-tempo.php">Linha do Tempo</a>
                                         </li>
 
                                         <li class="nav-item">

@@ -29,7 +29,7 @@ class RedeTermosControl
                 $this->excluirTermo();
             }
             if ($this->acao == "atualizarRede") {
-                $this->AtualizarRedeTermos();
+                $this->atualizarRedeTermos();
             }
         }
     }
@@ -43,7 +43,7 @@ class RedeTermosControl
             header("Location:../view/Cadastrar-rede-termo.php");
         } catch (\Exception $e) {
             $_SESSION["msg_error"] = $e->getMessage();
-            $_SESSION["msg_tempo"] = time();
+            $_SESSION["tempo_msg_error"] = time();
             header("Location:../view/Cadastrar-rede-termo.php");
         }
     }
@@ -55,7 +55,7 @@ class RedeTermosControl
             header("Location:../view/Listar-redes.php");
         } catch (\Exception $e) {
             $_SESSION["msg_error"] = $e->getMessage();
-            $_SESSION["msg_tempo"] = time();
+            $_SESSION["tempo_msg_error"] = time();
             header("Location:../view/Listar-redes.php");
         }
     }
@@ -64,15 +64,14 @@ class RedeTermosControl
         try {
             $this->modelo->setId($_POST["idTermo"]);
             $id = $this->dao->excluirTermo($this->modelo);
-            print_r($this->modelo);
             header("Location:../view/Editar-rede-termo.php?id=" . $id);
         } catch (\Exception $e) {
             $_SESSION["msg_error"] = $e->getMessage();
-            $_SESSION["msg_tempo"] = time();
+            $_SESSION["tempo_msg_error"] = time();
             header("Location:../view/Listar-redes.php");
         }
     }
-    public function AtualizarRedeTermos()
+    public function atualizarRedeTermos()
     {
         try {
             $this->modelo->setid($_POST["idRede"]);
@@ -83,7 +82,7 @@ class RedeTermosControl
             header("Location:../view/Editar-rede-termo.php?id=".$id);
         } catch (\Exception $e) {
             $_SESSION["msg_error"] = $e->getMessage();
-            $_SESSION["msg_tempo"] = time();
+            $_SESSION["tempo_msg_error"] = time();
             // header("Location:../view/Editar-rede-termo.php");
         }
     }

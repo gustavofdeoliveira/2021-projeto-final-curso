@@ -46,13 +46,13 @@ class RedeTermosDao
                     $statement->bindParam(1, $id);
                     $statement->bindParam(2, $id_termos[$a]);
                     $statement->execute();
-                    $_SESSION["msg_tempo_sucess"] = time();
                 } catch (Exception $e) {
                     print_r($e->getMessage());
                     exit();
                 }
             }
             $_SESSION["msg_sucess"] = "Rede de termos cadastrado com sucesso!";
+            $_SESSION["tempo_msg_sucess"] = time();
         }
     }
     function excluirRedeTermos(RedeTermosModel $modelo)

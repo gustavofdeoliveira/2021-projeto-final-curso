@@ -2,7 +2,6 @@
 include_once("../database/Connection.php");
 require_once("../dao/UsuarioDao.php");
 error_reporting(E_ERROR | E_PARSE);
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -11,7 +10,7 @@ error_reporting(E_ERROR | E_PARSE);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listar Redes de Termos | Tereré com Sociologia</title>
+    <title>Biblioteca | Tereré com Sociologia</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/responsive-theme.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -61,7 +60,7 @@ error_reporting(E_ERROR | E_PARSE);
                                         </li>
 
                                         <li class="nav-item">
-                                            <a class="nav-link" href="../view/Linha-tempo.php">Linha do Tempo</a>
+                                            <a class="nav-link" href="#">Linha do Tempo</a>
                                         </li>
 
                                         <li class="nav-item">
@@ -69,7 +68,7 @@ error_reporting(E_ERROR | E_PARSE);
                                         </li>
 
                                         <li class="nav-item">
-                                            <a class="nav-link" href="../view/Biblioteca.php">Biblioteca</a>
+                                            <a class="nav-link" href="#">Biblioteca</a>
                                         </li>
                                         <?php
                                         if (!empty($_SESSION["usuarioAutenticado"])) {
@@ -140,7 +139,7 @@ error_reporting(E_ERROR | E_PARSE);
                     if ($usuario['nivelAcesso'] == 3) {
                         echo "
                             <div class='nav-left'>
-                                <a href='../view/Meus-dados.php' class='btn-tools'><span class='ion-ios-home-outline'></span>Meus Dados</a>
+                                <a href='Meus-dados.php' class='btn-tools'><span class='ion-ios-home-outline'></span>Meus Dados</a>
                                 <a class='btn-tools'><span class='ion-ios-list-outline'></span>Sugerir Termo</a>
                                 <a class='btn-tools' id='dark-mode-toggle'><span class='ion-ios-list-outline'></span>
                                     <div class='d-flex modo-noturno'>
@@ -169,10 +168,10 @@ error_reporting(E_ERROR | E_PARSE);
                         echo "
                             <div class='nav-left'>
                             <div id='texto-usuario'>Usuário</div>
-                                <a href='../view/Meus-dados.php' class='btn-tools'><span class='ion-ios-home-outline'></span>Meus Dados</a>";
+                                <a href='view/Meus-dados.php' class='btn-tools'><span class='ion-ios-home-outline'></span>Meus Dados</a>";
                         if ($usuario['nivelAcesso'] == 1) {
                             echo "
-                                <a href='../view/Listar-usuarios.php' class='btn-tools'><span class='ion-ios-home-outline'></span>Listar Usuários</a>";
+                                <a href='view/Listar-usuarios.php' class='btn-tools'><span class='ion-ios-home-outline'></span>Listar Usuários</a>";
                         }
                         echo "
                                 <a class='btn-tools' id='dark-mode-toggle'><span class='ion-ios-list-outline'></span>
@@ -186,15 +185,15 @@ error_reporting(E_ERROR | E_PARSE);
                                     </div>
                                 </a>
                                 <div id='texto-usuario'>Publicações</div>
-                                <a href='../view/Cadastrar-publicacao.php' class='btn-tools'><span class='ion-ios-list-outline'></span>+ Nova Publicação</a>
-                                <a href='../view/Listar-publicacao.php' class='btn-tools'><span class='ion-ios-list-outline'></span>Listar Publicações</a>
+                                <a href='Cadastrar-publicacao.php' class='btn-tools'><span class='ion-ios-list-outline'></span>+ Nova Publicação</a>
+                                <a href='Listar-publicacao.php' class='btn-tools'><span class='ion-ios-list-outline'></span>Listar Publicações</a>
                                 <div id='texto-usuario'>Termos</div>
-                                <a href='../view/Cadastrar-termo.php' class='btn-tools'><span class='ion-ios-list-outline'></span>+ Novo Termo</a>
-                                <a href='../view/Listar-termos.php' class='btn-tools'><span class='ion-ios-list-outline'></span>Listar Termos</a>
+                                <a href='Cadastrar-termo.php' class='btn-tools'><span class='ion-ios-list-outline'></span>+ Novo Termo</a>
+                                <a href='Listar-termos.php' class='btn-tools'><span class='ion-ios-list-outline'></span>Listar Termos</a>
                                 <a href='' class='btn-tools'><span class='ion-ios-list-outline'></span>Ver Sugestões</a>
                                 <div id='texto-usuario'>Rede de Termos</div>
-                                <a href='../view/Cadastrar-rede-termo.php' class='btn-tools'><span class='ion-ios-list-outline'></span>+ Nova Rede</a>
-                                <a href='../view/Listar-redes.php' class='btn-tools'><span class='ion-ios-list-outline'></span>Listar Redes</a>
+                                <a href='Cadastrar-rede-termo.php' class='btn-tools'><span class='ion-ios-list-outline'></span>+ Nova Rede</a>
+                                <a href='Listar-redes.php' class='btn-tools'><span class='ion-ios-list-outline'></span>Listar Redes</a>
                                 
                                 <a><span class='ion-ios-list-outline'></span>
                                     <form action='../control/UsuarioControl.php' method='POST' class='form-group'>
@@ -208,26 +207,41 @@ error_reporting(E_ERROR | E_PARSE);
                                 
                             </div>";
                     }
-                    echo "</div></div>";
-                } ?>
+                    echo "</div>
+                    </div>";
+                }
+                ?>
             </div>
         </div>
     </header>
-
     <main id="telas-navbar">
         <div class="row">
-            <div class="col-xl-12 col-lg-12 d-flex">
-                <div class="col-xl-8 col-lg-8">
-                    <p id="linha-tempo">Linha do tempo</p>
-                    <p id="linha-info">Encontre todas as nossas publicações aqui</p>
+            <div class="col-xl-8 col-lg-8">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12">
+                        <p id="titulo-publicacao"></p>
+                        <div class="row">
+                            <p id="texto-resumo"></p>
+                        </div>
+                        <div class="row">
+                            <div id="categoria-rede"></div>
+                            <p id="categoria-publicacao"></p>
+                        </div>
+                        <div class="row">
+                            <img id="img-publicacao" class="img-publicacao" src="">
+                        </div>
+                        <div class="row">
+                            <p id="texto-publicacao"></p>
+                        </div>
+                    </div>
                 </div>
-                <?php
-                if($usuario['nivelAcesso'] == 1 OR $usuario['nivelAcesso'] == 2){
-               echo'
-                    <div class=col-xl-4 col-lg-4">
-                    <p>ola</p>
-                </div>';
-                }?>
+            </div>
+            <div class="col-xl-4 col-lg-4">
+                <div class="row">
+                    <div id="publicacao-semelhantes">
+
+                    </div>
+                </div>
             </div>
         </div>
     </main>

@@ -1,14 +1,6 @@
 <?php
 require_once "../dao/PublicacaoDao.php";
 require_once "../model/PublicacaoModel.php";
-
-if (!empty($_SESSION["msg_error"]) && (time() - $_SESSION["tempo_msg_error"] > 20)) {
-    unset($_SESSION["msg_error"]);
-}
-if (!empty($_SESSION["msg_sucess"]) && (time() - $_SESSION["tempo_msg_sucess"] > 20)) {
-    unset($_SESSION["msg_sucess"]);
-}
-
 class PublicacaoControl
 {
     private $dao;
@@ -28,8 +20,12 @@ class PublicacaoControl
             if ($this->acao == "cadastrarPublicacao") {
                 $this->inserirPublicacao();
             }
+            if ($this->acao == "excluirPublicacao") {
+                $this->excluirPublicacao();
+            }
         }
     }
+    
     public function inserirPublicacao()
     {
         try {
@@ -38,15 +34,27 @@ class PublicacaoControl
             $this->modelo->setCategoria($_POST["categoria"]);
             $this->modelo->setResumo($_POST["resumo"]);
             $this->modelo->setRedeTermosId($_POST["rede"]);
-            $this->modelo->setTexto($_POST["texto"]);
+            $this->modelo->setTexto($_POST["texto_publicacao"]);
             $this->modelo->setTermosId($_POST["termosId"]);
-            $this->dao->inserirPublicacao($this->modelo);
-            header("Location:../view/Cadastrar-rede-termo.php");
+            $id_publicacao = $this->dao->inserirPublicacao($this->modelo);
+            header("Location:../view/Ver-publicacao.php?id=" . $id_publicacao);
         } catch (\Exception $e) {
             $_SESSION["msg_error"] = $e->getMessage();
             $_SESSION["msg_tempo_error"] = time();
-            print_r($_SESSION["msg_error"]);
             header("Location:../view/Cadastrar-Publicacao.php");
+        }
+    }
+
+    public function excluirPublicacao()
+    {
+        try {
+            $this->modelo->setTitulo($_POST["idPublicacao"]);
+            $this->dao->excluirPublicacao($this->modelo);
+             header("Location:../view/Listar-publicacao.php");
+        } catch (\Exception $e) {
+            $_SESSION["msg_error"] = $e->getMessage();
+            $_SESSION["msg_tempo_error"] = time();
+            header("Location:../view/Listar-publicacao.php");
         }
     }
 }

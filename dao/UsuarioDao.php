@@ -125,7 +125,7 @@ class UsuarioDao
             throw new \Exception('Usuário não encontrado');
         }
     }
-    function deletarUsuario(UsuarioModel $modelo)
+    function excluirUsuario(UsuarioModel $modelo)
     {
         $usuario =  $_SESSION['usuarioAutenticado'];
         if ($usuario['nivelAcesso'] != 1) {

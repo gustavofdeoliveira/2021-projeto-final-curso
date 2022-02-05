@@ -24957,7 +24957,9 @@
                 this.extendTemplate({
                     attributes: {
                         role: "textbox",
-                        class: "ck-editor__editable_inline"
+                        class: "ck-editor__editable_inline",
+                        id: "texto",
+                        name: "texto"
                     }
                 })
             }

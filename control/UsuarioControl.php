@@ -119,7 +119,7 @@ class UsuarioControl
             if (!empty($_POST["Usuario"])) {
                 $this->modelo->setId($_POST['Usuario']);
             }
-            $this->dao->deletarUsuario($this->modelo);
+            $this->dao->excluirUsuario($this->modelo);
         } catch (\Exception $e) {
             $_SESSION["msg_error"] = $e->getMessage();
             $_SESSION["tempo_msg_error"] = time();

@@ -4,7 +4,10 @@ var nomes = [];
 var result
 var controleCampo = 1;
 $(document).ready(function () {
-    document.getElementById("hiper-link").insertAdjacentHTML('afterend', '<span id="resultado_pesquisa_termo"></span>');
+    campo = document.getElementById("hiper-link");
+    if (campo != null) {
+        document.getElementById("hiper-link").insertAdjacentHTML('afterend', '<span id="resultado_pesquisa_termo"></span>');
+    }
 })
 
 $(document).ready(function () {
@@ -106,6 +109,32 @@ $(document).ready(function () {
                     '<form action="../control/TermoControl.php" method="POST" class="form-group">' +
                     '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirTermo">' +
                     '<button class="btn-excluir-atualizar" type="submit" name="Termo" value="' + resultado[a]['id'] + '">' +
+                    '<i class="fa fa-trash-o" aria-hidden="true"></i></button></form></td>'
+                );
+            }
+        }
+    })
+})
+
+//Lista publicações
+$(document).ready(function () {
+    $.post('../ajax-php/listar-publicacao.php', function (resposta) {
+        resultado = JSON.parse(resposta);
+        for (a = 0; a != resultado.length; a++) {
+            if (document.getElementById('id-publicacao')) {
+                console.log(resultado)
+                document.getElementById('id-publicacao').insertAdjacentHTML('afterend',
+                    '<td class="texto-codigo">' + resultado[a]['id'] + '</td>' +
+                    '<td class="texto-nome">' + resultado[a]['titulo'] + '</td>' +
+                    '<td class="texto-codigo">' +'Publicação ' + resultado[a]['categoria'] + '</td>' +
+
+                    '<td style="text-align:center;display:flex">' +
+                    '<a href="../view/Ver-publicacao.php?id=' + resultado[a]['id'] + '" target="_blank"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>' +
+                    '<a href="../view/Editar-publicacao.php?id=' + resultado[a]['id'] + '"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>' +
+
+                    '<form action="../control/PublicacaoControl.php" method="POST" class="form-group">' +
+                    '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirPublicacao">' +
+                    '<button class="btn-excluir-atualizar" type="submit" name="idPublicacao" value="' + resultado[a]['id'] + '">' +
                     '<i class="fa fa-trash-o" aria-hidden="true"></i></button></form></td>'
                 );
             }
@@ -271,3 +300,33 @@ function fecharRedeBalao(id) {
     input.disabled = false;
     document.getElementById(id).remove();
 }
+
+//Carrega publicação
+$(document).ready(function () {
+    // var editar = document.getElementsByName("editar-rede");
+    // if (editar.length != 0) {
+    var url = window.location.href;
+    var valores_url = url.split("=");
+    $.post('../ajax-php/ver-publicacao.php?id=' + valores_url[1], function (resposta) {
+        resultado = JSON.parse(resposta);
+        console.log(resultado);
+        document.getElementById('titulo-publicacao').insertAdjacentHTML('afterbegin', resultado['dados']['publicacao']['titulo']);
+        document.getElementById('categoria-publicacao').insertAdjacentHTML('afterbegin', "Publicação " + resultado['dados']['publicacao']['categoria']);
+        document.getElementById('img-publicacao').src = resultado['dados']['publicacao']['imagem'];
+        document.getElementById('texto-resumo').insertAdjacentHTML('afterbegin', "Publicação " + resultado['dados']['publicacao']['resumo']);
+        document.getElementById('texto-publicacao').insertAdjacentHTML('afterbegin', resultado['dados']['publicacao']['texto']);
+        if (resultado['dados']['redeTermos'][0]['nome'] != null) {
+            document.getElementById('categoria-publicacao').insertAdjacentHTML('afterend', '<p id="rede-publicacao">' + resultado['dados']['redeTermos'][0]['nome'] + '</p>');
+        }
+        if (resultado['dados']['semelhantes'].length != 0) {
+            document.getElementById('publicacao-semelhantes').insertAdjacentHTML('afterbegin','<p id="texto-publicacao-semelhante">Publicações semelhantes</p>')
+           debugger
+            for (a = 0; a != resultado['dados']['semelhantes'].length; a++) {
+            document.getElementById('texto-publicacao-semelhante').insertAdjacentHTML('afterend','<img class="img-publicacao-semelhante" id="img-publicacao-semelhante" src="'+resultado['dados']['semelhantes'][a]['imagem']+'">')
+            document.getElementById('img-publicacao-semelhante').insertAdjacentHTML('afterend','<a class="titulo-publicacao-semelhante" target="_blank" href="//localhost/2021-projeto-final-curso/view/Ver-publicacao.php?id='+resultado['dados']['semelhantes'][a]['id']+'">'+resultado['dados']['semelhantes'][a]['titulo']+'</a>')
+                
+            }
+        }
+    })
+    // }
+})

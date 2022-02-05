@@ -2,7 +2,7 @@
 /*Incluir a conecao com o bd sempre*/
 include_once("../database/Connection.php");
 require_once("../dao/UsuarioDao.php");
-
+error_reporting(E_ERROR | E_PARSE);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

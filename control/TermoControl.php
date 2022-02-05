@@ -19,17 +19,17 @@ class TermoControl
     {
         if ($this->acao) {
             if ($this->acao == "inserirTermo") {
-                $this->cadastrarTermo();
+                $this->inserirTermo();
             }
             if ($this->acao == "excluirTermo") {
                 $this->excluirTermo();
             }
             if ($this->acao == "editarTermo") {
-                $this->editarTermo();
+                $this->atualizarTermo();
             }
         }
     }
-    public function cadastrarTermo()
+    public function inserirTermo()
     {
         try {
             $this->modelo->setTipoTermo($_POST["tipoTermo"]);
@@ -49,7 +49,7 @@ class TermoControl
     {
         try {
             print_r($this->modelo->setId($_POST['Termo']));
-            $this->dao->deletarTermo($this->modelo);
+            $this->dao->excluirTermo($this->modelo);
             header("Location:../view/Listar-termos.php");
         } catch (\Exception $e) {
             $_SESSION["msg_error"] = $e->getMessage();
@@ -57,7 +57,7 @@ class TermoControl
             header("Location:../view/Listar-termos.php");
         }
     }
-    public function editarTermo()
+    public function atualizarTermo()
     {
         try {
             $this->modelo->setId($_POST["idTermo"]);

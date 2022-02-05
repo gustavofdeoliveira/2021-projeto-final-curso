@@ -47,7 +47,7 @@ class TermoDao
         }
     }
 
-    function deletarTermo(TermoModel $modelo)
+    function excluirTermo(TermoModel $modelo)
     {
         $sql = "DELETE `termo`, `rede_termos_termo` FROM `termo`
                 LEFT JOIN `rede_termos_termo` ON `termo`.`id` = `rede_termos_termo`.`id_termo`
@@ -70,7 +70,7 @@ class TermoDao
         $statement = $this->conn->prepare($sql);
         $statement->bindValue("id", $modelo->getId());
         $statement->execute();
-        $_SESSION["tempo_msg"] = time();
+        $_SESSION["tempo_msg_sucess"] = time();
         return $_SESSION["msg_sucess"] = "Termo atualizado com sucesso!";
     }
 }

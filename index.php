@@ -25,7 +25,7 @@ error_reporting(E_ERROR | E_PARSE);
 
 
 <body id="dark-mode">
-<header>
+  <header>
     <div class="row">
       <div class="col-xl-12 col-lg-12 col-md-12 ">
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -209,13 +209,21 @@ error_reporting(E_ERROR | E_PARSE);
                             </div>";
           }
           echo "</div></div>";
-        }?>
+        } ?>
       </div>
     </div>
   </header>
-    
-  <main>
 
+
+
+  <main id="telas-navbar">
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="col-xl-8">
+          
+        </div>
+      </div>
+    </div>
   </main>
 
   <script src="javascript/bootstrap.bundle.min.js">
