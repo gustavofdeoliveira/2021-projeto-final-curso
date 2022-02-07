@@ -289,7 +289,6 @@ inputFileToLoad.addEventListener("change", function () {
 });
 
 var texto = document.getElementById("texto");
-
 function pegaTexto(){
     debugger;
     document.getElementById("texto_publicacao").value = document.getElementById("texto").innerHTML;

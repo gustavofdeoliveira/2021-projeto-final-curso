@@ -13,7 +13,6 @@ $(document).ready(function () {
 $(document).ready(function () {
     $.post('../ajax-php/listar-usuarios.php', function (resposta) {
         resultado = JSON.parse(resposta);
-        debugger
         listar_usuarios = document.getElementById('id-usuarios');
         if (listar_usuarios != null) {
             for (a = 0; a != resultado.length; a++) {
@@ -78,6 +77,7 @@ $(document).ready(function () {
         }
     })
 })
+
 //Carrega termo para editar
 $(document).ready(function () {
     var editar = document.getElementsByName("editar-termo");
@@ -95,6 +95,7 @@ $(document).ready(function () {
     }
 })
 
+//Listar termos
 $(document).ready(function () {
     $.post('../ajax-php/listar-termos.php', function (resposta) {
         resultado = JSON.parse(resposta);
@@ -215,7 +216,6 @@ async function carrega_termos_publicacao(value) {
 }
 
 function get_termo_publicacao(id, nome) {
-    debugger
     document.getElementsByName('input-link').value = nome
     input_id = document.getElementsByName('input-link')
     document.getElementById(input_id[3]["id"]).value = nome;
@@ -307,30 +307,54 @@ function fecharRedeBalao(id) {
 
 //Carrega publicação
 $(document).ready(function () {
-    // var editar = document.getElementsByName("editar-rede");
-    // if (editar.length != 0) {
     var url = window.location.href;
     var valores_url = url.split("=");
     $.post('../ajax-php/ver-publicacao.php?id=' + valores_url[1], function (resposta) {
         resultado = JSON.parse(resposta);
-        console.log(resultado);
-        document.getElementById('titulo-publicacao').insertAdjacentHTML('afterbegin', resultado['dados']['publicacao']['titulo']);
-        document.getElementById('categoria-publicacao').insertAdjacentHTML('afterbegin', "Publicação " + resultado['dados']['publicacao']['categoria']);
-        document.getElementById('img-publicacao').src = resultado['dados']['publicacao']['imagem'];
-        document.getElementById('texto-resumo').insertAdjacentHTML('afterbegin', "Publicação " + resultado['dados']['publicacao']['resumo']);
-        document.getElementById('texto-publicacao').insertAdjacentHTML('afterbegin', resultado['dados']['publicacao']['texto']);
-        if (resultado['dados']['redeTermos'][0]['nome'] != null) {
-            document.getElementById('categoria-publicacao').insertAdjacentHTML('afterend', '<p id="rede-publicacao">' + resultado['dados']['redeTermos'][0]['nome'] + '</p>');
-        }
-        if (resultado['dados']['semelhantes'].length != 0) {
-            document.getElementById('publicacao-semelhantes').insertAdjacentHTML('afterbegin', '<p id="texto-publicacao-semelhante">Publicações semelhantes</p>')
-            debugger
-            for (a = 0; a != resultado['dados']['semelhantes'].length; a++) {
-                document.getElementById('texto-publicacao-semelhante').insertAdjacentHTML('afterend', '<img class="img-publicacao-semelhante" id="img-publicacao-semelhante" src="' + resultado['dados']['semelhantes'][a]['imagem'] + '">')
-                document.getElementById('img-publicacao-semelhante').insertAdjacentHTML('afterend', '<a class="titulo-publicacao-semelhante" target="_blank" href="//localhost/2021-projeto-final-curso/view/Ver-publicacao.php?id=' + resultado['dados']['semelhantes'][a]['id'] + '">' + resultado['dados']['semelhantes'][a]['titulo'] + '</a>')
+        var ver_publicacao = document.getElementById("ver-publicacao");
+        if (ver_publicacao != null) {
+            console.log(resultado);
+            document.getElementById('titulo-publicacao').insertAdjacentHTML('afterbegin', resultado['dados']['publicacao']['titulo']);
+            document.getElementById('categoria-publicacao').insertAdjacentHTML('afterbegin', "Publicação " + resultado['dados']['publicacao']['categoria']);
+            document.getElementById('img-publicacao').src = resultado['dados']['publicacao']['imagem'];
+            document.getElementById('texto-resumo').insertAdjacentHTML('afterbegin', "Publicação " + resultado['dados']['publicacao']['resumo']);
+            document.getElementById('texto-publicacao').insertAdjacentHTML('afterbegin', resultado['dados']['publicacao']['texto']);
+            if (resultado['dados']['redeTermos'][0]['nome'] != null) {
+                document.getElementById('categoria-publicacao').insertAdjacentHTML('afterend', '<p id="rede-publicacao">' + resultado['dados']['redeTermos'][0]['nome'] + '</p>');
+            }
+            if (resultado['dados']['semelhantes'].length != 0) {
+                document.getElementById('publicacao-semelhantes').insertAdjacentHTML('afterbegin', '<p id="texto-publicacao-semelhante">Publicações semelhantes</p>')
+                for (a = 0; a != resultado['dados']['semelhantes'].length; a++) {
+                    document.getElementById('texto-publicacao-semelhante').insertAdjacentHTML('afterend', '<img class="img-publicacao-semelhante" id="img-publicacao-semelhante" src="' + resultado['dados']['semelhantes'][a]['imagem'] + '">')
+                    document.getElementById('img-publicacao-semelhante').insertAdjacentHTML('afterend', '<a class="titulo-publicacao-semelhante" target="_blank" href="//localhost/2021-projeto-final-curso/view/Ver-publicacao.php?id=' + resultado['dados']['semelhantes'][a]['id'] + '">' + resultado['dados']['semelhantes'][a]['titulo'] + '</a>')
 
+                }
             }
         }
+    })
+})
+
+//Carrega publicação para editar
+$(document).ready(function () {
+    // var editar = document.getElementsByName("titulo");
+    // if (editar.length != 0) {
+    var url = window.location.href;
+    var valores_url = url.split("=");
+    $.post('../ajax-php/editar-publicacao.php?id=' + valores_url[1], function (resposta) {
+        resultado = JSON.parse(resposta);
+        debugger
+        console.log(resultado)
+        document.getElementById("titulo").value = resultado["dados"][0]["titulo"];
+        document.getElementById("select-termo").value = resultado["dados"][0]["categoria"];
+        document.getElementById("resumo").value = resultado["dados"][0]["resumo"];
+        document.getElementById("texto").innerHTML = resultado["dados"][0]["texto"];
+        var a = document.getElementById("texto");
+
+        console.log(resultado)
+        debugger
+        document.getElementById('termos-container').insertAdjacentHTML('afterbegin', 
+        '<div class="rede-balao" id="' + resultado["dados"][0]["id"] + '" value="' + resultado["dados"][0]["nome"] + '">' + resultado["dados"][0]["nome"] + '<div class="balao-fechar"  onclick="fecharRedeBalao(' + resultado["dados"][0]["id"] + ')"><i class="fa fa-times" aria-hidden="true"></i></div></div>');
+
     })
     // }
 })

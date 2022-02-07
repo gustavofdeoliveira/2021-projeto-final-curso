@@ -218,7 +218,7 @@ error_reporting(E_ERROR | E_PARSE);
     <form action="../control/PublicacaoControl.php" method="POST" class="form-group">
       <div class="row">
         <div class="col-xl-12">
-          <p id="titulo-criar-publicacao">criar publicação</p>
+          <p id="titulo-criar-publicacao">editar publicação</p>
           <?php
 
           if (!empty($_SESSION["msg_error"])) {
@@ -238,7 +238,7 @@ error_reporting(E_ERROR | E_PARSE);
               <div class="form-group">
                 <label class="form-label label-criar-publicacao" for="titulo">título</label>
                 <div class="input-group">
-                  <input required class="input-criar-conta form-control" type="text" name="titulo">
+                  <input required class="input-criar-conta form-control" type="text" id="titulo" name="titulo">
                   <span class="error"></span>
                 </div>
               </div>
@@ -273,7 +273,7 @@ error_reporting(E_ERROR | E_PARSE);
               <div class="form-group">
                 <label class="form-label label-criar-publicacao" for="resumo">resumo</label>
                 <div class="input-group">
-                  <textarea class="textarea input-criar-conta form-control" type="text" name="resumo"></textarea>
+                  <textarea class="textarea input-criar-conta form-control" type="text" id="resumo" name="resumo"></textarea>
                   <span class="error"></span>
                 </div>
               </div>
@@ -320,6 +320,7 @@ error_reporting(E_ERROR | E_PARSE);
   </main>
   <script src="../plugins/build/ckeditor.js"></script>
   <script src="../plugins/build/ckeditor.js.map"></script>
+  <script src="../ajax/scripts-ajax.js"></script>
   <script>
     ClassicEditor
       .create(document.querySelector('#textoArea'), {
@@ -338,7 +339,6 @@ error_reporting(E_ERROR | E_PARSE);
   <script src="../javascript/bootstrap.bundle.min.js"></script>
   <script src="../javascript/scripts.js"></script>
   <script src="../javascript/script-bell.js"></script>
-  <script src="../ajax/scripts-ajax.js"></script>
 </body>
 
 </html>
