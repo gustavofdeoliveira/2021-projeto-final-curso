@@ -73,6 +73,14 @@ $('#alterarSenha').click(function () {
 $('#fechar-modal-senha').click(function () {
     $('#modal-senha').removeClass('modal-ativa');
 })
+$('#modalAvatar').click(function () {
+    $('#modal-avatar').addClass('modal-ativa');
+})
+
+$('#fechar-modal-avatar').click(function () {
+    $('#modal-avatar').removeClass('modal-ativa');
+})
+
 
 $('#excluirConta').click(function () {
     $('#modal-conta').addClass('modal-ativa');

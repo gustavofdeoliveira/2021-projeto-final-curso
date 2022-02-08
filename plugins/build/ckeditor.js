@@ -43215,16 +43215,28 @@
             }
             init() {
                 const t = this.editor;
+texto = 1;
                 const e = t.model;
                 t.commands.add("paragraph", new oR(t));
                 t.commands.add("insertParagraph", new sR(t));
                 e.schema.register("paragraph", {
                     inheritAllFrom: "$block"
                 });
-                t.conversion.elementToElement({
+            
+                    if(texto==1){ 
+                        debugger
+                t.conversion.elementToElement({  
+                                  
                     model: "paragraph",
-                    view: "p"
+                        view: "p"       
                 });
+                texto++;
+            } else{
+                t.conversion.elementToElement({              
+                    model: "paragraph",
+                        view: ""       
+                });
+            }
                 t.conversion.for("upcast").elementToElement({
                     model: (t, {
                         writer: e

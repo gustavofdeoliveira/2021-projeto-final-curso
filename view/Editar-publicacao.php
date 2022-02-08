@@ -321,6 +321,10 @@ error_reporting(E_ERROR | E_PARSE);
   <script src="../plugins/build/ckeditor.js"></script>
   <script src="../plugins/build/ckeditor.js.map"></script>
   <script src="../ajax/scripts-ajax.js"></script>
+  
+  <script src="../javascript/bootstrap.bundle.min.js"></script>
+  <script src="../javascript/scripts.js"></script>
+  <script src="../javascript/script-bell.js"></script>
   <script>
     ClassicEditor
       .create(document.querySelector('#textoArea'), {
@@ -336,9 +340,6 @@ error_reporting(E_ERROR | E_PARSE);
         console.error(error);
       });
   </script>
-  <script src="../javascript/bootstrap.bundle.min.js"></script>
-  <script src="../javascript/scripts.js"></script>
-  <script src="../javascript/script-bell.js"></script>
 </body>
 
 </html>

@@ -349,12 +349,16 @@ $(document).ready(function () {
         document.getElementById("resumo").value = resultado["dados"][0]["resumo"];
         document.getElementById("texto").innerHTML = resultado["dados"][0]["texto"];
         var a = document.getElementById("texto");
-
+        texto = 2
         console.log(resultado)
         debugger
         document.getElementById('termos-container').insertAdjacentHTML('afterbegin', 
-        '<div class="rede-balao" id="' + resultado["dados"][0]["id"] + '" value="' + resultado["dados"][0]["nome"] + '">' + resultado["dados"][0]["nome"] + '<div class="balao-fechar"  onclick="fecharRedeBalao(' + resultado["dados"][0]["id"] + ')"><i class="fa fa-times" aria-hidden="true"></i></div></div>');
-
+        '<div class="rede-balao" id="' + resultado["dados"]['redeTermos']["id"] + '" value="' + resultado["dados"]['redeTermos']["nome"] + '">' + resultado["dados"]['redeTermos']["nome"] + '<div class="balao-fechar"  onclick="fecharRedeBalao(' + resultado["dados"]['redeTermos']["id"] + ')"><i class="fa fa-times" aria-hidden="true"></i></div></div>');
+        document.getElementById("redeTermos").disabled = true;
+        var imagemBase64 = resultado["dados"][0]["imagem"].split(",");
+        var image = new FileReader();
+        image.readAsArrayBuffer(resultado["dados"][0]["imagem"]);
+        document.getElementById("img").value = atob( imagem );
     })
     // }
 })

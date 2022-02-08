@@ -43,8 +43,13 @@ if (!empty($id_pesquisa)) {
             ];
         }
     }
-    
-      $retorna = ['erro' => false, 'dados' => $dados];
+    $query_termo = "SELECT * FROM `redetermos` WHERE `id` =:id";
+    $result = $conn->prepare($query_termo);
+    $result->bindParam(':id', $id_pesquisa);
+    $result->execute();
+    $row_rede = $result->fetch(PDO::FETCH_ASSOC);
+    $dados['redeTermos'] = $row_rede;
+    $retorna = ['erro' => false, 'dados' => $dados];
 } else {
     $retorna = ['erro' => true, 'msg' => "Erro: Nenhum usuário encontrado!"];
 }

@@ -271,6 +271,7 @@ function encodeImageFileAsURL() {
     var filesSelected = document.getElementById("img").files;
     if (filesSelected.length > 0) {
         debugger
+        debugger
         var fileToLoad = filesSelected[0];
         var fileReader = new FileReader();
         fileReader.onload = function (fileLoadedEvent) {
@@ -289,7 +290,11 @@ inputFileToLoad.addEventListener("change", function () {
 });
 
 var texto = document.getElementById("texto");
-function pegaTexto(){
-    debugger;
+function pegaTexto() {
     document.getElementById("texto_publicacao").value = document.getElementById("texto").innerHTML;
+}
+
+function mudarAvatar(id) {
+    document.getElementById("fotAvatar").src = "http://localhost/2021-projeto-final-curso/image/avatares/Avatar-" + id + ".png";
+    document.getElementById("fotoAvatar").value = "http://localhost/2021-projeto-final-curso/image/avatares/Avatar-" + id + ".png";
 }

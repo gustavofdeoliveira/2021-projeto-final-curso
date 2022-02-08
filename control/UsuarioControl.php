@@ -41,6 +41,9 @@ class UsuarioControl
             if ($this->acao == "atualizarUsuario") {
                 $this->atualizarUsuario();
             }
+            if ($this->acao == "atualizarAvatar") {
+                $this->atualizarAvatar();
+            }
         }
     }
     public function login()
@@ -151,6 +154,22 @@ class UsuarioControl
             $_SESSION["msg_error"] = $e->getMessage();
             $_SESSION["tempo_msg_error"] = time();
             header("Location:../view/Meus-dados.php");
+        }
+    }
+    public function atualizarAvatar()
+    {
+        try {
+            $usuario = $_SESSION['usuarioAutenticado'];
+            $this->modelo->setId($usuario['idUsuario']);
+            $this->modelo->setFotoAvatar($_POST["fotoAvatar"]);
+            $this->dao->atualizarAvatar($this->modelo);
+             header("Location:../index.php");
+        } catch (\Exception $e) {
+            $_SESSION["msg_error"] = $e->getMessage();
+            $_SESSION["tempo_msg_error"] = time();
+            print_r($_SESSION["msg_error"]);
+            exit();
+            // header("Location:../index.php");
         }
     }
 }

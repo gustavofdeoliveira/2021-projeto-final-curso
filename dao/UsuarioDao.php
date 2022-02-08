@@ -165,6 +165,7 @@ class UsuarioDao
     }
     function atualizarUsuario(UsuarioModel $modelo)
     {
+
         $usuario =  $_SESSION['usuarioAutenticado'];
         if (empty($modelo->getSenha())) {
             $sql = "SELECT * FROM `usuario` WHERE `nomeUsuario` = :nomeUsuario OR `email`=:email";
@@ -210,5 +211,22 @@ class UsuarioDao
             $result = $statement->fetch(PDO::FETCH_ASSOC);
             $_SESSION['usuarioAutenticado'] = $result;
         }
+    }
+
+    function atualizarAvatar(UsuarioModel $modelo)
+    {
+        
+        $sql = "UPDATE `usuario` SET `fotoAvatar`= '" . $modelo->getFotoAvatar() . "' WHERE `idUsuario`=:id";
+        $statement = $this->conn->prepare($sql);
+        $statement->bindValue("id", $modelo->getId());
+        $statement->execute();
+        $sql = "SELECT * FROM `usuario` WHERE `idUsuario`=:id";
+        $statement = $this->conn->prepare($sql);
+        $statement->bindValue("id", $modelo->getId());
+        $statement->execute();
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+        $_SESSION['usuarioAutenticado'] = $result;
+        $_SESSION["msg_sucess"] = "foto de Avatar do usuário " . $modelo->getId() . " atualizado!";
+        $_SESSION["tempo_msg_sucess"] = time();
     }
 }
