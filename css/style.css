@@ -1573,8 +1573,7 @@ p#meus-dados {
 
 div#modal-senha, div#modal-conta {
   background-color: var(--cor_vermelha);
-  height: 90%;
-  min-height: 80vh;
+  min-height: max-content;
   position: fixed;
   z-index: 100;
   top: 5%;
@@ -1587,8 +1586,7 @@ div#modal-senha, div#modal-conta {
 
 div#modal-avatar {
   background-color: var(--cor_vermelha);
-  height: 90%;
-  min-height: 80vh;
+  min-height: max-content;
   position: fixed;
   z-index: 100;
   top: 5%;
@@ -1663,14 +1661,13 @@ div#escolher-avatar:hover{
   background-color: var(--cor_verde) !important;
   border-color: var(--cor_verde) !important;
   width: 100%;
-  height: 56px;
+  height: 36px;
   font-family: Raleway-Black;
   font-size: 21px !important;
   border-radius: 100PX !important;
   padding: unset !important;
   line-height: 31px;
   margin-bottom: 50px;
-  margin-top: 20px;
 }
 
 .btn-fechar-senha {

@@ -60,7 +60,7 @@ require_once("../dao/TermoDao.php");
                     </li>
 
                     <li class="nav-item">
-                      <a class="nav-link" href="../view/Biblioteca.php">Linha do Tempo</a>
+                      <a class="nav-link" href="../view/Linha-tempo.php">Linha do Tempo</a>
                     </li>
 
                     <li class="nav-item">
@@ -151,7 +151,7 @@ require_once("../dao/TermoDao.php");
                                         </div>
                                     </div>
                                 </a>
-                                
+                                <a class='btn-tools' id='modalAvatar'><span class='ion-ios-list-outline'></span>Trocar Avatar</a> 
                                 <a><span class='ion-ios-list-outline'></span>
                                     <form action='../control/UsuarioControl.php' method='POST' class='form-group'>
                                         <div class='d-flex pull-right btn-sair'>
@@ -184,6 +184,7 @@ require_once("../dao/TermoDao.php");
                                         </div>
                                     </div>
                                 </a>
+                                <a class='btn-tools' id='modalAvatar'><span class='ion-ios-list-outline'></span>Trocar Avatar</a> 
                                 <div id='texto-usuario'>Publicações</div>
                                 <a href='../view/Cadastrar-publicacao.php' class='btn-tools'><span class='ion-ios-list-outline'></span>+ Nova Publicação</a>
                                 <a href='../view/Listar-publicacao.php' class='btn-tools'><span class='ion-ios-list-outline'></span>Listar Publicações</a>

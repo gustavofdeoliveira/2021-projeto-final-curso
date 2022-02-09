@@ -26,7 +26,7 @@ error_reporting(E_ERROR | E_PARSE);
 
 
 <body id="dark-mode">
-  <header>
+<header>
     <div class="row">
       <div class="col-xl-12 col-lg-12 col-md-12 ">
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -62,7 +62,7 @@ error_reporting(E_ERROR | E_PARSE);
                     </li>
 
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Linha do Tempo</a>
+                      <a class="nav-link" href="../view/Linha-tempo.php">Linha do Tempo</a>
                     </li>
 
                     <li class="nav-item">
@@ -153,7 +153,7 @@ error_reporting(E_ERROR | E_PARSE);
                                         </div>
                                     </div>
                                 </a>
-                                
+                                <a class='btn-tools' id='modalAvatar'><span class='ion-ios-list-outline'></span>Trocar Avatar</a> 
                                 <a><span class='ion-ios-list-outline'></span>
                                     <form action='../control/UsuarioControl.php' method='POST' class='form-group'>
                                         <div class='d-flex pull-right btn-sair'>
@@ -186,6 +186,7 @@ error_reporting(E_ERROR | E_PARSE);
                                         </div>
                                     </div>
                                 </a>
+                                <a class='btn-tools' id='modalAvatar'><span class='ion-ios-list-outline'></span>Trocar Avatar</a> 
                                 <div id='texto-usuario'>Publicações</div>
                                 <a href='../view/Cadastrar-publicacao.php' class='btn-tools'><span class='ion-ios-list-outline'></span>+ Nova Publicação</a>
                                 <a href='../view/Listar-publicacao.php' class='btn-tools'><span class='ion-ios-list-outline'></span>Listar Publicações</a>
@@ -210,7 +211,7 @@ error_reporting(E_ERROR | E_PARSE);
                             </div>";
           }
           echo "</div></div>";
-        } ?>
+        }?>
       </div>
     </div>
   </header>

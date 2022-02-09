@@ -26,55 +26,56 @@ error_reporting(E_ERROR | E_PARSE);
 
 
 <body id="dark-mode">
-    <header>
-        <div class="row">
-            <div class="col-xl-12 col-lg-12 col-md-12 ">
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <div class="col-xl-3 col-md-4 col-sm-10 col-sm-offset-1 col-lg-3">
-                        <a class="navbar-brand" href="../index.php"><img id="img-logo" class="navbar-img-logo" src="../image/Logo-claro.png"></a>
-                    </div>
-                    <div class=" col-xl-9 col-md-8 col-sm-10 col-sm-offset-1 col-lg-9">
-                        <form class="d-flex">
-                            <div class="input-group input-group-navbar">
-                                <span class="input-group-text span-icon-buscar" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
-                                <input type="text" class="navbar-input-busca form-control" placeholder="descubra algo incrível..." aria-describedby="basic-addon1">
-                            </div>
-                        </form>
-                    </div>
-                </nav>
-                <hr>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xl-12 col-lg-12 col-md-12 ">
-                <nav class="navbar navbar-expand-lg w-100">
-                    <div class="container-fluid">
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                            <div class="col-xl-12 col-lg-12 col-md-12">
-                                <div class="row">
-                                    <ul class="navbar-nav">
-                                        <li class="nav-item">
-                                            <a class="nav-link" aria-current="page" href="../index.php">Início</a>
-                                        </li>
+<header>
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 ">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="col-xl-3 col-md-4 col-sm-10 col-sm-offset-1 col-lg-3">
+            <a class="navbar-brand" href="../index.php"><img id="img-logo" class="navbar-img-logo" src="../image/Logo-claro.png"></a>
+          </div>
+          <div class=" col-xl-9 col-md-8 col-sm-10 col-sm-offset-1 col-lg-9">
+            <form class="d-flex">
+              <div class="input-group input-group-navbar">
+                <span class="input-group-text span-icon-buscar" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
+                <input type="text" class="navbar-input-busca form-control" placeholder="descubra algo incrível..." aria-describedby="basic-addon1">
+              </div>
+              <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+            </form>
+          </div>
+        </nav>
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 ">
+        <nav class="navbar navbar-expand-lg w-100">
+          <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <div class="col-xl-12 col-lg-12 col-md-12">
+                <div class="row">
+                  <ul class="navbar-nav">
+                    <li class="nav-item">
+                      <a class="nav-link" aria-current="page" href="../index.php">Início</a>
+                    </li>
 
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="../view/Linha-tempo.php">Linha do Tempo</a>
-                                        </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="../view/Linha-tempo.php">Linha do Tempo</a>
+                    </li>
 
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="../view/Sobre-Nos.php">Sobre Nós</a>
-                                        </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="../view/Sobre-Nos.php">Sobre Nós</a>
+                    </li>
 
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="../view/Biblioteca.php">Biblioteca</a>
-                                        </li>
-                                        <?php
-                                        if (!empty($_SESSION["usuarioAutenticado"])) {
-                                            $usuario = $_SESSION["usuarioAutenticado"];
-                                            echo " 
+                    <li class="nav-item">
+                      <a class="nav-link" href="../view/Biblioteca.php">Biblioteca</a>
+                    </li>
+                    <?php
+                    if (!empty($_SESSION["usuarioAutenticado"])) {
+                      $usuario = $_SESSION["usuarioAutenticado"];
+                      echo " 
                                             <li class='nav-item dropdown nav-meu-espaco'>
                                                 <div class='d-flex'>
                                                     <img src='{$usuario['fotoAvatar']}' alt='Foto de Perfil' class='rounded-circle'>
@@ -82,18 +83,18 @@ error_reporting(E_ERROR | E_PARSE);
                                                     Meu espaço</a>                  
                                                     <div class='wrapper'>
                                                         <div class='notification' >";
-                                            $_SESSION['notificacao'] = array(0 => array('nome' => '@natan_pastore', 'texto' => 'comentou na sua publicação'), 1 => array('nome' => '@franco_harlos', 'texto' => 'respondeu o seu comentário'), 2 => array('nome' => '@ju_kashima', 'texto' => 'respondeu o seu comentário'), 3 => array('nome' => '@natan_pastore', 'texto' => 'comentou na sua publicação'), 4 => array('nome' => '@franco_harlos', 'texto' => 'respondeu o seu comentário'), 5 => array('nome' => '@ju_kashima', 'texto' => 'respondeu o seu comentário'));
-                                            $numeroNotificacoes = count($_SESSION['notificacao']);
-                                            if ($numeroNotificacoes) {
-                                                echo "<i class='fa fa-bell'></i> 
+                      $_SESSION['notificacao'] = array(0 => array('nome' => '@natan_pastore', 'texto' => 'comentou na sua publicação'), 1 => array('nome' => '@franco_harlos', 'texto' => 'respondeu o seu comentário'), 2 => array('nome' => '@ju_kashima', 'texto' => 'respondeu o seu comentário'), 3 => array('nome' => '@natan_pastore', 'texto' => 'comentou na sua publicação'), 4 => array('nome' => '@franco_harlos', 'texto' => 'respondeu o seu comentário'), 5 => array('nome' => '@ju_kashima', 'texto' => 'respondeu o seu comentário'));
+                      $numeroNotificacoes = count($_SESSION['notificacao']);
+                      if ($numeroNotificacoes) {
+                        echo "<i class='fa fa-bell'></i> 
                                                             <div class='notify-count count1 common-count' count='{$numeroNotificacoes}'>
                                                                 <div class='value numero-notificacoes'>{$numeroNotificacoes}</div>
                                                             </div>
                                                             ";
-                                            } else {
-                                                echo "<i class='fa fa-bell-o'></i>";
-                                            }
-                                            echo "</div>
+                      } else {
+                        echo "<i class='fa fa-bell-o'></i>";
+                      }
+                      echo "</div>
                                                         <div class='notification-dropdown dd'>
                                                             <div class='header'>
                                                                 <div class='container'>
@@ -101,35 +102,35 @@ error_reporting(E_ERROR | E_PARSE);
                                                                 </div>
                                                             </div>
                                                             <div class='items'>";
-                                            for ($i = 0; $i != count($_SESSION['notificacao']); $i++) {
-                                                $nome = $_SESSION['notificacao'][$i]['nome'];
-                                                $texto = $_SESSION['notificacao'][$i]['texto'];
+                      for ($i = 0; $i != count($_SESSION['notificacao']); $i++) {
+                        $nome = $_SESSION['notificacao'][$i]['nome'];
+                        $texto = $_SESSION['notificacao'][$i]['texto'];
 
-                                                echo "<div class='list-item noti'>
+                        echo "<div class='list-item noti'>
                                                                         <a id='noticacao-item' href='#' class='text fl'>
                                                                         <p class='name fl'>" . $nome . "<span id='texto-notificacao'>" . $texto . "</span></p></a></div>";
-                                            }
-                                            echo "</div></div></div></div>
+                      }
+                      echo "</div></div></div></div>
                                                 </li>";
-                                        } ?>
-                                        <?php
-                                        if (empty($_SESSION["usuarioAutenticado"])) {
-                                            echo "
+                    } ?>
+                    <?php
+                    if (empty($_SESSION["usuarioAutenticado"])) {
+                      echo "
                                             <li class='nav-item'>
                                             <a class='nav-link btn-navbar-login' href='../view/Login.php'>Fazer Login</a>
                                         </li>";
-                                        } ?>
+                    } ?>
 
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
-                <?php
-                $usuario = $_SESSION["usuarioAutenticado"];
-                if ($usuario != null) {
-                    echo "
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <?php
+        $usuario = $_SESSION["usuarioAutenticado"];
+        if ($usuario != null) {
+          echo "
                     <div class='header-tools ion-ios-navicon pull-right'>
                         <i class='fa fa-cog' aria-hidden='true'></i>
                     </div> 
@@ -137,8 +138,8 @@ error_reporting(E_ERROR | E_PARSE);
                     <div class='sidebar-overlay animated fadeOut'></div>
                         <div class='sidebar-content'>
                             <p id='configuracao'>Configurações</p>";
-                    if ($usuario['nivelAcesso'] == 3) {
-                        echo "
+          if ($usuario['nivelAcesso'] == 3) {
+            echo "
                             <div class='nav-left'>
                                 <a href='../view/Meus-dados.php' class='btn-tools'><span class='ion-ios-home-outline'></span>Meus Dados</a>
                                 <a class='btn-tools'><span class='ion-ios-list-outline'></span>Sugerir Termo</a>
@@ -152,7 +153,7 @@ error_reporting(E_ERROR | E_PARSE);
                                         </div>
                                     </div>
                                 </a>
-                                
+                                <a class='btn-tools' id='modalAvatar'><span class='ion-ios-list-outline'></span>Trocar Avatar</a> 
                                 <a><span class='ion-ios-list-outline'></span>
                                     <form action='../control/UsuarioControl.php' method='POST' class='form-group'>
                                         <div class='d-flex pull-right btn-sair'>
@@ -164,17 +165,17 @@ error_reporting(E_ERROR | E_PARSE);
                                 </a>
                                 
                             </div>";
-                    }
-                    if ($usuario['nivelAcesso'] == 1 || $usuario['nivelAcesso'] == 2) {
-                        echo "
+          }
+          if ($usuario['nivelAcesso'] == 1 || $usuario['nivelAcesso'] == 2) {
+            echo "
                             <div class='nav-left'>
                             <div id='texto-usuario'>Usuário</div>
                                 <a href='../view/Meus-dados.php' class='btn-tools'><span class='ion-ios-home-outline'></span>Meus Dados</a>";
-                        if ($usuario['nivelAcesso'] == 1) {
-                            echo "
+            if ($usuario['nivelAcesso'] == 1) {
+              echo "
                                 <a href='../view/Listar-usuarios.php' class='btn-tools'><span class='ion-ios-home-outline'></span>Listar Usuários</a>";
-                        }
-                        echo "
+            }
+            echo "
                                 <a class='btn-tools' id='dark-mode-toggle'><span class='ion-ios-list-outline'></span>
                                     <div class='d-flex modo-noturno'>
                                         <div class='texto-modo-noturno'>Modo noturno</div>
@@ -185,6 +186,7 @@ error_reporting(E_ERROR | E_PARSE);
                                         </div>
                                     </div>
                                 </a>
+                                <a class='btn-tools' id='modalAvatar'><span class='ion-ios-list-outline'></span>Trocar Avatar</a> 
                                 <div id='texto-usuario'>Publicações</div>
                                 <a href='../view/Cadastrar-publicacao.php' class='btn-tools'><span class='ion-ios-list-outline'></span>+ Nova Publicação</a>
                                 <a href='../view/Listar-publicacao.php' class='btn-tools'><span class='ion-ios-list-outline'></span>Listar Publicações</a>
@@ -207,12 +209,12 @@ error_reporting(E_ERROR | E_PARSE);
                                 </a>
                                 
                             </div>";
-                    }
-                    echo "</div></div>";
-                } ?>
-            </div>
-        </div>
-    </header>
+          }
+          echo "</div></div>";
+        }?>
+      </div>
+    </div>
+  </header>
 
     <main id="telas-navbar">
         <div class="row">

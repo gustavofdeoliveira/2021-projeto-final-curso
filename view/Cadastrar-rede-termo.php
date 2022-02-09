@@ -38,6 +38,7 @@ require_once("../dao/RedeTermosDao.php");
                 <span class="input-group-text span-icon-buscar" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
                 <input type="text" class="navbar-input-busca form-control" placeholder="descubra algo incrível..." aria-describedby="basic-addon1">
               </div>
+              <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
             </form>
           </div>
         </nav>
@@ -151,7 +152,7 @@ require_once("../dao/RedeTermosDao.php");
                                         </div>
                                     </div>
                                 </a>
-                                
+                                <a class='btn-tools' id='modalAvatar'><span class='ion-ios-list-outline'></span>Trocar Avatar</a> 
                                 <a><span class='ion-ios-list-outline'></span>
                                     <form action='../control/UsuarioControl.php' method='POST' class='form-group'>
                                         <div class='d-flex pull-right btn-sair'>
@@ -184,6 +185,7 @@ require_once("../dao/RedeTermosDao.php");
                                         </div>
                                     </div>
                                 </a>
+                                <a class='btn-tools' id='modalAvatar'><span class='ion-ios-list-outline'></span>Trocar Avatar</a> 
                                 <div id='texto-usuario'>Publicações</div>
                                 <a href='../view/Cadastrar-publicacao.php' class='btn-tools'><span class='ion-ios-list-outline'></span>+ Nova Publicação</a>
                                 <a href='../view/Listar-publicacao.php' class='btn-tools'><span class='ion-ios-list-outline'></span>Listar Publicações</a>
