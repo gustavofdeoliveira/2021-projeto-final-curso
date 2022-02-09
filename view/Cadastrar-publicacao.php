@@ -153,7 +153,7 @@ error_reporting(E_ERROR | E_PARSE);
                                         </div>
                                     </div>
                                 </a>
-                                <a class='btn-tools' id='modalAvatar'><span class='ion-ios-list-outline'></span>Trocar Avatar</a> 
+                                <a class='btn-tools' id='modalAvatar'><span class='ion-ios-list-outline'></span>Alterar Avatar</a> 
                                 <a><span class='ion-ios-list-outline'></span>
                                     <form action='../control/UsuarioControl.php' method='POST' class='form-group'>
                                         <div class='d-flex pull-right btn-sair'>
@@ -186,7 +186,7 @@ error_reporting(E_ERROR | E_PARSE);
                                         </div>
                                     </div>
                                 </a>
-                                <a class='btn-tools' id='modalAvatar'><span class='ion-ios-list-outline'></span>Trocar Avatar</a> 
+                                <a class='btn-tools' id='modalAvatar'><span class='ion-ios-list-outline'></span>Alterar Avatar</a> 
                                 <div id='texto-usuario'>Publicações</div>
                                 <a href='../view/Cadastrar-publicacao.php' class='btn-tools'><span class='ion-ios-list-outline'></span>+ Nova Publicação</a>
                                 <a href='../view/Listar-publicacao.php' class='btn-tools'><span class='ion-ios-list-outline'></span>Listar Publicações</a>
@@ -262,8 +262,8 @@ error_reporting(E_ERROR | E_PARSE);
                 <label class="form-label label-criar-categoria" for="categoria">categoria</label>
                 <select required class="custom-select" id="select-termo" name="categoria">
                   <option selected>Selecionar...</option>
-                  <option value="Conteudista">Publicacão Conteudista</option>
-                  <option value="Sociológica">Atualidade Sociológica</option>
+                  <option value="Publicacão Conteudista">Publicacão Conteudista</option>
+                  <option value="Atualidade Sociológica">Atualidade Sociológica</option>
                 </select>
                 <span class="error"></span>
               </div>

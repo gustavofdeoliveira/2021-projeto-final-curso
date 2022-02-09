@@ -129,7 +129,7 @@ body {
   border-color: var(--cor_verde) !important;
   width: 180px;
   height: 60px;
-  font-family: Raleway-Bold;
+  font-family: Raleway-Black;
   font-size: 33.35px !important;
   border-radius: 100PX !important;
   padding: unset !important;
@@ -1506,9 +1506,17 @@ div#texto-usuario {
   color: var(--cor_vermelha);
   font-size: 35px !important;
   margin-left: 15px;
+  width: 42px;
+  height: 16px;
 }
-
-.fa-verde{
+.fa-trash-o{
+  margin-left: -5px;
+  text-align: right;
+}
+.fa-pencil-square-o{
+  font-size: 40px !important;
+}
+.fa-verde {
   color: var(--cor_verde) !important;
 }
 
@@ -1651,9 +1659,10 @@ p#avatar-nome span {
 .img-icone-avatar {
   width: 100%;
   height: 65%;
-  margin-top:10px;
+  margin-top: 10px;
 }
-div#escolher-avatar:hover{
+
+div#escolher-avatar:hover {
   background-color: var(--cor_verde);
   opacity: 0.7;
   z-index: 1000;
@@ -1947,30 +1956,33 @@ p#linha-info {
   color: var(--color_preta) !important;
 }
 
-p#rede-nome{
+p#rede-nome {
   font-size: 60px !important;
   margin-top: 20px;
   font-family: Raleway-Black;
   color: var(--cor_vermelha) !important;
 }
 
-hr#rede-hr{
+hr#rede-hr {
   background-color: var(--cor_vermelha) !important;
   width: 100% !important;
 }
-p#rede-descricao, p#rede-termos{
+
+p#rede-descricao, p#rede-termos {
   font-size: 39px !important;
   font-family: Raleway-Black;
   color: var(--cor_verde) !important;
   line-height: 36.5px;
 }
-p#rede-descricao-texto{
+
+p#rede-descricao-texto {
   font-size: 25px !important;
   font-family: Raleway-Light;
   color: var(--cor_vermelha) !important;
   line-height: 28px;
 }
-a#rede-termo-balao{
+
+a#rede-termo-balao {
   font-family: Raleway-Light;
   font-size: 28px;
   line-height: 24px;

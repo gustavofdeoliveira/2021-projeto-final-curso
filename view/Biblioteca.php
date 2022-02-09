@@ -152,7 +152,7 @@ error_reporting(E_ERROR | E_PARSE);
                                         </div>
                                     </div>
                                 </a>
-                                <a class='btn-tools' id='modalAvatar'><span class='ion-ios-list-outline'></span>Trocar Avatar</a> 
+                                <a class='btn-tools' id='modalAvatar'><span class='ion-ios-list-outline'></span>Alterar Avatar</a> 
                                 <a><span class='ion-ios-list-outline'></span>
                                     <form action='../control/UsuarioControl.php' method='POST' class='form-group'>
                                         <div class='d-flex pull-right btn-sair'>
@@ -185,7 +185,7 @@ error_reporting(E_ERROR | E_PARSE);
                                         </div>
                                     </div>
                                 </a>
-                                <a class='btn-tools' id='modalAvatar'><span class='ion-ios-list-outline'></span>Trocar Avatar</a> 
+                                <a class='btn-tools' id='modalAvatar'><span class='ion-ios-list-outline'></span>Alterar Avatar</a> 
                                 <div id='texto-usuario'>Publicações</div>
                                 <a href='../view/Cadastrar-publicacao.php' class='btn-tools'><span class='ion-ios-list-outline'></span>+ Nova Publicação</a>
                                 <a href='../view/Listar-publicacao.php' class='btn-tools'><span class='ion-ios-list-outline'></span>Listar Publicações</a>
