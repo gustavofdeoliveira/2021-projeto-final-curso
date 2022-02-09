@@ -36,6 +36,7 @@ if (!empty($id_pesquisa)) {
     $result = $conn->prepare($query_termo);
     $result->bindParam(':id', $id_pesquisa);
     $result->execute();
+
     if (($result) and ($result->rowCount() != 0)) {
         while ($row_id = $result->fetch(PDO::FETCH_ASSOC)) {
             $id_rede[] = [
@@ -47,8 +48,10 @@ if (!empty($id_pesquisa)) {
     $result = $conn->prepare($query_termo);
     $result->bindParam(':id', $id_pesquisa);
     $result->execute();
-    $row_rede = $result->fetch(PDO::FETCH_ASSOC);
-    $dados['redeTermos'] = $row_rede;
+    if (($result) and ($result->rowCount() != 0)) {
+        $row_rede = $result->fetch(PDO::FETCH_ASSOC);
+        $dados['redeTermos'] = $row_rede;
+    }
     $retorna = ['erro' => false, 'dados' => $dados];
 } else {
     $retorna = ['erro' => true, 'msg' => "Erro: Nenhum usuário encontrado!"];

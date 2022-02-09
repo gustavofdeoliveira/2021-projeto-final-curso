@@ -11,15 +11,12 @@ $conn = Connection::conectar();
 
 // $id_pesquisa = 18;
 if (!empty($id_pesquisa)) {
-
     $query_publicacao = "SELECT * FROM `publicacao` WHERE `id`=:id";
     $result = $conn->prepare($query_publicacao);
     $result->bindParam(':id', $id_pesquisa);
     $result->execute();
 
-
     if (($result) and ($result->rowCount() != 0)) {
-
         while ($row_publicacao = $result->fetch(PDO::FETCH_ASSOC)) {
             $dados['publicacao'] = [
                 'id' => $row_publicacao['id'],
@@ -58,50 +55,48 @@ if (!empty($id_pesquisa)) {
             'descricao' => $row['descricao'],
             'dataInclusao' => $row['dataInclusao'],
         ];
-       
-    }
+        for ($a = 0; $a != count($id_termos); $a++) {
+            $id = $id_termos[$a]['id_termo'];
 
-    for ($a = 0; $a != count($id_termos); $a++) {
-        $id = $id_termos[$a]['id_termo'];
+            $query_termo = "SELECT * FROM `termo` WHERE `id` =:id";
+            $result = $conn->prepare($query_termo);
+            $result->bindParam(':id', $id);
+            $result->execute();
 
-        $query_termo = "SELECT * FROM `termo` WHERE `id` =:id";
-        $result = $conn->prepare($query_termo);
-        $result->bindParam(':id', $id);
-        $result->execute();
-
-        while ($row_termo = $result->fetch(PDO::FETCH_ASSOC)) {
-            $dados['termos'][$a] = [
-                'id' => $row_termo['id'],
-                'nome' => $row_termo['nome']
-            ];
+            while ($row_termo = $result->fetch(PDO::FETCH_ASSOC)) {
+                $dados['termos'][$a] = [
+                    'id' => $row_termo['id'],
+                    'nome' => $row_termo['nome']
+                ];
+            }
         }
     }
 
-    
     $query_rede = "SELECT DISTINCT `id_publicacao` FROM `publicacao_termo_rede_termos` WHERE `id_rede` = :id LIMIT 3";
     $result = $conn->prepare($query_rede);
     $result->bindParam(':id', $id_rede);
     $result->execute();
 
-    while ($row_publicacao = $result->fetch(PDO::FETCH_ASSOC)) {
-        $id_publicacao[] = [
-            'id_publicacao' => $row_publicacao['id_publicacao']
-        ];
-    }
-    for ($a = 0; $a != count($id_publicacao); $a++) {
-        $query_publicacao = "SELECT `id`,`titulo`,`imagem` FROM `publicacao` WHERE `id` = :id LIMIT 3";
-        $result = $conn->prepare($query_publicacao);
-        $id = $id_publicacao[$a]['id_publicacao'];
-        $result->bindParam(':id', $id);
-        $result->execute();
-         while ($row_publicacao = $result->fetch(PDO::FETCH_ASSOC)) {
-             $dados['semelhantes'][$a] = [
-                 'id' => $row_publicacao['id'],
-                 'titulo' => $row_publicacao['titulo'],
-                 'imagem' => $row_publicacao['imagem']
-             ];
-         }
-         
+    if (($result) and ($result->rowCount() != 0)) {
+        while ($row_publicacao = $result->fetch(PDO::FETCH_ASSOC)) {
+            $id_publicacao[] = [
+                'id_publicacao' => $row_publicacao['id_publicacao']
+            ];
+        }
+        for ($a = 0; $a != count($id_publicacao); $a++) {
+            $query_publicacao = "SELECT `id`,`titulo`,`imagem` FROM `publicacao` WHERE `id` = :id LIMIT 3";
+            $result = $conn->prepare($query_publicacao);
+            $id = $id_publicacao[$a]['id_publicacao'];
+            $result->bindParam(':id', $id);
+            $result->execute();
+            while ($row_publicacao = $result->fetch(PDO::FETCH_ASSOC)) {
+                $dados['semelhantes'][$a] = [
+                    'id' => $row_publicacao['id'],
+                    'titulo' => $row_publicacao['titulo'],
+                    'imagem' => $row_publicacao['imagem']
+                ];
+            }
+        }
     }
     $retorna = ['erro' => false, 'dados' => $dados];
 } else {

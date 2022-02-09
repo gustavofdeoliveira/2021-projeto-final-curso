@@ -17,9 +17,7 @@ if (!empty($id_pesquisa)) {
     $result->bindParam(':id', $id_pesquisa);
     $result->execute();
 
-
     if (($result) and ($result->rowCount() != 0)) {
-
         while ($row_termo = $result->fetch(PDO::FETCH_ASSOC)) {
             $dados[] = [
                 'id' => $row_termo['id'],
@@ -28,35 +26,35 @@ if (!empty($id_pesquisa)) {
                 'dataInclusao' => $row_termo['dataInclusao']
             ];
         }
+    }
 
-        
-    } 
-
-    $query_termo = "SELECT `a`.`id`, `a`.`id_rede`, `a`.`id_termo` FROM `rede_termos_termo` as A INNER JOIN `redetermos` as B ON `b`.`id` = `a`.`id_rede` WHERE `a`.`id_rede` = :id";
+    $query_termo = "SELECT `a`.`id`, `a`.`id_rede`, `a`.`id_termo` FROM `rede_termos_termo` 
+                    as A INNER JOIN `redetermos` as B ON `b`.`id` = `a`.`id_rede` 
+                    WHERE `a`.`id_rede` = :id";
     $result = $conn->prepare($query_termo);
     $result->bindParam(':id', $id_pesquisa);
     $result->execute();
+
     if (($result) and ($result->rowCount() != 0)) {
         while ($row_id = $result->fetch(PDO::FETCH_ASSOC)) {
             $id_termos[] = [
                 'id_termo' => $row_id['id_termo']
             ];
         }
-    }
+        for ($a = 0; $a != count($id_termos); $a++) {
+            $id = $id_termos[$a]['id_termo'];
 
-    for ($a = 0; $a != count($id_termos); $a++) {
-        $id = $id_termos[$a]['id_termo'];
+            $query_termo = "SELECT * FROM `termo` WHERE `id` =:id";
+            $result = $conn->prepare($query_termo);
+            $result->bindParam(':id', $id);
+            $result->execute();
 
-        $query_termo = "SELECT * FROM `termo` WHERE `id` =:id";
-        $result = $conn->prepare($query_termo);
-        $result->bindParam(':id', $id);
-        $result->execute();
-
-        while ($row_termo = $result->fetch(PDO::FETCH_ASSOC)) {
-            $dados[1]['termos'][$a] = [
-                'id' => $row_termo['id'],
-                'nome' => $row_termo['nome']
-            ];
+            while ($row_termo = $result->fetch(PDO::FETCH_ASSOC)) {
+                $dados[1]['termos'][$a] = [
+                    'id' => $row_termo['id'],
+                    'nome' => $row_termo['nome']
+                ];
+            }
         }
     }
     $retorna = ['erro' => false, 'dados' => $dados];

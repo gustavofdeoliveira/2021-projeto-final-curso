@@ -39,21 +39,20 @@ if (!empty($id_pesquisa)) {
                 'id_termo' => $row_id['id_termo']
             ];
         }
-    }
+        for ($a = 0; $a != count($id_termos); $a++) {
+            $id = $id_termos[$a]['id_termo'];
 
-    for ($a = 0; $a != count($id_termos); $a++) {
-        $id = $id_termos[$a]['id_termo'];
+            $query_termo = "SELECT * FROM `termo` WHERE `id` =:id";
+            $result = $conn->prepare($query_termo);
+            $result->bindParam(':id', $id);
+            $result->execute();
 
-        $query_termo = "SELECT * FROM `termo` WHERE `id` =:id";
-        $result = $conn->prepare($query_termo);
-        $result->bindParam(':id', $id);
-        $result->execute();
-
-        while ($row_termo = $result->fetch(PDO::FETCH_ASSOC)) {
-            $dados['termos'][$a] = [
-                'id' => $row_termo['id'],
-                'nome' => $row_termo['nome']
-            ];
+            while ($row_termo = $result->fetch(PDO::FETCH_ASSOC)) {
+                $dados['termos'][$a] = [
+                    'id' => $row_termo['id'],
+                    'nome' => $row_termo['nome']
+                ];
+            }
         }
     }
     $retorna = ['erro' => false, 'dados' => $dados];
