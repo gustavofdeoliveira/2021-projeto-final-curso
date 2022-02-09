@@ -1508,6 +1508,10 @@ div#texto-usuario {
   margin-left: 15px;
 }
 
+.fa-verde{
+  color: var(--cor_verde) !important;
+}
+
 .fa-long-arrow-up {
   color: var(--cor_vermelha);
   font-size: 30px !important;
@@ -1582,7 +1586,6 @@ div#modal-senha, div#modal-conta {
   border-radius: 50px;
   display: none;
 }
-
 
 div#modal-avatar {
   background-color: var(--cor_vermelha);
@@ -1942,4 +1945,43 @@ p#linha-info {
   font-size: 25px !important;
   font-family: Raleway-Light;
   color: var(--color_preta) !important;
+}
+
+p#rede-nome{
+  font-size: 60px !important;
+  margin-top: 20px;
+  font-family: Raleway-Black;
+  color: var(--cor_vermelha) !important;
+}
+
+hr#rede-hr{
+  background-color: var(--cor_vermelha) !important;
+  width: 100% !important;
+}
+p#rede-descricao, p#rede-termos{
+  font-size: 39px !important;
+  font-family: Raleway-Black;
+  color: var(--cor_verde) !important;
+  line-height: 36.5px;
+}
+p#rede-descricao-texto{
+  font-size: 25px !important;
+  font-family: Raleway-Light;
+  color: var(--cor_vermelha) !important;
+  line-height: 28px;
+}
+a#rede-termo-balao{
+  font-family: Raleway-Light;
+  font-size: 28px;
+  line-height: 24px;
+  color: var(--cor_branca) !important;
+  border: 1px solid var(--cor_vermelha);
+  background-color: var(--cor_vermelha);
+  border-radius: 75px !important;
+  height: 100%;
+  width: max-content;
+  padding: 0px 10px 0px 10px;
+  margin-top: 5px;
+  margin-right: 10px !important;
+  text-decoration: none;
 }

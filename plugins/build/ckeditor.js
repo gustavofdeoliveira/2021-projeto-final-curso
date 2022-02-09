@@ -18408,8 +18408,8 @@
             getHtml(t) {
                 const e = document.implementation.createHTMLDocument("");
                 const n = e.createElement("div");
-                n.appendChild(t);
-                return n.innerHTML
+                n.appendChild(t);             
+                return n.innerHTML      
             }
         }
         class cp {
@@ -24873,7 +24873,8 @@
                         attributes: {
                             class: ["ck", "ck-editor__main"],
                             role: "presentation",
-                            name: "texto"
+                            name: "textoArea",
+                            id: "textoArea"
                         },
                         children: this.main
                     }]
@@ -43215,28 +43216,17 @@
             }
             init() {
                 const t = this.editor;
-texto = 1;
                 const e = t.model;
                 t.commands.add("paragraph", new oR(t));
                 t.commands.add("insertParagraph", new sR(t));
                 e.schema.register("paragraph", {
                     inheritAllFrom: "$block"
-                });
-            
-                    if(texto==1){ 
-                        debugger
+                });       
                 t.conversion.elementToElement({  
                                   
                     model: "paragraph",
                         view: "p"       
-                });
-                texto++;
-            } else{
-                t.conversion.elementToElement({              
-                    model: "paragraph",
-                        view: ""       
-                });
-            }
+                });            
                 t.conversion.for("upcast").elementToElement({
                     model: (t, {
                         writer: e

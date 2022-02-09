@@ -357,7 +357,10 @@
     margin-left: auto;
     margin-right: auto;
     display: block;
-
+  }
+  p#rede-nome{
+    font-size: 30px !important;
+    line-height: 30px;
   }
 }
 
@@ -397,6 +400,9 @@
     width: 228px;
     height: 228px;
     margin-top: unset;
+  }
+  p#rede-nome{
+    font-size: 40px !important;
   }
 }
 

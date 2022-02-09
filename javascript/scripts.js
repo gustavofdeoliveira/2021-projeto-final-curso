@@ -289,6 +289,7 @@ inputFileToLoad.addEventListener("change", function () {
     encodeImageFileAsURL()
 });
 
+
 var texto = document.getElementById("texto");
 function pegaTexto() {
     document.getElementById("texto_publicacao").value = document.getElementById("texto").innerHTML;
