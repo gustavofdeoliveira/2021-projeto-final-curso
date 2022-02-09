@@ -218,10 +218,16 @@ error_reporting(E_ERROR | E_PARSE);
   <main id="telas-navbar">
     <form action="../control/RedeTermosControl.php" method="POST" class="form-group">
       <div id="ver-rede-termos">
-
-        <div class="row">
-          <div class="col-xl-12">
+      <div class="col-xl-12">
+        <div class="row">  
+            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-8">
             <p id="rede-nome"></p>
+            </div>
+            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-4">
+              <div id="rede-botoes">
+
+              </div>
+            </div>
             <hr id="rede-hr">
           </div>
         </div>

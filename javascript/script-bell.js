@@ -15,6 +15,7 @@ $(document).ready(function () {
             },
             toggle: function () {
                 $(".ion-ios-navicon").on("touchstart click", function (e) {
+                    debugger
                     e.preventDefault(), $(".sidebar").toggleClass("active"), $(".nav").removeClass("active"), $(".sidebar .sidebar-overlay").removeClass("fadeOut animated").addClass("fadeIn animated")
                 }), $(".sidebar .sidebar-overlay").on("touchstart click", function (e) {
                     e.preventDefault(), $(".ion-ios-navicon").click(), $(this).removeClass("fadeIn").addClass("fadeOut")
@@ -40,7 +41,7 @@ $(document).ready(function () {
             if (!$(document).find('.notification-dropdown').hasClass('dd')) {
                 hide_dropdown()
             }
-           
+
         }
     })
 
@@ -75,6 +76,8 @@ $('#fechar-modal-senha').click(function () {
 })
 $('#modalAvatar').click(function () {
     $('#modal-avatar').addClass('modal-ativa');
+    $(".sidebar").removeClass("active");
+    $(".sidebar .sidebar-overlay").addClass("fadeOut animated").removeClass("fadeIn animated");
 })
 
 $('#fechar-modal-avatar').click(function () {
@@ -92,12 +95,12 @@ $('#fechar-modal-conta').click(function () {
 
 $('#cofirmaSenha').keyup(function () {
     debugger
-    var novaSenha = document.getElementById('novaSenha').value; 
+    var novaSenha = document.getElementById('novaSenha').value;
     var confirmaSenha = document.getElementById('cofirmaSenha').value;
-    if(novaSenha == confirmaSenha){
+    if (novaSenha == confirmaSenha) {
         alert("senhas iguais");
 
-    }else{
+    } else {
         alert("senhas não são iguais");
     }
 })

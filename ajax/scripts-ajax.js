@@ -373,7 +373,7 @@ $(document).ready(function () {
             document.getElementById('rede-nome').insertAdjacentHTML('afterbegin', resultado['dados']['redeTermos']['nome']);
             document.getElementById('rede-descricao-texto').insertAdjacentHTML('afterbegin', resultado['dados']['redeTermos']['descricao']);
             
-            document.getElementById('rede-nome').insertAdjacentHTML('afterbegin',
+            document.getElementById('rede-botoes').insertAdjacentHTML('afterbegin',
             '<div class="pull-right"><a href="../view/Editar-rede-termo.php?id=' + resultado['dados']['redeTermos']['id'] + '"><i class="fa fa-verde fa-pencil-square-o" aria-hidden="true"></i></a>' +
             '<form action="../control/RedeTermosControl.php" method="POST" class="form-group">' +
             '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirRede">' +
