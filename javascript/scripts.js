@@ -16,19 +16,19 @@ if (darkModeToggle != null) {
 const enableDarkMode = () => {
     document.body.classList.add('darkmode');
     if (document.getElementById('img-logo')) {
-        document.getElementById('img-logo').src = '../image/Logo-noturno.png';
+        document.getElementById('img-logo').src = 'http://localhost/2021-projeto-final-curso/image/Logo-noturno.png';
     }
     if (document.getElementById('img-logo-index')) {
-        document.getElementById('img-logo-index').src = 'image/Logo-noturno.png';
+        document.getElementById('img-logo-index').src = 'http://localhost/2021-projeto-final-curso/image/Logo-noturno.png';
     }
     if (document.getElementById('icon-login')) {
-        document.getElementById('icon-login').src = '../image/Bg-Login-Icon-Noturno.png';
+        document.getElementById('icon-login').src = 'http://localhost/2021-projeto-final-curso/image/Bg-Login-Icon-Noturno.png';
     }
     if (document.getElementById('icon-login-secundario')) {
-        document.getElementById('icon-login-secundario').src = '../image/Bg-Login-Icon-Noturno.png';
+        document.getElementById('icon-login-secundario').src = 'http://localhost/2021-projeto-final-curso/image/Bg-Login-Icon-Noturno.png';
     }
     if (document.getElementById('img-cadastro-finalizado')) {
-        document.getElementById('img-cadastro-finalizado').src = '../image/Bg-Conta-Criada-Icon-Noturno.png';
+        document.getElementById('img-cadastro-finalizado').src = 'http://localhost/2021-projeto-final-curso/image/Bg-Conta-Criada-Icon-Noturno.png';
     }
     localStorage.setItem('darkMode', 'enabled');
 }
@@ -36,19 +36,19 @@ const enableDarkMode = () => {
 const disableDarkMode = () => {
     document.body.classList.remove('darkmode');
     if (document.getElementById('img-logo')) {
-        document.getElementById('img-logo').src = '../image/Logo-claro.png';
+        document.getElementById('img-logo').src = 'http://localhost/2021-projeto-final-curso/image/Logo-claro.png';
     }
     if (document.getElementById('img-logo-index')) {
-        document.getElementById('img-logo-index').src = 'image/Logo-claro.png';
+        document.getElementById('img-logo-index').src = 'http://localhost/2021-projeto-final-curso/image/Logo-claro.png';
     }
     if (document.getElementById('icon-login')) {
-        document.getElementById('icon-login').src = '../image/Bg-Login-Icon-Claro.png';
+        document.getElementById('icon-login').src = 'http://localhost/2021-projeto-final-curso/image/Bg-Login-Icon-Claro.png';
     }
     if (document.getElementById('icon-login-secundario')) {
-        document.getElementById('icon-login-secundario').src = '../image/Bg-Login-Icon-Claro.png';
+        document.getElementById('icon-login-secundario').src = 'http://localhost/2021-projeto-final-curso/image/Bg-Login-Icon-Claro.png';
     }
     if (document.getElementById('img-cadastro-finalizado')) {
-        document.getElementById('img-cadastro-finalizado').src = '../image/Bg-Conta-Criada-Icon-Claro';
+        document.getElementById('img-cadastro-finalizado').src = 'http://localhost/2021-projeto-final-curso/image/Bg-Conta-Criada-Icon-Claro';
     }
     localStorage.setItem('darkMode', null);
 }
@@ -270,12 +270,9 @@ function habilitaCampoRedes() {
 function encodeImageFileAsURL() {
     var filesSelected = document.getElementById("img").files;
     if (filesSelected.length > 0) {
-        debugger
-        debugger
         var fileToLoad = filesSelected[0];
         var fileReader = new FileReader();
         fileReader.onload = function (fileLoadedEvent) {
-            debugger
             var srcData = fileLoadedEvent.target.result; // <--- data: base64
             document.getElementById("file-img").value = srcData;
 

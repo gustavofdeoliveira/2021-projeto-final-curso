@@ -47,12 +47,9 @@ $(document).ready(function () {
     })
 })
 
-
-
 $(document).ready(function () {
     $.post('../ajax-php/listar-rede.php', function (resposta) {
         resultado = JSON.parse(resposta);
-        debugger
         listar_redes = document.getElementById('id-redes');
         if (listar_redes != null) {
             for (a = 0; a != resultado.length; a++) {
@@ -101,7 +98,7 @@ $(document).ready(function () {
     $.post('../ajax-php/listar-termos.php', function (resposta) {
         resultado = JSON.parse(resposta);
         listar_termos = document.getElementById('id-termos');
-        if (listar_redes != null) {
+        if (listar_termos != null) {
             for (a = 0; a != resultado.length; a++) {
                 document.getElementById('id-termos').insertAdjacentHTML('afterend',
                     '<td class="texto-codigo">' + resultado[a]['id'] + '</td>' +
@@ -338,13 +335,12 @@ $(document).ready(function () {
 
 //Carrega publicação para editar
 $(document).ready(function () {
-    var editar = document.getElementsById("titulo");
+    var editar = document.getElementById("titulo");
      if (editar != null) {
     var url = window.location.href;
     var valores_url = url.split("=");
     $.post('../ajax-php/editar-publicacao.php?id=' + valores_url[1], function (resposta) {
         resultado = JSON.parse(resposta);
-        debugger
         console.log(resultado)
         document.getElementById("titulo").value = resultado["dados"][0]["titulo"];
         document.getElementById("select-termo").value = resultado["dados"][0]["categoria"];
@@ -352,7 +348,6 @@ $(document).ready(function () {
         document.getElementById("texto").innerHTML = resultado["dados"][0]["texto"];
         document.getElementById('texto').insertAdjacentHTML('afterbegin', resultado["dados"][0]["texto"]);
         var a = document.getElementById("textoArea");
-         debugger
          document.getElementById('termos-container').insertAdjacentHTML('afterbegin', 
          '<div class="rede-balao" id="' + resultado["dados"]['redeTermos']["id"] + '" value="' + resultado["dados"]['redeTermos']["nome"] + '">' + resultado["dados"]['redeTermos']["nome"] + '<div class="balao-fechar"  onclick="fecharRedeBalao(' + resultado["dados"]['redeTermos']["id"] + ')"><i class="fa fa-times" aria-hidden="true"></i></div></div>');
         document.getElementById("redeTermos").disabled = true;
@@ -367,13 +362,12 @@ $(document).ready(function () {
     var valores_url = url.split("=");
     $.post('../ajax-php/ver-rede-termos.php?id=' + valores_url[1], function (resposta) {
         resultado = JSON.parse(resposta);
+        debugger
         var ver_rede_termos = document.getElementById("ver-rede-termos");
         if (ver_rede_termos != null) {
             console.log(resultado);
-            debugger
             document.getElementById('rede-nome').insertAdjacentHTML('afterbegin', resultado['dados']['redeTermos']['nome']);
             document.getElementById('rede-descricao-texto').insertAdjacentHTML('afterbegin', resultado['dados']['redeTermos']['descricao']);
-            
             document.getElementById('rede-botoes').insertAdjacentHTML('afterbegin',
             '<div class="pull-right"><a href="../view/Editar-rede-termo.php?id=' + resultado['dados']['redeTermos']['id'] + '"><i class="fa fa-verde fa-pencil-square-o" aria-hidden="true"></i></a>' +
             '<form action="../control/RedeTermosControl.php" method="POST" class="form-group">' +
