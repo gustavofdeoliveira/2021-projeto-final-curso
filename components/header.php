@@ -5,22 +5,25 @@ require_once("../dao/UsuarioDao.php");
 
 function head(): string
 {
-    
-    if($_SESSION['usuarioAutenticado']){
+
+    if ($_SESSION['usuarioAutenticado']) {
         $usuario = $_SESSION['usuarioAutenticado'];
-    }else{
+        $fotoAvatar = $usuario['fotoAvatar'];
+    } else {
         $usuario = '';
+        $fotoAvatar = '';
     }
+    
     $notificacaoTotal = '';
     $restante1 = '';
     $isAdmin = '';
-    $notificacao ='';
+    $notificacao = '';
     $notificacaoRestante = '';
     $isLogadoRestante = '';
     $nivel = '';
     $restante2 = '';
 
-    $_SESSION['notificacao'] = array(0 => array('nome' => '@natan_pastore', 'texto' => 'comentou na sua publicação'), 1 => array('nome' => '@franco_harlos', 'texto' => 'respondeu o seu comentário'), 2 => array('nome' => '@ju_kashima', 'texto' => 'respondeu o seu comentário'), 3 => array('nome' => '@natan_pastore', 'texto' => 'comentou na sua publicação'), 4 => array('nome' => '@franco_harlos', 'texto' => 'respondeu o seu comentário'), 5 => array('nome' => '@ju_kashima', 'texto' => 'respondeu o seu comentário'));
+    $_SESSION['notificacao'] = array(0 => array('nome' => '@natan_pastore', 'texto' => 'comentou na sua publicação'), 1 => array('nome' => '@franco_harlos', 'texto' => 'respondeu o seu comentário'), 2 => array('nome' => '@ju_kashima', 'texto' => 'respondeu o seu comentário'), 3 => array('nome' => '@natan_pastore', 'texto' => 'comentou na sua publicação'), 4 => array('nome' => '@franco_harlos', 'texto' => 'respondeu o seu comentário'), 5 => array('nome' => '@ju_kashima', 'texto' => 'respondeu o seu comentário'));;
 
     $numeroNotificacoes = count($_SESSION["notificacao"]);
 
@@ -45,10 +48,7 @@ function head(): string
                                 <div class="notify-count count1 common-count" count="' . $numeroNotificacoes . '">
                                     <div class="value numero-notificacoes">' . $numeroNotificacoes . '</div>
                                 </div>';
-        } else {
-            $notificacao = '<i class="fa fa-bell-o"></i>';
-        }
-        $notificacaoRestante = '</div>
+            $notificacaoRestante = '</div>
                 <div class="notification-dropdown dd">
                     <div class="header">
                         <div class="container">
@@ -56,13 +56,16 @@ function head(): string
                         </div>
                     </div>
                     <div class="items">';
-        for ($i = 0; $i != count($_SESSION["notificacao"]); $i++) {
-            $nome = $_SESSION["notificacao"][$i]["nome"];
-            $texto = $_SESSION["notificacao"][$i]["texto"];
+            for ($i = 0; $i != count($_SESSION["notificacao"]); $i++) {
+                $nome = $_SESSION["notificacao"][$i]["nome"];
+                $texto = $_SESSION["notificacao"][$i]["texto"];
 
-            $notificacaoTotal = '<div class="list-item noti">
+                $notificacaoTotal .=   '<div class="list-item noti">
                                 <a id="noticacao-item" href="#" class="text fl">
                                 <p class="name fl">"' . $nome . '"<span id="texto-notificacao">"' . $texto . '"</span></p></a></div>';
+            }
+        } else {
+            $notificacao = '<i class="fa fa-bell-o"></i>';
         }
 
         $isLogadoRestante = '</div>
@@ -247,7 +250,7 @@ function head(): string
         <div class="row">
           <div class="col-xl-6 col-md-6 col-sm-12 col-lg-6 d-flex-smm">
             <p id="texto-avatar-atual">seu avatar atual:</p>  
-              <img src="' . $usuario["fotoAvatar"] . '" id="fotAvatar" alt="Foto de Perfil" class="rounded-circle img-trocar-avatar">
+              <img src="'.$fotoAvatar.'" id="fotAvatar" alt="Foto de Perfil" class="rounded-circle img-trocar-avatar">
           </div>
           <div class="col-xl-6 col-md-6 col-sm-12 col-lg-6">
             <p id="texto-trocar-foto">quer trocar de avatar?</p>

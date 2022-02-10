@@ -33,11 +33,9 @@ error_reporting(E_ERROR | E_PARSE);
       <div id="ver-rede-termos">
         <div class="col-xl-12">
           <div class="row">
-            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-8">
+            <div class="col-xl-10 col-lg-10 col-md-9 col-sm-7">
               <p id="rede-nome"></p>
-            </div>
-            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-4">
-              <div id="rede-botoes">
+              <div class="pull-right" id="rede-botoes">
 
               </div>
             </div>

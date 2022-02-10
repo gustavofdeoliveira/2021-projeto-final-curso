@@ -72,9 +72,11 @@ if (!empty($id_pesquisa)) {
         }
     }
 
-    $query_rede = "SELECT DISTINCT `id_publicacao` FROM `publicacao_termo_rede_termos` WHERE `id_rede` = :id LIMIT 3";
+    $query_rede = "SELECT DISTINCT `id_publicacao` FROM `publicacao_termo_rede_termos` 
+    WHERE `id_rede` =:id  AND `id_publicacao` !=:id_ignorado LIMIT 3";
     $result = $conn->prepare($query_rede);
     $result->bindParam(':id', $id_rede);
+    $result->bindParam(':id_ignorado', $id_pesquisa);
     $result->execute();
 
     if (($result) and ($result->rowCount() != 0)) {
