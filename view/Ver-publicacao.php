@@ -54,7 +54,6 @@ error_reporting(E_ERROR | E_PARSE);
                 <div class="col-xl-4 col-lg-4">
                     <div class="row">
                         <div id="publicacao-semelhantes">
-
                         </div>
                     </div>
                 </div>

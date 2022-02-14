@@ -12,8 +12,10 @@ class TermoControl
     {
         $this->dao = new TermoDao();
         $this->modelo = new TermoModel();
-        $this->acao = $_REQUEST["acao"];
-        $this->verificaAcao();
+        if (isset($_REQUEST["acao"])) {
+            $this->acao = $_REQUEST["acao"];
+            $this->verificaAcao();
+        }
     }
     public function verificaAcao()
     {
@@ -72,6 +74,12 @@ class TermoControl
             $_SESSION["tempo_msg_error"] = time();
             header("Location:../view/Editar-termo.php");
         }
+    }
+    public function listarTermo()
+    {
+        $listagem = $this->dao->listarTermo();
+        $termos = $this->modelo->getTermo($listagem);
+        return $termos;
     }
 }
 new TermoControl();

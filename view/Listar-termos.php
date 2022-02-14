@@ -1,8 +1,15 @@
 <?php
 include_once("../database/Connection.php");
 require_once("../dao/UsuarioDao.php");
+
 require_once __DIR__ . '../../components/header.php';
+require_once __DIR__ . '/../control/TermoControl.php';
+
+$termoControl = new TermoControl();
+$termos = $termoControl->listarTermo();
 error_reporting(E_ERROR | E_PARSE);
+
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -80,9 +87,25 @@ error_reporting(E_ERROR | E_PARSE);
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr id="id-termos">
+                                    <?php 
+                                    for($a=0; $a!=count($termos);$a++){      
+                                    echo'<tr id="id-termos">'. 
+                                        '<td class="texto-codigo">'.$termos[$a]["id"].'</td>'.
+                                        '<td class="texto-nome">'.$termos[$a]["nome"].'</td>'.
+                                        '<td class="texto-codigo">'.$termos[$a]["tipo"].'</td>'.
+                                        '<td class="texto-codigo">'.$termos[$a]["conceito"].'</td>'.
+                                        '<td style="text-align:center;display:flex">' .
+                                        '<a href="../view/Ver-termo.php?id='. $termos[$a]['id']. 
+                                        '" target="_blank"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>'.
+                                        '<a href="../view/Editar-termo.php?id='. $termos[$a]['id'].
+                                        '"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>'.
+                                        '<form action="../control/TermoControl.php" method="POST" class="form-group">'.
+                                        '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirTermo">'.
+                                        '<button class="btn-excluir-atualizar" type="submit" name="Termo" value="'.$termos[$a]['id'].'">'.
+                                        '<i class="fa fa-trash-o" aria-hidden="true"></i></button></form></td>'.
+                                    '</tr>';
 
-                                    </tr>
+                                        };?>
                                 </tbody>
                             </table>
                         </div>

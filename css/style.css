@@ -1900,6 +1900,17 @@ p#texto-publicacao-semelhante {
   margin-left: auto;
   margin-right: auto;
 }
+p#texto-termo-semelhante {
+  font-size: 20px;
+  width: 150px;
+  font-family: Raleway-Black;
+  color: var(--cor_vermelha) !important;
+  line-height: 20px;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .img-publicacao-semelhante {
   width: 100%;
@@ -1956,7 +1967,7 @@ p#linha-info {
   color: var(--color_preta) !important;
 }
 
-p#rede-nome {
+p#rede-nome, p#termo-nome {
   font-size: 60px !important;
   margin-top: 20px;
   font-family: Raleway-Black;
@@ -1968,7 +1979,7 @@ hr#rede-hr {
   width: 100% !important;
 }
 
-p#rede-descricao, p#rede-termos {
+p#rede-descricao, p#rede-termos, p#termo-rede {
   font-size: 39px !important;
   font-family: Raleway-Black;
   color: var(--cor_verde) !important;
@@ -1996,4 +2007,41 @@ a#rede-termo-balao {
   margin-top: 5px;
   margin-right: 10px !important;
   text-decoration: none;
+}
+a#rede-termo-balao {
+  font-family: Raleway-Light;
+  font-size: 28px;
+  line-height: 24px;
+  color: var(--cor_branca) !important;
+  border: 1px solid var(--cor_verde);
+  background-color: var(--cor_verde);
+  border-radius: 75px !important;
+  height: 100%;
+  width: max-content;
+  padding: 5px 10px 5px 10px;
+  margin-top: 5px;
+  margin-right: 10px !important;
+  text-decoration: none;
+  display: block;
+}
+
+button#termo-botao{
+  width: 100%;
+  max-width: 290px;
+  background-color: var(--cor_vermelha);
+  color: var(--cor_branca) !important;
+  height: 100%;
+  max-height: 53px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  line-height: 23px;
+  border: none;
+  border-radius: 290px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+tr{
+  height:40px
 }

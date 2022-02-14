@@ -7,6 +7,19 @@ class TermoModel
     private $nomeVariavel;
     private $conceito;
 
+    public function getTermo($termo)
+    {
+        for ($a = 0; $a != count($termo); $a++) {
+            $termos[] = [
+                'id' => $termo[$a]['id'],
+                'tipo' => $termo[$a]['tipoTermo'],
+                'nome' => $termo[$a]['nome'],
+                'conceito' => $termo[$a]['conceito']
+            ];
+        }
+        return $termos;
+    }
+
     /**
      * @return mixed
      */

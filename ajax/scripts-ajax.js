@@ -93,32 +93,6 @@ $(document).ready(function () {
     }
 })
 
-//Listar termos
-$(document).ready(function () {
-    $.post('../ajax-php/listar-termos.php', function (resposta) {
-        resultado = JSON.parse(resposta);
-        listar_termos = document.getElementById('id-termos');
-        if (listar_termos != null) {
-            for (a = 0; a != resultado.length; a++) {
-                document.getElementById('id-termos').insertAdjacentHTML('afterend',
-                    '<td class="texto-codigo">' + resultado[a]['id'] + '</td>' +
-                    '<td class="texto-nome">' + resultado[a]['nome'] + '</td>' +
-                    '<td class="texto-codigo">' + resultado[a]['tipo'] + '</td>' +
-                    '<td class="texto-codigo">' + resultado[a]['conceito'] + '</td>' +
-
-                    '<td style="text-align:center;display:flex">' +
-                    '<a href="../view/Editar-termo.php?id=' + resultado[a]['id'] + '"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>' +
-
-                    '<form action="../control/TermoControl.php" method="POST" class="form-group">' +
-                    '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirTermo">' +
-                    '<button class="btn-excluir-atualizar" type="submit" name="Termo" value="' + resultado[a]['id'] + '">' +
-                    '<i class="fa fa-trash-o" aria-hidden="true"></i></button></form></td>'
-                );
-            }
-        }
-    })
-})
-
 //Lista publicações
 $(document).ready(function () {
     $.post('../ajax-php/listar-publicacao.php', function (resposta) {
@@ -380,6 +354,47 @@ $(document).ready(function () {
                 '<a id="rede-termo-balao" target="_blank" href="//localhost/2021-projeto-final-curso/view/Ver-publicacao.php?id=' + resultado['dados']['termos'][a]['id'] + '">' + resultado['dados']['termos'][a]['nome'] + '</a>')
                
 
+            }
+
+        }
+    })
+})
+
+//Ver termo
+$(document).ready(function () {
+    var url = window.location.href;
+    var valores_url = url.split("=");
+    $.post('../ajax-php/ver-termo.php?id=' + valores_url[1], function (resposta) {
+        resultado = JSON.parse(resposta);
+        debugger
+        var ver_rede_termos = document.getElementById("ver-termo");
+        if (ver_rede_termos != null) {
+            console.log(resultado);
+            document.getElementById('termo-nome').insertAdjacentHTML(
+                'afterbegin', resultado['dados']['termo']['nome']);
+
+            document.getElementById('rede-descricao-texto').insertAdjacentHTML(
+                'afterbegin', resultado['dados']['termo']['conceito']);
+
+            document.getElementById('rede-botoes').insertAdjacentHTML(
+                'afterbegin',
+            '<a href="../view/Editar-rede-termo.php?id=' + resultado['dados']['termo']['id'] + '"><i class="fa fa-verde fa-pencil-square-o" aria-hidden="true"></i></a>' +
+            '<form action="../control/TermoControl.php" method="POST" class="form-group">' +
+            '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirRede">' +
+            '<button class="btn-excluir-atualizar" type="submit" name="idRede" value="' + resultado['dados']['termo']['id'] + '">' +
+            '<i class="fa fa-verde fa-trash-o" aria-hidden="true"></i></button></form>');
+
+            for (a = 0; a != resultado['dados']['redeTermos'].length; a++) {
+                document.getElementById('rede-termos-balao').insertAdjacentHTML('afterbegin', 
+                 '<a id="rede-termo-balao" target="_blank" href="//localhost/2021-projeto-final-curso/view/Ver-publicacao.php?id=' + resultado['dados']['redeTermos'][a]['id'] + '">' + resultado['dados']['redeTermos'][a]['nome'] + '</a>')
+            }
+            if (resultado['dados']['semelhantes'].length != 0) {
+                document.getElementById('publicacao-semelhantes').insertAdjacentHTML('afterbegin', '<p id="texto-termo-semelhante">esse termo aparece em:</p>')
+                for (a = 0; a != resultado['dados']['semelhantes'].length; a++) {
+                    document.getElementById('texto-termo-semelhante').insertAdjacentHTML('afterend', '<img class="img-publicacao-semelhante" id="img-publicacao-semelhante" src="' + resultado['dados']['semelhantes'][a]['imagem'] + '">')
+                    document.getElementById('img-publicacao-semelhante').insertAdjacentHTML('afterend', '<a class="titulo-publicacao-semelhante" target="_blank" href="//localhost/2021-projeto-final-curso/view/Ver-publicacao.php?id=' + resultado['dados']['semelhantes'][a]['id'] + '">' + resultado['dados']['semelhantes'][a]['titulo'] + '</a>')
+
+                }
             }
 
         }

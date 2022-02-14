@@ -1,6 +1,8 @@
 <?php
 //Abre conecao com o banco
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 require_once(realpath(dirname(__FILE__) . "/../database/Connection.php"));
 
 if (!empty($_SESSION['msg_error']) && (time() - $_SESSION['tempo_msg_error'] > 20)) {
@@ -72,5 +74,18 @@ class TermoDao
         $statement->execute();
         $_SESSION["tempo_msg_sucess"] = time();
         return $_SESSION["msg_sucess"] = "Termo atualizado com sucesso!";
+    }
+
+    function listarTermo()
+    {
+        $sql = "SELECT `id`,`tipoTermo`,`nome`,`conceito` FROM `termo` ORDER BY `id` DESC";
+        $statement = $this->conn->prepare($sql);
+        $statement->execute();
+        if (($statement) and ($statement->rowCount() != 0)) {
+            while ($result = $statement->fetch(PDO::FETCH_ASSOC)) {
+                $termos[] = $result;
+            }
+            return $termos;
+        }
     }
 }

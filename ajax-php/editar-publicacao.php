@@ -2,7 +2,6 @@
 
 require_once(realpath(dirname(__FILE__) . "/../database/Connection.php"));
 
-
 $protocolo = (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == "on") ? "https" : "http");
 $id_url = $_SERVER['QUERY_STRING'];
 $url = explode("=", $id_url);

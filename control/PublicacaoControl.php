@@ -36,6 +36,7 @@ class PublicacaoControl
             $this->modelo->setRedeTermosId($_POST["rede"]);
             $this->modelo->setTexto($_POST["texto_publicacao"]);
             $this->modelo->setTermosId($_POST["termosId"]);
+            
             $id_publicacao = $this->dao->inserirPublicacao($this->modelo);
             header("Location:../view/Ver-publicacao.php?id=" . $id_publicacao);
         } catch (\Exception $e) {

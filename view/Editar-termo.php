@@ -1,8 +1,9 @@
 <?php
-include_once("../database/Connection.php");
-require_once("../dao/TermoDao.php");
+include_once __DIR__ .'../database/Connection.php';
+require_once __DIR__ .'../dao/TermoDao.php';
 require_once __DIR__ . '../../components/header.php';
 error_reporting(E_ERROR | E_PARSE);
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -64,7 +65,7 @@ error_reporting(E_ERROR | E_PARSE);
                             <div class="form-group">
                                 <label class="form-label label-criar-publicacao" for="conceito">definição</label>
                                 <div class="input-group">
-                                    <textarea required class="textarea form-control" rows="4" type="text" id="conceito" name="conceito" disabled></textarea>
+                                    <textarea required class="textarea form-control" rows="4" type="text" id="conceito" name="conceito" value="<?php $termo["conceito"]?>" disabled></textarea>
                                     <i class="editar fa fa-pencil-square-o" aria-hidden="true" onclick="ativaCampo(conceito)"></i>
                                     <span class="error"></span>
                                 </div>

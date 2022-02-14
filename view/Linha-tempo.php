@@ -35,13 +35,7 @@ error_reporting(E_ERROR | E_PARSE);
           <p id="linha-tempo">Linha do tempo</p>
           <p id="linha-info">Encontre todas as nossas publicações aqui</p>
         </div>
-        <?php
-        if ($usuario['nivelAcesso'] == 1 or $usuario['nivelAcesso'] == 2) {
-          echo '
-                    <div class=col-xl-4 col-lg-4">
-                    <p>ola</p>
-                </div>';
-        } ?>
+        
       </div>
     </div>
   </main>
