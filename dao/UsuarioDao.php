@@ -1,9 +1,10 @@
 <?php
+require_once(realpath(dirname(__FILE__) . "/../database/Connection.php"));
+
 //Abre conecao com o banco
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-require_once(realpath(dirname(__FILE__) . "/../database/Connection.php"));
 //Temporalizador da Mensagem de erro no login
 if (!empty($_SESSION['msg_error']) && (time() - $_SESSION['tempo_msg_error'] > 15)) {
     unset($_SESSION['msg_error']);
@@ -13,6 +14,9 @@ if (!empty($_SESSION['msg_sucess']) && (time() - $_SESSION['tempo_msg_sucess'] >
 }
 if (!empty($_SESSION['usuarioAutenticado']) and empty($_SESSION['manterConectado']) and (time() - $_SESSION['sessao_usuario'] > 3600)) {
     unset($_SESSION['usuarioAutenticado']);
+}
+if (!isset($_SESSION['usuarioAutenticado'])) {
+    $_SESSION['usuarioAutenticado'] = '';
 }
 class UsuarioDao
 {
@@ -217,7 +221,7 @@ class UsuarioDao
 
     function atualizarAvatar(UsuarioModel $modelo)
     {
-        
+
         $sql = "UPDATE `usuario` SET `fotoAvatar`= '" . $modelo->getFotoAvatar() . "' WHERE `idUsuario`=:id";
         $statement = $this->conn->prepare($sql);
         $statement->bindValue("id", $modelo->getId());

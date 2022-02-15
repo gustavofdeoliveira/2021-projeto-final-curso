@@ -6,6 +6,19 @@
         private $nome;
         private $descricao;
         private $termosIncluidos;
+
+        public function getRede($redes)
+        {
+             for ($a = 0; $a != count($redes); $a++) {
+                 $rede[] = [
+                     'id' => $redes[$a]['id'],
+                     'nome' => $redes[$a]['nome'],
+                     'descricao' => $redes[$a]['descricao'],
+                     'dataInclusao' => $redes[$a]['dataInclusao']
+                 ];
+             }
+            return $rede;
+        }
         /**
          * @return mixed
          */

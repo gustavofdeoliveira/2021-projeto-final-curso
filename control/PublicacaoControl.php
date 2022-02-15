@@ -11,8 +11,10 @@ class PublicacaoControl
     {
         $this->dao = new PublicacaoDao();
         $this->modelo = new PublicacaoModel();
-        $this->acao = $_REQUEST["acao"];
-        $this->verificaAcao();
+        if (isset($_REQUEST["acao"])) {
+            $this->acao = $_REQUEST["acao"];
+            $this->verificaAcao();
+        }
     }
     public function verificaAcao()
     {
@@ -57,6 +59,12 @@ class PublicacaoControl
             $_SESSION["msg_tempo_error"] = time();
             header("Location:../view/Listar-publicacao.php");
         }
+    }
+
+    public function listarPublicacao(){
+        $publicao = $this->dao->listarPublicacao();
+        $publicacoes = $this->modelo->getPublicacao($publicao);
+        return $publicacoes;
     }
 }
 new PublicacaoControl();

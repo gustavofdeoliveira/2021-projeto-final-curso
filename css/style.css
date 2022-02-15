@@ -1509,13 +1509,16 @@ div#texto-usuario {
   width: 42px;
   height: 16px;
 }
-.fa-trash-o{
+
+.fa-trash-o {
   margin-left: -5px;
   text-align: right;
 }
-.fa-pencil-square-o{
+
+.fa-pencil-square-o {
   font-size: 40px !important;
 }
+
 .fa-verde {
   color: var(--cor_verde) !important;
 }
@@ -1900,6 +1903,7 @@ p#texto-publicacao-semelhante {
   margin-left: auto;
   margin-right: auto;
 }
+
 p#texto-termo-semelhante {
   font-size: 20px;
   width: 150px;
@@ -2008,6 +2012,7 @@ a#rede-termo-balao {
   margin-right: 10px !important;
   text-decoration: none;
 }
+
 a#rede-termo-balao {
   font-family: Raleway-Light;
   font-size: 28px;
@@ -2025,7 +2030,7 @@ a#rede-termo-balao {
   display: block;
 }
 
-button#termo-botao{
+button#termo-botao {
   width: 100%;
   max-width: 290px;
   background-color: var(--cor_vermelha);
@@ -2042,6 +2047,28 @@ button#termo-botao{
   margin-right: auto;
   display: block;
 }
-tr{
-  height:40px
+
+tr {
+  height: 40px
+}
+
+table {
+  margin-left: 15px;
+}
+
+.adicionar-termos{
+  width: max-content;
+  padding: 5px 20px 5px 20px;
+  height: 50px;
+  line-height: 28px;
+  font-size: 28px;
+  font-family: Raleway-Black;
+  background-color: var(--cor_verde);
+  color: var(--cor_branca) !important;
+  text-decoration: none;
+  border-radius: 100px;
+}
+.fa-plus{
+  font-size: 20px !important;
+  
 }

@@ -1,6 +1,8 @@
 <?php
 //Abre conecao com o banco
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 require_once(realpath(dirname(__FILE__) . "/../database/Connection.php"));
 
 if (!empty($_SESSION["msg_error"]) && (time() - $_SESSION["tempo_msg_error"] > 20)) {
@@ -106,5 +108,17 @@ class RedeTermosDao
         $_SESSION["msg_sucess"] = "Rede de termos atualizada com sucesso!";
         $_SESSION["tempo_msg_sucess"] = time();
         return $id;
+    }
+    function listarRedeTermos()
+    {
+        $sql = "SELECT `id`,`nome`,`descricao`, `dataInclusao` FROM `redetermos` ORDER BY `id` DESC";
+        $statement = $this->conn->prepare($sql);
+        $statement->execute();
+        if (($statement) and ($statement->rowCount() != 0)) {
+            while ($result = $statement->fetch(PDO::FETCH_ASSOC)) {
+                $redeTermos[] = $result;
+            }
+            return $redeTermos;
+        }
     }
 }

@@ -47,34 +47,7 @@ $(document).ready(function () {
     })
 })
 
-$(document).ready(function () {
-    $.post('../ajax-php/listar-rede.php', function (resposta) {
-        resultado = JSON.parse(resposta);
-        listar_redes = document.getElementById('id-redes');
-        if (listar_redes != null) {
-            for (a = 0; a != resultado.length; a++) {
-                let data = new Date(resultado[a]['dataInclusao']);
-                let dataInclusao = ((data.getDate())) + "/" + ((data.getMonth() + 1)) + "/" + data.getFullYear();
 
-                document.getElementById('id-redes').insertAdjacentHTML('afterend',
-                    '<td class="texto-codigo">' + resultado[a]['id'] + '</td>' +
-                    '<td class="texto-nome">' + resultado[a]['nome'] + '</td>' +
-                    '<td class="texto-nome">' + resultado[a]['descricao'] + '</td>' +
-                    '<td class="texto-data">' + dataInclusao + '</td>' +
-                    '<td style="text-align:center;display:flex">' +
-
-                    '<td style="text-align:center;display:flex">' +
-                    '<a href="../view/Editar-rede-termo.php?id=' + resultado[a]['id'] + '"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>' +
-
-                    '<form action="../control/RedeTermosControl.php" method="POST" class="form-group">' +
-                    '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirRede">' +
-                    '<button class="btn-excluir-atualizar" type="submit" name="idRede" value="' + resultado[a]['id'] + '">' +
-                    '<i class="fa fa-trash-o" aria-hidden="true"></i></button></form></td>'
-                );
-            }
-        }
-    })
-})
 
 //Carrega termo para editar
 $(document).ready(function () {

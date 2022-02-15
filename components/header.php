@@ -9,7 +9,6 @@ require_once __DIR__ . '/header-configuracao.php';
 
 function head(): string
 {
-  include_once __DIR__ . '/config.php';
   require_once(realpath($_SERVER["DOCUMENT_ROOT"]).'/2021-projeto-final-curso/config.php');
 
   if ($_SESSION['usuarioAutenticado']) {

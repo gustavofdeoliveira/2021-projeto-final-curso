@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 require_once(realpath(dirname(__FILE__) . "/../database/Connection.php"));
 
 if (!empty($_SESSION["msg_error"]) and (time() - $_SESSION["tempo_msg_error"] > 20)) {
@@ -76,5 +78,17 @@ class PublicacaoDao
         $statement->execute();
         $_SESSION["msg_sucess"] = "Publicação " . $modelo->getId() . " excluído!";
         $_SESSION["tempo_msg_sucess"] = time();
+    }
+    function listarPublicacao()
+    {
+        $sql = "SELECT `id`,`titulo`,`categoria` FROM `publicacao` ORDER BY `id` DESC";
+        $statement = $this->conn->prepare($sql);
+        $statement->execute();
+        if (($statement) and ($statement->rowCount() != 0)) {
+            while ($result = $statement->fetch(PDO::FETCH_ASSOC)) {
+                $publicacoes[] = $result;
+            }
+            return $publicacoes;
+        }
     }
 }

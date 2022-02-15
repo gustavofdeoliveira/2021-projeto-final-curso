@@ -1,8 +1,8 @@
 <?php
 include_once("../database/Connection.php");
 require_once("../dao/UsuarioDao.php");
-require_once __DIR__ . '../../components/header.php';
-error_reporting(E_ERROR | E_PARSE);
+require_once('../components/header.php');
+require_once("../components/table-listar-rede-termos.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -71,7 +71,7 @@ error_reporting(E_ERROR | E_PARSE);
                     <td scope="col" style="width: 250px;">
                       <div class="listar-balao">descrição</div>
                     </td>
-                    <td scope="col" style="width: 180px;">
+                    <td scope="col" style="width: 200px;">
                       <div class="listar-balao">data de cadastro</div>
                     </td>
                     <th style="width: 75px;text-align: center;">
@@ -80,9 +80,10 @@ error_reporting(E_ERROR | E_PARSE);
                   </tr>
                 </thead>
                 <tbody>
-                  <tr id="id-redes">
-
-                  </tr>
+                  <?php
+                  $tabela_rede = listarRede();
+                  echo $tabela_rede;
+                  ?>
                 </tbody>
               </table>
             </div>

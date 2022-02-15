@@ -1,15 +1,8 @@
 <?php
 include_once("../database/Connection.php");
 require_once("../dao/UsuarioDao.php");
-
-require_once __DIR__ . '../../components/header.php';
-require_once __DIR__ . '/../control/TermoControl.php';
-
-$termoControl = new TermoControl();
-$termos = $termoControl->listarTermo();
-error_reporting(E_ERROR | E_PARSE);
-
-
+require_once('../components/header.php');
+require_once("../components/table-listar-termos.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -37,6 +30,11 @@ error_reporting(E_ERROR | E_PARSE);
     <main id="telas-navbar">
         <div class="row">
             <div class="col-xl-12">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <a href="../view/Cadastrar-termo.php" class="adicionar-termos"><i class="fa fa-plus"></i>  adicionar novo termo</a>
+                    </div>
+                </div>
                 <p id="titulo-cadastrar-rede">listar termos</p>
                 <div class="row">
                     <div class="col-xl-9 col-lg-9 col-lg-md-9 col-sm-12">
@@ -87,25 +85,9 @@ error_reporting(E_ERROR | E_PARSE);
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php 
-                                    for($a=0; $a!=count($termos);$a++){      
-                                    echo'<tr id="id-termos">'. 
-                                        '<td class="texto-codigo">'.$termos[$a]["id"].'</td>'.
-                                        '<td class="texto-nome">'.$termos[$a]["nome"].'</td>'.
-                                        '<td class="texto-codigo">'.$termos[$a]["tipo"].'</td>'.
-                                        '<td class="texto-codigo">'.$termos[$a]["conceito"].'</td>'.
-                                        '<td style="text-align:center;display:flex">' .
-                                        '<a href="../view/Ver-termo.php?id='. $termos[$a]['id']. 
-                                        '" target="_blank"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>'.
-                                        '<a href="../view/Editar-termo.php?id='. $termos[$a]['id'].
-                                        '"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>'.
-                                        '<form action="../control/TermoControl.php" method="POST" class="form-group">'.
-                                        '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirTermo">'.
-                                        '<button class="btn-excluir-atualizar" type="submit" name="Termo" value="'.$termos[$a]['id'].'">'.
-                                        '<i class="fa fa-trash-o" aria-hidden="true"></i></button></form></td>'.
-                                    '</tr>';
-
-                                        };?>
+                                    <?php
+                                    $tabela_termos = listarTermos();
+                                    echo $tabela_termos; ?>
                                 </tbody>
                             </table>
                         </div>

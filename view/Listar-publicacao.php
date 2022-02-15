@@ -1,8 +1,8 @@
 <?php
 include_once("../database/Connection.php");
 require_once("../dao/UsuarioDao.php");
-require_once __DIR__ . '../../components/header.php';
-error_reporting(E_ERROR | E_PARSE);
+require_once('../components/header.php');
+require_once("../components/table-listar-publicacao.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -78,9 +78,10 @@ error_reporting(E_ERROR | E_PARSE);
                   </tr>
                 </thead>
                 <tbody>
-                  <tr id="id-publicacao">
-
-                  </tr>
+                <?php
+                  $tabela_publicacao = listarPublicacao();
+                  echo $tabela_publicacao;
+                  ?>
                 </tbody>
               </table>
             </div>

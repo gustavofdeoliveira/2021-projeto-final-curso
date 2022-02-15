@@ -12,8 +12,10 @@ class RedeTermosControl
     {
         $this->dao = new RedeTermosDao();
         $this->modelo = new RedeTermosModel();
-        $this->acao = $_REQUEST["acao"];
-        $this->verificaAcao();
+        if (isset($_REQUEST["acao"])) {
+            $this->acao = $_REQUEST["acao"];
+            $this->verificaAcao();
+        }
     }
     public function verificaAcao()
     {
@@ -78,13 +80,19 @@ class RedeTermosControl
             $this->modelo->setNome($_POST["nome"]);
             $this->modelo->setDescricao($_POST["descricao"]);
             $this->modelo->setTermosIncluidos($_POST["termos"]);
-            $id=$this->dao->atualizarRedeTermos($this->modelo);
-            header("Location:../view/Editar-rede-termo.php?id=".$id);
+            $id = $this->dao->atualizarRedeTermos($this->modelo);
+            header("Location:../view/Editar-rede-termo.php?id=" . $id);
         } catch (\Exception $e) {
             $_SESSION["msg_error"] = $e->getMessage();
             $_SESSION["tempo_msg_error"] = time();
             // header("Location:../view/Editar-rede-termo.php");
         }
+    }
+    public function listarRedeTermos()
+    {
+        $redeTermos = $this->dao->listarRedeTermos();     
+        $redes = $this->modelo->getRede($redeTermos);
+        return $redes;
     }
 }
 new RedeTermosControl();

@@ -10,6 +10,18 @@ class PublicacaoModel
     private $texto;
     private $redeTermosId;
     private $termosId;
+
+    public function getPublicacao($publicao)
+    {
+        for ($a = 0; $a != count($publicao); $a++) {
+            $publicacoes[] = [
+                'id' => $publicao[$a]['id'],
+                'titulo' => $publicao[$a]['titulo'],
+                'categoria' => $publicao[$a]['categoria']
+            ];
+        }
+        return $publicacoes;
+    }
     /**
      * @return mixed
      */
