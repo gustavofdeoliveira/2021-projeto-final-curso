@@ -5,7 +5,7 @@ require_once __DIR__ . '/header-nivel.php';
 function verifica_login($usuario, $SERVIDOR)
 {
     if ($usuario != null) {
-        $fotoAvatar = $usuario[0]['fotoAvatar'];
+        $fotoAvatar = $usuario['fotoAvatar'];
     } else {
         $usuario = '';
     }

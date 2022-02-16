@@ -30,6 +30,11 @@ require_once("../components/table-listar-rede-termos.php");
   <main id="telas-navbar">
     <div class="row">
       <div class="col-xl-12">
+        <div class="row">
+          <div class="col-xl-12">
+            <a href="../view/Cadastrar-rede-termo.php" class="adicionar-termos"><i class="fa fa-plus"></i> adicionar nova rede</a>
+          </div>
+        </div>
         <p id="titulo-cadastrar-rede">listar rede de termos</p>
         <div class="row">
           <div class="col-xl-9 col-lg-9 col-lg-md-9 col-sm-12">
@@ -62,16 +67,13 @@ require_once("../components/table-listar-rede-termos.php");
               <table>
                 <thead>
                   <tr>
-                    <td scope="col" style="width: 50px;">
+                    <td scope="col" style="width: 80px;">
                       <div class="listar-balao">id</div>
                     </td>
-                    <td scope="col" style="width: 200px;">
+                    <td scope="col" style="width: 280px;">
                       <div class="listar-balao">nome</div>
-
-                    <td scope="col" style="width: 250px;">
-                      <div class="listar-balao">descrição</div>
                     </td>
-                    <td scope="col" style="width: 200px;">
+                    <td scope="col" style="width: 250px;">
                       <div class="listar-balao">data de cadastro</div>
                     </td>
                     <th style="width: 75px;text-align: center;">

@@ -70,14 +70,14 @@ require_once("../components/table-listar-termos.php");
                                         <td scope="col" style="width: 50px;">
                                             <div class="listar-balao">id</div>
                                         </td>
-                                        <td scope="col" style="width: 200px;">
+                                        <td scope="col" style="width: 280px;">
                                             <div class="listar-balao">nome</div>
-
+                                        </td>
                                         <td scope="col" style="width: 100px;">
                                             <div class="listar-balao">tipo</div>
                                         </td>
-                                        <td scope="col" style="width: 300px;">
-                                            <div class="listar-balao">descrição</div>
+                                        <td scope="col" style="width: 220px;">
+                                            <div class="listar-balao">data de cadastro</div>
                                         </td>
                                         <th style="width: 75px;text-align: center;">
                                             <div class="row"></div>

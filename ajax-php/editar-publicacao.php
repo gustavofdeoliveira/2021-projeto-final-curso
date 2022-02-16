@@ -10,10 +10,7 @@ $conn = Connection::conectar();
 
 if (!empty($id_pesquisa)) {
 
-    $query_publicacao = "SELECT * FROM `publicacao` WHERE `id`=:id";
-    $result = $conn->prepare($query_publicacao);
-    $result->bindParam(':id', $id_pesquisa);
-    $result->execute();
+
 
     if (($result) and ($result->rowCount() != 0)) {
 

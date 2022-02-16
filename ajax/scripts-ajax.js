@@ -10,43 +10,6 @@ $(document).ready(function () {
     }
 })
 
-// $(document).ready(function () {
-//     $.post('../ajax-php/listar-usuarios.php', function (resposta) {
-//         resultado = JSON.parse(resposta);
-//         listar_usuarios = document.getElementById('id-usuarios');
-//         if (listar_usuarios != null) {
-//             for (a = 0; a != resultado.length; a++) {
-//                 var nivel = '';
-//                 if (resultado[a]['nivel'] == 1) {
-//                     nivel = '<td class="texto-codigo">' + resultado[a]['nivel'] + ' - Administrador</td>';
-//                 } if (resultado[a]['nivel'] == 2) {
-//                     nivel = '<td class="texto-codigo">' + resultado[a]['nivel'] + ' - Professor</td>';
-//                 } if (resultado[a]['nivel'] == 3) {
-//                     nivel = '<td class="texto-codigo">' + resultado[a]['nivel'] + ' - Aluno</td>';
-//                 }
-//                 let data = new Date(resultado[a]['dataInclusao']);
-//                 let dataInclusao = ((data.getDate())) + "/" + ((data.getMonth() + 1)) + "/" + data.getFullYear();
-
-//                 document.getElementById('id-usuarios').insertAdjacentHTML('afterend',
-//                     '<td class="texto-codigo">' + resultado[a]['id'] + '</td>' +
-//                     '<td class="texto-nome">' + resultado[a]['nome'] + '</td>' +
-//                     nivel + '<td class="texto-data">' + dataInclusao + '</td>' +
-//                     '<td style="text-align:center;display:flex">' +
-//                     '<form action="../control/UsuarioControl.php" method="POST" class="form-group">' +
-//                     '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="atualizaNivel">' +
-//                     '<button class="btn-excluir-atualizar" type="submit" name="Usuario" value="' + resultado[a]['id'] + '" >' +
-//                     '<i class="fa fa-long-arrow-up" aria-hidden="true"></i></button></form>' +
-
-//                     '<form action="../control/UsuarioControl.php" method="POST" class="form-group">' +
-//                     '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirUsuario">' +
-//                     '<button class="btn-excluir-atualizar" type="submit" name="Usuario" value="' + resultado[a]['id'] + '">' +
-//                     '<i class="fa fa-trash-o" aria-hidden="true"></i></button></form></td>'
-//                 );
-//             }
-//         }
-//     })
-// })
-
 
 
 //Carrega termo para editar
@@ -66,32 +29,6 @@ $(document).ready(function () {
     }
 })
 
-//Lista publicações
-$(document).ready(function () {
-    $.post('../ajax-php/listar-publicacao.php', function (resposta) {
-        resultado = JSON.parse(resposta);
-        listar_publicacoes = document.getElementById('id-publicacao');
-        if (listar_publicacoes != null) {
-            for (a = 0; a != resultado.length; a++) {
-                document.getElementById('id-publicacao').insertAdjacentHTML('afterend',
-                    '<td class="texto-codigo">' + resultado[a]['id'] + '</td>' +
-                    '<td class="texto-nome">' + resultado[a]['titulo'] + '</td>' +
-                    
-                    '<td class="texto-codigo">' + resultado[a]['categoria'] + '</td>' +
-
-                    '<td style="text-align:center;display:flex">' +
-                    '<a href="../view/Ver-publicacao.php?id=' + resultado[a]['id'] + '" target="_blank"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>' +
-                    '<a href="../view/Editar-publicacao.php?id=' + resultado[a]['id'] + '"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>' +
-
-                    '<form action="../control/PublicacaoControl.php" method="POST" class="form-group">' +
-                    '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirPublicacao">' +
-                    '<button class="btn-excluir-atualizar" type="submit" name="idPublicacao" value="' + resultado[a]['id'] + '">' +
-                    '<i class="fa fa-trash-o" aria-hidden="true"></i></button></form></td>'
-                );
-            }
-        }
-    })
-})
 
 //Carrega rede para editar
 $(document).ready(function () {
@@ -259,6 +196,7 @@ $(document).ready(function () {
         resultado = JSON.parse(resposta);
         var ver_publicacao = document.getElementById("ver-publicacao");
         if (ver_publicacao != null) {
+            debugger
             console.log(resultado);
             document.getElementById('titulo-publicacao').insertAdjacentHTML('afterbegin', resultado['dados']['publicacao']['titulo']);
             document.getElementById('categoria-publicacao').insertAdjacentHTML('afterbegin', "Publicação " + resultado['dados']['publicacao']['categoria']);

@@ -111,7 +111,7 @@ class RedeTermosDao
     }
     function listarRedeTermos()
     {
-        $sql = "SELECT `id`,`nome`,`descricao`, `dataInclusao` FROM `redetermos` ORDER BY `id` DESC";
+        $sql = "SELECT `id`,`nome`, `dataInclusao` FROM `redetermos` ORDER BY `id` DESC";
         $statement = $this->conn->prepare($sql);
         $statement->execute();
         if (($statement) and ($statement->rowCount() != 0)) {

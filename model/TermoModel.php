@@ -14,7 +14,7 @@ class TermoModel
                 'id' => $termo[$a]['id'],
                 'tipo' => $termo[$a]['tipoTermo'],
                 'nome' => $termo[$a]['nome'],
-                'conceito' => $termo[$a]['conceito']
+                'dataInclusao' => $termo[$a]['dataInclusao']
             ];
         }
         return $termos;

@@ -68,7 +68,7 @@ require_once("../components/tabela-listar-usuarios.php");
                                         </td>
                                         <td scope="col" style="width: 300px;">
                                             <div class="listar-balao">nome</div>
-
+                                        </td>
                                         <td scope="col" style="width: 180px;">
                                             <div class="listar-balao">nível de acesso</div>
                                         </td>

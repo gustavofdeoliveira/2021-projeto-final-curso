@@ -17,7 +17,8 @@ class PublicacaoModel
             $publicacoes[] = [
                 'id' => $publicao[$a]['id'],
                 'titulo' => $publicao[$a]['titulo'],
-                'categoria' => $publicao[$a]['categoria']
+                'categoria' => $publicao[$a]['categoria'],
+                'dataInclusao' => $publicao[$a]['dataInclusao']
             ];
         }
         return $publicacoes;

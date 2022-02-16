@@ -81,7 +81,7 @@ class PublicacaoDao
     }
     function listarPublicacao()
     {
-        $sql = "SELECT `id`,`titulo`,`categoria` FROM `publicacao` ORDER BY `id` DESC";
+        $sql = "SELECT `id`,`titulo`,`categoria`,`dataInclusao` FROM `publicacao` ORDER BY `id` DESC";
         $statement = $this->conn->prepare($sql);
         $statement->execute();
         if (($statement) and ($statement->rowCount() != 0)) {
@@ -90,5 +90,11 @@ class PublicacaoDao
             }
             return $publicacoes;
         }
+    }
+    function pesquisaPublicacao(){
+        $sql = "SELECT * FROM `publicacao` WHERE `id`=:id";
+        $result = $this->conn->prepare($sql);
+        $result->bindParam(':id', $id_pesquisa);
+        $result->execute();
     }
 }

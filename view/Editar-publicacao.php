@@ -116,7 +116,9 @@ error_reporting(E_ERROR | E_PARSE);
                 <div class="input-group">
                   <input class=" form-control" type="hidden" id="termosId" name="termosId">
                   <input class=" form-control" type="hidden" id="texto_publicacao" name="texto_publicacao">
-                  <textarea class=" form-control" type="text" id="textoArea" name="textoArea"></textarea>
+                  <div class=" form-control" type="text" id="textoArea" name="textoArea">
+                  The three greatest things you learn from traveling
+                  </div>
                 </div>
               </div>
             </div>
@@ -147,7 +149,9 @@ error_reporting(E_ERROR | E_PARSE);
         licenseKey: '',
       })
       .then(editor => {
+        debugger
         window.editor = editor;
+        console.log(window.editor);
       })
       .catch(error => {
         console.error('Oops, something went wrong!');
@@ -155,6 +159,14 @@ error_reporting(E_ERROR | E_PARSE);
         console.warn('Build id: cuyvxs49p0ly-mzl2w7i12yeq');
         console.error(error);
       });
+      var edt = ClassicEditor.replace('textoArea', { toolbar: 'Basic' });
+CKFinder.setupCKEditor(edt, '/ckfinder/');
+
+			            var t = "aaaaaaaaaaaaaaaa";
+ 
+			            
+			            CKEDITOR.instances.editor1.setData(t);
+
   </script>
 </body>
 

@@ -43221,12 +43221,14 @@
                 t.commands.add("insertParagraph", new sR(t));
                 e.schema.register("paragraph", {
                     inheritAllFrom: "$block"
-                });       
-                t.conversion.elementToElement({  
-                                  
+                }); 
+                      
+                t.conversion.elementToElement({                
                     model: "paragraph",
-                        view: "p"       
-                });            
+                    view: "p",
+                    id: "paragrado"    
+                });   
+                       
                 t.conversion.for("upcast").elementToElement({
                     model: (t, {
                         writer: e

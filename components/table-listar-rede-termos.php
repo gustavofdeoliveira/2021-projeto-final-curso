@@ -6,11 +6,11 @@ function listarRede(){
     $redes = $redeControl->listarRedeTermos();
     $tabela_redes = '';
     for ($a = 0; $a != count($redes); $a++) {
+        $data_inclusao = new DateTime($redes[$a]['dataInclusao']);
         $tabela_redes .= '<tr id="id-publicacao">' .
             '<td class="texto-codigo">' . $redes[$a]["id"] . '</td>' .
             '<td class="texto-nome">' . $redes[$a]["nome"] . '</td>' .
-            '<td class="texto-codigo">' . $redes[$a]["descricao"] . '</td>' .
-            '<td class="texto-codigo">' . $redes[$a]["dataInclusao"] . '</td>' .
+            '<td class="texto-codigo">' . $data_inclusao->format('d/m/Y') . '</td>' .
             '<td style="text-align:center;display:flex">' .
             '<a href="../view/Ver-rede-termo.php?id=' . $redes[$a]['id'] .
             '" target="_blank"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>' .

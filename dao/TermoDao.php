@@ -78,7 +78,7 @@ class TermoDao
 
     function listarTermo()
     {
-        $sql = "SELECT `id`,`tipoTermo`,`nome`,`conceito` FROM `termo` ORDER BY `id` DESC";
+        $sql = "SELECT `id`,`tipoTermo`,`nome`,`dataInclusao` FROM `termo` ORDER BY `id` DESC";
         $statement = $this->conn->prepare($sql);
         $statement->execute();
         if (($statement) and ($statement->rowCount() != 0)) {

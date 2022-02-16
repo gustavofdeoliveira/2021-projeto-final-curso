@@ -7,11 +7,12 @@ function listarTermos()
     $termos = $termoControl->listarTermo();
     $tabela_termos = '';
     for ($a = 0; $a != count($termos); $a++) {
+        $data_inclusao = new DateTime($termos[$a]['dataInclusao']);
         $tabela_termos .= '<tr id="id-termos">' .
             '<td class="texto-codigo">' . $termos[$a]["id"] . '</td>' .
             '<td class="texto-nome">' . $termos[$a]["nome"] . '</td>' .
             '<td class="texto-codigo">' . $termos[$a]["tipo"] . '</td>' .
-            '<td class="texto-codigo">' . $termos[$a]["conceito"] . '</td>' .
+            '<td class="texto-codigo">' . $data_inclusao->format('d/m/Y') . '</td>' .
             '<td style="text-align:center;display:flex">' .
             '<a href="../view/Ver-termo.php?id=' . $termos[$a]['id'] .
             '" target="_blank"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>' .

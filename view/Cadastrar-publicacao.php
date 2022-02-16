@@ -89,7 +89,7 @@ error_reporting(E_ERROR | E_PARSE);
               <div class="form-group">
                 <label class="form-label label-criar-publicacao" for="resumo">resumo</label>
                 <div class="input-group">
-                  <textarea class="textarea input-criar-conta form-control" type="text" name="resumo"></textarea>
+                  <div class="textarea input-criar-conta form-control" type="text" name="resumo"></d>
                   <span class="error"></span>
                 </div>
               </div>

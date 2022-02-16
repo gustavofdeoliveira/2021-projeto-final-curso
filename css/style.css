@@ -1274,7 +1274,8 @@ span#resultado_pesquisa {
   background-color: var(--cor_verde);
   text-align: center;
   padding: 12px;
-  margin-right: 10px;
+  margin-right: 5px;
+  margin-left: 5px;
   border-radius: 80px;
 }
 
@@ -2049,7 +2050,8 @@ button#termo-botao {
 }
 
 tr {
-  height: 40px
+  min-height: 40px;
+  padding: 5px 0 5px 0;
 }
 
 table {
@@ -2067,6 +2069,10 @@ table {
   color: var(--cor_branca) !important;
   text-decoration: none;
   border-radius: 100px;
+  margin-top: 20px;
+  display: table;
+  line-height: inherit;
+  margin-bottom: 20px;
 }
 .fa-plus{
   font-size: 20px !important;
