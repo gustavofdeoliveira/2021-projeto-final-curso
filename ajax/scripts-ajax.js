@@ -10,42 +10,42 @@ $(document).ready(function () {
     }
 })
 
-$(document).ready(function () {
-    $.post('../ajax-php/listar-usuarios.php', function (resposta) {
-        resultado = JSON.parse(resposta);
-        listar_usuarios = document.getElementById('id-usuarios');
-        if (listar_usuarios != null) {
-            for (a = 0; a != resultado.length; a++) {
-                var nivel = '';
-                if (resultado[a]['nivel'] == 1) {
-                    nivel = '<td class="texto-codigo">' + resultado[a]['nivel'] + ' - Administrador</td>';
-                } if (resultado[a]['nivel'] == 2) {
-                    nivel = '<td class="texto-codigo">' + resultado[a]['nivel'] + ' - Professor</td>';
-                } if (resultado[a]['nivel'] == 3) {
-                    nivel = '<td class="texto-codigo">' + resultado[a]['nivel'] + ' - Aluno</td>';
-                }
-                let data = new Date(resultado[a]['dataInclusao']);
-                let dataInclusao = ((data.getDate())) + "/" + ((data.getMonth() + 1)) + "/" + data.getFullYear();
+// $(document).ready(function () {
+//     $.post('../ajax-php/listar-usuarios.php', function (resposta) {
+//         resultado = JSON.parse(resposta);
+//         listar_usuarios = document.getElementById('id-usuarios');
+//         if (listar_usuarios != null) {
+//             for (a = 0; a != resultado.length; a++) {
+//                 var nivel = '';
+//                 if (resultado[a]['nivel'] == 1) {
+//                     nivel = '<td class="texto-codigo">' + resultado[a]['nivel'] + ' - Administrador</td>';
+//                 } if (resultado[a]['nivel'] == 2) {
+//                     nivel = '<td class="texto-codigo">' + resultado[a]['nivel'] + ' - Professor</td>';
+//                 } if (resultado[a]['nivel'] == 3) {
+//                     nivel = '<td class="texto-codigo">' + resultado[a]['nivel'] + ' - Aluno</td>';
+//                 }
+//                 let data = new Date(resultado[a]['dataInclusao']);
+//                 let dataInclusao = ((data.getDate())) + "/" + ((data.getMonth() + 1)) + "/" + data.getFullYear();
 
-                document.getElementById('id-usuarios').insertAdjacentHTML('afterend',
-                    '<td class="texto-codigo">' + resultado[a]['id'] + '</td>' +
-                    '<td class="texto-nome">' + resultado[a]['nome'] + '</td>' +
-                    nivel + '<td class="texto-data">' + dataInclusao + '</td>' +
-                    '<td style="text-align:center;display:flex">' +
-                    '<form action="../control/UsuarioControl.php" method="POST" class="form-group">' +
-                    '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="atualizaNivel">' +
-                    '<button class="btn-excluir-atualizar" type="submit" name="Usuario" value="' + resultado[a]['id'] + '" >' +
-                    '<i class="fa fa-long-arrow-up" aria-hidden="true"></i></button></form>' +
+//                 document.getElementById('id-usuarios').insertAdjacentHTML('afterend',
+//                     '<td class="texto-codigo">' + resultado[a]['id'] + '</td>' +
+//                     '<td class="texto-nome">' + resultado[a]['nome'] + '</td>' +
+//                     nivel + '<td class="texto-data">' + dataInclusao + '</td>' +
+//                     '<td style="text-align:center;display:flex">' +
+//                     '<form action="../control/UsuarioControl.php" method="POST" class="form-group">' +
+//                     '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="atualizaNivel">' +
+//                     '<button class="btn-excluir-atualizar" type="submit" name="Usuario" value="' + resultado[a]['id'] + '" >' +
+//                     '<i class="fa fa-long-arrow-up" aria-hidden="true"></i></button></form>' +
 
-                    '<form action="../control/UsuarioControl.php" method="POST" class="form-group">' +
-                    '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirUsuario">' +
-                    '<button class="btn-excluir-atualizar" type="submit" name="Usuario" value="' + resultado[a]['id'] + '">' +
-                    '<i class="fa fa-trash-o" aria-hidden="true"></i></button></form></td>'
-                );
-            }
-        }
-    })
-})
+//                     '<form action="../control/UsuarioControl.php" method="POST" class="form-group">' +
+//                     '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirUsuario">' +
+//                     '<button class="btn-excluir-atualizar" type="submit" name="Usuario" value="' + resultado[a]['id'] + '">' +
+//                     '<i class="fa fa-trash-o" aria-hidden="true"></i></button></form></td>'
+//                 );
+//             }
+//         }
+//     })
+// })
 
 
 

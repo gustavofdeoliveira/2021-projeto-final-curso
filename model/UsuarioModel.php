@@ -10,6 +10,17 @@ class UsuarioModel
     private $manterLogin;
     private $fotoAvatar;
 
+    public function getUsuario($usuario){
+        for ($a = 0; $a != count($usuario); $a++) {
+            $usuarios[] =[
+                'id'=> $usuario[$a]['idUsuario'],
+                'nome' => $usuario[$a]['nomeCompleto'],
+                'nivel' => $usuario[$a]['nivelAcesso'],
+                'dataInclusao' => $usuario[$a]['dataInclusao']
+            ];
+        }
+        return $usuarios;
+    }
     /**
      * @return mixed
      */

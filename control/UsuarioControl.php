@@ -13,8 +13,10 @@ class UsuarioControl
     {
         $this->dao = new UsuarioDao();
         $this->modelo = new UsuarioModel();
-        $this->acao = $_REQUEST["acao"];
-        $this->verificaAcao();
+        if (isset($_REQUEST["acao"])) {
+            $this->acao = $_REQUEST["acao"];
+            $this->verificaAcao();
+        }
     }
 
     public function verificaAcao()
@@ -171,6 +173,11 @@ class UsuarioControl
             exit();
             // header("Location:../index.php");
         }
+    }
+    public function listarUsuario(){
+        $usuario = $this->dao->listarUsuario();
+        $usuarios = $this->modelo->getUsuario($usuario);
+        return $usuarios;
     }
 }
 new UsuarioControl();

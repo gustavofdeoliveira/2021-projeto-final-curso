@@ -221,7 +221,6 @@ class UsuarioDao
 
     function atualizarAvatar(UsuarioModel $modelo)
     {
-
         $sql = "UPDATE `usuario` SET `fotoAvatar`= '" . $modelo->getFotoAvatar() . "' WHERE `idUsuario`=:id";
         $statement = $this->conn->prepare($sql);
         $statement->bindValue("id", $modelo->getId());
@@ -234,5 +233,16 @@ class UsuarioDao
         $_SESSION['usuarioAutenticado'] = $result;
         $_SESSION["msg_sucess"] = "foto de Avatar do usuário " . $modelo->getId() . " atualizado!";
         $_SESSION["tempo_msg_sucess"] = time();
+    }
+    function listarUsuario(){
+        $query_usuarios = "SELECT `idUsuario`,`nomeCompleto`,`nivelAcesso`,`dataInclusao` FROM `usuario` ORDER BY `idUsuario` DESC";
+        $statement = $this->conn->prepare($query_usuarios);
+        $statement->execute();
+        if (($statement) and ($statement->rowCount() != 0)) {
+            while ($result = $statement->fetch(PDO::FETCH_ASSOC)) {
+                $usuarios[] = $result;
+            }
+            return $usuarios;
+        }
     }
 }
