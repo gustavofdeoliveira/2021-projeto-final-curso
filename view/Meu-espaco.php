@@ -50,10 +50,10 @@ error_reporting(E_ERROR | E_PARSE);
           } ?>
 
           <div class="row no-gutters">
-            <div class="col-xl-5">
+            <div class="col-xl">
                 <label id="sessao-meu-espaco">minhas anotações</label>
             </div>
-            <div class="col">
+            <div class="col-lg">
                 <a href="../view/Nova-anotacao.php" class="adicionar-termos"><i class="fa fa-plus"></i> nova anotação<a>
             </div>
           </div>
@@ -68,7 +68,7 @@ error_reporting(E_ERROR | E_PARSE);
           </div>
 
           <div class="row no-gutters">
-            <div class="col-xl-5">
+            <div class="col-xl">
                 <label id="sessao-meu-espaco">publicações salvas</label>
             </div>
             <div class="col">
@@ -77,7 +77,7 @@ error_reporting(E_ERROR | E_PARSE);
           </div>
 
           <div class="row no-gutters">
-            <div class="col-xl-5">
+            <div class="col-xl">
                 <label id="sessao-meu-espaco">termos salvos</label>
             </div>
             <div class="col">
