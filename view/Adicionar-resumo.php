@@ -93,7 +93,7 @@ error_reporting(E_ERROR | E_PARSE);
                    <div class="row">
                        <div class="col-xl-12">
                            <div class="input-group">
-                            <label class="form-label label-criar-publicacao" for="imagem">resumo <span id="texto-opcional">(faça upload do seu arquivo .jpg ou .png)</span></label>
+                            <label class="form-label label-criar-publicacao" for="imagem">resumo <span id="texto-opcional-menor">(faça upload do seu arquivo .jpg ou .png)</span></label>
                                 <div class="input-group">
                                     <input class="input-criar-conta form-control" type="hidden" id="file-img" name="file-img">
                                     <input type="file" x-ref="file" @change="fileName = $refs.file.files[0].name" name="img" id="img" class="d-none">
