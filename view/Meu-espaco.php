@@ -58,7 +58,7 @@ error_reporting(E_ERROR | E_PARSE);
             </div>
           </div>
 
-          <div class="row no-gutters">
+          <div class="row">
             <div class="col-xl">
                 <label id="sessao-meu-espaco">meus resumos</label>
             </div>
@@ -67,7 +67,7 @@ error_reporting(E_ERROR | E_PARSE);
             </div>
           </div>
 
-          <div class="row no-gutters">
+          <div class="row">
             <div class="col-xl">
                 <label id="sessao-meu-espaco">publicações salvas</label>
             </div>
@@ -88,6 +88,7 @@ error_reporting(E_ERROR | E_PARSE);
           <img id="icon-login-secundario" class="icon-login" src="../image/IMG-MEUESPACO.png">
 
         </div>
+   
     </div>
   </main>
   <script src="../javascript/bootstrap.bundle.min.js"></script>

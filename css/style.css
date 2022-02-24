@@ -2219,3 +2219,11 @@ label#sessao-meu-espaco{
   color: var(--cor_verde) !important;
   margin-top: 20px;
 }
+
+p#sessao-linha-tempo {
+  font-size: 25px;
+  line-height: 35px;
+  font-family: Raleway-Black;
+  color: var(--cor_vermelha) !important;
+  margin-top: 10px;
+}
