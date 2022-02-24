@@ -57,11 +57,11 @@ class PublicacaoDao
                     $statement->execute();
                 } catch (Exception $e) {
                     $_SESSION["msg_error"] = $e->getMessage();
-                    $_SESSION["msg_tempo_error"] = time();
+                    $_SESSION["tempo_msg_sucess"] = time();
                     exit();
                 }
             }
-            $_SESSION["msg_tempo_sucess"] = time();
+            $_SESSION["tempo_msg_sucess"] = time();
             $_SESSION["msg_sucess"] = "Publicação cadastrada com sucesso!";
             return $id_publicacao;
         }
@@ -79,9 +79,10 @@ class PublicacaoDao
         $_SESSION["msg_sucess"] = "Publicação " . $modelo->getId() . " excluído!";
         $_SESSION["tempo_msg_sucess"] = time();
     }
+
     function listarPublicacao()
     {
-        $sql = "SELECT `id`,`titulo`,`categoria`,`dataInclusao` FROM `publicacao` ORDER BY `id` DESC";
+        $sql = "SELECT * FROM `publicacao` ORDER BY `id` DESC";
         $statement = $this->conn->prepare($sql);
         $statement->execute();
         if (($statement) and ($statement->rowCount() != 0)) {
@@ -91,10 +92,34 @@ class PublicacaoDao
             return $publicacoes;
         }
     }
-    function pesquisaPublicacao(){
+
+    function pesquisaPublicacao(PublicacaoModel $modelo)
+    {
+        $id_pesquisa = $modelo->getId();
         $sql = "SELECT * FROM `publicacao` WHERE `id`=:id";
-        $result = $this->conn->prepare($sql);
-        $result->bindParam(':id', $id_pesquisa);
-        $result->execute();
+        $statement = $this->conn->prepare($sql);
+        $statement->bindParam(':id', $id_pesquisa);
+        $statement->execute();
+        if (($statement) and ($statement->rowCount() != 0)) {
+            $publicacao[] = $statement->fetch(PDO::FETCH_ASSOC);
+        }
+        $sql = "SELECT * FROM `publicacao_termo_rede_termos` as A 
+                    INNER JOIN `publicacao` as B ON `b`.`id` = `a`.`id_publicacao` 
+                    WHERE `a`.`id_publicacao` =:id";
+        $statement = $this->conn->prepare($sql);
+        $statement->bindParam(':id', $id_pesquisa);
+        $statement->execute();
+        if (($statement) and ($statement->rowCount() != 0)) {
+            $resultado[] = $statement->fetch(PDO::FETCH_ASSOC);
+            for($a = 0; $a != count($resultado); $a++){
+                $termos []=[
+                    'id'=> $resultado[$a]['id_termo']
+                ];
+            }
+            $_SESSION['id_termos'] = $termos;
+            $_SESSION['id_rede'] = $resultado[0]['id_rede'];
+            return $publicacao;
+        }
+        
     }
 }

@@ -1,6 +1,6 @@
-<?php
-//require_once "../dao/ResumoDao.php";
-require_once "../model/ResumoModel.php";
+<!-- <?php
+//require_once __DIR__ . "../../dao/ResumoDao.php";
+require_once __DIR__ . "../../model/ResumoModel.php";
 class ResumoControl
 {
    private $dao;
@@ -9,7 +9,7 @@ class ResumoControl
  
    function __construct()
    {
-       $this->dao = new ResumoDao();
+    //    $this->dao = new ResumoDao();
        $this->modelo = new ResumoModel();
        $this->acao = $_REQUEST["acao"];
        $this->verificaAcao();
@@ -17,9 +17,9 @@ class ResumoControl
    public function verificaAcao()
    {
        if ($this->acao) {
-           if ($this->acao == "adicionarResumo") {
-               $this->adicionarResumi();
-           }
+        //    if ($this->acao == "adicionarResumo") {
+        //        $this->adicionarResumi();
+        //    }
            if ($this->acao == "excluirResumo") {
                $this->excluirResumo();
            }
@@ -56,4 +56,4 @@ class ResumoControl
        }
    }
 }
-new ResumoControl();
+new ResumoControl(); 

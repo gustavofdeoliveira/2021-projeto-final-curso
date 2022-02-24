@@ -121,4 +121,15 @@ class RedeTermosDao
             return $redeTermos;
         }
     }
+    function pesquisaRedeTermos($id_pesquisa)
+    {
+        $sql = "SELECT * FROM `redetermos` WHERE `id` =:id";
+        $statement = $this->conn->prepare($sql);
+        $statement->bindParam(':id', $id_pesquisa);
+        $statement->execute();
+        if (($statement) and ($statement->rowCount() != 0)) {
+            $rede[] = $statement->fetch(PDO::FETCH_ASSOC);
+            return $rede;
+        }
+    }
 }

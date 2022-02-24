@@ -267,24 +267,24 @@ function habilitaCampoRedes() {
     document.getElementById("descricao").disabled = false;
 }
 
-function encodeImageFileAsURL() {
-    var filesSelected = document.getElementById("img").files;
-    if (filesSelected.length > 0) {
-        var fileToLoad = filesSelected[0];
-        var fileReader = new FileReader();
-        fileReader.onload = function (fileLoadedEvent) {
-            var srcData = fileLoadedEvent.target.result; // <--- data: base64
-            document.getElementById("file-img").value = srcData;
+// function encodeImageFileAsURL() {
+//     var filesSelected = document.getElementById("img").files;
+//     if (filesSelected.length > 0) {
+//         var fileToLoad = filesSelected[0];
+//         var fileReader = new FileReader();
+//         fileReader.onload = function (fileLoadedEvent) {
+//             var srcData = fileLoadedEvent.target.result; // <--- data: base64
+//             document.getElementById("file-img").value = srcData;
 
-        }
-        fileReader.readAsDataURL(fileToLoad);
-    }
-}
+//         }
+//         fileReader.readAsDataURL(fileToLoad);
+//     }
+// }
 
-var inputFileToLoad = document.getElementById("img");
-inputFileToLoad.addEventListener("change", function () {
-    encodeImageFileAsURL()
-});
+// var inputFileToLoad = document.getElementById("img");
+// inputFileToLoad.addEventListener("change", function () {
+//     encodeImageFileAsURL()
+// });
 
 
 var texto = document.getElementById("texto");

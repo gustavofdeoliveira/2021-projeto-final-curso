@@ -1,8 +1,10 @@
 <?php
-include_once("../database/Connection.php");
-require_once("../dao/PublicacaoDao.php");
+include_once __DIR__ . "../../database/Connection.php";
+require_once __DIR__ . "../../dao/PublicacaoDao.php";
 require_once __DIR__ . '../../components/header.php';
-error_reporting(E_ERROR | E_PARSE);
+require_once __DIR__ . '../../components/balao-rede.php';
+require_once __DIR__ . '../../components/select-categoria.php';
+require_once __DIR__ . '../../control/TermoControl.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -28,6 +30,7 @@ error_reporting(E_ERROR | E_PARSE);
 
 <body id="dark-mode">
   <?= head() ?>
+  <?php $publicacao = $_SESSION['publicacao']; ?>
   <main id="telas-navbar">
     <form action="../control/PublicacaoControl.php" method="POST" class="form-group">
       <div class="row">
@@ -48,13 +51,14 @@ error_reporting(E_ERROR | E_PARSE);
                       <div class='alert alert-success' role='alert'> <i class='fa fa-check-circle-o' aria-hidden='true'></i> {$_SESSION["msg_sucess"]}</div>              
                       </div>
                       </div>";
-          } ?>
+          }
+          ?>
           <div class="row">
             <div class="col-xl-12">
               <div class="form-group">
                 <label class="form-label label-criar-publicacao" for="titulo">título</label>
                 <div class="input-group">
-                  <input required class="input-criar-conta form-control" type="text" id="titulo" name="titulo">
+                  <input required class="input-criar-conta form-control" type="text" id="titulo" name="titulo" value="<?php echo $publicacao[0]['titulo'] ?>">
                   <span class="error"></span>
                 </div>
               </div>
@@ -65,9 +69,8 @@ error_reporting(E_ERROR | E_PARSE);
               <div class="form-group" x-data="{ fileName: '' }">
                 <label class="form-label label-criar-categoria" for="imagem">imagem</label>
                 <div class="input-group">
-                  <input class="input-criar-conta form-control" type="hidden" id="file-img" name="file-img">
-                  <input type="file" x-ref="file" @change="fileName = $refs.file.files[0].name" name="img" id="img" class="d-none">
-                  <input type="text" class="input-imagem form-control form-control-lg" x-model="fileName">
+                  <input type="file" x-ref="file" @load @change="fileName = $refs.file.files[0].name" name="imagem" id="imagem" class="d-none" value="<?php echo $publicacao[0]['imagem'] ?>">
+                  <input type="text" class="input-imagem form-control form-control-lg" value="<?php echo $publicacao[0]['imagem'] ?>" x-model="fileName">
                   <button class="browse btn btn-primary px-4" type="button" x-on:click.prevent="$refs.file.click()"><i class="fa fa-image"></i> Carregar</button>
                 </div>
               </div>
@@ -75,11 +78,7 @@ error_reporting(E_ERROR | E_PARSE);
             <div class="col-xl-6 col-lg-6">
               <div class="input-group">
                 <label class="form-label label-criar-categoria" for="categoria">categoria</label>
-                <select required class="custom-select" id="select-termo" name="categoria">
-                  <option selected>Selecionar...</option>
-                  <option value="Conteudista">Publicacão Conteudista</option>
-                  <option value="Sociológica">Atualidade Sociológica</option>
-                </select>
+                <?= verificaSelect() ?>
                 <span class="error"></span>
               </div>
             </div>
@@ -89,7 +88,7 @@ error_reporting(E_ERROR | E_PARSE);
               <div class="form-group">
                 <label class="form-label label-criar-publicacao" for="resumo">resumo</label>
                 <div class="input-group">
-                  <textarea class="textarea input-criar-conta form-control" type="text" id="resumo" name="resumo"></textarea>
+                  <textarea class="textarea input-criar-conta form-control" type="text" id="resumo" name="resumo" value="<?php echo $publicacao[0]['resumo'] ?>"><?php echo $publicacao[0]['resumo'] ?></textarea>
                   <span class="error"></span>
                 </div>
               </div>
@@ -99,10 +98,11 @@ error_reporting(E_ERROR | E_PARSE);
             <div class="col-xl-12">
               <div class="form-group">
                 <label class="form-label label-criar-publicacao" for="redeTermos">rede de termos <span id="texto-opcional">(opcional)</span></label>
+
                 <div class="input-group">
-                  <input class="input-criar-conta form-control" type="text" id="redeTermos" onkeyup="carrega_redes(this.value)" name="redeTermos">
+                  <input class="input-criar-conta form-control" type="text" id="redeTermos" onkeyup="carrega_redes(this.value)" name="redeTermos" disabled>
                   <span id="resultado_pesquisa"></span>
-                  <div class="rede-container" id="termos-container"></div>
+                  <div class="rede-container" id="termos-container"><?= retornaBalao(); ?></div>
                   <p id="texto-alerta">deixar esse campo vazio pode reduzir o alcance da sua publicação</p>
                   <input type="hidden" name="rede" class="form-control" id="rede">
                 </div>
@@ -114,10 +114,9 @@ error_reporting(E_ERROR | E_PARSE);
               <div class="form-group">
                 <label class="form-label label-criar-publicacao" for="termos">texto</label>
                 <div class="input-group">
-                  <input class=" form-control" type="hidden" id="termosId" name="termosId">
+                  <input class=" form-control" type="hidden" id="termosId" name="termosId" value="<?php echo $_SESSION['id_termos'] ?>">
                   <input class=" form-control" type="hidden" id="texto_publicacao" name="texto_publicacao">
-                  <div class=" form-control" type="text" id="textoArea" name="textoArea">
-                  The three greatest things you learn from traveling
+                  <div class="form-control" type="text" id="textoArea"  name="textoArea" innerHTML=''><?php echo $publicacao[0]["texto"]; ?>
                   </div>
                 </div>
               </div>
@@ -128,7 +127,7 @@ error_reporting(E_ERROR | E_PARSE);
           </div>
           <div class="row">
             <div class="col-md-6 col-sm-8 col-lg-6 col-lg-offset-3 col-xl-4 col-xl-offset-4 col-sm-offset-2 col-md-offset-3">
-              <input type="hidden" name="acao" value="cadastrarPublicacao">
+              <input type="hidden" name="acao" value="editarPublicacao">
               <input class="btn-publicar btn btn-lg" type="submit" onclick="pegaTexto()" value="publicar">
             </div>
           </div>
@@ -149,7 +148,6 @@ error_reporting(E_ERROR | E_PARSE);
         licenseKey: '',
       })
       .then(editor => {
-        debugger
         window.editor = editor;
         console.log(window.editor);
       })
@@ -159,14 +157,11 @@ error_reporting(E_ERROR | E_PARSE);
         console.warn('Build id: cuyvxs49p0ly-mzl2w7i12yeq');
         console.error(error);
       });
-      var edt = ClassicEditor.replace('textoArea', { toolbar: 'Basic' });
-CKFinder.setupCKEditor(edt, '/ckfinder/');
-
-			            var t = "aaaaaaaaaaaaaaaa";
- 
-			            
-			            CKEDITOR.instances.editor1.setData(t);
-
+    var edt = ClassicEditor.replace('textoArea', {
+      toolbar: 'Basic'
+    });
+    CKFinder.setupCKEditor(edt, '/ckfinder/');
+    CKEDITOR.instances.editor1.setData(t);
   </script>
 </body>
 

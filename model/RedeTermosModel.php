@@ -13,6 +13,7 @@
                  $rede[] = [
                      'id' => $redes[$a]['id'],
                      'nome' => $redes[$a]['nome'],
+                     'descricao' => $redes[$a]['descricao'],
                      'dataInclusao' => $redes[$a]['dataInclusao']
                  ];
              }

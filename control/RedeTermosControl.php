@@ -1,6 +1,6 @@
 <?php
-require_once "../dao/RedeTermosDao.php";
-require_once "../model/RedeTermosModel.php";
+require_once __DIR__ . "../../dao/RedeTermosDao.php";
+require_once __DIR__ . "../../model/RedeTermosModel.php";
 
 class RedeTermosControl
 {
@@ -90,9 +90,15 @@ class RedeTermosControl
     }
     public function listarRedeTermos()
     {
-        $redeTermos = $this->dao->listarRedeTermos();     
+        $redeTermos = $this->dao->listarRedeTermos();
         $redes = $this->modelo->getRede($redeTermos);
         return $redes;
+    }
+    public function pesquisaRedeTermos($id)
+    {
+        $rede = $this->dao->pesquisaRedeTermos($id);
+        $rede_formatada = $this->modelo->getRede($rede);
+        return $rede_formatada;
     }
 }
 new RedeTermosControl();

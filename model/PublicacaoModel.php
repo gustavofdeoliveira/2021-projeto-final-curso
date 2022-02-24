@@ -18,7 +18,12 @@ class PublicacaoModel
                 'id' => $publicao[$a]['id'],
                 'titulo' => $publicao[$a]['titulo'],
                 'categoria' => $publicao[$a]['categoria'],
-                'dataInclusao' => $publicao[$a]['dataInclusao']
+                'numeroVisualizacao' => $publicao[$a]['numeroVisualizacao'],
+                'resumo' => $publicao[$a]['resumo'],
+                'imagem' => $publicao[$a]['imagem'],
+                'texto' => base64_decode($publicao[$a]['texto']),
+                'dataInclusao' => $publicao[$a]['dataInclusao'],
+
             ];
         }
         return $publicacoes;

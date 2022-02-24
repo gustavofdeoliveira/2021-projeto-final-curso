@@ -29,7 +29,7 @@ error_reporting(E_ERROR | E_PARSE);
 <body id="dark-mode">
   <?= head() ?>
   <main id="telas-navbar">
-    <form action="../control/PublicacaoControl.php" method="POST" class="form-group">
+    <form action="../control/PublicacaoControl.php" method="POST" enctype="multipart/form-data" class="form-group">
       <div class="row">
         <div class="col-xl-12">
           <p id="titulo-criar-publicacao">criar publicação</p>
@@ -65,8 +65,7 @@ error_reporting(E_ERROR | E_PARSE);
               <div class="form-group" x-data="{ fileName: '' }">
                 <label class="form-label label-criar-categoria" for="imagem">imagem</label>
                 <div class="input-group">
-                  <input class="input-criar-conta form-control" type="hidden" id="file-img" name="file-img">
-                  <input type="file" x-ref="file" @change="fileName = $refs.file.files[0].name" name="img" id="img" class="d-none">
+                  <input type="file" x-ref="file" @change="fileName = $refs.file.files[0].name" name="imagem" id="imagem" class="d-none">
                   <input type="text" class="input-imagem form-control form-control-lg" x-model="fileName">
                   <button class="browse btn btn-primary px-4" type="button" x-on:click.prevent="$refs.file.click()"><i class="fa fa-image"></i> Carregar</button>
                 </div>
@@ -89,7 +88,7 @@ error_reporting(E_ERROR | E_PARSE);
               <div class="form-group">
                 <label class="form-label label-criar-publicacao" for="resumo">resumo</label>
                 <div class="input-group">
-                  <div class="textarea input-criar-conta form-control" type="text" name="resumo"></d>
+                  <textarea class="textarea input-criar-conta form-control" type="text" name="resumo"></textarea>
                   <span class="error"></span>
                 </div>
               </div>
@@ -114,9 +113,9 @@ error_reporting(E_ERROR | E_PARSE);
               <div class="form-group">
                 <label class="form-label label-criar-publicacao" for="termos">texto</label>
                 <div class="input-group">
-                  <input class=" form-control" type="hidden" id="termosId" name="termosId">
-                  <input class=" form-control" type="hidden" id="texto_publicacao" name="texto_publicacao">
-                  <textarea class=" form-control" type="text" id="textoArea" name="textoArea"></textarea>
+                  <input class="form-control" type="hidden" id="termosId" name="termosId">
+                  <input class="form-control" type="hidden" id="texto_publicacao" name="texto_publicacao">
+                  <textarea class="form-control" type="text" id="textoArea" name="textoArea"></textarea>
                 </div>
               </div>
             </div>
