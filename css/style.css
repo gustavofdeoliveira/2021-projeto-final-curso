@@ -2211,3 +2211,11 @@ p#text-nova-anotacao{
   color: var(--cor_verde) !important;
   margin-top: 10px;
 }
+
+label#sessao-meu-espaco{
+  font-size: 45px;
+  line-height: 35px;
+  font-family: Raleway-Black;
+  color: var(--cor_verde) !important;
+  margin-top: 20px;
+}
