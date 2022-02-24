@@ -126,10 +126,10 @@ error_reporting(E_ERROR | E_PARSE);
                         <div class="row">
                             <div class="col-xl-6 col-md-6 col-sm-12 col-lg-6 d-flex-smm">
                                 <p id="texto-avatar-atual">seu avatar atual:</p>
-                                <?php
+                                
                                 echo "
-                  <img src='{$usuario['fotoAvatar']}' id='fotAvatar' alt='Foto de Perfil' class='rounded-circle img-trocar-avatar'>";
-                                ?>
+                  <img src="<?php echo $usuario['fotoAvatar']?>" id='fotAvatar' alt='Foto de Perfil' class='rounded-circle img-trocar-avatar'>
+                                
                             </div>
                             <div class="col-xl-6 col-md-6 col-sm-12 col-lg-6">
                                 <p id="texto-trocar-foto">quer trocar de avatar?</p>
