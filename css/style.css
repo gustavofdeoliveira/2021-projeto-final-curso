@@ -965,6 +965,12 @@ span#texto-opcional {
   line-height: 31px;
 }
 
+span#texto-opcional-menor {
+  font-family: Raleway-Light-Italic;
+  font-size: 20px;
+  line-height: 31px;
+}
+
 p#texto-alerta {
   font-family: Raleway-Light-Italic;
   color: var(--color_preta);
@@ -2195,4 +2201,21 @@ table.dataTable tbody tr{
 }
 .table-publicacoes_wrapper{
   width: 100% !important;
+}
+
+p#text-nova-anotacao{
+  text-align: center;
+  font-size: 25px;
+  line-height: 35px;
+  font-family: Raleway-Light;
+  color: var(--cor_verde) !important;
+  margin-top: 10px;
+}
+
+label#sessao-meu-espaco{
+  font-size: 45px;
+  line-height: 35px;
+  font-family: Raleway-Black;
+  color: var(--cor_verde) !important;
+  margin-top: 20px;
 }
