@@ -33,6 +33,7 @@ error_reporting(E_ERROR | E_PARSE);
             <div class="row">
                 <form action='../control/UsuarioControl.php' method='POST' class="d-flex">
                     <?php
+                    $usuario = $_SESSION['usuarioAutenticado'];
                     echo "    
                     <div class='col-xl-5 col-lg-5'>
                         <div class='row pull-right'>

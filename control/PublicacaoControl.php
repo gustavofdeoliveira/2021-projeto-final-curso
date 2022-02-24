@@ -10,6 +10,7 @@ class PublicacaoControl
     function __construct()
     {
         $this->dao = new PublicacaoDao();
+        
         $this->modelo = new PublicacaoModel();
         if (isset($_REQUEST["acao"])) {
             $this->acao = $_REQUEST["acao"];
@@ -89,19 +90,18 @@ class PublicacaoControl
         try {
             $this->modelo->setId($_SESSION['publicacao'][0]['id']);
             $this->modelo->setTitulo($_POST["titulo"]);
-            print_r($this->modelo);
+            //Esse campo verifica se a imagem foi atualizada
             if (isset($_FILES["imagem"])) {
-                $tmp_img = file_get_contents($_FILES["imagem"]['name']);
+                $tmp_img = file_get_contents($_FILES["imagem"]['tmp_name']);
                 $imagem = 'data:image/png;base64,' . base64_encode($tmp_img);
-            $this->modelo->setImagem($imagem);
-                print_r($imagem);
-            }
-            $this->modelo->setImagem($_POST["imagem"]);
+                $this->modelo->setImagem($imagem);
+            } 
             $this->modelo->setCategoria($_POST["categoria"]);
             $this->modelo->setResumo($_POST["resumo"]);
             $this->modelo->setRedeTermosId($_POST["rede"]);
             $this->modelo->setTexto($_POST["texto_publicacao"]);
             $this->modelo->setTermosId($_POST["termosId"]);
+            print_r($this->modelo);
             // $id_publicacao = $this->dao->inserirPublicacao($this->modelo);
             // header("Location:../view/Ver-publicacao.php?id=" . $id_publicacao);
         } catch (\Exception $e) {

@@ -69,8 +69,8 @@ require_once __DIR__ . '../../control/TermoControl.php';
               <div class="form-group" x-data="{ fileName: '' }">
                 <label class="form-label label-criar-categoria" for="imagem">imagem</label>
                 <div class="input-group">
-                  <input type="file" x-ref="file" @load @change="fileName = $refs.file.files[0].name" name="imagem" id="imagem" class="d-none" value="<?php echo $publicacao[0]['imagem'] ?>">
-                  <input type="text" class="input-imagem form-control form-control-lg" value="<?php echo $publicacao[0]['imagem'] ?>" x-model="fileName">
+                  <input type="file" x-ref="file" @load @change="fileName = $refs.file.files[0].name" name="imagem" id="imagem" class="d-none" value="<?php print_r($publicacao[0]['imagem'] )?>">
+                  <input type="text" class="input-imagem form-control form-control-lg" x-model="fileName">
                   <button class="browse btn btn-primary px-4" type="button" x-on:click.prevent="$refs.file.click()"><i class="fa fa-image"></i> Carregar</button>
                 </div>
               </div>
@@ -114,7 +114,7 @@ require_once __DIR__ . '../../control/TermoControl.php';
               <div class="form-group">
                 <label class="form-label label-criar-publicacao" for="termos">texto</label>
                 <div class="input-group">
-                  <input class=" form-control" type="hidden" id="termosId" name="termosId" value="<?php echo $_SESSION['id_termos'] ?>">
+                  <input class=" form-control" type="hidden" id="termosId" name="termosId" value="<?php print_r($_SESSION['id_termos'] )?>">
                   <input class=" form-control" type="hidden" id="texto_publicacao" name="texto_publicacao">
                   <div class="form-control" type="text" id="textoArea"  name="textoArea" innerHTML=''><?php echo $publicacao[0]["texto"]; ?>
                   </div>
