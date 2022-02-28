@@ -2,6 +2,7 @@
 include_once __DIR__ . '../../database/Connection.php';
 require_once __DIR__ . '../../dao/UsuarioDao.php';
 require_once __DIR__ . '../../components/header.php';
+require_once __DIR__ . '../../components/footer.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -177,6 +178,7 @@ require_once __DIR__ . '../../components/header.php';
 
 
     </main>
+    <?= setFooter() ?>
     <div class="container">
 
         <div class="col-xl-4 col-xl-offset-4 col-lg-6 col-lg-offset-3 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1" id="modal-senha">

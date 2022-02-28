@@ -2,6 +2,7 @@
 include_once __DIR__ . '../../database/Connection.php"';
 require_once __DIR__ . '..dao/PublicacaoDao.php';
 require_once __DIR__ . '../../components/header.php';
+require_once __DIR__ . '../../components/footer.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -132,6 +133,7 @@ require_once __DIR__ . '../../components/header.php';
       </div>
     </form>
   </main>
+  <?= setFooter() ?>
   <script src="../plugins/build/ckeditor.js"></script>
   <script src="../plugins/build/ckeditor.js.map"></script>
   <script>

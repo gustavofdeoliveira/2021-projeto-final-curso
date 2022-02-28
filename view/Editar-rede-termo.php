@@ -2,6 +2,7 @@
 include_once __DIR__ . '../../database/Connection.php';
 require_once __DIR__ . '../../dao/RedeTermosDao.php';
 require_once __DIR__ . '../../components/header.php';
+require_once __DIR__ . '../../components/footer.php';
 error_reporting(E_ERROR | E_PARSE);
 ?>
 <!DOCTYPE html>
@@ -116,7 +117,7 @@ error_reporting(E_ERROR | E_PARSE);
             </div>
         </form>
     </main>
-
+    <?= setFooter() ?>
     <script src="../javascript/bootstrap.bundle.min.js">
     </script>
     <script src="../javascript/scripts.js"></script>

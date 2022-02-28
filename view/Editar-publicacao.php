@@ -5,6 +5,7 @@ require_once __DIR__ . '../../components/header.php';
 require_once __DIR__ . '../../components/balao-rede.php';
 require_once __DIR__ . '../../components/select-categoria.php';
 require_once __DIR__ . '../../control/TermoControl.php';
+require_once __DIR__ . '../../components/footer.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -136,6 +137,7 @@ require_once __DIR__ . '../../control/TermoControl.php';
       </div>
     </form>
   </main>
+  <?= setFooter() ?>
   <script src="../plugins/build/ckeditor.js"></script>
   <script src="../plugins/build/ckeditor.js.map"></script>
   <script src="../ajax/scripts-ajax.js"></script>

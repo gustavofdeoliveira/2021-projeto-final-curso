@@ -2,6 +2,7 @@
 include_once __DIR__ . '../../database/Connection.php';
 require_once __DIR__ . '../../dao/UsuarioDao.php';
 require_once __DIR__ . '../../components/header.php';
+require_once __DIR__ . '../../components/footer.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -48,7 +49,7 @@ require_once __DIR__ . '../../components/header.php';
 
     </div>
   </main>
-
+  <?= setFooter() ?>
   <script src="../javascript/bootstrap.bundle.min.js">
   </script>
   <script src="../javascript/scripts.js"></script>
