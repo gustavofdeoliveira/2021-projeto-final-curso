@@ -33,7 +33,7 @@ require_once("../components/table-listar-publicacao.php");
       <div class="col-xl-12">
         <div class="row">
           <div class="col-xl-12">
-            <a href="../view/Cadastrar-publicacao.php" class="adicionar-termos"><i class="fa fa-plus"></i> adicionar nova publicacao</a>
+            <a href="../view/Cadastrar-publicacao.php" class="adicionar-termos"><i class="fa fa-plus"></i> adicionar nova publicação</a>
           </div>
         </div>
         <p id="titulo-cadastrar-rede">listar publicações</p>

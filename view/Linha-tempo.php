@@ -30,13 +30,24 @@ error_reporting(E_ERROR | E_PARSE);
   <?= head() ?>
   <main id="telas-navbar">
     <div class="row">
+
       <div class="col-xl-12 col-lg-12 d-flex">
         <div class="col-xl-8 col-lg-8">
           <p id="linha-tempo">Linha do tempo</p>
           <p id="linha-info">Encontre todas as nossas publicações aqui</p>
+
+          <p id="sessao-linha-tempo">Atualidades Sociológicas</p>
+          <p id="sessao-linha-tempo">Publicações Conteudistas</p>
+          <p id="sessao-linha-tempo">Resumos da Comunidade</p>
+
         </div>
-        
-      </div>
+
+        <div class="col-xl-12">
+            <a href="../view/Cadastrar-publicacao.php" class="adicionar-termos"><i class="fa fa-plus"></i> adicionar nova publicação</a>
+        </div> 
+
+      </div>      
+
     </div>
   </main>
 
