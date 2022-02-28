@@ -1,39 +1,19 @@
 <?php
-
+require_once __DIR__ . '../../control/PublicacaoControl.php';
 require_once(realpath(dirname(__FILE__) . "/../database/Connection.php"));
 
+function verPublicacao()
+{
+    $conn = Connection::conectar();
 
-
-$id_url = $_SERVER['QUERY_STRING'];
-$url = explode("=", $id_url);
-$id_pesquisa = $url[1];
-$conn = Connection::conectar();
-
-// $id_pesquisa = 18;
-if (!empty($id_pesquisa)) {
-    $query_publicacao = "SELECT * FROM `publicacao` WHERE `id`=:id";
-    $result = $conn->prepare($query_publicacao);
-    $result->bindParam(':id', $id_pesquisa);
-    $result->execute();
-
-    if (($result) and ($result->rowCount() != 0)) {
-        while ($row_publicacao = $result->fetch(PDO::FETCH_ASSOC)) {
-            $dados['publicacao'] = [
-                'id' => $row_publicacao['id'],
-                'titulo' => $row_publicacao['titulo'],
-                'categoria' => $row_publicacao['categoria'],
-                'numeroVisualizacao' => $row_publicacao['numeroVisualizacao'],
-                'resumo' => $row_publicacao['resumo'],
-                'imagem' => $row_publicacao['imagem'],
-                'texto' => base64_decode($row_publicacao['texto']),
-                'dataInclusao' => $row_publicacao['dataInclusao']
-            ];
-        }
-    }
-
+    $id_url = $_SERVER['QUERY_STRING'];
+    $url = explode("=", $id_url);
+    $_SESSION['pesquisa'] = $url[1];
+    $publicacaoControl = new PublicacaoControl;
+    $publicacao =  $publicacaoControl->pesquisaPublicacao($_SESSION['pesquisa']);
     $query_termo = "SELECT `a`.`id`,`a`.`id_publicacao`, `a`.`id_rede`, `a`.`id_termo` FROM `publicacao_termo_rede_termos` as A INNER JOIN `publicacao` as B ON `b`.`id` = `a`.`id_publicacao` WHERE `a`.`id_publicacao` = :id";
     $result = $conn->prepare($query_termo);
-    $result->bindParam(':id', $id_pesquisa);
+    $result->bindParam(':id', $_SESSION['pesquisa']);
     $result->execute();
     if (($result) and ($result->rowCount() != 0)) {
         while ($row_id = $result->fetch(PDO::FETCH_ASSOC)) {
@@ -49,7 +29,7 @@ if (!empty($id_pesquisa)) {
         $result->execute();
 
         $row =  $result->fetch(PDO::FETCH_ASSOC);
-        $dados['redeTermos'][0] = [
+        $publicacao['redeTermos'][0] = [
             'id' => $row['id'],
             'nome' => $row['nome'],
             'descricao' => $row['descricao'],
@@ -64,7 +44,7 @@ if (!empty($id_pesquisa)) {
             $result->execute();
 
             while ($row_termo = $result->fetch(PDO::FETCH_ASSOC)) {
-                $dados['termos'][$a] = [
+                $publicacao['termos'][$a] = [
                     'id' => $row_termo['id'],
                     'nome' => $row_termo['nome']
                 ];
@@ -76,7 +56,7 @@ if (!empty($id_pesquisa)) {
     WHERE `id_rede` =:id  AND `id_publicacao` !=:id_ignorado LIMIT 3";
     $result = $conn->prepare($query_rede);
     $result->bindParam(':id', $id_rede);
-    $result->bindParam(':id_ignorado', $id_pesquisa);
+    $result->bindParam(':id_ignorado', $_SESSION['pesquisa']);
     $result->execute();
 
     if (($result) and ($result->rowCount() != 0)) {
@@ -92,7 +72,7 @@ if (!empty($id_pesquisa)) {
             $result->bindParam(':id', $id);
             $result->execute();
             while ($row_publicacao = $result->fetch(PDO::FETCH_ASSOC)) {
-                $dados['semelhantes'][$a] = [
+                $publicacao['semelhantes'][$a] = [
                     'id' => $row_publicacao['id'],
                     'titulo' => $row_publicacao['titulo'],
                     'imagem' => $row_publicacao['imagem']
@@ -100,9 +80,55 @@ if (!empty($id_pesquisa)) {
             }
         }
     }
-    $retorna = ['erro' => false, 'dados' => $dados];
-} else {
-    $retorna = ['erro' => true, 'msg' => "Erro: Nenhum usuário encontrado!"];
-}
+    if (!empty($publicacao[0]["imagem"])) {
+        $imagem = '<img id="img-publicacao" class="img-publicacao" src="' . $publicacao[0]["imagem"] . '">';
+    } else {
+        $imagem = "";
+    }
+    if (!empty($publicacao[0]['rede'])) {
+        '<p id="rede-publicacao">' . $publicacao['dados']['redeTermos'][0]['nome'] . '</p>';
+    }
+    if (!empty($publicacao['semelhantes'])) {
+        
+        $semalhantes_titulo = '<p id="texto-publicacao-semelhante">Publicações semelhantes</p>';
+        $semalhantes = '';
+        for ($a = 0; $a != count($publicacao['semelhantes']); $a++) {
+            $semalhantes .= '<img class="img-publicacao-semelhante" id="img-publicacao-semelhante" src="' . $publicacao['semelhantes'][$a]['imagem'] . '"><a class="titulo-publicacao-semelhante" target="_blank" href="//localhost/2021-projeto-final-curso/view/Ver-publicacao.php?id=' . $publicacao['semelhantes'][$a]['id'] . '">' . $publicacao['semelhantes'][$a]['titulo'] . '</a>';
+        }
+    }else{
+        $semalhantes_titulo = '';
+         $semalhantes = '';  
+    }
 
-echo json_encode($retorna);
+    return '<div class="row">
+    <div class="col-xl-8 col-lg-8">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12">
+                <p id="titulo-publicacao">' . $publicacao[0]["titulo"] . '</p>
+                <div class="row">
+                    <p id="texto-resumo">' . $publicacao[0]["resumo"] . '</p>
+                </div>
+                <div class="row">
+                    <p id="categoria-publicacao">' . $publicacao[0]["categoria"] . '</p>
+
+                    <div id="categoria-rede"></div>
+                </div>
+                <div class="row">' . $imagem . '
+                </div>
+                <div class="row">
+                    <p id="texto-publicacao">' . $publicacao[0]["texto"] . '</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-xl-4 col-lg-4">
+        <div class="row">
+            <div id="publicacao-semelhantes">
+            ' . $semalhantes_titulo . $semalhantes . '
+            </div>
+        </div>
+    </div>
+</div>';
+header("Location:../view/Ver-publicacao.php");
+}

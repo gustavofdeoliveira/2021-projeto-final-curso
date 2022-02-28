@@ -1,18 +1,18 @@
 <?php
 function verificaSelect()
 {
-    if ($_SESSION['publicacao'][0]['categoria'] == 'Publicacão Conteudista') {
-        $categoria = "Publicacão Conteudista";
-        $publicacao = "selected";
-        $atualidade = "";
+    
+    if ($_SESSION['publicacao'][0]['categoria'] == 'Publicação Conteudista') {
+        $categoria = "Publicação Conteudista";
+        $publicacao = "<option selected>Publiçacão Conteudista</option>";
+        $atualidade = "<option>Atualidade Sociológica</option>";
     }
     if ($_SESSION['publicacao'][0]['categoria'] == 'Atualidade Sociológica') {
         $categoria = "Atualidade Sociológica";
-        $atualidade = "selected";
-        $publicacao = "";
+        $atualidade = "<option selected>Atualidade Sociológica</option>";
+        $publicacao = "<option>Publicação Conteudista</option>";
     }
-    return '<select required class="custom-select" id="select-termo" name="categoria" value="' . $categoria . '">
-    <option' . $publicacao . '>Publicacão Conteudista</option>
-    <option' . $atualidade . '>Atualidade Sociológica</option>
+    return '<select required class="custom-select" id="select-termo" name="categoria" value="' . $categoria . '">'. $publicacao .'
+    '. $atualidade .'
   </select>';
 }

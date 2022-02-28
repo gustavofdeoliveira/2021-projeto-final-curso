@@ -1,8 +1,9 @@
 <?php
-include_once("../database/Connection.php");
-require_once("../dao/UsuarioDao.php");
+require_once __DIR__ . '../../database/Connection.php';
+require_once __DIR__ . '../../dao/UsuarioDao.php';
 require_once __DIR__ . '../../components/header.php';
-error_reporting(E_ERROR | E_PARSE);
+require_once __DIR__ . '../../components/ver-publicacao.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -26,38 +27,12 @@ error_reporting(E_ERROR | E_PARSE);
 
 
 <body id="dark-mode">
-    <?= head() ?>
+   
+
     <main id="telas-navbar">
         <div id="ver-publicacao">
-            <div class="row">
-                <div class="col-xl-8 col-lg-8">
-                    <div class="row">
-
-                        <div class="col-xl-12 col-lg-12">
-                            <p id="titulo-publicacao"></p>
-                            <div class="row">
-                                <p id="texto-resumo"></p>
-                            </div>
-                            <div class="row">
-                                <div id="categoria-rede"></div>
-                                <p id="categoria-publicacao"></p>
-                            </div>
-                            <div class="row">
-                                <img id="img-publicacao" class="img-publicacao" src="">
-                            </div>
-                            <div class="row">
-                                <p id="texto-publicacao"></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4">
-                    <div class="row">
-                        <div id="publicacao-semelhantes">
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?= verPublicacao(); ?>
+            
         </div>
     </main>
 

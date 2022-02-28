@@ -32,7 +32,7 @@ require_once __DIR__ . '../../control/TermoControl.php';
   <?= head() ?>
   <?php $publicacao = $_SESSION['publicacao']; ?>
   <main id="telas-navbar">
-    <form action="../control/PublicacaoControl.php" method="POST" class="form-group">
+    <form action="../control/PublicacaoControl.php" method="POST" enctype="multipart/form-data" class="form-group">
       <div class="row">
         <div class="col-xl-12">
           <p id="titulo-criar-publicacao">editar publicação</p>
@@ -58,7 +58,8 @@ require_once __DIR__ . '../../control/TermoControl.php';
               <div class="form-group">
                 <label class="form-label label-criar-publicacao" for="titulo">título</label>
                 <div class="input-group">
-                  <input required class="input-criar-conta form-control" type="text" id="titulo" name="titulo" value="<?php echo $publicacao[0]['titulo'] ?>">
+                  <input required class="input-criar-conta form-control" type="text" id="titulo" name="titulo" value="<?php echo $publicacao[0]['titulo'] ?>" disabled>
+                  <i class="editar-publicacao fa fa-pencil-square-o" aria-hidden="true" onclick="ativaCampo(titulo)"></i>
                   <span class="error"></span>
                 </div>
               </div>
@@ -69,7 +70,7 @@ require_once __DIR__ . '../../control/TermoControl.php';
               <div class="form-group" x-data="{ fileName: '' }">
                 <label class="form-label label-criar-categoria" for="imagem">imagem</label>
                 <div class="input-group">
-                  <input type="file" x-ref="file" @load @change="fileName = $refs.file.files[0].name" name="imagem" id="imagem" class="d-none" value="<?php print_r($publicacao[0]['imagem'] )?>">
+                  <input type="file" x-ref="file" @change="fileName = $refs.file.files[0].name" name="imagem" id="imagem" class="d-none">
                   <input type="text" class="input-imagem form-control form-control-lg" x-model="fileName">
                   <button class="browse btn btn-primary px-4" type="button" x-on:click.prevent="$refs.file.click()"><i class="fa fa-image"></i> Carregar</button>
                 </div>
@@ -88,7 +89,8 @@ require_once __DIR__ . '../../control/TermoControl.php';
               <div class="form-group">
                 <label class="form-label label-criar-publicacao" for="resumo">resumo</label>
                 <div class="input-group">
-                  <textarea class="textarea input-criar-conta form-control" type="text" id="resumo" name="resumo" value="<?php echo $publicacao[0]['resumo'] ?>"><?php echo $publicacao[0]['resumo'] ?></textarea>
+                  <textarea class="textarea input-criar-conta form-control" type="text" id="resumo" name="resumo" value="<?php echo $publicacao[0]['resumo'] ?>" disabled><?php echo $publicacao[0]['resumo'] ?></textarea>
+                  <i class="editar-publicacao fa fa-pencil-square-o" aria-hidden="true" onclick="ativaCampo(resumo)"></i>
                   <span class="error"></span>
                 </div>
               </div>
@@ -104,7 +106,7 @@ require_once __DIR__ . '../../control/TermoControl.php';
                   <span id="resultado_pesquisa"></span>
                   <div class="rede-container" id="termos-container"><?= retornaBalao(); ?></div>
                   <p id="texto-alerta">deixar esse campo vazio pode reduzir o alcance da sua publicação</p>
-                  <input type="hidden" name="rede" class="form-control" id="rede">
+                  <input type="hidden" name="rede" class="form-control" value="<?php print_r($_SESSION['id_rede'])?>" id="rede">
                 </div>
               </div>
             </div>
@@ -114,9 +116,8 @@ require_once __DIR__ . '../../control/TermoControl.php';
               <div class="form-group">
                 <label class="form-label label-criar-publicacao" for="termos">texto</label>
                 <div class="input-group">
-                  <input class=" form-control" type="hidden" id="termosId" name="termosId" value="<?php print_r($_SESSION['id_termos'] )?>">
-                  <input class=" form-control" type="hidden" id="texto_publicacao" name="texto_publicacao">
-                  <div class="form-control" type="text" id="textoArea"  name="textoArea" innerHTML=''><?php echo $publicacao[0]["texto"]; ?>
+                  <input class=" form-control" type="hidden" id="termosId" name="termosId" value="<?php for($a=0;$a!=count($_SESSION['id_termos']);$a++){ echo $_SESSION['id_termos'][$a].",";} ?>">
+                  <input class=" form-control" type="hidden" id="texto_publicacao" name="texto_publicacao"><div class="form-control" type="text" id="textoArea" name="textoArea" innerHTML=''><?php echo $publicacao[0]["texto"]; ?>
                   </div>
                 </div>
               </div>
@@ -128,7 +129,7 @@ require_once __DIR__ . '../../control/TermoControl.php';
           <div class="row">
             <div class="col-md-6 col-sm-8 col-lg-6 col-lg-offset-3 col-xl-4 col-xl-offset-4 col-sm-offset-2 col-md-offset-3">
               <input type="hidden" name="acao" value="editarPublicacao">
-              <input class="btn-publicar btn btn-lg" type="submit" onclick="pegaTexto()" value="publicar">
+              <input class="btn-publicar btn btn-lg" type="submit"  onclick="validaSubmiti()" value="publicar">
             </div>
           </div>
         </div>

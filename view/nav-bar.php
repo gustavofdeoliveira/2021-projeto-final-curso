@@ -1,7 +1,6 @@
 <?php
-include_once("../database/Connection.php");
-require_once("../dao/UsuarioDao.php");
-error_reporting(E_ERROR | E_PARSE);
+include_once __DIR__ . '../../database/Connection.php';
+require_once __DIR__ . '../../dao/UsuarioDao.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

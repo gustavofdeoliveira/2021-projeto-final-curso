@@ -82,7 +82,7 @@ function verifica_nivel($usuario, $SERVIDOR)
         </a>                   
         <a>
             <span class="ion-ios-list-outline"></span>
-                <form action=".'.$SERVIDOR.'./control/UsuarioControl.php" method="POST" class="form-group">
+                <form action="'.$SERVIDOR.'./control/UsuarioControl.php" method="POST" class="form-group">
                     <div class="d-flex pull-right btn-sair">
                         <input type="hidden" name="acao" value="sair">
                         <input class="input-sair" type="submit" value="Sair">

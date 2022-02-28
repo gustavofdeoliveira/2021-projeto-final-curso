@@ -22,8 +22,8 @@ function listarPublicacao(){
             '<i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></form>'.
 
             '<form action="../control/PublicacaoControl.php" method="POST" class="form-group">' .
-            '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirTermo">' .
-            '<button class="btn-excluir-atualizar" type="submit" name="Termo" value="' . $publicacao[$a]['id'] . '">' .
+            '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirPublicacao">' .
+            '<button class="btn-excluir-atualizar" type="submit" name="idPublicacao" value="' . $publicacao[$a]['id'] . '">' .
             '<i class="fa fa-trash-o" aria-hidden="true"></i></button></form></td>' .
             '</tr>';
     }

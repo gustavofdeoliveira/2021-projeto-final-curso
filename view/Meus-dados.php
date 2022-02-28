@@ -1,8 +1,7 @@
 <?php
-include_once("../database/Connection.php");
-require_once("../dao/UsuarioDao.php");
+include_once __DIR__ . '../../database/Connection.php';
+require_once __DIR__ . '../../dao/UsuarioDao.php';
 require_once __DIR__ . '../../components/header.php';
-error_reporting(E_ERROR | E_PARSE);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -34,10 +33,10 @@ error_reporting(E_ERROR | E_PARSE);
                 <form action='../control/UsuarioControl.php' method='POST' class="d-flex">
                     <?php
                     $usuario = $_SESSION['usuarioAutenticado'];
-                    echo "    
+                       ?>
                     <div class='col-xl-5 col-lg-5'>
                         <div class='row pull-right'>
-                            <img src='{$usuario['fotoAvatar']}' alt='Foto de Usuário' class='rounded-circle img-meus-dados'>
+                            <img src='<?php echo $usuario['fotoAvatar']?>' alt='Foto de Usuário' class='rounded-circle img-meus-dados'>
                         </div>
                     </div> 
                     <div class='col-xl-7 col-lg-7'>
@@ -47,7 +46,7 @@ error_reporting(E_ERROR | E_PARSE);
                                 <div class='form-group'>
                                     <label class='form-label label-criar-publicacao' for='nomeCompleto'>nome completo</span></label>
                                     <div class='input-group'>
-                                        <input class='input-criar-conta form-control' value='{$usuario['nomeCompleto']}' type='text' id='nomeCompleto' name='nomeCompleto' disabled>
+                                        <input class='input-criar-conta form-control' value='<?php echo $usuario['nomeCompleto']?>' type='text' id='nomeCompleto' name='nomeCompleto' disabled>
                                         <i class='editar fa fa-pencil-square-o' aria-hidden='true' onclick='ativaCampo(nomeCompleto)'></i>
                                     </div>
                                 </div>
@@ -58,7 +57,7 @@ error_reporting(E_ERROR | E_PARSE);
                                 <div class='form-group'>
                                     <label class='form-label label-criar-publicacao' for='nomeUsuario'>nome de usuário</span></label>
                                     <div class='input-group'>
-                                        <input class='input-criar-conta form-control' type='text' id='nomeUsuario' value='{$usuario['nomeUsuario']}' name='nomeUsuario' disabled>
+                                        <input class='input-criar-conta form-control' type='text' id='nomeUsuario' value='<?php echo $usuario['nomeUsuario']?>' name='nomeUsuario' disabled>
                                         <i class='editar fa fa-pencil-square-o' aria-hidden='true' onclick='ativaCampo(nomeUsuario)''></i>
                                     </div>
                                 </div>
@@ -69,12 +68,12 @@ error_reporting(E_ERROR | E_PARSE);
                                 <div class='form-group'>
                                     <label class='form-label label-criar-publicacao' for='email'>e-mail</span></label>
                                     <div class='input-group'>
-                                        <input class='input-criar-conta form-control' type='text' value='{$usuario['email']}' id='email' name='email' disabled>
+                                        <input class='input-criar-conta form-control' type='text' value='<?php echo $usuario['email']?>' id='email' name='email' disabled>
                                         <i class='editar fa fa-pencil-square-o' aria-hidden='true' onclick='ativaCampo(email)'></i>
                                     </div>
                                 </div>
                             </div>
-                        "; ?>
+                        
                     <div class="row ">
                         <div class="col-xl-10 col-lg-9 col-md-12">
                             <div class="row d-flex">
@@ -113,7 +112,7 @@ error_reporting(E_ERROR | E_PARSE);
                 </form>
             </div>
         </div>
-        <form action="../control/UsuarioControl.php" method="POST" class="form-group">
+        <form action="../control/UsuarioControl.php" method="POST" enctype="multipart/form-data" class="form-group">
             <div class="col-xl-8 col-xl-offset-2 col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1" id="modal-avatar">
                 <div class="row">
                     <div class="col-xl-12">

@@ -12,7 +12,7 @@ function verifica_configuracao($usuario,$SERVIDOR){
                      . $nivel = verifica_nivel($usuario, $SERVIDOR) .'
                   </div>
               </div>
-            <form action="../control/UsuarioControl.php" method="POST" class="form-group">
+            <form action="'.$SERVIDOR.'/control/UsuarioControl.php" method="POST" class="form-group">
             <div class="col-xl-8 col-xl-offset-2 col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1" id="modal-avatar">
                 <div class="row">
                 <div class="col-xl-12">

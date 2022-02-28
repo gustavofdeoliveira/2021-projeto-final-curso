@@ -1,8 +1,7 @@
 <?php
-include_once("../database/Connection.php");
-require_once("../dao/TermoDao.php");
+include_once __DIR__ . '../../database/Connection.php';
+require_once __DIR__ . '../../dao/TermoDao.php';
 require_once __DIR__ . '../../components/header.php';
-error_reporting(E_ERROR | E_PARSE);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

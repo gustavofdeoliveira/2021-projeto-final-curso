@@ -64,7 +64,7 @@ class RedeTermosControl
     public function excluirTermo()
     {
         try {
-            $this->modelo->setId($_POST["idTermo"]);
+            $this->modelo->setId($_POST["idRede"]);
             $id = $this->dao->excluirTermo($this->modelo);
             header("Location:../view/Editar-rede-termo.php?id=" . $id);
         } catch (\Exception $e) {
@@ -85,7 +85,7 @@ class RedeTermosControl
         } catch (\Exception $e) {
             $_SESSION["msg_error"] = $e->getMessage();
             $_SESSION["tempo_msg_error"] = time();
-            // header("Location:../view/Editar-rede-termo.php");
+            header("Location:../view/Editar-rede-termo.php");
         }
     }
     public function listarRedeTermos()

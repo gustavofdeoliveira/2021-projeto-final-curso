@@ -1550,6 +1550,13 @@ div#texto-usuario {
   font-size: 30px !important;
   z-index: 10;
 }
+.editar-publicacao{
+  position: absolute;
+  right: 5px;
+  margin-top: 5px;
+  font-size: 30px !important;
+  z-index: 10;
+}
 
 p#meus-dados {
   font-size: 65px;

@@ -192,40 +192,6 @@ function fecharRedeBalao(id) {
 }
 
 
-
-//Carrega publicação
-$(document).ready(function () {
-    var url = window.location.href;
-    var valores_url = url.split("=");
-    $.post('../ajax-php/ver-publicacao.php?id=' + valores_url[1], function (resposta) {
-        resultado = JSON.parse(resposta);
-        var ver_publicacao = document.getElementById("ver-publicacao");
-        if (ver_publicacao != null) {
-            debugger
-            console.log(resultado);
-            document.getElementById('titulo-publicacao').insertAdjacentHTML('afterbegin', resultado['dados']['publicacao']['titulo']);
-            document.getElementById('categoria-publicacao').insertAdjacentHTML('afterbegin', resultado['dados']['publicacao']['categoria']);
-            document.getElementById('img-publicacao').src = resultado['dados']['publicacao']['imagem'];
-            document.getElementById('texto-resumo').insertAdjacentHTML('afterbegin',  + resultado['dados']['publicacao']['resumo']);
-            document.getElementById('texto-publicacao').insertAdjacentHTML('afterbegin', resultado['dados']['publicacao']['texto']);
-            if (resultado['dados']['redeTermos'][0]['nome'] != null) {
-                document.getElementById('categoria-publicacao').insertAdjacentHTML('afterend', '<p id="rede-publicacao">' + resultado['dados']['redeTermos'][0]['nome'] + '</p>');
-            }
-            if (resultado['dados']['semelhantes'].length != 0) {
-                document.getElementById('publicacao-semelhantes').insertAdjacentHTML('afterbegin', '<p id="texto-publicacao-semelhante">Publicações semelhantes</p>')
-                for (a = 0; a != resultado['dados']['semelhantes'].length; a++) {
-                    document.getElementById('texto-publicacao-semelhante').insertAdjacentHTML('afterend', '<img class="img-publicacao-semelhante" id="img-publicacao-semelhante" src="' + resultado['dados']['semelhantes'][a]['imagem'] + '">')
-                    document.getElementById('img-publicacao-semelhante').insertAdjacentHTML('afterend', '<a class="titulo-publicacao-semelhante" target="_blank" href="//localhost/2021-projeto-final-curso/view/Ver-publicacao.php?id=' + resultado['dados']['semelhantes'][a]['id'] + '">' + resultado['dados']['semelhantes'][a]['titulo'] + '</a>')
-
-                }
-            }
-        }
-    })
-})
-
-//Carrega publicação para editar
-
-
 //Ver rede de termos
 $(document).ready(function () {
     var url = window.location.href;

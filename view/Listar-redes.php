@@ -1,8 +1,8 @@
 <?php
-include_once("../database/Connection.php");
-require_once("../dao/UsuarioDao.php");
-require_once('../components/header.php');
-require_once("../components/table-listar-rede-termos.php");
+include_once __DIR__ . '../../database/Connection.php';
+require_once __DIR__ . '../../dao/UsuarioDao.php';
+require_once __DIR__ . '../../components/header.php';
+require_once __DIR__ . '../../components/table-listar-rede-termos.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

@@ -17,8 +17,8 @@ function listarRede(){
             '<a href="../view/Editar-rede-termo.php?id=' . $redes[$a]['id'] .
             '"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>' .
             '<form action="../control/RedeTermosControl.php" method="POST" class="form-group">' .
-            '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirTermo">' .
-            '<button class="btn-excluir-atualizar" type="submit" name="Termo" value="' . $redes[$a]['id'] . '">' .
+            '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirRede">' .
+            '<button class="btn-excluir-atualizar" type="submit" name="idRede" value="' . $redes[$a]['id'] . '">' .
             '<i class="fa fa-trash-o" aria-hidden="true"></i></button></form></td>' .
             '</tr>';
     }

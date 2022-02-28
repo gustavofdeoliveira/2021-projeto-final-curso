@@ -1,8 +1,7 @@
 <?php
-include_once("../database/Connection.php");
-require_once("../dao/PublicacaoDao.php");
+include_once __DIR__ . '../../database/Connection.php"';
+require_once __DIR__ . '..dao/PublicacaoDao.php';
 require_once __DIR__ . '../../components/header.php';
-error_reporting(E_ERROR | E_PARSE);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -76,7 +75,7 @@ error_reporting(E_ERROR | E_PARSE);
                 <label class="form-label label-criar-categoria" for="categoria">categoria</label>
                 <select required class="custom-select" id="select-termo" name="categoria">
                   <option selected>Selecionar...</option>
-                  <option value="Publicacão Conteudista">Publicacão Conteudista</option>
+                  <option value="Publicação Conteudista">Publicação Conteudista</option>
                   <option value="Atualidade Sociológica">Atualidade Sociológica</option>
                 </select>
                 <span class="error"></span>

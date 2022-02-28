@@ -97,6 +97,7 @@ class UsuarioControl
     {
         try {
             $this->dao->sairUsuario();
+            header("Location:../index.php");
         } catch (\Exception $e) {
             print_r($e->getMessage());
             header("Location:../view/index.php");
@@ -169,9 +170,7 @@ class UsuarioControl
         } catch (\Exception $e) {
             $_SESSION["msg_error"] = $e->getMessage();
             $_SESSION["tempo_msg_error"] = time();
-            print_r($_SESSION["msg_error"]);
-            exit();
-            // header("Location:../index.php");
+             header("Location:../index.php");
         }
     }
     public function listarUsuario(){

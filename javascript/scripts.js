@@ -266,33 +266,25 @@ function habilitaCampoRedes() {
     document.getElementById("nome").disabled = false;
     document.getElementById("descricao").disabled = false;
 }
-
-// function encodeImageFileAsURL() {
-//     var filesSelected = document.getElementById("img").files;
-//     if (filesSelected.length > 0) {
-//         var fileToLoad = filesSelected[0];
-//         var fileReader = new FileReader();
-//         fileReader.onload = function (fileLoadedEvent) {
-//             var srcData = fileLoadedEvent.target.result; // <--- data: base64
-//             document.getElementById("file-img").value = srcData;
-
-//         }
-//         fileReader.readAsDataURL(fileToLoad);
-//     }
-// }
-
-// var inputFileToLoad = document.getElementById("img");
-// inputFileToLoad.addEventListener("change", function () {
-//     encodeImageFileAsURL()
-// });
-
+function habilitaCampoPublicacao() {
+    debugger
+    document.getElementById("titulo").disabled = false;
+    document.getElementById("resumo").disabled = false;
+}
 
 var texto = document.getElementById("texto");
 function pegaTexto() {
+    debugger
     document.getElementById("texto_publicacao").value = document.getElementById("texto").innerHTML;
 }
 
 function mudarAvatar(id) {
     document.getElementById("fotAvatar").src = "http://localhost/2021-projeto-final-curso/image/avatares/Avatar-" + id + ".png";
     document.getElementById("fotoAvatar").value = "http://localhost/2021-projeto-final-curso/image/avatares/Avatar-" + id + ".png";
+}
+
+function validaSubmiti(){
+    debugger
+    habilitaCampoPublicacao();
+    pegaTexto();
 }

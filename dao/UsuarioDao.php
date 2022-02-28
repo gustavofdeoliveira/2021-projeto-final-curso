@@ -99,7 +99,6 @@ class UsuarioDao
     function sairUsuario()
     {
         unset($_SESSION['usuarioAutenticado']);
-        header("Location:../index.php");
     }
 
     function atualizarNivel(UsuarioModel $modelo)
