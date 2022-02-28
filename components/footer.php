@@ -1,14 +1,14 @@
 <?php
 
-function setFooter():string
+
+function setFooter()
 {
     require_once(realpath($_SERVER["DOCUMENT_ROOT"]).'/2021-projeto-final-curso/config.php');
-
     return '<footer>
     <hr>
     <div class="row" style="justify-content: center;">
       <div class="col-lg-2 col-xl-2">
-        <a class="navbar-brand pull-right" href="'.$SERVIDOR.'/index.php"><img id="img-logo" class="navbar-footer-img-logo" src="image/Logo-claro.png"></a>
+        <a class="navbar-brand pull-right" href="' . $SERVIDOR . '/index.php"><img id="img-logo" class="navbar-footer-img-logo" src="image/Logo-claro.png"></a>
       </div>
       <div class="col-lg-8 col-xl-8">
         <nav class="navbar navbar-expand-lg w-100">
@@ -21,16 +21,16 @@ function setFooter():string
                 <div class="row">
                   <ul class="navbar-footer">
                     <li class="nav-item">
-                      <a class="nav-link" aria-current="page" href="'.$SERVIDOR.'/index.php">Início</a>
+                      <a class="nav-link" aria-current="page" href="' . $SERVIDOR . '/index.php">Início</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="'.$SERVIDOR.'/view/Linha-tempo.php">Linha do Tempo</a>
+                      <a class="nav-link" href="' . $SERVIDOR . '/view/Linha-tempo.php">Linha do Tempo</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="'.$SERVIDOR.'/view/Sobre-Nos.php">Sobre Nós</a>
+                      <a class="nav-link" href="' . $SERVIDOR . '/view/Sobre-Nos.php">Sobre Nós</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="'.$SERVIDOR.'/view/Biblioteca.php">Biblioteca</a>
+                      <a class="nav-link" href="' . $SERVIDOR . '/view/Biblioteca.php">Biblioteca</a>
                     </li>
 
                   </ul>

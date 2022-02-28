@@ -4,8 +4,6 @@ include_once __DIR__ . '../../database/Connection.php';
 require_once __DIR__ . '../../dao/UsuarioDao.php';
 require_once __DIR__ . '../../components/header.php';
 require_once __DIR__ . '../../components/footer.php';
-
-error_reporting(E_ERROR | E_PARSE);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -26,8 +24,8 @@ error_reporting(E_ERROR | E_PARSE);
 
 
 <body id="dark-mode">
-  <?= head() ?>
-  <main id="container">
+  
+<main id="container">
     <div class="col-xl-12 col-lg-12">
       <div class="row">
         <div class="col-xl-8">
@@ -153,7 +151,8 @@ error_reporting(E_ERROR | E_PARSE);
       </div>
     </form>
   </main>
-  <?= setFooter() ?>
+  <?= setFooter()?>
+  <?= setFooter()?>
   <script src="../javascript/bootstrap.bundle.min.js">
   </script>
   <script src="../javascript/scripts.js"></script>
