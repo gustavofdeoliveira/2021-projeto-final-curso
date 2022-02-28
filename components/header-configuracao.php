@@ -1,7 +1,11 @@
 <?php
-function verifica_configuracao($usuario,$SERVIDOR){
-    if(!empty($usuario)){
-        return'
+require_once(realpath($_SERVER["DOCUMENT_ROOT"]) . '/2021-projeto-final-curso/config.php');
+
+function verifica_configuracao($usuario)
+{
+
+    if (!empty($usuario)) {
+        return '
         <div class="header-tools ion-ios-navicon pull-right">
             <i class="fa fa-cog" aria-hidden="true"></i>
         </div> 
@@ -9,10 +13,10 @@ function verifica_configuracao($usuario,$SERVIDOR){
             <div class="sidebar-overlay animated fadeOut"></div>
                 <div class="sidebar-content">
                     <p id="configuracao">Configurações</p>'
-                     . $nivel = verifica_nivel($usuario, $SERVIDOR) .'
+            . $nivel = verifica_nivel($usuario, $_SESSION['SERVIDOR']) . '
                   </div>
               </div>
-            <form action="'.$SERVIDOR.'/control/UsuarioControl.php" method="POST" class="form-group">
+            <form action="' . $_SESSION['SERVIDOR'] . '/control/UsuarioControl.php" method="POST" class="form-group">
             <div class="col-xl-8 col-xl-offset-2 col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1" id="modal-avatar">
                 <div class="row">
                 <div class="col-xl-12">
@@ -33,27 +37,27 @@ function verifica_configuracao($usuario,$SERVIDOR){
                         <input type="hidden" id="fotoAvatar" name="fotoAvatar">
                         <div class="row">
                         <div class="col-md-4 col-lg-4 col-sm-4 col-xl-4" id="escolher-avatar" onclick="mudarAvatar(3)">
-                            <img src="'.$SERVIDOR.'/image/avatares/Avatar-3.png" id="3" alt="Foto do Avatar"  class="rounded-circle img-icone-avatar">
+                            <img src="' . $_SESSION['SERVIDOR'] . '/image/avatares/Avatar-3.png" id="3" alt="Foto do Avatar"  class="rounded-circle img-icone-avatar">
                             <p id="avatar-nome">Émile<br><span>Durkheim</span></p>
                         </div>
                         <div class="col-md-4 col-lg-4 col-sm-4 col-xl-4" id="escolher-avatar" onclick="mudarAvatar(6)">
-                            <img src="'.$SERVIDOR.'/image/avatares/Avatar-6.png" id="6" alt="Foto do Avatar" class="rounded-circle img-icone-avatar">
+                            <img src="' . $_SESSION['SERVIDOR'] . '/image/avatares/Avatar-6.png" id="6" alt="Foto do Avatar" class="rounded-circle img-icone-avatar">
                             <p id="avatar-nome">Max<br><span>Weber</span></p>
                         </div>
                         <div class="col-md-4 col-lg-4 col-sm-4 col-xl-4" id="escolher-avatar" onclick="mudarAvatar(4)">
-                            <img src="'.$SERVIDOR.'/image/avatares/Avatar-4.png" id="4" alt="Foto do Avatar" class="rounded-circle img-icone-avatar">
+                            <img src="' . $_SESSION['SERVIDOR'] . '/image/avatares/Avatar-4.png" id="4" alt="Foto do Avatar" class="rounded-circle img-icone-avatar">
                             <p id="avatar-nome">Karl<br><span>Marx</span></p>
                         </div>
                         <div class="col-md-4 col-lg-4 col-sm-4 col-xl-4" id="escolher-avatar" onclick="mudarAvatar(5)">
-                            <img src="'.$SERVIDOR.'/image/avatares/Avatar-5.png" id="5" alt="Foto do Avatar" class="rounded-circle img-icone-avatar">
+                            <img src="' . $_SESSION['SERVIDOR'] . '/image/avatares/Avatar-5.png" id="5" alt="Foto do Avatar" class="rounded-circle img-icone-avatar">
                             <p id="avatar-nome">Simone de<br><span>Beauvoir</span></p>
                         </div>
                         <div class="col-md-4 col-lg-4 col-sm-4 col-xl-4" id="escolher-avatar" onclick="mudarAvatar(2)">
-                            <img src="'.$SERVIDOR.'/image/avatares/Avatar-2.png" id="2" alt="Foto do Avatar" class="rounded-circle img-icone-avatar">
+                            <img src="' . $_SESSION['SERVIDOR'] . '/image/avatares/Avatar-2.png" id="2" alt="Foto do Avatar" class="rounded-circle img-icone-avatar">
                             <p id="avatar-nome">Auguste<br><span>Comte</span></p>
                         </div>
                         <div class="col-md-4 col-lg-4 col-sm-4 col-xl-4" id="escolher-avatar" onclick="mudarAvatar(1)">
-                            <img src="'.$SERVIDOR.'/image/avatares/Avatar-1.png" id="1" alt="Foto do Avatar" class="rounded-circle img-icone-avatar">
+                            <img src="' . $_SESSION['SERVIDOR'] . '/image/avatares/Avatar-1.png" id="1" alt="Foto do Avatar" class="rounded-circle img-icone-avatar">
                             <p id="avatar-nome">Zygmund<br><span>Bauman</span></p>
                         </div>
                         </div>

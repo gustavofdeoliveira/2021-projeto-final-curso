@@ -23,7 +23,7 @@ function head(): string
         <div class="col-xl-12 col-lg-12 col-md-12 ">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="col-xl-3 col-md-4 col-sm-10 col-sm-offset-1 col-lg-3">
-                    <a class="navbar-brand" href="'.$SERVIDOR.'/index.php"><img id="img-logo" class="navbar-img-logo" src="'.$SERVIDOR.'/image/Logo-claro.png"></a>
+                    <a class="navbar-brand" href="'.$_SESSION['SERVIDOR'].'/index.php"><img id="img-logo" class="navbar-img-logo" src="'.$_SESSION['SERVIDOR'].'/image/Logo-claro.png"></a>
                 </div>
                 <div class=" col-xl-9 col-md-8 col-sm-10 col-sm-offset-1 col-lg-9">
                     <form class="d-flex">
@@ -49,18 +49,18 @@ function head(): string
                             <div class="row">
                                 <ul class="navbar-nav">
                                     <li class="nav-item">
-                                        <a class="nav-link" aria-current="page" href="'.$SERVIDOR.'/index.php">Início</a>
+                                        <a class="nav-link" aria-current="page" href="'.$_SESSION['SERVIDOR'].'/index.php">Início</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="'.$SERVIDOR.'/view/Linha-tempo.php">Linha do Tempo</a>
+                                        <a class="nav-link" href="'.$_SESSION['SERVIDOR'].'/view/Linha-tempo.php">Linha do Tempo</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="'.$SERVIDOR.'/view/Sobre-Nos.php">Sobre Nós</a>
+                                        <a class="nav-link" href="'.$_SESSION['SERVIDOR'].'/view/Sobre-Nos.php">Sobre Nós</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="'.$SERVIDOR.'/view/Biblioteca.php">Biblioteca</a>
+                                        <a class="nav-link" href="'.$_SESSION['SERVIDOR'].'/view/Biblioteca.php">Biblioteca</a>
                                     </li>' 
-                                    . $isLogado = verifica_login($usuario, $SERVIDOR). ' 
+                                    . $isLogado = verifica_login($usuario, $_SESSION['SERVIDOR']). ' 
                                 </ul>
                             </div>
                         </div>
@@ -72,6 +72,6 @@ function head(): string
             </div>
         </li>
         
-    '.$configuracoes = verifica_configuracao($usuario,$SERVIDOR).'
+    '.$configuracoes = verifica_configuracao($usuario,$_SESSION['SERVIDOR']).'
 </header>';
 }

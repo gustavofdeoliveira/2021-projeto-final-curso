@@ -1,4 +1,5 @@
 <?php
+require_once(realpath($_SERVER["DOCUMENT_ROOT"]).'/2021-projeto-final-curso/config.php');
 
 function verifica_notificacao(array $notificacoes, $numeroNotificacoes)
 {

@@ -1,12 +1,14 @@
 <?php
-function verifica_nivel($usuario, $SERVIDOR)
+require_once(realpath($_SERVER["DOCUMENT_ROOT"]).'/2021-projeto-final-curso/config.php');
+
+function verifica_nivel($usuario)
 {
     if(!empty($usuario)){
     $isAdmin = '';
     if ($usuario["nivelAcesso"] == 3) {
         $nivel = '
     <div class="nav-left">
-        <a href="'.$SERVIDOR.'view/Meus-dados.php" class="btn-tools"><span class="ion-ios-home-outline"></span>Meus Dados</a>
+        <a href="'.$_SESSION['SERVIDOR'].'view/Meus-dados.php" class="btn-tools"><span class="ion-ios-home-outline"></span>Meus Dados</a>
         <a class="btn-tools"><span class="ion-ios-list-outline"></span>Sugerir Termo</a>
         <a class="btn-tools" id="modalAvatar"><span class="ion-ios-list-outline"></span>Alterar Avatar</a> 
         <a class="btn-tools" id="dark-mode-toggle"><span class="ion-ios-list-outline"></span>
@@ -20,7 +22,7 @@ function verifica_nivel($usuario, $SERVIDOR)
         </div>     
     </a>
         <a><span class="ion-ios-list-outline"></span>
-            <form action="'.$SERVIDOR.'/control/UsuarioControl.php" method="POST" class="form-group">
+            <form action="'.$_SESSION['SERVIDOR'].'/control/UsuarioControl.php" method="POST" class="form-group">
                 <div class="d-flex pull-right btn-sair">
                     <input type="hidden" name="acao" value="sair">
                     <input class="input-sair" type="submit" value="Sair">
@@ -38,10 +40,10 @@ function verifica_nivel($usuario, $SERVIDOR)
         $nivel = '
     <div class="nav-left">
         <div id="texto-usuario">Usuário</div>
-            <a href="'.$SERVIDOR.'/view/Meus-dados.php" class="btn-tools"><span class="ion-ios-home-outline"></span>Meus Dados</a>';
+            <a href="'.$_SESSION['SERVIDOR'].'/view/Meus-dados.php" class="btn-tools"><span class="ion-ios-home-outline"></span>Meus Dados</a>';
         if ($usuario["nivelAcesso"] == 1) {
             $isAdmin = '
-    <a href="'.$SERVIDOR.'/view/Listar-usuarios.php" class="btn-tools"><span class="ion-ios-home-outline"></span>Listar Usuários</a>';
+    <a href="'.$_SESSION['SERVIDOR'].'/view/Listar-usuarios.php" class="btn-tools"><span class="ion-ios-home-outline"></span>Listar Usuários</a>';
         }
         $restante1 = '
     <a class="btn-tools" id="dark-mode-toggle"><span class="ion-ios-list-outline"></span>
@@ -57,32 +59,32 @@ function verifica_nivel($usuario, $SERVIDOR)
     <a class="btn-tools" id="modalAvatar">
     <span class="ion-ios-list-outline"></span>Alterar Avatar</a> 
         <div id="texto-usuario">Publicações</div>
-    <a href="'.$SERVIDOR.'/view/Cadastrar-publicacao.php" class="btn-tools">
+    <a href="'.$_SESSION['SERVIDOR'].'/view/Cadastrar-publicacao.php" class="btn-tools">
         <span class="ion-ios-list-outline"></span>+ Nova Publicação
     </a>
-    <a href="'.$SERVIDOR.'/view/Listar-publicacao.php" class="btn-tools">
+    <a href="'.$_SESSION['SERVIDOR'].'/view/Listar-publicacao.php" class="btn-tools">
         <span class="ion-ios-list-outline"></span>Listar Publicações
     </a>
     <div id="texto-usuario">Termos</div>
-        <a href="'.$SERVIDOR.'/view/Cadastrar-termo.php" class="btn-tools">
+        <a href="'.$_SESSION['SERVIDOR'].'/view/Cadastrar-termo.php" class="btn-tools">
             <span class="ion-ios-list-outline"></span>+ Novo Termo
         </a>
-        <a href="'.$SERVIDOR.'/view/Listar-termos.php" class="btn-tools">
+        <a href="'.$_SESSION['SERVIDOR'].'/view/Listar-termos.php" class="btn-tools">
             <span class="ion-ios-list-outline"></span>Listar Termos
         </a>
-        <a href="'.$SERVIDOR.'/view/Ver-sugestoes" class="btn-tools">
+        <a href="'.$_SESSION['SERVIDOR'].'/view/Ver-sugestoes" class="btn-tools">
             <span class="ion-ios-list-outline"></span>Ver Sugestões
         </a>
     <div id="texto-usuario">Rede de Termos</div>
-        <a href="'.$SERVIDOR.'/view/Cadastrar-rede-termo.php" class="btn-tools">
+        <a href="'.$_SESSION['SERVIDOR'].'/view/Cadastrar-rede-termo.php" class="btn-tools">
             <span class="ion-ios-list-outline"></span>+ Nova Rede
         </a>
-        <a href="'.$SERVIDOR.'/view/Listar-redes.php" class="btn-tools">
+        <a href="'.$_SESSION['SERVIDOR'].'/view/Listar-redes.php" class="btn-tools">
             <span class="ion-ios-list-outline"></span>Listar Redes
         </a>                   
         <a>
             <span class="ion-ios-list-outline"></span>
-                <form action="'.$SERVIDOR.'./control/UsuarioControl.php" method="POST" class="form-group">
+                <form action="'.$_SESSION['SERVIDOR'].'./control/UsuarioControl.php" method="POST" class="form-group">
                     <div class="d-flex pull-right btn-sair">
                         <input type="hidden" name="acao" value="sair">
                         <input class="input-sair" type="submit" value="Sair">
