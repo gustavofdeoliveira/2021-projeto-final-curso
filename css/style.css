@@ -513,6 +513,40 @@ hr {
   justify-content: space-around;
 }
 
+.navbar-footer {
+  font-family: Raleway-Light !important;
+  font-size: 20px !important;
+  margin-right: 1%;
+  padding-right: 0;
+  justify-content: space-around;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.navbar-footer-img-logo {
+  height: 100%;
+  width: 90%;
+  margin-top: auto;
+  margin-left: auto;
+  display: block;
+  min-height: 50px;
+}
+
+p#navbar-footer-frase{
+  font-family: Raleway-Light-Italic!important; 
+  font-size: 14px;
+  color: var(--cor_verde) !important;
+  text-align: center;
+}
+
+.navbar-footer .nav-link {
+  color: var(--cor_vermelha) !important;
+}
+
 .nav-link {
   color: var(--cor_verde) !important;
 }
@@ -1550,7 +1584,8 @@ div#texto-usuario {
   font-size: 30px !important;
   z-index: 10;
 }
-.editar-publicacao{
+
+.editar-publicacao {
   position: absolute;
   right: 5px;
   margin-top: 5px;
@@ -2193,24 +2228,28 @@ label.dropdown {
   color: var(--cor_branca) !important;
 }
 
-div#table-publicacoes_filter{
+div#table-publicacoes_filter {
   display: none;
 }
-.dataTables_length,  option, select, .dataTables_info, .dataTables_wrapper .dataTables_paginate, a .paginate_button .next .disabled{
-  font-family: Raleway-Light !important ;
+
+.dataTables_length, option, select, .dataTables_info, .dataTables_wrapper .dataTables_paginate, a .paginate_button .next .disabled {
+  font-family: Raleway-Light !important;
   color: var(--cor_vermelha) !important;
 }
-select{
+
+select {
   border-color: var(--cor_vermelha);
 }
-table.dataTable tbody tr{
+
+table.dataTable tbody tr {
   background-color: var(--cor_branca) !important;
 }
-.table-publicacoes_wrapper{
+
+.table-publicacoes_wrapper {
   width: 100% !important;
 }
 
-p#text-nova-anotacao{
+p#text-nova-anotacao {
   text-align: center;
   font-size: 25px;
   line-height: 35px;
@@ -2219,7 +2258,7 @@ p#text-nova-anotacao{
   margin-top: 10px;
 }
 
-label#sessao-meu-espaco{
+label#sessao-meu-espaco {
   font-size: 45px;
   line-height: 35px;
   font-family: Raleway-Black;
