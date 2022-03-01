@@ -2266,10 +2266,24 @@ label#sessao-meu-espaco {
   margin-top: 20px;
 }
 
-p#sessao-linha-tempo {
+span#texto-linha-tempo {
   font-size: 25px;
-  line-height: 35px;
+  line-height: 30px;
+  font-family: Raleway-Light;
+  color: var(--cor_verde) !important;
+  margin-top: 10px;
+}
+
+label#sessao-linha-tempo {
+  font-size: 25px;
+  line-height: 30px;
   font-family: Raleway-Black;
   color: var(--cor_vermelha) !important;
   margin-top: 10px;
+}
+
+p#linha-info-menor {
+  font-size: 18px !important;
+  font-family: Raleway-Light;
+  color: var(--color_preta) !important;
 }

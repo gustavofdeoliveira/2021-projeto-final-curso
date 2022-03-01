@@ -34,11 +34,6 @@ require_once __DIR__ . '../../components/footer.php';
         <div class="col-xl-8 col-lg-8">
           <p id="linha-tempo">Linha do tempo</p>
           <p id="linha-info">Encontre todas as nossas publicações aqui</p>
-
-          <p id="sessao-linha-tempo">Atualidades Sociológicas</p>
-          <p id="sessao-linha-tempo">Publicações Conteudistas</p>
-          <p id="sessao-linha-tempo">Resumos da Comunidade</p>
-
         </div>
 
         <div class="col-xl-12">
@@ -48,6 +43,30 @@ require_once __DIR__ . '../../components/footer.php';
       </div>      
 
     </div>
+
+    <div class="row">
+
+      <label id="sessao-linha-tempo">Atualidades <span id="texto-linha-tempo"> Sociológicas </span> </label>
+      <p id="linha-info-menor">a sociologia se encontrando com o que há no seu dia-a-dia.</p>
+
+    </div>
+
+
+    <div class="row">
+
+      <label id="sessao-linha-tempo"><span id="texto-linha-tempo"> Publicações </span> Conteudistas </label>
+      <p id="linha-info-menor">aprofunde-se na teoria de diversos teóricos e conceitos.</p>
+
+    </div>
+
+
+    <div class="row">
+
+      <label id="sessao-linha-tempo">Resumos <span id="texto-linha-tempo"> da Comunidade </span> </label>
+      <p id="linha-info-menor">fixe o que você aprendeu com representações visuais.</p>
+
+    </div>
+
   </main>
   <?= setFooter() ?>
   <script src="../javascript/bootstrap.bundle.min.js">
