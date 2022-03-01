@@ -2287,3 +2287,39 @@ p#linha-info-menor {
   font-family: Raleway-Light;
   color: var(--color_preta) !important;
 }
+
+.icon-index {
+  width: 217px;
+  height: 297px;
+  z-index: 10;
+  bottom: 0;
+  left: 0;
+  float: left;
+  position: fixed;
+}
+
+p#texto-slogan {
+  font-size: 65px;
+  font-family: Raleway-Black;
+  color: var(--cor_vermelha) !important;
+  text-align: left;
+  margin-top: 10px;
+  line-height: 60px;
+}
+
+span#texto-slogan-alt {
+  font-size: 65px;
+  font-family: Raleway-Black;
+  color: var(--cor_verde) !important;
+  text-align: left;
+  margin-top: 10px;
+  line-height: 60px;
+}
+
+label#texto-slogan-menor {
+  font-size: 25px;
+  font-family: Raleway-Light;
+  color: var(--cor_verde) !important;
+  text-align: left;
+  line-height: 20px;
+}
