@@ -36,10 +36,13 @@ require_once __DIR__ . '/components/footer.php';
         </div>
       </div>
     </div>
+
+  <img src="../image/IMG-INDEX.png">
   </main>
+
   <?= setFooter() ?>
-  <script src="javascript/bootstrap.bundle.min.js">
-  </script>
+
+  <script src="javascript/bootstrap.bundle.min.js"></script>
   <script src="javascript/scripts.js"></script>
   <script src="javascript/script-bell.js"></script>
   <script src="javascript/scripts.js"></script>
