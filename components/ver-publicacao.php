@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '../../control/PublicacaoControl.php';
+require_once __DIR__ . '../../components/mensagem.php';
 require_once(realpath(dirname(__FILE__) . "/../database/Connection.php"));
 
 function verPublicacao()
@@ -50,6 +51,16 @@ function verPublicacao()
                 ];
             }
         }
+    }
+
+    $sql = "SELECT * FROM `usuarios_publicacoes_salvas` WHERE `id_publicacao`=:id";
+    $result = $conn->prepare($sql);
+    $result->bindParam(':id', $_SESSION['pesquisa']);
+    $result->execute();
+    if (($result) and ($result->rowCount() != 0)) {
+        $isSalva = true;
+    } else {
+        $isSalva = false;
     }
 
     $query_rede = "SELECT DISTINCT `id_publicacao` FROM `publicacao_termo_rede_termos` 
@@ -105,21 +116,28 @@ function verPublicacao()
                 '<form action="../control/PublicacaoControl.php" method="POST" class="form-group">' .
                 '<input class="btn-excluir-atualizar" style="display:none" type="hidden" name="idPublicacao" value="' . $publicacao[0]['id'] . '">' .
                 '<button class="btn-excluir-atualizar" type="submit" name="acao" value="pesquisarPublicacao">' .
-                '<i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></form>' .
+                '<i class="fa fa-verde fa-pencil-square-o" aria-hidden="true"></i></button></form>' .
 
                 '<form action="../control/PublicacaoControl.php" method="POST" class="form-group">' .
                 '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirPublicacao">' .
                 '<button class="btn-excluir-atualizar" type="submit" name="idPublicacao" value="' . $publicacao[0]['id'] . '">' .
-                '<i class="fa fa-trash-o" aria-hidden="true"></i></button></form>';
+                '<i class="fa fa-verde fa-trash-o" aria-hidden="true"></i></button></form>';
         }
-        $btn_salvar = '<form action="../control/PublicacaoControl.php" method="POST" class="form-group">' .
-        '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirPublicacao"><button class="btn-excluir-atualizar" type="submit" name="idPublicacao" value="' . $publicacao[0]['id'] . '">' .
-        '<i class="fa fa-bookmark-o" aria-hidden="true"></i></button></form>';
+        if ($isSalva == false) {
+            $btn_salvar = '<form action="../control/PublicacaoControl.php" method="POST" class="form-group">' .
+                '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="salvarPublicacao"><button class="btn-excluir-atualizar" type="submit" name="idPublicacao" value="' . $publicacao[0]['id'] . '">' .
+                '<i class="fa fa-verde fa-bookmark-o" aria-hidden="true"></i></button></form>';
+        }
+        if($isSalva == true){
+            $btn_salvar = '<form action="../control/PublicacaoControl.php" method="POST" class="form-group">' .
+                '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="removerPublicacao"><button class="btn-excluir-atualizar" type="submit" name="idPublicacao" value="' . $publicacao[0]['id'] . '">' .
+                '<i class="fa fa-verde fa-bookmark" aria-hidden="true"></i></button></form>';
+        }
     } else {
         $btn_edicao = "";
         $btn_salvar = "";
     }
-    
+
     return '<div class="row">
     <div class="col-xl-8 col-lg-8">
         <div class="row">
@@ -128,10 +146,11 @@ function verPublicacao()
                 <div class="row">
                     <p id="texto-resumo">' . $publicacao[0]["resumo"] . '</p>
                 </div>
+                '.setMensagens().'
                 <div class="row">
                     <p id="categoria-publicacao">' . $publicacao[0]["categoria"] . '</p>
                     ' . $rede . '
-                <div class="d-contents">' . $btn_salvar.$btn_edicao . '</div>
+                <div class="d-contents">' . $btn_salvar . $btn_edicao . '</div>
                 </div>
                 <div class="row">' . $imagem . '
                 </div>

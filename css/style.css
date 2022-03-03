@@ -1549,7 +1549,7 @@ div#texto-usuario {
   margin-top: 15px;
 }
 
-.fa-trash-o, .fa-pencil-square-o, .fa-file-text-o, .fa-bookmark-o {
+.fa-trash-o, .fa-pencil-square-o, .fa-file-text-o, .fa-bookmark-o,.fa-bookmark {
   color: var(--cor_vermelha);
   font-size: 35px !important;
   margin-left: 15px;

@@ -31,6 +31,12 @@ class PublicacaoControl
             if ($this->acao == "editarPublicacao") {
                 $this->atualizarPublicacao();
             }
+            if ($this->acao == "salvarPublicacao") {
+                $this->salvarPublicacao();
+            }
+            if ($this->acao == "removerPublicacao") {
+                $this->removerPublicacao();
+            }
         }
     }
 
@@ -132,6 +138,32 @@ class PublicacaoControl
             $_SESSION["msg_error"] = $e->getMessage();
             $_SESSION["msg_tempo_error"] = time();
             header("Location:../view/Cadastrar-Publicacao.php");
+        }
+    }
+
+    public function salvarPublicacao()
+    {
+        try {
+            $this->modelo->setId($_POST["idPublicacao"]);
+            $this->dao->salvarPublicacao($this->modelo);
+            header("Location:../view/Meu-espaco.php");
+        } catch (\Exception $e) {
+            $_SESSION["msg_error"] = $e->getMessage();
+            $_SESSION["msg_tempo_error"] = time();
+            header("Location:../view/Meu-espaco.php");
+        }
+    }
+    public function removerPublicacao()
+    {
+        try {
+            $id_publicacao = $_POST["idPublicacao"];
+            $this->modelo->setId($_POST["idPublicacao"]);
+            $this->dao->removerPublicacao($this->modelo);
+            header("Location:../view/Ver-publicacao.php?id=" . $id_publicacao);
+        } catch (\Exception $e) {
+            $_SESSION["msg_error"] = $e->getMessage();
+            $_SESSION["msg_tempo_error"] = time();
+            header("Location:../view/Ver-publicacao.php?id=" . $id_publicacao);
         }
     }
 }

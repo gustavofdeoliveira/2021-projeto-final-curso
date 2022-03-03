@@ -167,4 +167,29 @@ class PublicacaoDao
         $_SESSION["msg_sucess"] = "Publicação editada com sucesso!";
         return $id_publicacao;
     }
+
+    function salvarPublicacao(PublicacaoModel $modelo){
+        $id_usuario = $_SESSION['usuarioAutenticado']['idUsuario'];
+        $id_publicacao = $modelo->getId();
+        $sql = "INSERT INTO `usuarios_publicacoes_salvas` (`id_usuario`,`id_publicacao`) VALUES (?,?)";
+        $statement = $this->conn->prepare($sql);
+        $statement->bindParam(1, $id_usuario);
+        $statement->bindParam(2, $id_publicacao);
+        $statement->execute();
+        $_SESSION["tempo_msg_sucess"] = time();
+        $_SESSION["msg_sucess"] = "Publicação favoritada com sucesso!";
+        return $id_publicacao;
+    }
+    function removerPublicacao(PublicacaoModel $modelo){
+        $id_usuario = $_SESSION['usuarioAutenticado']['idUsuario'];
+        $id_publicacao = $modelo->getId();
+        $sql = "DELETE FROM `usuarios_publicacoes_salvas`  WHERE `id_usuario` = :id_usuario AND `id_publicacao` = :id_publicacao";
+        $statement = $this->conn->prepare($sql);
+        $statement->bindParam(':id_usuario', $id_usuario);
+        $statement->bindParam(':id_publicacao', $id_publicacao);
+        $statement->execute();
+        $_SESSION["tempo_msg_sucess"] = time();
+        $_SESSION["msg_sucess"] = "Publicação desfavoritada com sucesso!";
+        return $id_publicacao;
+    }
 }
