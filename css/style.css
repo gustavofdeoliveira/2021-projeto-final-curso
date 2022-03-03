@@ -41,6 +41,11 @@
 }
 
 @font-face {
+  font-family: Raleway-Medium;
+  src: url(../fonts/Raleway-Medium.ttf);
+}
+
+@font-face {
   font-family: Raleway-Regular;
   src: url(../fonts/Raleway-Regular.ttf);
 }
@@ -536,8 +541,8 @@ hr {
   min-height: 50px;
 }
 
-p#navbar-footer-frase{
-  font-family: Raleway-Light-Italic!important; 
+p#navbar-footer-frase {
+  font-family: Raleway-Light-Italic !important;
   font-size: 14px;
   color: var(--cor_verde) !important;
   text-align: center;
@@ -1544,7 +1549,7 @@ div#texto-usuario {
   margin-top: 15px;
 }
 
-.fa-trash-o, .fa-pencil-square-o, .fa-file-text-o {
+.fa-trash-o, .fa-pencil-square-o, .fa-file-text-o, .fa-bookmark-o {
   color: var(--cor_vermelha);
   font-size: 35px !important;
   margin-left: 15px;
@@ -1922,11 +1927,12 @@ p#categoria-publicacao, p#rede-publicacao {
   max-width: max-content;
   background-color: var(--cor_verde);
   height: 100%;
-  min-height: 31px;
+  min-height: 35px;
   font-family: Raleway-Light;
   color: var(--cor_branca) !important;
   border-radius: 200px;
   margin-left: 10px;
+  line-height: 40px;
 }
 
 p#texto-publicacao {
@@ -2244,6 +2250,12 @@ select {
 table.dataTable tbody tr {
   background-color: var(--cor_branca) !important;
 }
+div#table-publicacoes_length{
+  float: right !important;
+}
+table.dataTable thead td, table.dataTable.no-footer{
+  border-bottom: 2px solid var(--cor_verde) !important;
+}
 
 .table-publicacoes_wrapper {
   width: 100% !important;
@@ -2322,4 +2334,8 @@ label#texto-slogan-menor {
   color: var(--cor_verde) !important;
   text-align: left;
   line-height: 20px;
+}
+
+.d-contents{
+  display: contents;
 }

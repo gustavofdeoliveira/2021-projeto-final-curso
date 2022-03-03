@@ -408,6 +408,20 @@
 }
 
 @media screen and (max-width: 991px) {
+  .navbar-footer{
+    justify-content: center;
+    flex-direction: column;
+  }
+  .footer-container{
+    text-align: center;
+    display: flow-root !important;
+  }
+  .navbar-footer-img-logo{
+    margin-left: auto;
+    margin-right: auto;
+    height: 60%;
+    width: 70%;
+  }
   .nav-meu-espaco, .btn-navbar-login, .nav-item {
     margin: auto;
   }

@@ -11,11 +11,8 @@ function setFooter()
       </div>
       <div class="col-lg-8 col-xl-8">
         <nav class="navbar navbar-expand-lg w-100">
-          <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <div class="container-fluid footer-container">
+            <div class=" navbar-collapse" id="navbarNavDropdown">
               <div class="col-xl-12 col-lg-12 col-md-12">
                 <div class="row">
                   <ul class="navbar-footer">

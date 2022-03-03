@@ -32,26 +32,26 @@ require_once __DIR__ . '/components/footer.php';
     <div class="row">
       <div class="col-xl-8">
 
-          <label id="sessao-linha-tempo"><span id="texto-linha-tempo"> Mais </span> Relevantes <img src="image/ICON-LIVRO.png"> </label>
-
-        </div>
-
-        <div class="col-xl-4">
-          <label id="sessao-linha-tempo">Resumos<span id="texto-linha-tempo"> da Comunidade </span><img src="image/ICON-LIVRO.png"> </label>
-      </div>  
-
-        <div class="col-xl-8">
-          <label id="sessao-linha-tempo"><span id="texto-linha-tempo"> Publicações </span> Recentes <img src="image/ICON-LIVRO.png"> </label>
-
-        </div>
+        <label id="sessao-linha-tempo"><span id="texto-linha-tempo"> Mais </span> Relevantes <img src="image/ICON-LIVRO.png"> </label>
 
       </div>
+
+      <div class="col-xl-4">
+        <label id="sessao-linha-tempo">Resumos<span id="texto-linha-tempo"> da Comunidade </span><img src="image/ICON-LIVRO.png"> </label>
+      </div>
+
+      <div class="col-xl-8">
+        <label id="sessao-linha-tempo"><span id="texto-linha-tempo"> Publicações </span> Recentes <img src="image/ICON-LIVRO.png"> </label>
+
+      </div>
+
+    </div>
 
     <div class="row">
       <p id="texto-slogan">Tudo sobre <br> <span id="texto-slogan-alt">sociologia</span> em <br> um só lugar</p>
       <label id="texto-slogan-menor">participe da nossa comunidade, <br> aprenda de forma interativa</label>
     </div>
-    
+
   </main>
 
   <?= setFooter() ?>

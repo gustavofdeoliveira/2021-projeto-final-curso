@@ -10,7 +10,6 @@ class PublicacaoControl
     function __construct()
     {
         $this->dao = new PublicacaoDao();
-
         $this->modelo = new PublicacaoModel();
         if (isset($_REQUEST["acao"])) {
             $this->acao = $_REQUEST["acao"];
@@ -85,11 +84,7 @@ class PublicacaoControl
     public function pesquisaPublicacao()
     {
         try {
-            if (!empty($_SESSION['pesquisa'])) {
-                $this->modelo->setId($_SESSION['pesquisa']);
-            } else {
-                $this->modelo->setId($_POST["idPublicacao"]);
-            }
+            $this->modelo->setId($_POST["idPublicacao"]);
             $publicacao = $this->dao->pesquisaPublicacao($this->modelo);
             $publicacao_formatada = $this->modelo->getPublicacao($publicacao);
             $_SESSION['publicacao'] = $publicacao_formatada;
@@ -98,6 +93,21 @@ class PublicacaoControl
             $_SESSION["msg_error"] = $e->getMessage();
             $_SESSION["msg_tempo_error"] = time();
             header("Location:../view/Editar-publicacao.php");
+        }
+    }
+
+    public function verPublicacao()
+    {
+        try {
+            $this->modelo->setId($_SESSION['pesquisa']);
+            $publicacao = $this->dao->pesquisaPublicacao($this->modelo);
+            $publicacao_formatada = $this->modelo->getPublicacao($publicacao);
+            $_SESSION['publicacao'] = $publicacao_formatada;
+            return $publicacao_formatada;
+        } catch (\Exception $e) {
+            $_SESSION["msg_error"] = $e->getMessage();
+            $_SESSION["msg_tempo_error"] = time();
+            header("Location:../view/Ver-publicacao.php");
         }
     }
     public function atualizarPublicacao()
@@ -124,6 +134,5 @@ class PublicacaoControl
             header("Location:../view/Cadastrar-Publicacao.php");
         }
     }
-    
 }
 new PublicacaoControl();

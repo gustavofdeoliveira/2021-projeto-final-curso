@@ -125,7 +125,7 @@ require_once __DIR__ . '../../components/footer.php';
             </div>
           </div>
           <div class="row">
-            <p id="text-revisar-publicacão">revise seus textos<br>antes de publicar</p>
+            <p id="text-revisar-publicacão">revise seus textos antes<br>de salvar suas alterações</p>
           </div>
           <div class="row">
             <div class="col-md-6 col-sm-8 col-lg-6 col-lg-offset-3 col-xl-4 col-xl-offset-4 col-sm-offset-2 col-md-offset-3">

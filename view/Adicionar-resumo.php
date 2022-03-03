@@ -3,7 +3,7 @@ include_once("../database/Connection.php");
 //require_once("../dao/ResumoDao.php");
 require_once __DIR__ . '../../components/header.php';
 require_once __DIR__ . '../../components/footer.php';
-error_reporting(E_ERROR | E_PARSE);
+require_once __DIR__ . '../../components/mensagem.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -119,21 +119,7 @@ error_reporting(E_ERROR | E_PARSE);
                        </div>
                    </div>
                    
-                   <?php
- 
-                   if (!empty($_SESSION["msg_error"])) {
-                       echo "<div class='row'>
-                           <div class='col-sm-12  col-md-12  col-xl-12  col-lg-12'>
-                               <div class='alert alert-danger' role='alert'><i class='fa fa-exclamation-triangle aria-hidden='true'></i> {$_SESSION["msg_error"]}</div>
-                           </div></div>
-                       ";
-                   } if (!empty($_SESSION["msg_sucess"])) {
-                       echo "<div class='row'>
-                           <div class='col-sm-12  col-md-12  col-xl-12  col-lg-12'>
-                               <div class='alert alert-success' role='alert'> <i class='fa fa-check-circle-o' aria-hidden='true'></i> {$_SESSION["msg_sucess"]}</div>
-                           </div></div>
-                       ";
-                   } ?>
+                   <?= setMensagens()?>
                    <div class="row">
                        <div class="col-xl-12">
                            <input type="hidden" name="acao" value="inserirResumo">

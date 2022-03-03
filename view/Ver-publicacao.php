@@ -29,7 +29,7 @@ require_once __DIR__ . '../../components/footer.php';
 
 <body id="dark-mode">
    
-
+<?= head()?>
     <main id="telas-navbar">
         <div id="ver-publicacao">
             <?= verPublicacao(); ?>

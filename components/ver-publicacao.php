@@ -10,7 +10,7 @@ function verPublicacao()
     $url = explode("=", $id_url);
     $_SESSION['pesquisa'] = $url[1];
     $publicacaoControl = new PublicacaoControl;
-    $publicacao =  $publicacaoControl->pesquisaPublicacao($_SESSION['pesquisa']);
+    $publicacao =  $publicacaoControl->verPublicacao($_SESSION['pesquisa']);
     $query_termo = "SELECT `a`.`id`,`a`.`id_publicacao`, `a`.`id_rede`, `a`.`id_termo` FROM `publicacao_termo_rede_termos` as A INNER JOIN `publicacao` as B ON `b`.`id` = `a`.`id_publicacao` WHERE `a`.`id_publicacao` = :id";
     $result = $conn->prepare($query_termo);
     $result->bindParam(':id', $_SESSION['pesquisa']);
@@ -85,21 +85,41 @@ function verPublicacao()
     } else {
         $imagem = "";
     }
-    if (!empty($publicacao[0]['rede'])) {
-        '<p id="rede-publicacao">' . $publicacao['dados']['redeTermos'][0]['nome'] . '</p>';
+    if (!empty($publicacao['redeTermos'])) {
+        $rede = '<p id="rede-publicacao">' . $publicacao['redeTermos'][0]['nome'] . '</p>';
     }
     if (!empty($publicacao['semelhantes'])) {
-        
+
         $semalhantes_titulo = '<p id="texto-publicacao-semelhante">Publicações semelhantes</p>';
         $semalhantes = '';
         for ($a = 0; $a != count($publicacao['semelhantes']); $a++) {
             $semalhantes .= '<img class="img-publicacao-semelhante" id="img-publicacao-semelhante" src="' . $publicacao['semelhantes'][$a]['imagem'] . '"><a class="titulo-publicacao-semelhante" target="_blank" href="//localhost/2021-projeto-final-curso/view/Ver-publicacao.php?id=' . $publicacao['semelhantes'][$a]['id'] . '">' . $publicacao['semelhantes'][$a]['titulo'] . '</a>';
         }
-    }else{
+    } else {
         $semalhantes_titulo = '';
-         $semalhantes = '';  
+        $semalhantes = '';
     }
+    if (!empty($_SESSION['usuarioAutenticado'])) {
+        if ($_SESSION['usuarioAutenticado']['nivelAcesso'] == 1 || $_SESSION['usuarioAutenticado']['nivelAcesso'] == 2) {
+            $btn_edicao =
+                '<form action="../control/PublicacaoControl.php" method="POST" class="form-group">' .
+                '<input class="btn-excluir-atualizar" style="display:none" type="hidden" name="idPublicacao" value="' . $publicacao[0]['id'] . '">' .
+                '<button class="btn-excluir-atualizar" type="submit" name="acao" value="pesquisarPublicacao">' .
+                '<i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></form>' .
 
+                '<form action="../control/PublicacaoControl.php" method="POST" class="form-group">' .
+                '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirPublicacao">' .
+                '<button class="btn-excluir-atualizar" type="submit" name="idPublicacao" value="' . $publicacao[0]['id'] . '">' .
+                '<i class="fa fa-trash-o" aria-hidden="true"></i></button></form>';
+        }
+        $btn_salvar = '<form action="../control/PublicacaoControl.php" method="POST" class="form-group">' .
+        '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirPublicacao"><button class="btn-excluir-atualizar" type="submit" name="idPublicacao" value="' . $publicacao[0]['id'] . '">' .
+        '<i class="fa fa-bookmark-o" aria-hidden="true"></i></button></form>';
+    } else {
+        $btn_edicao = "";
+        $btn_salvar = "";
+    }
+    
     return '<div class="row">
     <div class="col-xl-8 col-lg-8">
         <div class="row">
@@ -110,8 +130,8 @@ function verPublicacao()
                 </div>
                 <div class="row">
                     <p id="categoria-publicacao">' . $publicacao[0]["categoria"] . '</p>
-
-                    <div id="categoria-rede"></div>
+                    ' . $rede . '
+                <div class="d-contents">' . $btn_salvar.$btn_edicao . '</div>
                 </div>
                 <div class="row">' . $imagem . '
                 </div>
@@ -130,5 +150,5 @@ function verPublicacao()
         </div>
     </div>
 </div>';
-header("Location:../view/Ver-publicacao.php");
+    header("Location:../view/Ver-publicacao.php");
 }
