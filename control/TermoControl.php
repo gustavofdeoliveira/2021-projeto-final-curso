@@ -29,6 +29,15 @@ class TermoControl
             if ($this->acao == "editarTermo") {
                 $this->atualizarTermo();
             }
+            if ($this->acao == "OrdenarTermo") {
+                $this->ordenarTermo();
+            }
+            if ($this->acao == "salvarTermo") {
+                $this->salvarTermo();
+            }
+            if ($this->acao == "removerTermo") {
+                $this->removerTermo();
+            }
         }
     }
     public function inserirTermo()
@@ -80,6 +89,48 @@ class TermoControl
         $listagem = $this->dao->listarTermo();
         $termos = $this->modelo->getTermo($listagem);
         return $termos;
+    }
+    public function ordenarTermo()
+    {
+        try {
+            $letraPesquisa = $_POST["letraPesquisa"];
+            $termos = $this->dao->ordenarTermo($letraPesquisa);
+            $termos_formatado = $this->modelo->getTermo($termos);
+            $_SESSION['termos_biblioteca'] = $termos_formatado;
+            $_SESSION['letra_pesquisa'] = $letraPesquisa;
+            header("Location:../view/Listagem-Biblioteca.php");
+        } catch (\Exception $e) {
+            $_SESSION["msg_error"] = $e->getMessage();
+            $_SESSION["tempo_msg_error"] = time();
+            header("Location:../view/Biblioteca.php");
+        }
+    }
+    public function salvarTermo()
+    {
+        try {
+            $this->modelo->setId($_POST["idTermo"]);
+            $this->dao->salvarTermo($this->modelo);
+            header("Location:../view/Meu-espaco.php");
+        } catch (\Exception $e) {
+            $_SESSION["msg_error"] = $e->getMessage();
+            $_SESSION["tempo_msg_error"] = time();
+            print_r($_SESSION["msg_error"]);
+            exit();
+        }
+    }
+    public function removerTermo()
+    {
+        try {
+            $id_publicacao = $_POST["idTermo"];
+            $this->modelo->setId($_POST["idTermo"]);
+            $this->dao->removerTermo($this->modelo);
+            header("Location:../view/Listagem-Biblioteca.php");
+        } catch (\Exception $e) {
+            $_SESSION["msg_error"] = $e->getMessage();
+            $_SESSION["msg_tempo_error"] = time();
+            print_r($_SESSION["msg_error"]);
+            exit();
+        }
     }
 }
 new TermoControl();

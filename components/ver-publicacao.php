@@ -128,7 +128,7 @@ function verPublicacao()
                 '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="salvarPublicacao"><button class="btn-excluir-atualizar" type="submit" name="idPublicacao" value="' . $publicacao[0]['id'] . '">' .
                 '<i class="fa fa-verde fa-bookmark-o" aria-hidden="true"></i></button></form>';
         }
-        if($isSalva == true){
+        if ($isSalva == true) {
             $btn_salvar = '<form action="../control/PublicacaoControl.php" method="POST" class="form-group">' .
                 '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="removerPublicacao"><button class="btn-excluir-atualizar" type="submit" name="idPublicacao" value="' . $publicacao[0]['id'] . '">' .
                 '<i class="fa fa-verde fa-bookmark" aria-hidden="true"></i></button></form>';
@@ -146,7 +146,7 @@ function verPublicacao()
                 <div class="row">
                     <p id="texto-resumo">' . $publicacao[0]["resumo"] . '</p>
                 </div>
-                '.setMensagens().'
+                ' . setMensagens() . '
                 <div class="row">
                     <p id="categoria-publicacao">' . $publicacao[0]["categoria"] . '</p>
                     ' . $rede . '
@@ -159,6 +159,18 @@ function verPublicacao()
                 </div>
             </div>
 
+        </div>
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12">
+            <div class="col-xl-8">
+                <p id="titulo-comentario">comentários</p>
+                <hr>
+                </div>
+                <div class="row">
+                    <label class="label-comentario">Comentar essa publicação:</label>
+                    <textarea></textarea>
+                </div>
+            </div>
         </div>
     </div>
     <div class="col-xl-4 col-lg-4">

@@ -34,43 +34,112 @@ require_once __DIR__ . '../../components/footer.php';
           <p id="texto-biblioteca">Biblioteca</p>
 
           <p>Encontre todos os termos de sociologia aqui, separados por ordem alfabética</p>
-
-          <a class="balao-vermelho" href="">A</a>
-          <a class="balao-verde" href="">B</a>
-          <a class="balao-vermelho" href="">C</a>
-          <a class="balao-verde" href="">D</a>
-          <a class="balao-vermelho" href="">E</a>
-          <a class="balao-verde" href="">F</a>
-          <a class="balao-vermelho" href="">G</a>
-
-
-          <a class="balao-verde" href="">H</a>
-          <a class="balao-vermelho" href="">I</a>
-          <a class="balao-verde" href="">J</a>
-          <a class="balao-vermelho" href="">K</a>
-          <a class="balao-verde" href="">L</a>
-          <a class="balao-vermelho" href="">M</a>
-          <a class="balao-verde" href="">N</a>
-
-          <a class="balao-vermelho" href="">O</a>
-          <a class="balao-verde" href="">P</a>
-
-
-          <a class="balao-vermelho" href="">Q</a>
-          <a class="balao-verde" href="">R</a>
-          <a class="balao-vermelho" href="">S</a>
-          <a class="balao-verde" href="">T</a>
-          <a class="balao-vermelho" href="">U</a>
-
-
-          <a class="balao-verde" href="">V</a>
-          <a class="balao-vermelho" href="">W</a>
-          <a class="balao-verde" href="">X</a>
-          <a class="balao-vermelho" href="">Y</a>
-          <a class="balao-verde" href="">Z</a>
-
-
-
+          <div class="row">
+            <form action="../control/TermoControl.php" method="POST" class="form-group d-contents">
+              <input class="btn-excluir-atualizar" style="display:none" type="hidden" name="acao" value="OrdenarTermo">
+              <button class="btn-excluir-atualizar balao-vermelho" type="submit" name="letraPesquisa" value="A">A</button>
+            </form>
+            <form action="../control/TermoControl.php" method="POST" class="form-group d-contents">
+              <input class="btn-excluir-atualizar" style="display:none" type="hidden" name="acao" value="OrdenarTermo">
+              <button class="btn-excluir-atualizar balao-verde" type="submit" name="letraPesquisa" value="B">B</button>
+            </form>
+            <form action="../control/TermoControl.php" method="POST" class="form-group d-contents">
+              <input class="btn-excluir-atualizar" style="display:none" type="hidden" name="acao" value="OrdenarTermo">
+              <button class="btn-excluir-atualizar balao-vermelho" type="submit" name="letraPesquisa" value="C">C</button>
+            </form>
+            <form action="../control/TermoControl.php" method="POST" class="form-group d-contents">
+              <input class="btn-excluir-atualizar" style="display:none" type="hidden" name="acao" value="OrdenarTermo">
+              <button class="btn-excluir-atualizar balao-verde" type="submit" name="letraPesquisa" value="D">D</button>
+            </form>
+            <form action="../control/TermoControl.php" method="POST" class="form-group d-contents">
+              <input class="btn-excluir-atualizar" style="display:none" type="hidden" name="acao" value="OrdenarTermo">
+              <button class="btn-excluir-atualizar balao-vermelho" type="submit" name="letraPesquisa" value="E">E</button>
+            </form>
+            <form action="../control/TermoControl.php" method="POST" class="form-group d-contents">
+              <input class="btn-excluir-atualizar" style="display:none" type="hidden" name="acao" value="OrdenarTermo">
+              <button class="btn-excluir-atualizar balao-verde" type="submit" name="letraPesquisa" value="F">F</button>
+            </form>
+            <form action="../control/TermoControl.php" method="POST" class="form-group d-contents">
+              <input class="btn-excluir-atualizar" style="display:none" type="hidden" name="acao" value="OrdenarTermo">
+              <button class="btn-excluir-atualizar balao-vermelho" type="submit" name="letraPesquisa" value="G">G</button>
+            </form>
+            <form action="../control/TermoControl.php" method="POST" class="form-group d-contents">
+              <input class="btn-excluir-atualizar" style="display:none" type="hidden" name="acao" value="OrdenarTermo">
+              <button class="btn-excluir-atualizar balao-verde" type="submit" name="letraPesquisa" value="H">H</button>
+            </form>
+            <form action="../control/TermoControl.php" method="POST" class="form-group d-contents">
+              <input class="btn-excluir-atualizar" style="display:none" type="hidden" name="acao" value="OrdenarTermo">
+              <button class="btn-excluir-atualizar balao-vermelho" type="submit" name="letraPesquisa" value="I">I</button>
+            </form>
+            <form action="../control/TermoControl.php" method="POST" class="form-group d-contents">
+              <input class="btn-excluir-atualizar" style="display:none" type="hidden" name="acao" value="OrdenarTermo">
+              <button class="btn-excluir-atualizar balao-verde" type="submit" name="letraPesquisa" value="J">J</button>
+            </form>
+            <form action="../control/TermoControl.php" method="POST" class="form-group d-contents">
+              <input class="btn-excluir-atualizar" style="display:none" type="hidden" name="acao" value="OrdenarTermo">
+              <button class="btn-excluir-atualizar balao-vermelho" type="submit" name="letraPesquisa" value="K">K</button>
+            </form>
+            <form action="../control/TermoControl.php" method="POST" class="form-group d-contents">
+              <input class="btn-excluir-atualizar" style="display:none" type="hidden" name="acao" value="OrdenarTermo">
+              <button class="btn-excluir-atualizar balao-verde" type="submit" name="letraPesquisa" value="L">L</button>
+            </form>
+            <form action="../control/TermoControl.php" method="POST" class="form-group d-contents">
+              <input class="btn-excluir-atualizar" style="display:none" type="hidden" name="acao" value="OrdenarTermo">
+              <button class="btn-excluir-atualizar balao-vermelho" type="submit" name="letraPesquisa" value="M">M</button>
+            </form>
+            <form action="../control/TermoControl.php" method="POST" class="form-group d-contents">
+              <input class="btn-excluir-atualizar" style="display:none" type="hidden" name="acao" value="OrdenarTermo">
+              <button class="btn-excluir-atualizar balao-verde" type="submit" name="letraPesquisa" value="N">N</button>
+            </form>
+            <form action="../control/TermoControl.php" method="POST" class="form-group d-contents">
+              <input class="btn-excluir-atualizar" style="display:none" type="hidden" name="acao" value="OrdenarTermo">
+              <button class="btn-excluir-atualizar balao-vermelho" type="submit" name="letraPesquisa" value="O">O</button>
+            </form>
+            <form action="../control/TermoControl.php" method="POST" class="form-group d-contents">
+              <input class="btn-excluir-atualizar" style="display:none" type="hidden" name="acao" value="OrdenarTermo">
+              <button class="btn-excluir-atualizar balao-verde" type="submit" name="letraPesquisa" value="P">P</button>
+            </form>
+            <form action="../control/TermoControl.php" method="POST" class="form-group d-contents">
+              <input class="btn-excluir-atualizar" style="display:none" type="hidden" name="acao" value="OrdenarTermo">
+              <button class="btn-excluir-atualizar balao-vermelho" type="submit" name="letraPesquisa" value="Q">Q</button>
+            </form>
+            <form action="../control/TermoControl.php" method="POST" class="form-group d-contents">
+              <input class="btn-excluir-atualizar" style="display:none" type="hidden" name="acao" value="OrdenarTermo">
+              <button class="btn-excluir-atualizar balao-verde" type="submit" name="letraPesquisa" value="R">R</button>
+            </form>
+            <form action="../control/TermoControl.php" method="POST" class="form-group d-contents">
+              <input class="btn-excluir-atualizar" style="display:none" type="hidden" name="acao" value="OrdenarTermo">
+              <button class="btn-excluir-atualizar balao-vermelho" type="submit" name="letraPesquisa" value="S">S</button>
+            </form>
+            <form action="../control/TermoControl.php" method="POST" class="form-group d-contents">
+              <input class="btn-excluir-atualizar" style="display:none" type="hidden" name="acao" value="OrdenarTermo">
+              <button class="btn-excluir-atualizar balao-verde" type="submit" name="letraPesquisa" value="T">T</button>
+            </form>
+            <form action="../control/TermoControl.php" method="POST" class="form-group d-contents">
+              <input class="btn-excluir-atualizar" style="display:none" type="hidden" name="acao" value="OrdenarTermo">
+              <button class="btn-excluir-atualizar balao-vermelho" type="submit" name="letraPesquisa" value="U">U</button>
+            </form>
+            <form action="../control/TermoControl.php" method="POST" class="form-group d-contents">
+              <input class="btn-excluir-atualizar" style="display:none" type="hidden" name="acao" value="OrdenarTermo">
+              <button class="btn-excluir-atualizar balao-verde" type="submit" name="letraPesquisa" value="V">V</button>
+            </form>
+            <form action="../control/TermoControl.php" method="POST" class="form-group d-contents">
+              <input class="btn-excluir-atualizar" style="display:none" type="hidden" name="acao" value="OrdenarTermo">
+              <button class="btn-excluir-atualizar balao-vermelho" type="submit" name="letraPesquisa" value="W">W</button>
+            </form>
+            <form action="../control/TermoControl.php" method="POST" class="form-group d-contents">
+              <input class="btn-excluir-atualizar" style="display:none" type="hidden" name="acao" value="OrdenarTermo">
+              <button class="btn-excluir-atualizar balao-verde" type="submit" name="letraPesquisa" value="X">X</button>
+            </form>
+            <form action="../control/TermoControl.php" method="POST" class="form-group d-contents">
+              <input class="btn-excluir-atualizar" style="display:none" type="hidden" name="acao" value="OrdenarTermo">
+              <button class="btn-excluir-atualizar balao-vermelho" type="submit" name="letraPesquisa" value="Y">Y</button>
+            </form>
+            <form action="../control/TermoControl.php" method="POST" class="form-group d-contents">
+              <input class="btn-excluir-atualizar" style="display:none" type="hidden" name="acao" value="OrdenarTermo">
+              <button class="btn-excluir-atualizar balao-verde" type="submit" name="letraPesquisa" value="Z">Z</button>
+            </form>
+          </div>
         </div>
       </di>
     </div>

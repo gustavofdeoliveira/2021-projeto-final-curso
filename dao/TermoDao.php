@@ -88,4 +88,51 @@ class TermoDao
             return $termos;
         }
     }
+    function ordenarTermo($letraPesquisa)
+    {
+        try {
+            $sql = "SELECT * FROM `termo` WHERE `nome` LIKE '$letraPesquisa%'";
+            $statement = $this->conn->prepare($sql);
+            $statement->execute();
+            if (($statement) and ($statement->rowCount() != 0)) {
+                while ($result = $statement->fetch(PDO::FETCH_ASSOC)) {
+                    $termos[] = $result;
+                }
+                return $termos;
+            } else {
+                throw new \Exception('Dados não encontrado!');
+            }
+        } catch (\Exception $e) {
+            $_SESSION["msg_error"] = $e->getMessage();
+            $_SESSION["tempo_msg_error"] = time();
+            print_r($_SESSION["msg_error"]);
+            header("Location:../view/Biblioteca.php");
+        }
+    }
+    function salvarTermo(TermoModel $modelo)
+    {
+        $id_usuario = $_SESSION['usuarioAutenticado']['idUsuario'];
+        $id_termo = $modelo->getId();
+        $sql = "INSERT INTO `usuarios_termos_salvos` (`id_usuario`,`id_termo`) VALUES (?,?)";
+        $statement = $this->conn->prepare($sql);
+        $statement->bindParam(1, $id_usuario);
+        $statement->bindParam(2, $id_termo);
+        $statement->execute();
+        $_SESSION["tempo_msg_sucess"] = time();
+        $_SESSION["msg_sucess"] = "Publicação favoritada com sucesso!";
+        return $id_termo;
+    }
+    function removerTermo(TermoModel $modelo)
+    {
+        $id_usuario = $_SESSION['usuarioAutenticado']['idUsuario'];
+        $id_termo = $modelo->getId();
+        $sql = "DELETE FROM `usuarios_termos_salvos`  WHERE `id_usuario` = :id_usuario AND `id_termo` = :id_termo";
+        $statement = $this->conn->prepare($sql);
+        $statement->bindParam(':id_usuario', $id_usuario);
+        $statement->bindParam(':id_termo', $id_termo);
+        $statement->execute();
+        $_SESSION["tempo_msg_sucess"] = time();
+        $_SESSION["msg_sucess"] = "Publicação desfavoritada com sucesso!";
+        return $id_termo;
+    }
 }

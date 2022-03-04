@@ -1549,7 +1549,7 @@ div#texto-usuario {
   margin-top: 15px;
 }
 
-.fa-trash-o, .fa-pencil-square-o, .fa-file-text-o, .fa-bookmark-o,.fa-bookmark {
+.fa-trash-o, .fa-pencil-square-o, .fa-file-text-o, .fa-bookmark-o, .fa-bookmark {
   color: var(--cor_vermelha);
   font-size: 35px !important;
   margin-left: 15px;
@@ -1855,7 +1855,7 @@ p#texto-biblioteca {
 .balao-vermelho {
   width: 13.22% !important;
   height: 100%;
-  min-height: 85px;
+  height: 85px;
   background-color: var(--cor_vermelha);
   color: var(--cor_branca) !important;
   font-size: 53px;
@@ -1871,7 +1871,7 @@ p#texto-biblioteca {
 .balao-verde {
   width: 13.22% !important;
   height: 100%;
-  min-height: 85px;
+  height: 85px;
   background-color: var(--cor_verde);
   color: var(--cor_branca) !important;
   font-size: 53px;
@@ -2250,10 +2250,12 @@ select {
 table.dataTable tbody tr {
   background-color: var(--cor_branca) !important;
 }
-div#table-publicacoes_length{
+
+div#table-publicacoes_length {
   float: right !important;
 }
-table.dataTable thead td, table.dataTable.no-footer{
+
+table.dataTable thead td, table.dataTable.no-footer {
   border-bottom: 2px solid var(--cor_verde) !important;
 }
 
@@ -2336,6 +2338,37 @@ label#texto-slogan-menor {
   line-height: 20px;
 }
 
-.d-contents{
+.d-contents {
   display: contents;
+}
+
+p#titulo-comentario {
+  font-family: Raleway-Black;
+  line-height: 69px;
+  font-size: 55px;
+  color: var(--cor_verde) !important;
+}
+
+.label-comentario {
+  color: var(--cor_vermelha);
+  font-family: Raleway-Black;
+  line-height: 25px;
+  font-size: 20px;
+}
+
+p#letra{
+  color: var(--cor_vermelha);
+  font-family: Raleway-Black;
+  font-size: 65px;
+}
+
+li#nome-termo{
+  color: var(--cor_vermelha);
+  font-family: Raleway-Black;
+  font-size: 40px;
+  line-height: 65px;
+}
+
+.d-flex form button{
+  margin-top: 15px;
 }
