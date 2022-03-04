@@ -41,8 +41,9 @@ function listaTermosBiblioteca()
                 }
             } else {
                 $btn_edicao = "";
+                $btn_salvar = "";
             }
-            $termo .= '<div class="d-flex"><li id="nome-termo">' . $termos[$a]["nome"] . '</li><div class="pull-right d-flex" style="margin-left:auto">' . $btn_salvar . $btn_edicao . '</div></div> ';
+            $termo .= '<div class="d-flex"><a id="nome-termo" href="../view/Ver-termo.php?id='.$termos[$a]["id"].'"><li id="nome-termo">' . $termos[$a]["nome"] . '</li></a><div class="pull-right d-flex" style="margin-left:auto">' . $btn_salvar . $btn_edicao . '</div></div> ';
         }
 
         return '<div class="col-xl-8 col-lg-8">

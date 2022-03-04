@@ -2367,6 +2367,10 @@ li#nome-termo{
   font-family: Raleway-Black;
   font-size: 40px;
   line-height: 65px;
+  text-decoration: none;
+}
+a#nome-termo{
+  text-decoration: none;
 }
 
 .d-flex form button{

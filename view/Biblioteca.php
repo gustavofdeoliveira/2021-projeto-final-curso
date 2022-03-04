@@ -3,6 +3,7 @@ include_once __DIR__ . '../../database/Connection.php';
 require_once __DIR__ . '../../dao/UsuarioDao.php';
 require_once __DIR__ . '../../components/header.php';
 require_once __DIR__ . '../../components/footer.php';
+require_once __DIR__ . '../../components/mensagem.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -34,6 +35,7 @@ require_once __DIR__ . '../../components/footer.php';
           <p id="texto-biblioteca">Biblioteca</p>
 
           <p>Encontre todos os termos de sociologia aqui, separados por ordem alfabética</p>
+          <?= setMensagens()?>
           <div class="row">
             <form action="../control/TermoControl.php" method="POST" class="form-group d-contents">
               <input class="btn-excluir-atualizar" style="display:none" type="hidden" name="acao" value="OrdenarTermo">
