@@ -2379,8 +2379,6 @@ a#nome-termo {
 }
 
 .container-publicacoes-relevantes {
-  display: flex;
-  justify-content: space-between;
   margin-top: -30px !important;
 }
 

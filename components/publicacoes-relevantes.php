@@ -11,7 +11,7 @@ function setPublicacoesReleavantes()
         $publicacoes_index = "";
         for ($a = 0; $a != count($publicacoes); $a++) {
             $publicacoes_index .= 
-            '<div class="col-xl-4">
+            '<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
               <form action="control/PublicacaoControl.php" method="POST" class="form-group">
               <input type="hidden"  name="acao" value="atualizarNumeroVisualizacao">
               <input type="hidden"  name="numeroVisualizacao" value="'.$publicacoes[$a]["numeroVisualizacao"].'">

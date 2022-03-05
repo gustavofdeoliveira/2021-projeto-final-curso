@@ -32,29 +32,26 @@ require_once __DIR__ . '/components/publicacoes-recentes.php';
 
   <main id="telas-navbar">
     <div class="row">
-      <div class="col-xl-8">
+      <div class="col-xl-8 col-lg-12 col-md-12">
         <div class="row">
           <p id="sessao-linha-tempo"><span id="texto-linha-tempo"> Mais </span> Relevantes <img src="image/icons/ICON-LIVRO.png"> </p>
         </div>
-        <div class="row">
-          <div class="container-publicacoes-relevantes">
+        <div class="container-publicacoes-relevantes">
+          <div class="row">
             <?= setPublicacoesReleavantes() ?>
           </div>
         </div>
-      </div>
 
-      <div class="col-xl-4">
-        <p id="sessao-linha-tempo">Resumos<span id="texto-linha-tempo"> da Comunidade </span><img src="image/icons/ICON-LIVRO.png"> </p>
-      </div>
-
-      <div class="col-xl-8">
         <p id="sessao-linha-tempo"><span id="texto-linha-tempo"> Publicações </span> Recentes <img src="image/icons/ICON-LIVRO.png"> </p>
         <div class="container-publicacoes-relevantes">
-          <?= setPublicacoesRecentes() ?>
-
+          <div class="row">
+            <?= setPublicacoesRecentes() ?>
+          </div>
         </div>
       </div>
-
+      <div class="col-xl-4 col-lg-12 col-md-12">
+        <p id="sessao-linha-tempo">Resumos<span id="texto-linha-tempo"> da Comunidade </span><img src="image/icons/ICON-LIVRO.png"> </p>
+      </div>
     </div>
 
     <div class="row">
