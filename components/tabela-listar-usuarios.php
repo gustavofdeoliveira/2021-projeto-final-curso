@@ -23,6 +23,7 @@ function listarUsuarios()
             $nivel .
             '<td class="texto-data">' . $data_inclusao->format('d/m/Y'). '</td>' .
             '<td style="text-align:center;display:flex">' .
+            
             '<form action="../control/UsuarioControl.php" method="POST" class="form-group">' .
             '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="atualizaNivel">' .
             '<button class="btn-excluir-atualizar" type="submit" name="Usuario" value="' . $usuarios[$a]['id'] . '" >' .

@@ -192,4 +192,24 @@ class PublicacaoDao
         $_SESSION["msg_sucess"] = "Publicação desfavoritada com sucesso!";
         return $id_publicacao;
     }
+    
+    function listagemIndex($variavel,$ordem){
+        $sql ="SELECT * FROM `publicacao` ORDER BY `$variavel` $ordem LIMIT 3";
+        $statement = $this->conn->prepare($sql);
+        $statement->execute();
+        if (($statement) and ($statement->rowCount() != 0)) {
+            while ($resultado = $statement->fetch(PDO::FETCH_ASSOC)) {
+                $publicacoes[] = $resultado;
+            }
+            return $publicacoes;
+        }
+    }
+    function atualizarNumeroVisualizacao(PublicacaoModel $modelo){
+        $sql = "UPDATE `publicacao` SET 
+        `numeroVisualizacao` = '" . $modelo->getNumeroVisualizacao() . "' 
+        WHERE `id`=:id_publicacao";
+        $statement = $this->conn->prepare($sql);
+        $statement->bindParam(':id_publicacao', $modelo->getId());
+        $statement->execute();
+    }
 }

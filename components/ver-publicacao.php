@@ -23,19 +23,23 @@ function verPublicacao()
                 'id_rede' => $row_id['id_rede'],
             ];
         }
-        $id_rede = $id_termos[1]['id_rede'];
-        $query_termo = "SELECT * FROM `redetermos` WHERE `id` =:id";
-        $result = $conn->prepare($query_termo);
-        $result->bindParam(':id', $id_rede);
-        $result->execute();
 
-        $row =  $result->fetch(PDO::FETCH_ASSOC);
-        $publicacao['redeTermos'][0] = [
-            'id' => $row['id'],
-            'nome' => $row['nome'],
-            'descricao' => $row['descricao'],
-            'dataInclusao' => $row['dataInclusao'],
-        ];
+        $id_rede = $id_termos[1]['id_rede'];
+        if (!empty($id_rede)) {
+            $query_termo = "SELECT * FROM `redetermos` WHERE `id` =:id";
+            $result = $conn->prepare($query_termo);
+            $result->bindParam(':id', $id_rede);
+            $result->execute();
+            if (($result) and ($result->rowCount() != 0)) {
+                $row =  $result->fetch(PDO::FETCH_ASSOC);
+                $publicacao['redeTermos'][0] = [
+                    'id' => $row['id'],
+                    'nome' => $row['nome'],
+                    'descricao' => $row['descricao'],
+                    'dataInclusao' => $row['dataInclusao'],
+                ];
+            }
+        }
         for ($a = 0; $a != count($id_termos); $a++) {
             $id = $id_termos[$a]['id_termo'];
 
@@ -98,6 +102,8 @@ function verPublicacao()
     }
     if (!empty($publicacao['redeTermos'])) {
         $rede = '<p id="rede-publicacao">' . $publicacao['redeTermos'][0]['nome'] . '</p>';
+    } else {
+        $rede = '';
     }
     if (!empty($publicacao['semelhantes'])) {
 
