@@ -34,7 +34,7 @@ require_once __DIR__ . '/components/publicacoes-recentes.php';
     <div class="row">
       <div class="col-xl-8 col-lg-12 col-md-12">
         <div class="row">
-          <p id="sessao-linha-tempo"><span id="texto-linha-tempo"> Mais </span> Relevantes <img src="image/icons/ICON-LIVRO.png"> </p>
+          <p id="sessao-linha-tempo"> Mais <span id="texto-linha-tempo">Relevantes </span><img src="image/icons/ICON-LIVRO.png"> </p>
         </div>
         <div class="container-publicacoes-relevantes">
           <div class="row">
@@ -42,7 +42,7 @@ require_once __DIR__ . '/components/publicacoes-recentes.php';
           </div>
         </div>
 
-        <p id="sessao-linha-tempo"><span id="texto-linha-tempo"> Publicações </span> Recentes <img src="image/icons/ICON-LIVRO.png"> </p>
+        <p id="sessao-linha-tempo"> Publicações <span id="texto-linha-tempo">Recentes </span><img src="image/icons/ICON-LIVRO.png"> </p>
         <div class="container-publicacoes-relevantes">
           <div class="row">
             <?= setPublicacoesRecentes() ?>

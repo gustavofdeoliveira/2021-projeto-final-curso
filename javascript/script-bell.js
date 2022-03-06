@@ -86,3 +86,4 @@ $('#cofirmaSenha').keyup(function () {
     }
 })
 
+$('.carousel').carousel()

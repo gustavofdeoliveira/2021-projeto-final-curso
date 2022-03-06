@@ -48,7 +48,7 @@ require_once __DIR__ . '../../components/footer.php';
 
       <label id="sessao-linha-tempo">Atualidades <span id="texto-linha-tempo"> Sociológicas </span> </label>
       <p id="linha-info-menor">a sociologia se encontrando com o que há no seu dia-a-dia.</p>
-
+     
     </div>
 
 
