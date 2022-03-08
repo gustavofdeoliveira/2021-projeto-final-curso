@@ -69,16 +69,6 @@ require_once __DIR__ . '../../components/mensagem.php';
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="form-group">
-                                <label class="form-label label-criar-publicacao" for="nomeVariavel">variações de nome <span id="texto-opcional">(opcional)</span></label>
-                                <div class="input-group">
-                                    <input class="input-criar-conta form-control" type="text" name="nomeVariavel">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                     <div class="row">

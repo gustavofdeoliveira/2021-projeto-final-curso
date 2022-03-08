@@ -4,6 +4,7 @@ require_once __DIR__ . '../../dao/UsuarioDao.php';
 require_once __DIR__ . '../../components/header.php';
 require_once __DIR__ . '../../components/table-listar-publicacao.php';
 require_once __DIR__ . '../../components/footer.php';
+require_once __DIR__ . '../../components/mensagem.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -20,7 +21,6 @@ require_once __DIR__ . '../../components/footer.php';
   <link rel="stylesheet" href="../css/bootstrap.css.map">
   <link rel="shortcut icon" href="../image/Logo-claro.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
   <link href="//cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet">
   <script src="../javascript/jquery.js"></script>
   <script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -49,25 +49,11 @@ require_once __DIR__ . '../../components/footer.php';
             </form>
           </div>
         </div>
-        <?php
-        if (!empty($_SESSION["msg_error"])) {
-          echo "<div class='row'>
-                            <div class='col-sm-12  col-md-12  col-xl-9  col-lg-9'>
-                                <div class='alert alert-danger' role='alert'><i class='fa fa-exclamation-triangle aria-hidden='true'></i> {$_SESSION["msg_error"]}</div>
-                            </div></div>
-                        ";
-        }
-        if (!empty($_SESSION["msg_sucess"])) {
-          echo "<div class='row'>
-                            <div class='col-sm-12  col-md-12  col-xl-12  col-lg-12'>
-                                <div class='alert alert-success' role='alert'> <i class='fa fa-check-circle-o' aria-hidden='true'></i> {$_SESSION["msg_sucess"]}</div>
-                            </div></div>
-                        ";
-        } ?>
+        <?= setMensagens()?>
         <div class="row ">
           <div class="col-xl-12">
             <div class="row">
-              <table id="table-publicacoes">
+              <table id="table">
                 <thead>
                   <tr>
                     <td scope="col" style="width: 50px;">
@@ -111,7 +97,7 @@ require_once __DIR__ . '../../components/footer.php';
   <script src="//cdn.datatables.net/plug-ins/1.11.5/i18n/pt-BR.json"></script>
   <script>
     $(document).ready( function () {
-    $('#table-publicacoes').DataTable({
+    $('#table').DataTable({
       "language": {
           "url":"//cdn.datatables.net/plug-ins/1.11.5/i18n/pt-BR.json"
         }

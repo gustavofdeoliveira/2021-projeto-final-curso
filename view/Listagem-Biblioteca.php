@@ -4,6 +4,7 @@ require_once __DIR__ . '../../dao/UsuarioDao.php';
 require_once __DIR__ . '../../components/header.php';
 require_once __DIR__ . '../../components/footer.php';
 require_once __DIR__ . '../../components/lista-termos-biblioteca.php';
+require_once __DIR__ . '../../components/publicacao-semelhante.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -30,8 +31,13 @@ require_once __DIR__ . '../../components/lista-termos-biblioteca.php';
     <?= head() ?>
     <main id="telas-navbar">
         <div class="row">
-            <?=listaTermosBiblioteca()?>
+            <?= listaTermosBiblioteca() ?>
             <div class="col-xl-4 col-lg-4">
+                <div class="row">
+                    <div id="publicacao-semelhantes">
+                        <?= setPublicacaoSemelhante()?>
+                    </div>
+                </div>
             </div>
         </div>
     </main>

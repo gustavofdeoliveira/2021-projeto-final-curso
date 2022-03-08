@@ -85,5 +85,3 @@ $('#cofirmaSenha').keyup(function () {
         alert("senhas não são iguais");
     }
 })
-
-$('.carousel').carousel()

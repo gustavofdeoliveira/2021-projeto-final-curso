@@ -12,7 +12,7 @@ $conn = Connection::conectar();
 // $id_pesquisa = 18;
 if (!empty($id_pesquisa)) {
 
-    $query_termo = "SELECT * FROM `termo` WHERE `id`=:id";
+    $query_termo = "SELECT * FROM `termo` WHERE `id`=:id OR 'nome'=:id";
     $result = $conn->prepare($query_termo);
     $result->bindParam(':id', $id_pesquisa);
     $result->execute();

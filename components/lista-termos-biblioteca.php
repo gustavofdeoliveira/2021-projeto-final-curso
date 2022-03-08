@@ -30,8 +30,8 @@ function listaTermosBiblioteca()
                 if ($_SESSION['usuarioAutenticado']['nivelAcesso'] == 1 || $_SESSION['usuarioAutenticado']['nivelAcesso'] == 2) {
                     $btn_edicao =
                         '<form action="../control/TermoControl.php" method="POST" class="form-group">' .
-                        '<input class="btn-excluir-atualizar" style="display:none" type="hidden" name="idPublicacao" value="' . $termos[$a]['id'] . '">' .
-                        '<button class="btn-excluir-atualizar" type="submit" name="acao" value="editarTermo">' .
+                        '<input class="btn-excluir-atualizar" style="display:none" type="hidden" name="idTermo" value="' . $termos[$a]['id'] . '">' .
+                        '<button class="btn-excluir-atualizar" type="submit" name="acao" value="verTermo">' .
                         '<i class="fa fa-verde fa-pencil-square-o" aria-hidden="true"></i></button></form>' .
 
                         '<form action="../control/TermoControl.php" method="POST" class="form-group">' .

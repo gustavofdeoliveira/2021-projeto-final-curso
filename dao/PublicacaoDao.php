@@ -204,6 +204,17 @@ class PublicacaoDao
             return $publicacoes;
         }
     }
+    function listagemLinhaTempo($categoria){
+        $sql ="SELECT * FROM `publicacao` WHERE `categoria`= '$categoria' ORDER BY `dataInclusao` DESC";
+        $statement = $this->conn->prepare($sql);
+        $statement->execute();
+        if (($statement) and ($statement->rowCount() != 0)) {
+            while ($resultado = $statement->fetch(PDO::FETCH_ASSOC)) {
+                $publicacoes[] = $resultado;
+            }
+            return $publicacoes;
+        }
+    }
     function atualizarNumeroVisualizacao(PublicacaoModel $modelo){
         $sql = "UPDATE `publicacao` SET 
         `numeroVisualizacao` = '" . $modelo->getNumeroVisualizacao() . "' 

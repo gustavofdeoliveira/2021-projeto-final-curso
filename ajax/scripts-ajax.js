@@ -13,21 +13,7 @@ $(document).ready(function () {
 
 
 //Carrega termo para editar
-$(document).ready(function () {
-    var editar = document.getElementsByName("editar-termo");
-    if (editar.length != 0) {
-        var url = window.location.href;
-        var valores_url = url.split("=");
-        $.post('../ajax-php/editar-termo.php?id=' + valores_url[1], function (resposta) {
-            resultado = JSON.parse(resposta);
-            document.getElementById("idTermo").value = resultado["dados"][0]["id"];
-            document.getElementById("nome").value = resultado["dados"][0]["nome"];
-            document.getElementById("select-termo").value = resultado["dados"][0]["tipo"];
-            document.getElementById("conceito").value = resultado["dados"][0]["conceito"];
-            document.getElementById("nomeVariavel").value = resultado["dados"][0]["nomeVariavel"];
-        })
-    }
-})
+
 
 
 //Carrega rede para editar

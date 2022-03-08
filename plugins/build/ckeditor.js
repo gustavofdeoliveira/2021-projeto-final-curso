@@ -28088,7 +28088,7 @@
                 writer: e
             }) {
                 const n = e.createAttributeElement("a", {
-                    href: t
+                    href: "http://localhost/2021-projeto-final-curso/view/Ver-termo.php?id="+ t
                 }, {
                     priority: 5
                 });
@@ -35739,7 +35739,7 @@
                     t.extendTemplate({
                         attributes: {
                             class: ["ck", "ck-link-actions__preview"],
-                            href: e.to("href", (t => t && IE(t))),
+                            href: "../view/Ver-termo.php?id=" + e.to("href", (t => t && IE(t))),
                             target: "_blank",
                             rel: "noopener noreferrer"
                         }

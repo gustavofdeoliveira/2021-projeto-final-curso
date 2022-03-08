@@ -35,11 +35,10 @@ class TermoDao
             }
         }
         if (empty($statement->rowCount())) {
-            $sql = "INSERT INTO `termo`(`tipoTermo`,`nome`,`nomeVariavel`,`conceito`,`dataInclusao`) 
+            $sql = "INSERT INTO `termo`(`tipoTermo`,`nome`,`conceito`,`dataInclusao`) 
              VALUES ( 
                  '" . $modelo->getTipoTermo() . "', 
                  '" . $modelo->getNome() . "', 
-                 '" . $modelo->getNomeVariavel() . "', 
                  '" . $modelo->getConceito() . "', 
                  CURRENT_DATE())";
             $statement = $this->conn->prepare($sql);
@@ -67,7 +66,6 @@ class TermoDao
         $sql = "UPDATE `termo` SET 
         `tipoTermo` = '" . $modelo->getTipoTermo() . "',
         `nome` = '" . $modelo->getNome() . "',
-        `nomeVariavel` ='" . $modelo->getNomeVariavel() . "',
         `conceito` ='" . $modelo->getConceito() . "' WHERE `id`=:id";
         $statement = $this->conn->prepare($sql);
         $statement->bindValue("id", $modelo->getId());
@@ -78,7 +76,7 @@ class TermoDao
 
     function listarTermo()
     {
-        $sql = "SELECT `id`,`tipoTermo`,`nome`,`dataInclusao` FROM `termo` ORDER BY `id` DESC";
+        $sql = "SELECT * FROM `termo` ORDER BY `id` DESC";
         $statement = $this->conn->prepare($sql);
         $statement->execute();
         if (($statement) and ($statement->rowCount() != 0)) {
@@ -119,7 +117,7 @@ class TermoDao
         $statement->bindParam(2, $id_termo);
         $statement->execute();
         $_SESSION["tempo_msg_sucess"] = time();
-        $_SESSION["msg_sucess"] = "Publicação favoritada com sucesso!";
+        $_SESSION["msg_sucess"] = "Termo favoritada com sucesso!";
         return $id_termo;
     }
     function removerTermo(TermoModel $modelo)
@@ -132,7 +130,21 @@ class TermoDao
         $statement->bindParam(':id_termo', $id_termo);
         $statement->execute();
         $_SESSION["tempo_msg_sucess"] = time();
-        $_SESSION["msg_sucess"] = "Publicação desfavoritada com sucesso!";
+        $_SESSION["msg_sucess"] = "Termo desfavoritada com sucesso!";
         return $id_termo;
+    }
+    function verTermo(TermoModel $modelo)
+    {
+        $id_termo = $modelo->getId();
+        $sql = "SELECT * FROM `termo` WHERE `id`= :id_termo";
+        $statement = $this->conn->prepare($sql);
+        $statement->bindParam(':id_termo', $id_termo);
+        $statement->execute();
+        if (($statement) and ($statement->rowCount() != 0)) {
+            while ($result = $statement->fetch(PDO::FETCH_ASSOC)) {
+                $termo[] = $result;
+            }
+            return $termo;
+        }
     }
 }

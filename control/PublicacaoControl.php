@@ -181,6 +181,20 @@ class PublicacaoControl
             header("Location:../index.php");
         }
     }
+    public function listagemLinhaTempo($categoria)
+    {
+        try {
+            $publicacoes = $this->dao->listagemLinhaTempo($categoria);
+            $publicacoes_formatada = $this->modelo->getPublicacao($publicacoes);
+            return $publicacoes_formatada;
+        } catch (\Exception $e) {
+            $_SESSION["msg_error"] = $e->getMessage();
+            $_SESSION["msg_tempo_error"] = time();
+            print_r($_SESSION["msg_error"]);
+            exit();
+            header("Location:../view/Linha-tempo.php");
+        }
+    }
     public function atualizarNumeroVisualizacao()
     {
         try {

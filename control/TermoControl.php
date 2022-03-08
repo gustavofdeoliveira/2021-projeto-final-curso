@@ -38,6 +38,9 @@ class TermoControl
             if ($this->acao == "removerTermo") {
                 $this->removerTermo();
             }
+            if($this->acao =="verTermo"){
+                $this->verTermo(); 
+            }
         }
     }
     public function inserirTermo()
@@ -45,7 +48,6 @@ class TermoControl
         try {
             $this->modelo->setTipoTermo($_POST["tipoTermo"]);
             $this->modelo->setNome($_POST["nome"]);
-            $this->modelo->setNomeVariavel($_POST["nomeVariavel"]);
             $this->modelo->setConceito($_POST["conceito"]);
             $this->dao->inserirTermo($this->modelo);
             header("Location:../view/Cadastrar-termo.php");
@@ -74,7 +76,6 @@ class TermoControl
             $this->modelo->setId($_POST["idTermo"]);
             $this->modelo->setTipoTermo($_POST["tipoTermo"]);
             $this->modelo->setNome($_POST["nome"]);
-            $this->modelo->setNomeVariavel($_POST["nomeVariavel"]);
             $this->modelo->setConceito($_POST["conceito"]);
             $this->dao->atualizarTermo($this->modelo);
             header("Location:../view/Editar-termo.php");
@@ -126,6 +127,22 @@ class TermoControl
             $this->dao->removerTermo($this->modelo);
             header("Location:../view/Listagem-Biblioteca.php");
         } catch (\Exception $e) {
+            $_SESSION["msg_error"] = $e->getMessage();
+            $_SESSION["msg_tempo_error"] = time();
+            print_r($_SESSION["msg_error"]);
+            exit();
+        }
+    }
+     public function verTermo()
+    {
+        try{
+            $id_termo = $_POST['idTermo'];
+            $this->modelo->setId($_POST['idTermo']);
+            $termo = $this->dao->verTermo($this->modelo);
+            $termo_formatado = $this->modelo->getTermo($termo);
+            $_SESSION['termo'] = $termo_formatado;
+            header("Location:../view/Editar-Termo.php?id=".$id_termo);
+        }catch (\Exception $e) {
             $_SESSION["msg_error"] = $e->getMessage();
             $_SESSION["msg_tempo_error"] = time();
             print_r($_SESSION["msg_error"]);

@@ -4,6 +4,7 @@ include_once __DIR__ . '../../database/Connection.php';
 require_once __DIR__ . '../../dao/UsuarioDao.php';
 require_once __DIR__ . '../../components/header.php';
 require_once __DIR__ . '../../components/footer.php';
+require_once __DIR__ . '../../components/mensagem.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

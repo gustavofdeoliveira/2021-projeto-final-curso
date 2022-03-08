@@ -465,10 +465,10 @@ a#btn-criar-conta-login {
 
 .navbar-input-busca {
   height: 69px;
-  border-color: var(--cor_verde);
+  border-color: var(--cor_verde) !important;
   border-radius: 0px 200px 200px 0px !important;
-  border-width: 1px 1px 1px 0px;
-  border-top-color: var(--cor_verde);
+  border-width: 1px 1px 1px 0px !important;
+  border-top-color: var(--cor_verde) !important;
 }
 
 .navbar-input-busca::placeholder {
@@ -944,7 +944,7 @@ main#telas-navbar {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 30px;
+  margin-bottom: 95px;
 }
 
 p#titulo-criar-publicacao {
@@ -1657,7 +1657,7 @@ div#modal-avatar {
   background-color: var(--cor_vermelha);
   min-height: max-content;
   position: fixed;
-  z-index: 100;
+  z-index: 1000;
   top: 5%;
   left: 0;
   box-shadow: 1px 1px 5px var(--color_preta);
@@ -2234,7 +2234,7 @@ label.dropdown {
   color: var(--cor_branca) !important;
 }
 
-div#table-publicacoes_filter {
+div#table_filter {
   display: none;
 }
 
@@ -2251,7 +2251,7 @@ table.dataTable tbody tr {
   background-color: var(--cor_branca) !important;
 }
 
-div#table-publicacoes_length {
+div#table_length {
   float: right !important;
 }
 
@@ -2259,7 +2259,7 @@ table.dataTable thead td, table.dataTable.no-footer {
   border-bottom: 2px solid var(--cor_verde) !important;
 }
 
-.table-publicacoes_wrapper {
+.table_wrapper {
   width: 100% !important;
 }
 
@@ -2288,7 +2288,7 @@ span#texto-linha-tempo {
   margin-top: 10px;
 }
 
-p#sessao-linha-tempo{
+p#sessao-linha-tempo {
   font-size: 25px;
   line-height: 30px;
   font-family: Raleway-Black;
@@ -2299,12 +2299,14 @@ p#sessao-linha-tempo{
 label#sessao-linha-tempo {
   font-size: 25px;
   line-height: 30px;
+  margin-left: 20px;
   font-family: Raleway-Black;
   color: var(--cor_vermelha) !important;
   margin-top: 10px;
 }
 
 p#linha-info-menor {
+  margin-left: 20px;
   font-size: 18px !important;
   font-family: Raleway-Light;
   color: var(--color_preta) !important;
@@ -2374,7 +2376,7 @@ li#nome-termo {
   color: var(--cor_vermelha);
   font-family: Raleway-Black;
   font-size: 40px;
-  line-height: 65px;
+  line-height: 45px;
   text-decoration: none;
 }
 
@@ -2393,8 +2395,7 @@ a#nome-termo {
 .container-publicacao {
   position: relative;
   width: 100% !important;
-  max-width: 230px;
-  height: 150px !important;
+  height: 160px !important;
   border-radius: 20px;
   margin-bottom: 15px;
   margin-left: auto;
@@ -2402,10 +2403,10 @@ a#nome-termo {
 }
 
 .container-publicacao-img {
-  width: 230px;
-  height: 130px;
+  width: 100%;
+  height: 140px;
   border-radius: 22px;
-  margin-top: -5px;
+  margin-top: -6px;
   margin-left: 7px;
 }
 
@@ -2413,7 +2414,7 @@ a#nome-termo {
   font-family: Raleway-Black;
   font-size: 16.5px;
   position: absolute;
-  z-index: 9999;
+  z-index: 999;
   text-align: center;
   color: var(--cor_branca) !important;
   opacity: 1;
@@ -2428,7 +2429,7 @@ a#nome-termo {
 
 .container-publicacao button img {
   position: absolute;
-  z-index: 9999;
+  z-index: 999;
   text-align: center;
   color: var(--cor_branca) !important;
   opacity: 1;
@@ -2442,12 +2443,54 @@ a#nome-termo {
 
 .overlay {
   width: 100%;
-  min-width: 230px;
-  max-height: 130px;
+  max-height: 140px;
   height: 100%;
-  opacity: 0.6;
+  opacity: 0.7;
   position: absolute;
   z-index: 99;
   border-radius: 20px;
   background: linear-gradient(to right, var(--cor_verde), var(--cor_vermelha));
+}
+
+div#carousel-item{
+  display: flex;
+  overflow-y: auto;
+  margin-left: 20px;
+}
+div#carousel-item::-webkit-scrollbar {
+  width: 12px;
+  /* width of the entire scrollbar */
+}
+
+div#carousel-item::-webkit-scrollbar-track {
+  background: var(--cor_vermelha);
+  /* color of the tracking area */
+  width: 10px;
+  border-radius: 15px 15px 15px 15px;
+}
+
+div#carousel-item::-webkit-scrollbar-thumb {
+  background-color: var(--cor_verde);
+  /* color of the scroll thumb */
+  border-radius: 20px;
+  /* roundness of the scroll thumb */
+  border: 3px solid var(--cor_vermelha);
+  /* creates padding around scroll thumb */
+}
+
+p#instrucao{
+  color: var(--color_preta) !important;
+  font-family: Raleway-Light-Italic;
+  font-size: 20px;
+  margin-left: 10px;
+}
+p#instrucao-passos{
+  color: var(--color_preta) !important;
+  font-family: Raleway-Light-Italic;
+  font-size: 20px;
+  margin-top:-20px;
+  margin-left: 10px;
+}
+p#instrucao-passos i{
+  color: var(--cor_vermelha) !important;
 }
