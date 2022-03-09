@@ -159,6 +159,11 @@ class UsuarioDao
         }
 
         if ($usuario['nivelAcesso'] == 1) {
+            $sql = "DELETE FROM `comentario` WHERE `id_usuario`=:id";
+            $statement = $this->conn->prepare($sql);
+            $statement->bindValue("id", $modelo->getId());
+            $statement->execute();
+
             $sql = "DELETE FROM `usuario` WHERE `idUsuario`=:id";
             $statement = $this->conn->prepare($sql);
             $statement->bindValue("id", $modelo->getId());
@@ -187,6 +192,12 @@ class UsuarioDao
                 $statement->execute();
                 $_SESSION["msg_sucess"] = "Dados do usuário atualizados!";
                 $_SESSION["tempo_msg_sucess"] = time();
+                $sql = "UPDATE `comentario` SET 
+                `nomeUsuario` = '" . $modelo->getNomeUsuario() . "' WHERE `id_usuario`=:id";
+                $statement = $this->conn->prepare($sql);
+                $statement->bindValue("id", $usuario['idUsuario']);
+                $statement->execute();
+
 
                 $sql = "SELECT * FROM `usuario` WHERE `idUsuario` = :id";
                 $statement = $this->conn->prepare($sql);
@@ -233,7 +244,8 @@ class UsuarioDao
         $_SESSION["msg_sucess"] = "foto de Avatar do usuário " . $modelo->getId() . " atualizado!";
         $_SESSION["tempo_msg_sucess"] = time();
     }
-    function listarUsuario(){
+    function listarUsuario()
+    {
         $query_usuarios = "SELECT `idUsuario`,`nomeCompleto`,`nivelAcesso`,`dataInclusao` FROM `usuario` ORDER BY `idUsuario` DESC";
         $statement = $this->conn->prepare($query_usuarios);
         $statement->execute();

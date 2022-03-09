@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../control/PublicacaoControl.php';
 
-function setAPublicacaoConteudista()
+function setPublicacaoConteudista()
 {
     $categoria = "Publicação Conteudista";
     $publicacaoControl = new PublicacaoControl();

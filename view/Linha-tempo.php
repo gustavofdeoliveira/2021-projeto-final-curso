@@ -53,13 +53,13 @@ require_once __DIR__ . '../../components/publicacoes-conteudistas.php';
     <div class="row">
       <label id="sessao-linha-tempo"><span id="texto-linha-tempo"> Publicações </span> Conteudistas </label>
       <p id="linha-info-menor">aprofunde-se na teoria de diversos teóricos e conceitos.</p>
-      <?= setAPublicacaoConteudista() ?>
+      <?= setPublicacaoConteudista() ?>
     </div>
-    <div class="row">
+    <!-- <div class="row">
       <label id="sessao-linha-tempo">Resumos <span id="texto-linha-tempo"> da Comunidade </span> </label>
       <p id="linha-info-menor">fixe o que você aprendeu com representações visuais.</p>
 
-    </div>
+    </div> -->
 
   </main>
   <?= setFooter() ?>

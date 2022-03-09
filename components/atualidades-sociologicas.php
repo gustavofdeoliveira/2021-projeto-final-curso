@@ -29,7 +29,7 @@ function setAtualidadesSociologicas()
         return '<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div id="carousel-item">
-           ' . $publicacoes_index.$publicacoes_index . '
+           ' . $publicacoes_index . '
           </div>
         </div>
       </div>';

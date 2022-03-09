@@ -32,7 +32,10 @@ require_once __DIR__ . '/components/publicacoes-recentes.php';
 
   <main id="telas-navbar">
     <div class="row">
-      <div class="col-xl-8 col-lg-12 col-md-12">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+        <div class="row">
+          <p id="texto-bem-vindo">Oi! Seja bem-vindx ao <span>Tereré com Sociologia</span> :)</p>
+        </div>
         <div class="row">
           <p id="sessao-linha-tempo"> Mais <span id="texto-linha-tempo">Relevantes </span><img src="image/icons/ICON-LIVRO.png"> </p>
         </div>
@@ -49,16 +52,15 @@ require_once __DIR__ . '/components/publicacoes-recentes.php';
           </div>
         </div>
       </div>
-      <div class="col-xl-4 col-lg-12 col-md-12">
-        <p id="sessao-linha-tempo">Resumos<span id="texto-linha-tempo"> da Comunidade </span><img src="image/icons/ICON-LIVRO.png"> </p>
-      </div>
     </div>
 
     <div class="row">
-      <p id="texto-slogan">Tudo sobre <br> <span id="texto-slogan-alt">sociologia</span> em <br> um só lugar</p>
+      <p id="texto-slogan">Tudo sobre <span id="texto-slogan-alt">sociologia</span><br>em um só lugar</p>
       <p id="texto-slogan-menor">participe da nossa comunidade, <br> aprenda de forma interativa</p>
     </div>
-
+    <div class="row">
+      <img class="img-index d-none d-sm-block d-sm-none d-md-block d-md-none d-lg-block" src="image/Bg-index.png">
+    </div>
   </main>
 
   <?= setFooter() ?>

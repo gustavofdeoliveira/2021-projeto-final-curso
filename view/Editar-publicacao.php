@@ -101,6 +101,8 @@ require_once __DIR__ . '../../components/mensagem.php';
             <div class="col-xl-12">
               <div class="form-group">
                 <label class="form-label label-criar-publicacao" for="termos">texto</label>
+                <p id="instrucao">Caro professor, para adicionar termos da nossa Biblioteca à sua publicação você deve:</p>
+                <p id="instrucao-passos">1 - selecionar a parte do seu texto que se refere ao termo | 2 - clicar neste botão <i class="fa fa-link"></i> | 3 - buscar o termo que você quer e clicar em salvar!</p>
                 <div class="input-group">
                   <input class=" form-control" type="hidden" id="termosId" name="termosId" value="<?php for($a=0;$a!=count($_SESSION['id_termos']);$a++){ echo $_SESSION['id_termos'][$a].",";} ?>">
                   <input class=" form-control" type="hidden" id="texto_publicacao" name="texto_publicacao"><div class="form-control" type="text" id="textoArea" name="textoArea" innerHTML=''><?php echo $publicacao[0]["texto"]; ?>
