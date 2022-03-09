@@ -2585,3 +2585,17 @@ hr#hr-comentario{
   font-size: 15px;
   color: var(--cor_verde) !important;
 }
+
+span#resultado_pesquisa_publicacao ul li{
+  background-color: var(--cor_vermelha);
+  color: var(--cor_branca);
+  font-family: Raleway-Light;
+  border-bottom: var(--cor_branca);
+  width: 100%;
+}
+
+span#resultado_pesquisa_publicacao {
+  width: 90%;
+  margin-left: 5%;
+  z-index: 100;
+}

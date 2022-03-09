@@ -165,6 +165,8 @@ function verPublicacao()
             </div>  
         </div>';
          }
+    }else{
+        $comentario ='';
     }
     if (!empty($_SESSION['usuarioAutenticado'])) {
         if ($_SESSION['usuarioAutenticado']['nivelAcesso'] == 1 || $_SESSION['usuarioAutenticado']['nivelAcesso'] == 2) {

@@ -2,25 +2,25 @@
 
 require_once(realpath(dirname(__FILE__) . "/../database/Connection.php"));
 
-$termo = filter_input(INPUT_GET, "termo", FILTER_SANITIZE_STRING);
+$publicacao = filter_input(INPUT_GET, "publicacao", FILTER_SANITIZE_STRING);
 
 $conn = Connection::conectar();
 
 
-if (!empty($termo)) {
+if (!empty($publicacao)) {
 
-    $pesq_usuarios = "%" . $termo . "%";
+    $pesq_publicacao = "%" . $publicacao . "%";
 
-    $query_termos = "SELECT * FROM publicacao WHERE titulo LIKE :titulo LIMIT 20";
-    $result = $conn->prepare($query_termos);
-    $result->bindParam(':titulo', $pesq_usuarios);
+    $sql = "SELECT * FROM publicacao WHERE titulo LIKE :titulo LIMIT 20";
+    $result = $conn->prepare($sql);
+    $result->bindParam(':titulo', $pesq_publicacao);
     $result->execute();
     
      if(($result) and ($result->rowCount() != 0)){
-         while($row_termo = $result->fetch(PDO::FETCH_ASSOC)){
+         while($row_publicacao = $result->fetch(PDO::FETCH_ASSOC)){
            $dados[] = [
-                 'id' => $row_termo['id'],
-                 'titulo' => $row_termo['titulo']
+                 'id' => $row_publicacao['id'],
+                 'titulo' => $row_publicacao['titulo']
             ];
          }
 

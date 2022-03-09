@@ -30,6 +30,7 @@ function head(): string
                         <div class="input-group input-group-navbar">
                             <span class="input-group-text span-icon-buscar" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
                             <input type="text" class="navbar-input-busca form-control" placeholder="descubra algo incrível..." aria-describedby="basic-addon1" onkeyup="carrega_publicacao(this.value)">
+                            <span id="resultado_pesquisa_publicacao"></span>
                         </div>
                     </form>
                 </div>

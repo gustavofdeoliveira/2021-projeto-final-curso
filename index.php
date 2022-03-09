@@ -67,9 +67,9 @@ require_once __DIR__ . '/components/publicacoes-recentes.php';
 
   <script src="javascript/bootstrap.bundle.min.js"></script>
   <script src="javascript/scripts.js"></script>
-  <script src="ajax/scripts-ajax.js"></script>
   <script src="javascript/script-bell.js"></script>
   <script src="javascript/scripts.js"></script>
+  <script src="ajax/scripts-ajax.js"></script>
 </body>
 
 </html>

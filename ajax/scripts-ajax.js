@@ -252,17 +252,22 @@ $(document).ready(function () {
 async function carrega_publicacao(value) {
     if (value.length >= 3) {
         debugger
-        const publicacao = await fetch('../ajax-php/busca-publicacao.php?termo=' + value);
+        const publicacao = await fetch('http://localhost/2021-projeto-final-curso/ajax-php/busca-publicacao.php?publicacao=' + value);
         const resposta = await publicacao.json();
         var html = "<ul class='list-group'>";
         if (resposta['erro']) {
-            html += "<li class='list-group-item disabled'>" + resposta['dados']['msg'] + "</li>";
+            html += "<li class='list-group-item disabled'>" + resposta['msg'] + "</li>";
         } else {
             for (i = 0; i < resposta['dados'].length; i++) {
-                html += "<li class='list-group-item list-group-item-action' onclick='get_termo(" + JSON.stringify(resposta['dados'][i].id) + "," + JSON.stringify(resposta['dados'][i].nome) + ")'>" + resposta['dados'][i].nome + "</li>";
+                html += "<li class='list-group-item list-group-item-action' onclick='verPublicacao(" + JSON.stringify(resposta['dados'][i]['id']) + ")'>" + resposta['dados'][i]['titulo'] + "</li>";
             }
         }
         html += "</ul>";
-        document.getElementById('resultado_pesquisa').innerHTML = html;
+
+        document.getElementById('resultado_pesquisa_publicacao').innerHTML = html;
     }
+}
+
+function verPublicacao(id){
+    window.location.href = "http://localhost/2021-projeto-final-curso/view/Ver-publicacao.php?id="+id;
 }
