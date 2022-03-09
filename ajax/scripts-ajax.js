@@ -251,7 +251,6 @@ $(document).ready(function () {
 
 async function carrega_publicacao(value) {
     if (value.length >= 3) {
-        debugger
         const publicacao = await fetch('http://localhost/2021-projeto-final-curso/ajax-php/busca-publicacao.php?publicacao=' + value);
         const resposta = await publicacao.json();
         var html = "<ul class='list-group'>";

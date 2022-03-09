@@ -22,7 +22,11 @@ $(document).on('click', function (e) {
         $(".sidebar").removeClass("active");
         $(".sidebar .sidebar-overlay").addClass("fadeOut animated").removeClass("fadeIn animated");
     }
+    if (!target.closest('#resultado_pesquisa_publicacao').length) {
+        document.getElementById('resultado_pesquisa_publicacao').innerHTML = '';
+    }
 })
+
 $('.ion-ios-navicon').click(function () {
     $(".sidebar").addClass("active");
     $(".sidebar .sidebar-overlay").removeClass("fadeOut animated").addClass("fadeIn animated");
