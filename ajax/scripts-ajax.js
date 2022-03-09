@@ -248,3 +248,21 @@ $(document).ready(function () {
         }
     })
 })
+
+async function carrega_publicacao(value) {
+    if (value.length >= 3) {
+        debugger
+        const publicacao = await fetch('../ajax-php/busca-publicacao.php?termo=' + value);
+        const resposta = await publicacao.json();
+        var html = "<ul class='list-group'>";
+        if (resposta['erro']) {
+            html += "<li class='list-group-item disabled'>" + resposta['dados']['msg'] + "</li>";
+        } else {
+            for (i = 0; i < resposta['dados'].length; i++) {
+                html += "<li class='list-group-item list-group-item-action' onclick='get_termo(" + JSON.stringify(resposta['dados'][i].id) + "," + JSON.stringify(resposta['dados'][i].nome) + ")'>" + resposta['dados'][i].nome + "</li>";
+            }
+        }
+        html += "</ul>";
+        document.getElementById('resultado_pesquisa').innerHTML = html;
+    }
+}
