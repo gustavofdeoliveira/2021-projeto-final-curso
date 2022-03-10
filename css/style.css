@@ -2579,6 +2579,7 @@ hr#hr-comentario{
 }
 
 .comentario-nome-usuario {
+  width: max-content;
   font-family: Raleway-Black;
   font-size: 18px;
   color: var(--cor_verde) !important;
@@ -2588,7 +2589,15 @@ hr#hr-comentario{
   font-size: 15px;
   color: var(--cor_verde) !important;
 }
-
+.comentario-data{
+  width: max-content;
+  margin-left: auto;
+}
+.comentario-data{
+  font-family: Raleway-Bold;
+  font-size: 15px;
+  color: var(--cor_verde) !important;
+}
 .comentario-texto{
   font-family: Raleway-Light;
   font-size: 15px;

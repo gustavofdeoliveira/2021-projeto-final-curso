@@ -1,11 +1,10 @@
 <?php
 require_once __DIR__ . '/../control/PublicacaoControl.php';
 
-function setAtualidadesSociologicas()
+function setPublicacoesSalvas()
 {
-    $categoria = "Atualidade Sociológica";
     $publicacaoControl = new PublicacaoControl();
-    $publicacoes = $publicacaoControl->listagemLinhaTempo($categoria);
+    $publicacoes = $publicacaoControl->listagemPublicacoesSalvas();
     if (!empty($publicacoes)) {
         $publicacoes_index = "";
         for ($a = 0; $a != count($publicacoes); $a++) {

@@ -195,12 +195,28 @@ class PublicacaoControl
             header("Location:../view/Linha-tempo.php");
         }
     }
+    public function listagemPublicacoesSalvas()
+    {
+        try {
+            $publicacoes = $this->dao->listagemPublicacoesSalvas();
+            if (!empty($publicacoes)) {
+                $publicacoes_formatada = $this->modelo->getPublicacao($publicacoes);
+                return $publicacoes_formatada;
+            }
+        } catch (\Exception $e) {
+            $_SESSION["msg_error"] = $e->getMessage();
+            $_SESSION["msg_tempo_error"] = time();
+            print_r($_SESSION["msg_error"]);
+            exit();
+            header("Location:../view/Meu-espaco.php");
+        }
+    }
     public function atualizarNumeroVisualizacao()
     {
         try {
             $this->modelo->setId($_POST["idPublicacao"]);
             $id_publicacao = $_POST["idPublicacao"];
-            $this->modelo->setNumeroVisualizacao($_POST["numeroVisualizacao"] +1);
+            $this->modelo->setNumeroVisualizacao($_POST["numeroVisualizacao"] + 1);
             $this->dao->atualizarNumeroVisualizacao($this->modelo);
             header("Location:../view/Ver-publicacao.php?id=" . $id_publicacao);
         } catch (\Exception $e) {

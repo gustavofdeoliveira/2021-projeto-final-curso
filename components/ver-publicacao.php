@@ -67,7 +67,7 @@ function verPublicacao()
         $isSalva = false;
     }
 
-    $sql = "SELECT * FROM `comentario` WHERE `id_publicacao`=:id";
+    $sql = "SELECT * FROM `comentario` WHERE `id_publicacao`=:id ORDER BY `dataInclusao` DESC";
     $result = $conn->prepare($sql);
     $result->bindParam(':id', $_SESSION['pesquisa']);
     $result->execute();
@@ -152,12 +152,18 @@ function verPublicacao()
                 }
             }else{
                 $btn_excluir_comentario = '';
-                }
+            }
+            $comentario_data = new DateTime($publicacao['comentarios'][$a]['dataInclusao']);
+                
             $comentario .= '<div class="comentario">
             <div class="row">
                 <div class="col-xl-11 col-lg-11 col-md-11 col-sm-10">
+                <div class="d-flex">
                     <div class="comentario-nome-usuario">@' . $publicacao['comentarios'][$a]['nomeUsuario'] . ' <span>comentou:</span></div>
+                    <div class="comentario-data pull-right"><pan>'.$comentario_data->format('d/m/Y').'</pan></div>
+                    </div>
                     <div class="comentario-texto">' . $publicacao['comentarios'][$a]['textoComentario'] . '</div>
+                    
                 </div>
                 <div class="col-xl-1 col-lg-1 col-md-1 col-sm-2">
                     '.$btn_excluir_comentario.'

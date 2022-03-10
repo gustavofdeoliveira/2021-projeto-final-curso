@@ -111,7 +111,8 @@ class TermoDao
     {
         $id_usuario = $_SESSION['usuarioAutenticado']['idUsuario'];
         $id_termo = $modelo->getId();
-        $sql = "INSERT INTO `usuarios_termos_salvos` (`id_usuario`,`id_termo`) VALUES (?,?)";
+        $sql = "INSERT INTO `usuarios_termos_salvos` (`id_usuario`,`id_termo`,`dataInclusao`) 
+        VALUES (?,?, CURRENT_DATE())";
         $statement = $this->conn->prepare($sql);
         $statement->bindParam(1, $id_usuario);
         $statement->bindParam(2, $id_termo);

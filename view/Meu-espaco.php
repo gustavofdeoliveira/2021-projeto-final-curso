@@ -4,6 +4,7 @@ require_once __DIR__ . '../../dao/PublicacaoDao.php';
 require_once __DIR__ . '../../components/header.php';
 require_once __DIR__ . '../../components/footer.php';
 require_once __DIR__ . '../../components/mensagem.php';
+require_once __DIR__ . '../../components/publicacoes-salvas.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -30,56 +31,58 @@ require_once __DIR__ . '../../components/mensagem.php';
 <body id="dark-mode">
   <?= head() ?>
   <main id="telas-navbar">
-      <div class="row">
-        <div class="col-xl-12">
-          <p id="titulo-criar-publicacao">Meu Espaço</p>
-          <?= setMensagens()?>
+    <div class="row">
+      <div class="col-xl-12">
+        <p id="titulo-criar-publicacao">Meu Espaço</p>
+        <?= setMensagens() ?>
 
-          <!-- <div class="row no-gutters">
+        <!-- <div class="row no-gutters">
             <div class="col-xl">
                 <label id="sessao-meu-espaco">minhas anotações</label>
             </div>
             <div class="col-lg">
-                <a href="../view/Nova-anotacao.php" class="adicionar-termos"><i class="fa fa-plus"></i> nova anotação<a>
+                <a href="../view/Nova-anotacao.php" class="adicionar-termos"><i class="fa fa-plus"></i> nova anotação</a>
             </div>
           </div> -->
 
-          <!-- <div class="row">
+        <!-- <div class="row">
             <div class="col-xl">
                 <label id="sessao-meu-espaco">meus resumos</label>
             </div>
             <div class="col">
-                <a href="../view/Adicionar-resumo.php" class="adicionar-termos"><i class="fa fa-plus"></i> novo resumo<a>
+                <a href="../view/Adicionar-resumo.php" class="adicionar-termos"><i class="fa fa-plus"></i> novo resumo</a>
             </div>
           </div> -->
 
+        <div class="row">
+          <div class="col-xl-6 col-lg-6">
+            <label id="sessao-meu-espaco">publicações salvas</label>
+          </div>
+          <div class="col-xl-6 col-lg-6">
+            <a href="../view/Linha-tempo.php" class="adicionar-termos">Acessar Linha do Tempo</a>
+          </div>
           <div class="row">
-            <div class="col-xl-6 col-lg-6">
-                <label id="sessao-meu-espaco">publicações salvas</label>
-            </div>
-            <div class="col-xl-6 col-lg-6">
-                <a href="../view/Linha-tempo.php" class="adicionar-termos">Acessar Linha do Tempo<a>
-            </div>
-          </div> 
-
-          <div class="row">
-            <div class="col-xl-6 col-lg-6">
-                <label id="sessao-meu-espaco">termos salvos</label>
-            </div>
-            <div class="col-xl-6 col-lg-6">
-                <a href="../view/Biblioteca.php" class="adicionar-termos">Acessar Biblioteca<a>
-            </div>
-          </div> 
-
-          <img id="icon-login-secundario" class="icon-login" src="../image/IMG-MEUESPACO.png">
+            <?= setPublicacoesSalvas() ?>
+          </div>
         </div>
+        <div class="row">
+          <div class="col-xl-6 col-lg-6">
+            <label id="sessao-meu-espaco">termos salvos</label>
+          </div>
+          <div class="col-xl-6 col-lg-6">
+            <a href="../view/Biblioteca.php" class="adicionar-termos">Acessar Biblioteca</a>
+          </div>
+        </div>
+
+        <img id="icon-login-secundario" class="icon-login" src="../image/IMG-MEUESPACO.png">
+      </div>
     </div>
   </main>
   <?= setFooter() ?>
   <script src="../javascript/bootstrap.bundle.min.js"></script>
   <script src="../javascript/scripts.js"></script>
   <script src="../javascript/script-bell.js"></script>
-  <script src="../ajax/scripts-ajax.js"></script>
+
 </body>
 
 </html>

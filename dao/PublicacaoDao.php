@@ -168,10 +168,11 @@ class PublicacaoDao
         return $id_publicacao;
     }
 
-    function salvarPublicacao(PublicacaoModel $modelo){
+    function salvarPublicacao(PublicacaoModel $modelo)
+    {
         $id_usuario = $_SESSION['usuarioAutenticado']['idUsuario'];
         $id_publicacao = $modelo->getId();
-        $sql = "INSERT INTO `usuarios_publicacoes_salvas` (`id_usuario`,`id_publicacao`) VALUES (?,?)";
+        $sql = "INSERT INTO `usuarios_publicacoes_salvas` (`id_usuario`,`id_publicacao`,`dataInclusao`) VALUES (?,?, CURRENT_DATE())";
         $statement = $this->conn->prepare($sql);
         $statement->bindParam(1, $id_usuario);
         $statement->bindParam(2, $id_publicacao);
@@ -180,7 +181,8 @@ class PublicacaoDao
         $_SESSION["msg_sucess"] = "Publicação favoritada com sucesso!";
         return $id_publicacao;
     }
-    function removerPublicacao(PublicacaoModel $modelo){
+    function removerPublicacao(PublicacaoModel $modelo)
+    {
         $id_usuario = $_SESSION['usuarioAutenticado']['idUsuario'];
         $id_publicacao = $modelo->getId();
         $sql = "DELETE FROM `usuarios_publicacoes_salvas`  WHERE `id_usuario` = :id_usuario AND `id_publicacao` = :id_publicacao";
@@ -192,9 +194,10 @@ class PublicacaoDao
         $_SESSION["msg_sucess"] = "Publicação desfavoritada com sucesso!";
         return $id_publicacao;
     }
-    
-    function listagemIndex($variavel,$ordem){
-        $sql ="SELECT * FROM `publicacao` ORDER BY `$variavel` $ordem LIMIT 4";
+
+    function listagemIndex($variavel, $ordem)
+    {
+        $sql = "SELECT * FROM `publicacao` ORDER BY `$variavel` $ordem LIMIT 4";
         $statement = $this->conn->prepare($sql);
         $statement->execute();
         if (($statement) and ($statement->rowCount() != 0)) {
@@ -204,8 +207,9 @@ class PublicacaoDao
             return $publicacoes;
         }
     }
-    function listagemLinhaTempo($categoria){
-        $sql ="SELECT * FROM `publicacao` WHERE `categoria`= '$categoria' ORDER BY `dataInclusao` DESC";
+    function listagemLinhaTempo($categoria)
+    {
+        $sql = "SELECT * FROM `publicacao` WHERE `categoria`= '$categoria' ORDER BY `dataInclusao` DESC";
         $statement = $this->conn->prepare($sql);
         $statement->execute();
         if (($statement) and ($statement->rowCount() != 0)) {
@@ -215,12 +219,39 @@ class PublicacaoDao
             return $publicacoes;
         }
     }
-    function atualizarNumeroVisualizacao(PublicacaoModel $modelo){
+    function atualizarNumeroVisualizacao(PublicacaoModel $modelo)
+    {
         $sql = "UPDATE `publicacao` SET 
         `numeroVisualizacao` = '" . $modelo->getNumeroVisualizacao() . "' 
         WHERE `id`=:id_publicacao";
         $statement = $this->conn->prepare($sql);
         $statement->bindParam(':id_publicacao', $modelo->getId());
         $statement->execute();
+    }
+    function listagemPublicacoesSalvas()
+    {
+        $sql = "SELECT * FROM `usuarios_publicacoes_salvas` ORDER BY `dataInclusao` DESC";
+        $statement = $this->conn->prepare($sql);
+        $statement->execute();
+        if (($statement) and ($statement->rowCount() != 0)) {
+            while ($resultado = $statement->fetch(PDO::FETCH_ASSOC)) {
+                $publicacoes_salvas[] = $resultado;
+            }
+            for ($a = 0; $a != count($publicacoes_salvas); $a++) {
+                
+                $id_publicacao = $publicacoes_salvas[$a]['id_publicacao'];
+                $sql = "SELECT * FROM `publicacao` WHERE `id`='$id_publicacao' ORDER BY `dataInclusao` DESC";
+                $statement = $this->conn->prepare($sql);
+                $statement->execute();
+                if (($statement) and ($statement->rowCount() != 0)) {
+                    while ($resultado = $statement->fetch(PDO::FETCH_ASSOC)) {
+                        $publicacoes[$a] = $resultado;
+                    }
+                }
+            }
+            return $publicacoes;
+        }else{
+            return null;
+        }
     }
 }
