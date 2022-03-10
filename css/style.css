@@ -309,10 +309,10 @@ p#esqueceu-senha {
 }
 
 p#titulo-cadastro-finalizado {
-  font-size: 70px;
+  font-size: 55px;
   font-family: Raleway-Black;
   color: var(--cor_branca) !important;
-  line-height: 65px;
+  line-height: 50px;
   display: flex;
   margin-top: 10%;
 }
@@ -323,8 +323,8 @@ p#titulo-cadastro-finalizado {
   right: 0;
   float: left;
   position: fixed;
-  width: 330px;
-  height: 152px;
+  width: 280px;
+  height: 210px;
 }
 
 p#possui-conta {
@@ -431,6 +431,7 @@ p#titulo-conta-criada {
 
 p#texto-conta-criada {
   font-size: 31px;
+  line-height: 31px;
   color: var(--cor_vermelha) !important;
   font-family: Raleway-Light-Italic;
   margin-left: 4%;
@@ -1904,6 +1905,7 @@ div#publicacao-semelhantes {
   margin-top: 20px;
 }
 
+
 p#titulo-publicacao {
   font-size: 60px !important;
   margin-top: 20px;
@@ -2028,6 +2030,7 @@ p#linha-info {
 }
 
 p#rede-nome, p#termo-nome {
+  width: max-content;
   font-size: 60px !important;
   margin-top: 20px;
   font-family: Raleway-Black;
@@ -2086,7 +2089,7 @@ a#rede-termo-balao {
   display: block;
 }
 
-button#termo-botao {
+a#termo-botao {
   width: 100%;
   max-width: 290px;
   background-color: var(--cor_vermelha);
@@ -2458,18 +2461,30 @@ div#carousel-item {
   margin-left: 20px;
 }
 
+
 div#carousel-item::-webkit-scrollbar {
-  width: 10px;
+  width: 12px;
+  /* width of the entire scrollbar */
 }
 
 div#carousel-item::-webkit-scrollbar-track {
+  background: var(--cor_branca);
+  /* color of the tracking area */
   width: 10px;
-  border-radius: 15px 15px 15px 15px;
+  border-radius: 0px 0px 20px 0px;
 }
 
 div#carousel-item::-webkit-scrollbar-thumb {
   background-color: var(--cor_verde);
+  /* color of the scroll thumb */
   border-radius: 20px;
+  /* roundness of the scroll thumb */
+  border: 3px solid var(--cor_branca);
+  /* creates padding around scroll thumb */
+}
+
+div#carouselExampleControls{
+  margin-bottom: 25px;
 }
 
 p#instrucao {
@@ -2598,4 +2613,18 @@ span#resultado_pesquisa_publicacao {
   width: 90%;
   margin-left: 5%;
   z-index: 100;
+}
+
+li#nome-termo:hover{
+color: var(--cor_verde) !important;
+text-decoration: underline;
+}
+
+div#rede-botoes{
+  width: max-content;
+  align-items: center;
+  display: inline-flex;
+  margin-top: 10px;
+  margin-left: auto;
+
 }

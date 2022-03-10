@@ -11,7 +11,7 @@ require_once __DIR__ . '../../components/footer.php';
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cadastrar rede de termos | Tereré com Sociologia</title>
+  <title>Termo | Tereré com Sociologia</title>
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/responsive-theme.css">
   <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -27,17 +27,17 @@ require_once __DIR__ . '../../components/footer.php';
 <body id="dark-mode">
   <?= head() ?>
   <main id="telas-navbar">
-    <form action="../control/RedeTermosControl.php" method="POST" class="form-group">
+    <form action="../control/TermoControl.php" method="POST" class="form-group">
       <div id="ver-termo">
         <div class="row">
           <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
             <div class="row">
-              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+              
                 <p id="termo-nome"></p>
                 <div class="pull-right" id="rede-botoes">
 
                 </div>
-              </div>
+              
               <hr id="rede-hr">
             </div>
 
@@ -56,7 +56,7 @@ require_once __DIR__ . '../../components/footer.php';
           <div class="col-xl-4 col-lg-4">
             <div class="row">
               <div id="publicacao-semelhantes">
-              <button href="../view/Linha-tempo.php" id="termo-botao">Ir para Linha do Tempo de Publicações</button>
+              <a href="../view/Linha-tempo.php" id="termo-botao">Ir para Linha do Tempo de Publicações</a>
               </div>
             </div>
           </div>

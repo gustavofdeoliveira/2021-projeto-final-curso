@@ -365,6 +365,10 @@
 }
 
 @media screen and (min-width:768px) and (max-width: 991px) {
+  p#titulo-cadastro-finalizado {
+    font-size: 50px;
+    line-height: 50px;
+  }
   .balao-vermelho {
     width: 19% !important;
     margin-left: 0.5%;
@@ -506,14 +510,9 @@
     line-height: 35px;
   }
 
-  p#titulo-cadastro-finalizado {
-    font-size: 60px;
-    line-height: 65px;
-  }
-
   .img-cadastro-finalizado {
-    width: 250px;
-    height: 100px;
+    width: 200px;
+    height: 150px;
   }
 
   p#titulo-esqueceu-senha {

@@ -77,7 +77,7 @@ class RedeTermosDao
         $statement = $this->conn->prepare($sql);
         $statement->bindValue("id", $modelo->getId());
         $statement->execute();
-        $_SESSION["msg_sucess"] = "Rede de Termos " . $modelo->getId() . " excluído!";
+        $_SESSION["msg_sucess"] = "Rede de Termos " . $modelo->getId() . " excluída!";
         $_SESSION["tempo_msg_sucess"] = time();
         return $id_rede;
     }

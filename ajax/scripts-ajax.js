@@ -47,7 +47,6 @@ $(document).ready(function () {
 //Carrega Termo
 async function carrega_termos(value) {
     if (value.length >= 3) {
-        debugger
         const termos = await fetch('../ajax-php/busca-termo.php?termo=' + value);
         const resposta = await termos.json();
         var html = "<ul class='list-group'>";
@@ -86,7 +85,6 @@ async function carrega_termos_publicacao(value) {
 }
 
 function get_termo_publicacao(id, nome) {
-    debugger
     document.getElementsByName('input-link').value = nome
     input_id = document.getElementsByName('input-link')
     document.getElementById(input_id[2]["id"]).value = nome;
@@ -164,7 +162,6 @@ if (fecharRede != null) {
 }
 
 function fecharRedeBalao(id) {
-    debugger
     rede = ids;
     var buscar = id;
     var indice = rede.indexOf(buscar);
@@ -184,7 +181,6 @@ $(document).ready(function () {
     var valores_url = url.split("=");
     $.post('../ajax-php/ver-rede-termos.php?id=' + valores_url[1], function (resposta) {
         resultado = JSON.parse(resposta);
-        debugger
         var ver_rede_termos = document.getElementById("ver-rede-termos");
         if (ver_rede_termos != null) {
             console.log(resultado);
@@ -214,7 +210,6 @@ $(document).ready(function () {
     var valores_url = url.split("=");
     $.post('../ajax-php/ver-termo.php?id=' + valores_url[1], function (resposta) {
         resultado = JSON.parse(resposta);
-        debugger
         var ver_rede_termos = document.getElementById("ver-termo");
         if (ver_rede_termos != null) {
             console.log(resultado);
@@ -226,10 +221,13 @@ $(document).ready(function () {
 
             document.getElementById('rede-botoes').insertAdjacentHTML(
                 'afterbegin',
-            '<a href="../view/Editar-rede-termo.php?id=' + resultado['dados']['termo']['id'] + '"><i class="fa fa-verde fa-pencil-square-o" aria-hidden="true"></i></a>' +
+                 '<form action="../control/TermoControl.php" method="POST" class="form-group">' +
+            '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="verTermo">' +
+            '<button class="btn-excluir-atualizar" type="submit" name="idTermo" value="' + resultado['dados']['termo']['id'] + '">' +
+            '<i class="fa fa-verde fa-pencil-square-o" aria-hidden="true"></i></button></form>'+
             '<form action="../control/TermoControl.php" method="POST" class="form-group">' +
-            '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirRede">' +
-            '<button class="btn-excluir-atualizar" type="submit" name="idRede" value="' + resultado['dados']['termo']['id'] + '">' +
+            '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirTermo">' +
+            '<button class="btn-excluir-atualizar" type="submit" name="Termo" value="' + resultado['dados']['termo']['id'] + '">' +
             '<i class="fa fa-verde fa-trash-o" aria-hidden="true"></i></button></form>');
 
             for (a = 0; a != resultado['dados']['redeTermos'].length; a++) {

@@ -38,7 +38,10 @@ function listaTermosBiblioteca()
                         '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirTermo">' .
                         '<button class="btn-excluir-atualizar" type="submit" name="Termo" value="' . $termos[$a]['id'] . '">' .
                         '<i class="fa fa-verde fa-trash-o" aria-hidden="true"></i></button></form>';
+                }else{
+                    $btn_edicao = "";
                 }
+                
             } else {
                 $btn_edicao = "";
                 $btn_salvar = "";

@@ -23,7 +23,7 @@ require_once __DIR__ . '../../components/mensagem.php';
   <script src="../javascript/jquery.js"></script>
   <script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
-  <script src='https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js'></script>
+
 </head>
 
 
@@ -35,46 +35,44 @@ require_once __DIR__ . '../../components/mensagem.php';
           <p id="titulo-criar-publicacao">Meu Espaço</p>
           <?= setMensagens()?>
 
-          <div class="row no-gutters">
+          <!-- <div class="row no-gutters">
             <div class="col-xl">
                 <label id="sessao-meu-espaco">minhas anotações</label>
             </div>
             <div class="col-lg">
                 <a href="../view/Nova-anotacao.php" class="adicionar-termos"><i class="fa fa-plus"></i> nova anotação<a>
             </div>
-          </div>
+          </div> -->
 
-          <div class="row">
+          <!-- <div class="row">
             <div class="col-xl">
                 <label id="sessao-meu-espaco">meus resumos</label>
             </div>
             <div class="col">
                 <a href="../view/Adicionar-resumo.php" class="adicionar-termos"><i class="fa fa-plus"></i> novo resumo<a>
             </div>
-          </div>
+          </div> -->
 
           <div class="row">
-            <div class="col-xl">
+            <div class="col-xl-6 col-lg-6">
                 <label id="sessao-meu-espaco">publicações salvas</label>
             </div>
-            <div class="col">
+            <div class="col-xl-6 col-lg-6">
                 <a href="../view/Linha-tempo.php" class="adicionar-termos">Acessar Linha do Tempo<a>
             </div>
-          </div>
+          </div> 
 
-          <div class="row no-gutters">
-            <div class="col-xl">
+          <div class="row">
+            <div class="col-xl-6 col-lg-6">
                 <label id="sessao-meu-espaco">termos salvos</label>
             </div>
-            <div class="col">
+            <div class="col-xl-6 col-lg-6">
                 <a href="../view/Biblioteca.php" class="adicionar-termos">Acessar Biblioteca<a>
             </div>
-          </div>
+          </div> 
 
           <img id="icon-login-secundario" class="icon-login" src="../image/IMG-MEUESPACO.png">
-
         </div>
-   
     </div>
   </main>
   <?= setFooter() ?>

@@ -196,14 +196,16 @@ function verPublicacao()
         $status_textarea = "";
         $comentario_id_usuario = '<input type="hidden" name="idUsuario" value="' . $_SESSION['usuarioAutenticado']['idUsuario'] . '">';
         $comentario_nome_usuario = '<input type="hidden" name="nomeUsuario" value="' . $_SESSION['usuarioAutenticado']['nomeUsuario'] . '">';
-    } else {
         $btn_edicao = "";
+
+    } else {
         $btn_salvar = "";
         $btn_comentario = "";
         $place_holder = "Você precisa fazer login para comentar...";
         $status_textarea = "disabled";
         $comentario_id_usuario ='';
         $comentario_nome_usuario ='';
+        $btn_edicao = "";
     }
 
     return '<div class="row">

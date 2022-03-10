@@ -93,6 +93,8 @@ function verifica_nivel($usuario)
                 </form>
         </a>                           
 </div>';
+    }else{
+        $restante1 = '';
     }
     return $nivel.$isAdmin.$restante1;
 }

@@ -75,7 +75,7 @@ class PublicacaoDao
         $statement = $this->conn->prepare($sql);
         $statement->bindValue("id", $modelo->getId());
         $statement->execute();
-        $_SESSION["msg_sucess"] = "Publicação " . $modelo->getId() . " excluído!";
+        $_SESSION["msg_sucess"] = "Publicação " . $modelo->getId() . " excluída!";
         $_SESSION["tempo_msg_sucess"] = time();
     }
 

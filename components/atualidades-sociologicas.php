@@ -12,7 +12,7 @@ function setAtualidadesSociologicas()
           
             $publicacoes_index .=
             '<div class="col-xl-3 col-lg-3 col-md-4 col-sm-12">
-              <form action="control/PublicacaoControl.php" method="POST" class="form-group">
+              <form action="../control/PublicacaoControl.php" method="POST" class="form-group">
               <input type="hidden"  name="acao" value="atualizarNumeroVisualizacao">
               <input type="hidden"  name="numeroVisualizacao" value="' . $publicacoes[$a]["numeroVisualizacao"] . '">
                 <div class="container-publicacao">
@@ -29,7 +29,7 @@ function setAtualidadesSociologicas()
         return '<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div id="carousel-item">
-           ' . $publicacoes_index . '
+           ' . $publicacoes_index.$publicacoes_index . '
           </div>
         </div>
       </div>';
