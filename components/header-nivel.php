@@ -5,11 +5,11 @@ function verifica_nivel($usuario)
 {
     if(!empty($usuario)){
     $isAdmin = '';
+
     if ($usuario["nivelAcesso"] == 3) {
         $nivel = '
     <div class="nav-left">
-        <a href="'.$_SESSION['SERVIDOR'].'view/Meus-dados.php" class="btn-tools"><span class="ion-ios-home-outline"></span>Meus Dados</a>
-        <a class="btn-tools"><span class="ion-ios-list-outline"></span>Sugerir Termo</a>
+        <a href="'.$_SESSION['SERVIDOR'].'/view/Meus-dados.php" class="btn-tools"><span class="ion-ios-home-outline"></span>Meus Dados</a>
         <a class="btn-tools" id="modalAvatar"><span class="ion-ios-list-outline"></span>Alterar Avatar</a> 
         <a class="btn-tools" id="dark-mode-toggle"><span class="ion-ios-list-outline"></span>
         <div class="d-flex modo-noturno">
@@ -71,9 +71,6 @@ function verifica_nivel($usuario)
         </a>
         <a href="'.$_SESSION['SERVIDOR'].'/view/Listar-termos.php" class="btn-tools">
             <span class="ion-ios-list-outline"></span>Listar Termos
-        </a>
-        <a href="'.$_SESSION['SERVIDOR'].'/view/Ver-sugestoes" class="btn-tools">
-            <span class="ion-ios-list-outline"></span>Ver Sugestões
         </a>
     <div id="texto-usuario">Rede de Termos</div>
         <a href="'.$_SESSION['SERVIDOR'].'/view/Cadastrar-rede-termo.php" class="btn-tools">

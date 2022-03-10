@@ -135,44 +135,44 @@ function verPublicacao()
         $semalhantes = '';
     }
     if (!empty($publicacao['comentarios'])) {
-        $comenta ='';
-         for ($a = 0; $a != count($publicacao['comentarios']); $a++) {
+        $comenta = '';
+        for ($a = 0; $a != count($publicacao['comentarios']); $a++) {
             if (!empty($_SESSION['usuarioAutenticado'])) {
-                if($publicacao['comentarios'][$a]['id_usuario'] == $_SESSION['usuarioAutenticado']['idUsuario']){
+                if ($publicacao['comentarios'][$a]['id_usuario'] == $_SESSION['usuarioAutenticado']['idUsuario']) {
                     $btn_excluir_comentario = '
                     <form action="../control/ComentarioControl.php" method="POST" class="form-group">' .
-            '<input style="display:none" type="hidden" name="acao" value="excluirComentario">' .
-            '<input style="display:none" type="hidden" name="idPublicacao" value="'.$_SESSION['pesquisa'].'">'.
-            '<button class="btn-excluir-atualizar" type="submit" name="idComentario" value="' . $publicacao['comentarios'][$a]['id'] . '">' .
-            '<div class="comentario-excluir pull-right">
+                        '<input style="display:none" type="hidden" name="acao" value="excluirComentario">' .
+                        '<input style="display:none" type="hidden" name="idPublicacao" value="' . $_SESSION['pesquisa'] . '">' .
+                        '<button class="btn-excluir-atualizar" type="submit" name="idComentario" value="' . $publicacao['comentarios'][$a]['id'] . '">' .
+                        '<div class="comentario-excluir pull-right">
             <i class="fa fa-times" aria-hidden="true"></i>
             </div></button></form>';
-                }else{
-                $btn_excluir_comentario = '';
+                } else {
+                    $btn_excluir_comentario = '';
                 }
-            }else{
+            } else {
                 $btn_excluir_comentario = '';
             }
             $comentario_data = new DateTime($publicacao['comentarios'][$a]['dataInclusao']);
-                
+
             $comentario .= '<div class="comentario">
             <div class="row">
                 <div class="col-xl-11 col-lg-11 col-md-11 col-sm-10">
                 <div class="d-flex">
                     <div class="comentario-nome-usuario">@' . $publicacao['comentarios'][$a]['nomeUsuario'] . ' <span>comentou:</span></div>
-                    <div class="comentario-data pull-right"><pan>'.$comentario_data->format('d/m/Y').'</pan></div>
+                    <div class="comentario-data pull-right"><pan>' . $comentario_data->format('d/m/Y') . '</pan></div>
                     </div>
                     <div class="comentario-texto">' . $publicacao['comentarios'][$a]['textoComentario'] . '</div>
                     
                 </div>
                 <div class="col-xl-1 col-lg-1 col-md-1 col-sm-2">
-                    '.$btn_excluir_comentario.'
+                    ' . $btn_excluir_comentario . '
                 </div>
             </div>  
         </div>';
-         }
-    }else{
-        $comentario ='';
+        }
+    } else {
+        $comentario = '';
     }
     if (!empty($_SESSION['usuarioAutenticado'])) {
         if ($_SESSION['usuarioAutenticado']['nivelAcesso'] == 1 || $_SESSION['usuarioAutenticado']['nivelAcesso'] == 2) {
@@ -186,6 +186,8 @@ function verPublicacao()
                 '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirPublicacao">' .
                 '<button class="btn-excluir-atualizar" type="submit" name="idPublicacao" value="' . $publicacao[0]['id'] . '">' .
                 '<i class="fa fa-verde fa-trash-o" aria-hidden="true"></i></button></form>';
+        }else{
+            $btn_edicao = "";
         }
         if ($isSalva == false) {
             $btn_salvar = '<form action="../control/PublicacaoControl.php" method="POST" class="form-group">' .
@@ -202,15 +204,14 @@ function verPublicacao()
         $status_textarea = "";
         $comentario_id_usuario = '<input type="hidden" name="idUsuario" value="' . $_SESSION['usuarioAutenticado']['idUsuario'] . '">';
         $comentario_nome_usuario = '<input type="hidden" name="nomeUsuario" value="' . $_SESSION['usuarioAutenticado']['nomeUsuario'] . '">';
-        $btn_edicao = "";
-
+        
     } else {
         $btn_salvar = "";
         $btn_comentario = "";
         $place_holder = "Você precisa fazer login para comentar...";
         $status_textarea = "disabled";
-        $comentario_id_usuario ='';
-        $comentario_nome_usuario ='';
+        $comentario_id_usuario = '';
+        $comentario_nome_usuario = '';
         $btn_edicao = "";
     }
 
@@ -245,9 +246,9 @@ function verPublicacao()
                 <form action="../control/ComentarioControl.php" method="POST" class="form-group">
                 <div class="row">
                     <label class="label-comentario">Comentar essa publicação:</label>
-                    '.$comentario_id_usuario.'
+                    ' . $comentario_id_usuario . '
                     <input type="hidden" name="idPublicacao" value="' . $_SESSION['pesquisa'] . '">
-                    '.$comentario_nome_usuario.'
+                    ' . $comentario_nome_usuario . '
                     <textarea  name="comentario" placeholder="' . $place_holder . '" id="comentario" ' . $status_textarea . '></textarea>
                     ' . $btn_comentario . '
                 </div>
@@ -257,7 +258,7 @@ function verPublicacao()
         <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12">
                 <div class="container-comentario">  
-                    '.$comentario.'
+                    ' . $comentario . '
                 </div>
             </div>
         </div>
@@ -272,4 +273,19 @@ function verPublicacao()
     </div>
 </div>';
     header("Location:../view/Ver-publicacao.php");
+}
+
+function titlePublicacao()
+{
+
+    $id_url = $_SERVER['QUERY_STRING'];
+    $url = explode("=", $id_url);
+    if (!empty($url[1])) {
+        $_SESSION['pesquisa'] = $url[1];
+        $publicacaoControl = new PublicacaoControl;
+        $publicacao =  $publicacaoControl->verPublicacao($_SESSION['pesquisa']);
+        return $publicacao[0]['titulo'];
+    } else {
+        return null;
+    }
 }

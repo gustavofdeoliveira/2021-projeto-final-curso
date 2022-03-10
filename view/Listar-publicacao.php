@@ -44,7 +44,7 @@ require_once __DIR__ . '../../components/mensagem.php';
             <form class="d-flex">
               <div class="input-group">
                 <span class="input-group-text span-icon-buscar-usuarios" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
-                <input type="text" class="navbar-input-busca-usuarios form-control" placeholder="digite o nome da publicação" aria-describedby="basic-addon1">
+                <input type="text" class="navbar-input-busca-usuarios form-control" placeholder="digite o nome da publicação" onkeyup="filtraUsuario(this.value)" aria-describedby="basic-addon1">
               </div>
             </form>
           </div>
@@ -57,7 +57,7 @@ require_once __DIR__ . '../../components/mensagem.php';
                 <thead>
                   <tr>
                     <td scope="col" style="width: 50px;">
-                    <a href="javascript:sortThisTable(1)"><div class="listar-balao">id</div></a>
+                    <div class="listar-balao">id</div>
                     </td>
                     <td scope="col" style="width: 250px;">
                       <div class="listar-balao">título da publicação</div>
@@ -73,7 +73,7 @@ require_once __DIR__ . '../../components/mensagem.php';
                     </td>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="table-tbody"> 
                   <?php
                   $tabela_publicacao = listarPublicacao();
                   echo $tabela_publicacao;

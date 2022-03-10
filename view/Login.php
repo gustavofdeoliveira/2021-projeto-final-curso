@@ -59,7 +59,11 @@ require_once __DIR__ . '../../components/mensagem.php';
                                 </div>
                             </div>
                         </div>
-                        <?=setMensagens() ?>
+                        <div class="row">
+                            <div class=" col-xl-10 col-xl-offset-1 col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
+                            <?=setMensagens() ?>
+                            </div>
+                        </div>
                         <input name="theme" type="checkbox" class="toggle-dark-mode" />
                         <div class="row btn-espacamento">
                             <div class="col-lg-8 col-lg-offset-2 col-md-offset-1 col-md-10 col-xl-8 col-xl-offset-2 col-sm-12 col-sm-offset-0">

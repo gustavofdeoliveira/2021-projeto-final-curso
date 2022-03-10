@@ -283,8 +283,24 @@ function mudarAvatar(id) {
     document.getElementById("fotoAvatar").value = "http://localhost/2021-projeto-final-curso/image/avatares/Avatar-" + id + ".png";
 }
 
-function validaSubmiti(){
-    debugger
+function validaSubmiti() {
+
     habilitaCampoPublicacao();
     pegaTexto();
+}
+
+function filtraUsuario(filter) {
+    debugger
+    var filter = filter.toUpperCase();
+    var tbody = document.getElementById("table-tbody")
+    var tr = tbody.getElementsByTagName("tr");
+
+    for (a=0 ; a!= tr.length; a++) {
+        var elements = tr[a].children[1].innerHTML;
+        if (elements.toUpperCase().indexOf(filter) > -1) {
+            tr[a].style.display = "";
+        } else {
+            tr[a].style.display = "none";
+        }
+    }
 }

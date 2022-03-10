@@ -44,7 +44,7 @@ require_once __DIR__ . '../../components/mensagem.php';
                         <form class="d-flex">
                             <div class="input-group">
                                 <span class="input-group-text span-icon-buscar-usuarios" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
-                                <input type="text" class="navbar-input-busca-usuarios form-control" placeholder="digite o nome do termo" aria-describedby="basic-addon1">
+                                <input type="text" class="navbar-input-busca-usuarios form-control" placeholder="digite o nome do termo" onkeyup="filtraUsuario(this.value)" aria-describedby="basic-addon1">
                             </div>
                         </form>
                     </div>
@@ -73,7 +73,7 @@ require_once __DIR__ . '../../components/mensagem.php';
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="table-tbody">
                                     <?php
                                     $tabela_termos = listarTermos();
                                     echo $tabela_termos; ?>

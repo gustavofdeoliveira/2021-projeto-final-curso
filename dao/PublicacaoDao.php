@@ -67,15 +67,15 @@ class PublicacaoDao
         }
     }
 
-    function excluirPublicacao(PublicacaoModel $modelo)
+    function excluirPublicacao($id_publicacao)
     {
         $sql = "DELETE `publicacao`, `publicacao_termo_rede_termos` FROM `publicacao` 
         LEFT JOIN `publicacao_termo_rede_termos` ON `publicacao_termo_rede_termos`.`id_publicacao` = `publicacao`.`id` 
         WHERE `publicacao`.`id` = :id";
         $statement = $this->conn->prepare($sql);
-        $statement->bindValue("id", $modelo->getId());
+        $statement->bindValue("id", $id_publicacao);
         $statement->execute();
-        $_SESSION["msg_sucess"] = "Publicação " . $modelo->getId() . " excluída!";
+        $_SESSION["msg_sucess"] = "Publicação " . $id_publicacao . " excluída!";
         $_SESSION["tempo_msg_sucess"] = time();
     }
 

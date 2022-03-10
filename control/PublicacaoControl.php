@@ -67,8 +67,8 @@ class PublicacaoControl
     public function excluirPublicacao()
     {
         try {
-            $this->modelo->setTitulo($_POST["idPublicacao"]);
-            $this->dao->excluirPublicacao($this->modelo);
+            $id_publicacao = $_POST["idPublicacao"];
+            $this->dao->excluirPublicacao($id_publicacao);
             header("Location:../view/Listar-publicacao.php");
         } catch (\Exception $e) {
             $_SESSION["msg_error"] = $e->getMessage();
