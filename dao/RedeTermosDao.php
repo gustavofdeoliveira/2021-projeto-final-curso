@@ -32,6 +32,14 @@ class RedeTermosDao
                 throw new \Exception('Rede de termos já cadastrado');
             }
         } else if (empty($statement->rowCount())) {
+            $id_termos = explode(",", $modelo->getTermosIncluidos());
+            $id_termos_repetidos = array_unique($id_termos);
+            if(count($id_termos) <= 1){
+                throw new \Exception('Erro ao cadastrar a Rede: Uma Rede precisa ter mais de 2 Termos, para ser cadastrada!');
+            }
+            if(count($id_termos_repetidos) != count($id_termos)){
+                throw new \Exception('Erro ao cadastrar a Rede: Duplicata nos Termos selecionados!');
+            }
             $sql = "INSERT INTO `redetermos`(`nome`,`descricao`,`dataInclusao`) 
                VALUES (  
                    '" . $modelo->getNome() . "', 
@@ -40,7 +48,7 @@ class RedeTermosDao
             $statement = $this->conn->prepare($sql);
             $statement->execute();
             $id = $this->conn->lastInsertId();
-            $id_termos = explode(",", $modelo->getTermosIncluidos());
+            
             for ($a = 0; $a != count($id_termos); $a++) {
                 try {
                     $sql = "INSERT INTO `rede_termos_termo` (`id_rede`,`id_termo`) VALUES (?,?)";
