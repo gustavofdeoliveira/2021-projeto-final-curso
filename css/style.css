@@ -1275,7 +1275,7 @@ span#resultado_pesquisa {
   margin-right: 10px;
   background: transparent;
   border: none;
-  color: var(--cor_branca);
+  color: var(--cor_branca) !important;
 }
 
 .colunas-esqueda {
@@ -2635,5 +2635,13 @@ div#rede-botoes{
   display: inline-flex;
   margin-top: 10px;
   margin-left: auto;
+}
 
+a#ver-rede{
+  text-decoration: none;
+  color: var(--cor_branca) !important;
+}
+a#ver-rede:hover,.balao-fechar:hover{
+  text-decoration: underline;
+  color: var(--cor_verde) !important;
 }

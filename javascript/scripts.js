@@ -267,14 +267,12 @@ function habilitaCampoRedes() {
     document.getElementById("descricao").disabled = false;
 }
 function habilitaCampoPublicacao() {
-    debugger
     document.getElementById("titulo").disabled = false;
     document.getElementById("resumo").disabled = false;
 }
 
 var texto = document.getElementById("texto");
-function pegaTexto() {
-    debugger
+function pegaTexto() {    
     document.getElementById("texto_publicacao").value = document.getElementById("texto").innerHTML;
 }
 
@@ -284,13 +282,11 @@ function mudarAvatar(id) {
 }
 
 function validaSubmiti() {
-
     habilitaCampoPublicacao();
     pegaTexto();
 }
 
 function filtraUsuario(filter) {
-    debugger
     var filter = filter.toUpperCase();
     var tbody = document.getElementById("table-tbody")
     var tr = tbody.getElementsByTagName("tr");
