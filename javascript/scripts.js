@@ -120,9 +120,15 @@ function ValidateField(field) {
     return function () {
         const error = verifyErrors()
         if (error) {
-            const message = customMessage(error)
-            field.style.borderColor = "var(--cor_vermelha)"
-            setCustomMessage(message)
+            if (field.id == "senha_atual") {
+                debugger
+                field.style.borderColor = "#fff"
+            } else {
+                const message = customMessage(error)
+                field.style.borderColor = "var(--cor_vermelha)"
+                setCustomMessage(message)
+            }
+
         } else {
             field.style.borderColor = "var(--cor_verde)"
             setCustomMessage()
@@ -154,12 +160,12 @@ document.querySelector("form")
 function mostrar() {
     if ($('#show_hide_password input').attr("type") == "text") {
         $('#show_hide_password input').attr('type', 'password');
-        $('#show_hide_password i').addClass("fa-eye-slash");
-        $('#show_hide_password i').removeClass("fa-eye");
+        $('#show_hide_password i').addClass("fa-eye");
+        $('#show_hide_password i').removeClass("fa-eye-slash");
     } else if ($('#show_hide_password input').attr("type") == "password") {
         $('#show_hide_password input').attr('type', 'text');
-        $('#show_hide_password i').removeClass("fa-eye-slash");
-        $('#show_hide_password i').addClass("fa-eye");
+        $('#show_hide_password i').removeClass("fa-eye");
+        $('#show_hide_password i').addClass("fa-eye-slash");
     }
 
 };
@@ -197,7 +203,7 @@ function validacaoEmail(field) {
 
 function senhaValida(password) {
     msg = '';
-    var p = password.value;
+    var p = password;
     var letrasMaiusculas = /[A-Z]/;
     var letrasMinusculas = /[a-z]/;
     var numeros = /[0-9]/;
@@ -233,16 +239,21 @@ function senhaValida(password) {
     }
 
     if (msg) {
-        const spanError = password.parentNode.querySelector("span.error")
+        const spanError = document.getElementById("error-senha")
         spanError.classList.add("active")
         spanError.innerHTML = msg;
-        password.style.borderColor = "var(--cor_vermelha)"
 
     } else {
-        const spanError = password.parentNode.querySelector("span.error")
+        const spanError = document.getElementById("error-senha")
         spanError.classList.remove("active")
         spanError.innerHTML = null;
-        password.style.borderColor = "var(--cor_verde)"
+
+        if (document.getElementById("senhaNova")) {
+            var input = document.getElementById("senhaNova")
+        }if( document.getElementById("senha")){
+            var input = document.getElementById("senha")
+        }
+        input.style.borderColor = "var(--cor_verde)"
     }
     return msg;
 }
@@ -272,7 +283,7 @@ function habilitaCampoPublicacao() {
 }
 
 var texto = document.getElementById("texto");
-function pegaTexto() {    
+function pegaTexto() {
     document.getElementById("texto_publicacao").value = document.getElementById("texto").innerHTML;
 }
 
@@ -291,12 +302,34 @@ function filtraUsuario(filter) {
     var tbody = document.getElementById("table-tbody")
     var tr = tbody.getElementsByTagName("tr");
 
-    for (a=0 ; a!= tr.length; a++) {
+    for (a = 0; a != tr.length; a++) {
         var elements = tr[a].children[1].innerHTML;
         if (elements.toUpperCase().indexOf(filter) > -1) {
             tr[a].style.display = "";
         } else {
             tr[a].style.display = "none";
         }
+    }
+}
+
+function validaFormulario(event) {
+    debugger
+    const spanError = document.getElementById("error-senha")
+    var novaSenha = document.getElementById("senhaNova").value
+
+    if (spanError.innerHTML != "") {
+        event.preventDefault();
+    }
+    if (novaSenha == "") {
+        event.preventDefault();
+    }
+}
+
+function validaFormularioCadastro(event) {
+    debugger
+    const spanError = document.getElementById("error-senha")
+
+    if (spanError.innerHTML != "") {
+        event.preventDefault();
     }
 }

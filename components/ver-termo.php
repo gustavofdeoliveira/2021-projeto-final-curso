@@ -8,15 +8,11 @@ function setTermo()
     $id_pesquisa = $url[1];
     $conn = Connection::conectar();
 
-    // $id_pesquisa = 18;
     if (!empty($id_pesquisa)) {
-
         $query_termo = "SELECT * FROM `termo` WHERE `id`=:id OR 'nome'=:id";
         $result = $conn->prepare($query_termo);
         $result->bindParam(':id', $id_pesquisa);
         $result->execute();
-
-
         if (($result) and ($result->rowCount() != 0)) {
 
             while ($row_publicacao = $result->fetch(PDO::FETCH_ASSOC)) {
@@ -27,7 +23,6 @@ function setTermo()
                 ];
             }
         }
-
         $query_termo = "SELECT `id_publicacao` FROM `publicacao_termo_rede_termos` as A INNER JOIN `termo` as B ON `b`.`id` = `a`.`id_termo` WHERE `a`.`id_termo` = :id LIMIT 3";
         $result = $conn->prepare($query_termo);
         $result->bindParam(':id', $id_pesquisa);

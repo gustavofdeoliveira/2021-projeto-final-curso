@@ -32,7 +32,7 @@ require_once __DIR__ . '../../components/mensagem.php';
                             <img id="img-logo" class="img-logo-cadastrar" src="../image/Logo-claro.png">
                         </div>
                     </div>
-                    <form action="../control/UsuarioControl.php" method="POST" class="form-group">
+                    <form action="../control/UsuarioControl.php" method="POST" onsubmit="validaFormularioCadastro(event)" class="form-group">
                         <div class="row">
                             <div class="col-xl-8 col-xl-offset-2 col-sm-offset-1 col-lg-offset-2 col-md-10 col-md-offset-1">
                                 <p id="titulo-criar-conta">crie a<br> sua conta</p>
@@ -45,7 +45,7 @@ require_once __DIR__ . '../../components/mensagem.php';
                                 <div class="form-group">
                                     <label class="form-label label-criar-conta" for="nomeCompleto">nome completo</label>
                                     <div class="input-group">
-                                        <input required class="input-criar-conta form-control" type="text" name="nomeCompleto">
+                                        <input required class="input-criar-conta form-control" type="text" id="nomeCompleto" id="nomeCompleto" name="nomeCompleto">
                                         <span class="error"></span>
                                     </div>
                                 </div>
@@ -70,7 +70,7 @@ require_once __DIR__ . '../../components/mensagem.php';
                                         <div class="input-group-prepend">
                                             <div class="input-group-nomeUsuario">@</div>
                                         </div>
-                                        <input type="text" required class="input-criar-conta-nomeusuario form-control" name="nomeUsuario">
+                                        <input type="text" required class="input-criar-conta-nomeusuario form-control" id="nomeUsuario" name="nomeUsuario">
                                         <span class="error span-error"></span>
                                     </div>
 
@@ -82,16 +82,21 @@ require_once __DIR__ . '../../components/mensagem.php';
                                 <div class="form-group input-senha">
                                     <label class="form-label label-criar-conta" for="senha">senha</label>
                                     <div class="input-group" id="show_hide_password">
-                                        <input required class="input-criar-conta form-control" id="senha" type="password" onkeyup="senhaValida(senha)" name="senha">
-                                        <span id="error" class="error span-error"></span>
+                                        <input class="input-criar-conta form-control" id="senha" type="password" name="senha" onkeyup="senhaValida(this.value)">
+                                       
+                                        <span id="error-senha" class="error-senha"></span>
                                         <div class="input-group-addon" onclick="mostrar()">
-                                            <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                                            <i class="fa fa-eye" aria-hidden="true"></i>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <?= setMensagens() ?>
+                        <div class="row">
+                            <div class="col-xl-8 col-xl-offset-2 col-sm-offset-1 col-lg-offset-2 col-md-10 col-md-offset-1">
+                                <?= setMensagens() ?>
+                            </div>
+                        </div>
                         <input name="theme" type="checkbox" class="toggle-dark-mode" />
                         <div class="row btn-espacamento">
                             <div class="col-lg-6 col-lg-offset-2 col-md-offset-1 col-md-10 col-xl-8 col-xl-offset-2 col-sm-12 col-sm-offset-0 col-sm-offset-0">

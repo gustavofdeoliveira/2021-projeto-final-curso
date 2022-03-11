@@ -35,12 +35,12 @@ require_once __DIR__ . '../../components/mensagem.php';
                 <form action='../control/UsuarioControl.php' method='POST' class="d-flex">
                     <?php
                     $usuario = $_SESSION['usuarioAutenticado'];
-                       ?>
+                    ?>
                     <div class='col-xl-5 col-lg-5'>
                         <div class='row pull-right'>
-                            <img src='<?php echo $usuario['fotoAvatar']?>' alt='Foto de Usuário' class='rounded-circle img-meus-dados'>
+                            <img src='<?php echo $usuario['fotoAvatar'] ?>' alt='Foto de Usuário' class='rounded-circle img-meus-dados'>
                         </div>
-                    </div> 
+                    </div>
                     <div class='col-xl-7 col-lg-7'>
                         <p id='meus-dados'>meus dados</p>
                         <div class='row'>
@@ -48,7 +48,7 @@ require_once __DIR__ . '../../components/mensagem.php';
                                 <div class='form-group'>
                                     <label class='form-label label-criar-publicacao' for='nomeCompleto'>nome completo</span></label>
                                     <div class='input-group'>
-                                        <input class='input-criar-conta form-control' value='<?php echo $usuario['nomeCompleto']?>' type='text' id='nomeCompleto' name='nomeCompleto' disabled>
+                                        <input class='input-criar-conta form-control' value='<?php echo $usuario['nomeCompleto'] ?>' type='text' id='nomeCompleto' name='nomeCompleto' disabled>
                                         <i class='editar fa fa-pencil-square-o' aria-hidden='true' onclick='ativaCampo(nomeCompleto)'></i>
                                     </div>
                                 </div>
@@ -59,44 +59,44 @@ require_once __DIR__ . '../../components/mensagem.php';
                                 <div class='form-group'>
                                     <label class='form-label label-criar-publicacao' for='nomeUsuario'>nome de usuário</span></label>
                                     <div class='input-group'>
-                                        <input class='input-criar-conta form-control' type='text' id='nomeUsuario' value='<?php echo $usuario['nomeUsuario']?>' name='nomeUsuario' disabled>
+                                        <input class='input-criar-conta form-control' type='text' id='nomeUsuario' value='<?php echo $usuario['nomeUsuario'] ?>' name='nomeUsuario' disabled>
                                         <i class='editar fa fa-pencil-square-o' aria-hidden='true' onclick='ativaCampo(nomeUsuario)''></i>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class='row'>
-                            <div class='col-xl-9 col-lg-9'>
-                                <div class='form-group'>
-                                    <label class='form-label label-criar-publicacao' for='email'>e-mail</span></label>
-                                    <div class='input-group'>
-                                        <input class='input-criar-conta form-control' type='text' value='<?php echo $usuario['email']?>' id='email' name='email' disabled>
-                                        <i class='editar fa fa-pencil-square-o' aria-hidden='true' onclick='ativaCampo(email)'></i>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                    <div class="row ">
-                        <div class="col-xl-10 col-lg-9 col-md-12">
-                            <div class="row d-flex">
-                                <div class="col-xl-5 col-lg-6 col-md-6">
-                                    <button id="alterarSenha" type="button" class="btn-alterar-senha">alterar senha
-                                    </button>
-                                </div>
-                                <div class="col-xl-5 col-lg-6 col-md-6">
-                                    <button id="excluirConta" type="button" class="btn-excluir-conta">excluir conta
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <?=setMensagens()?>
-                    <div class="row">
-                        <div class="col-lg-9 col-xl-9">
-                            <input type="hidden" name="acao" value="atualizarUsuario">
-                            <input class="btn-salvar-alteracao btn btn-lg" type="submit" onclick="habilitaCampoDados()" value="salvar alterações">
-                        </div>
-                    </div>
+                        <div class=' row'>
+                                            <div class='col-xl-9 col-lg-9'>
+                                                <div class='form-group'>
+                                                    <label class='form-label label-criar-publicacao' for='email'>e-mail</span></label>
+                                                    <div class='input-group'>
+                                                        <input class='input-criar-conta form-control' type='text' value='<?php echo $usuario['email'] ?>' id='email' name='email' disabled>
+                                                        <i class='editar fa fa-pencil-square-o' aria-hidden='true' onclick='ativaCampo(email)'></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row ">
+                                                <div class="col-xl-10 col-lg-9 col-md-12">
+                                                    <div class="row d-flex">
+                                                        <div class="col-xl-5 col-lg-6 col-md-6">
+                                                            <button id="alterarSenha" type="button" class="btn-alterar-senha">alterar senha
+                                                            </button>
+                                                        </div>
+                                                        <div class="col-xl-5 col-lg-6 col-md-6">
+                                                            <button id="excluirConta" type="button" class="btn-excluir-conta">excluir conta
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <?= setMensagens() ?>
+                                            <div class="row">
+                                                <div class="col-lg-9 col-xl-9">
+                                                    <input type="hidden" name="acao" value="atualizarUsuario">
+                                                    <input class="btn-salvar-alteracao btn btn-lg" type="submit" onclick="habilitaCampoDados()" value="salvar alterações">
+                                                </div>
+                                            </div>
                 </form>
             </div>
         </div>
@@ -113,10 +113,10 @@ require_once __DIR__ . '../../components/mensagem.php';
                         <div class="row">
                             <div class="col-xl-6 col-md-6 col-sm-12 col-lg-6 d-flex-smm">
                                 <p id="texto-avatar-atual">seu avatar atual:</p>
-                                
+
                                 echo "
-                  <img src="<?php echo $usuario['fotoAvatar']?>" id='fotAvatar' alt='Foto de Perfil' class='rounded-circle img-trocar-avatar'>
-                                
+                                <img src="<?php echo $usuario['fotoAvatar'] ?>" id='fotAvatar' alt='Foto de Perfil' class='rounded-circle img-trocar-avatar'>
+
                             </div>
                             <div class="col-xl-6 col-md-6 col-sm-12 col-lg-6">
                                 <p id="texto-trocar-foto">quer trocar de avatar?</p>
@@ -167,69 +167,57 @@ require_once __DIR__ . '../../components/mensagem.php';
     </main>
     <?= setFooter() ?>
     <div class="container">
-
-        <div class="col-xl-4 col-xl-offset-4 col-lg-6 col-lg-offset-3 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1" id="modal-senha">
-            <div class="row">
-                <div class="col-xl-12">
-                    <button id="fechar-modal-senha" type="button" class="btn-fechar-senha">X
-                    </button>
+        <form action="../control/UsuarioControl.php" method="POST" class="form-group" onsubmit="validaFormulario(event)">
+            <div class="col-xl-4 col-xl-offset-4 col-lg-6 col-lg-offset-3 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1" id="modal-senha">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <button id="fechar-modal-senha" type="button" class="btn-fechar-senha">X
+                        </button>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-10 col-xl-offset-1 col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
-                    <p id="texto-senha">alterar senha</p>
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="form-group">
-                                <label class="form-label label-nova-senha" for="senha">senha atual</label>
-                                <div class="input-group" id="show_hide_password">
-                                    <input required class="input-nova-senha form-control" type="password" name="senha">
-                                    <div class="input-group-addon-senha" onclick="mostrar()">
-                                        <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                <div class="row">
+                    <div class="col-xl-10 col-xl-offset-1 col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
+                        <p id="texto-senha">alterar senha</p>
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="form-group">
+                                    <label class="form-label label-nova-senha" for="senha">senha atual</label>
+                                    <div class="input-group" id="show_hide_password">
+                                        <input required class="input-nova-senha form-control" id="senha_atual" type="password" name="senha">
+                                        <div class="input-group-addon-senha" onclick="mostrar()">
+                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                        </div>
+                                        <span class="error"></span>
                                     </div>
-                                    <span class="error"></span>
-                                </div>
 
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="form-group input-senha">
-                                <label class="form-label label-nova-senha" for="senhaNova">nova senha</label>
-                                <div class="input-group" id="show_hide_password">
-                                    <input required class="input-nova-senha form-control" id="senhaNova" type="password" onkeyup="senhaValida(senhaNova)" name="senhaNova">
-                                    <span id="error" class="error span-error"></span>
-                                    <div class="input-group-addon-senha" onclick="mostrar()">
-                                        <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="form-group input-senha">
+                                    <label class="form-label label-nova-senha" for="senhaNova">nova senha</label>
+                                    <div class="input-group" id="show_hide_password">
+                                        <input required class="input-nova-senha form-control" id="senhaNova" type="password" name="senhaNova" onkeyup="senhaValida(this.value)">
+                                        <span id="error" class="error senha"></span>
+                                        <span id="error-senha" class="senha"></span>
+                                        <div class="input-group-addon-senha" onclick="mostrar()">
+                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="form-group input-senha">
-                                <label class="form-label label-nova-senha" for="cofirmaSenha">confirmar nova senha</label>
-                                <div class="input-group" id="show_hide_password">
-                                    <input required class="input-nova-senha form-control" id="cofirmaSenha" type="password" name="cofirmaSenha">
-                                    <span id="error" class="error span-error"></span>
-                                    <div class="input-group-addon-senha" onclick="mostrar()">
-                                        <i class="fa fa-eye-slash" aria-hidden="true"></i>
-                                    </div>
-                                </div>
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <input type="hidden" name="acao" value="atualizarUsuario">
+                                <input class="btn-salvar-alteracao btn btn-lg" type="submit" value="salvar alteração">
                             </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <input type="hidden" name="acao" value="atualizarUsuario">
-                            <input class="btn-salvar-alteracao btn btn-lg" type="submit" value="salvar alteração">
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
         <form action="../control/UsuarioControl.php" method="POST" class="form-group">
             <div class="col-xl-4 col-xl-offset-4 col-lg-6 col-lg-offset-3 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1" id="modal-conta">
                 <div class="row">
@@ -263,7 +251,7 @@ require_once __DIR__ . '../../components/mensagem.php';
                             </div>
                         </div>
 
-                        <?=setMensagens()?>
+                        <?= setMensagens() ?>
                         <div class="row">
                             <div class="col-xl-12">
                                 <input type="hidden" name="acao" value="excluirUsuario">

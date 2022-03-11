@@ -9,6 +9,7 @@ function verPublicacao()
 
     $id_url = $_SERVER['QUERY_STRING'];
     $url = explode("=", $id_url);
+    
     $_SESSION['pesquisa'] = $url[1];
     $publicacaoControl = new PublicacaoControl;
     $publicacao =  $publicacaoControl->verPublicacao($_SESSION['pesquisa']);

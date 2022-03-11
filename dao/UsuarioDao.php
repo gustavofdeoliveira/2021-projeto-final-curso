@@ -178,11 +178,12 @@ class UsuarioDao
 
         $usuario =  $_SESSION['usuarioAutenticado'];
         if (empty($modelo->getSenha())) {
-            $sql = "SELECT * FROM `usuario` WHERE `nomeUsuario` = :nomeUsuario OR `email`=:email";
+            $id_usuario = $_SESSION['usuarioAutenticado']['idUsuario'];
+            $sql = "SELECT * FROM `usuario` WHERE (`nomeUsuario` = :nomeUsuario OR `email`=:email) AND `idUsuario` != '$id_usuario'";
             $statement = $this->conn->prepare($sql);
             $statement->execute(array(':nomeUsuario' => $modelo->getNomeUsuario(), ':email' => $modelo->getEmail()));
             $statement->execute();
-            if ($statement->rowCount()) {
+            if (($statement) and ($statement->rowCount() == 0)) {
                 $sql = "UPDATE `usuario` SET 
             `nomeCompleto` = '" . $modelo->getNomeCompleto() . "',
             `nomeUsuario` = '" . $modelo->getNomeUsuario() . "',
@@ -211,8 +212,13 @@ class UsuarioDao
         }
 
         if (!empty($modelo->getSenha())) {
+            $senha_nova = $modelo->getSenha();
+            $verifica_senha_nova = sha1($modelo->getSenha());
+            if($_SESSION['usuarioAutenticado']['senha'] == $verifica_senha_nova){
+                throw new \Exception('A senha nova não pode ser igual a antiga!'); 
+            }
             $sql = "UPDATE `usuario` SET 
-            `senha` =SHA1('" . $modelo->getSenha() . "') WHERE `idUsuario`=:id";
+            `senha` =SHA1('$senha_nova') WHERE `idUsuario`=:id";
 
             $statement = $this->conn->prepare($sql);
             $statement->bindValue("id", $usuario['idUsuario']);
