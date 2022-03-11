@@ -230,7 +230,8 @@ class PublicacaoDao
     }
     function listagemPublicacoesSalvas()
     {
-        $sql = "SELECT * FROM `usuarios_publicacoes_salvas` ORDER BY `dataInclusao` DESC";
+        $id_usuario = $_SESSION['usuarioAutenticado']['idUsuario'];
+        $sql = "SELECT * FROM `usuarios_publicacoes_salvas` WHERE `id_usuario`= $id_usuario ORDER BY `dataInclusao` DESC";
         $statement = $this->conn->prepare($sql);
         $statement->execute();
         if (($statement) and ($statement->rowCount() != 0)) {

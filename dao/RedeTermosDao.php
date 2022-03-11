@@ -67,6 +67,12 @@ class RedeTermosDao
     }
     function excluirRedeTermos(RedeTermosModel $modelo)
     {
+        $sql = "UPDATE`publicacao_termo_rede_termos` SET `id_rede` = '0' 
+                WHERE `id_rede` = :id";
+        $statement = $this->conn->prepare($sql);
+        $statement->bindValue("id", $modelo->getId());
+        $statement->execute();
+
         $sql = "DELETE `redetermos`, `rede_termos_termo` FROM `redetermos` 
                 LEFT JOIN `rede_termos_termo` ON `rede_termos_termo`.`id_rede` = `redetermos`.`id` 
                 WHERE `redetermos`.`id` = :id";

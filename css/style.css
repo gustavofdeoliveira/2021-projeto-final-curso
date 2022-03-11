@@ -1975,8 +1975,8 @@ p#texto-termo-semelhante {
 }
 
 .img-publicacao-semelhante {
-  width: 100%;
-  max-width: 202px;
+  width: 100% !important;
+  max-width: 202px !important;
   max-height: 113px;
   margin-left: auto;
   height: 100%;
@@ -1988,7 +1988,7 @@ p#texto-termo-semelhante {
 }
 
 .titulo-publicacao-semelhante {
-  width: 202px;
+  width: 202px !important;
   word-break: break-word;
   color: var(--cor_verde) !important;
   font-family: Raleway-Black;
@@ -2644,4 +2644,8 @@ a#ver-rede{
 a#ver-rede:hover,.balao-fechar:hover{
   text-decoration: underline;
   color: var(--cor_verde) !important;
+}
+
+div#rede-termos-balao{
+ margin-bottom: 20px; 
 }

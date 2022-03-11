@@ -88,7 +88,7 @@ require_once __DIR__ . '../../components/mensagem.php';
                 <label class="form-label label-criar-publicacao" for="redeTermos">rede de termos <span id="texto-opcional">(opcional)</span></label>
 
                 <div class="input-group">
-                  <input class="input-criar-conta form-control" type="text" id="redeTermos" onkeyup="carrega_redes(this.value)" name="redeTermos" disabled>
+                  <input class="input-criar-conta form-control" type="text" id="redeTermos" onkeyup="carrega_redes(this.value)" name="redeTermos">
                   <span id="resultado_pesquisa"></span>
                   <div class="rede-container" id="termos-container"><?= retornaBalao(); ?></div>
                   <p id="texto-alerta">deixar esse campo vazio pode reduzir o alcance da sua publicação</p>

@@ -3,6 +3,7 @@ include_once __DIR__ . '../../database/Connection.php';
 require_once __DIR__ . '../../dao/TermoDao.php';
 require_once __DIR__ . '../../components/header.php';
 require_once __DIR__ . '../../components/footer.php';
+require_once __DIR__ . '../../components/ver-termo.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -29,38 +30,7 @@ require_once __DIR__ . '../../components/footer.php';
   <main id="telas-navbar">
     <form action="../control/TermoControl.php" method="POST" class="form-group">
       <div id="ver-termo">
-        <div class="row">
-          <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
-            <div class="row">
-              
-                <p id="termo-nome"></p>
-                <div class="pull-right" id="rede-botoes">
-
-                </div>
-              
-              <hr id="rede-hr">
-            </div>
-
-            <div class="row">
-              <div class="col-xl-12">
-                <p id="rede-descricao-texto"></p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xl-12">
-                <p id="termo-rede">este termo está presente na(s) seguinte(s) rede(s) de termo: </p>
-                <div id="rede-termos-balao"></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-4 col-lg-4">
-            <div class="row">
-              <div id="publicacao-semelhantes">
-              <a href="../view/Linha-tempo.php" id="termo-botao">Ir para Linha do Tempo de Publicações</a>
-              </div>
-            </div>
-          </div>
-        </div>
+        <?=setTermo()?>
       </div>
     </form>
   </main>
