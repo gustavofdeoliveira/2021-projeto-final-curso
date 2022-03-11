@@ -1924,7 +1924,7 @@ p#resumo-publicacao {
   color: var(--cor_vermelha) !important;
 }
 
-p#categoria-publicacao, p#rede-publicacao {
+p#categoria-publicacao, p#rede-publicacao,a#rede-publicacao {
   text-align: center;
   max-width: max-content;
   background-color: var(--cor_verde);
@@ -1935,6 +1935,11 @@ p#categoria-publicacao, p#rede-publicacao {
   border-radius: 200px;
   margin-left: 10px;
   line-height: 40px;
+  text-decoration: none;
+}
+a#rede-publicacao:hover{
+  color: var(--cor_vermelha) !important;
+  text-decoration: underline;
 }
 
 p#texto-publicacao {

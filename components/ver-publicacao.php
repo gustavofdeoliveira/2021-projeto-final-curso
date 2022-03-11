@@ -119,7 +119,7 @@ function verPublicacao()
         $imagem = "";
     }
     if (!empty($publicacao['redeTermos'])) {
-        $rede = '<p id="rede-publicacao">' . $publicacao['redeTermos'][0]['nome'] . '</p>';
+        $rede = '<a href="../view/Ver-rede-termo.php?id='.$publicacao['redeTermos'][0]['id'].'" id="rede-publicacao">' . $publicacao['redeTermos'][0]['nome'] . '</a>';
     } else {
         $rede = '';
     }
