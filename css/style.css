@@ -2066,8 +2066,8 @@ a#rede-termo-balao {
   font-size: 28px;
   line-height: 24px;
   color: var(--cor_branca) !important;
-  border: 1px solid var(--cor_vermelha);
-  background-color: var(--cor_vermelha);
+  border: 1px solid var(--cor_verde);
+  background-color: var(--cor_verde);
   border-radius: 75px !important;
   height: 100%;
   width: max-content;
@@ -2081,22 +2081,7 @@ a#rede-termo-balao:hover{
   text-decoration: underline;
 }
 
-a#rede-termo-balao {
-  font-family: Raleway-Light;
-  font-size: 28px;
-  line-height: 24px;
-  color: var(--cor_branca) !important;
-  border: 1px solid var(--cor_verde);
-  background-color: var(--cor_verde);
-  border-radius: 75px !important;
-  height: 100%;
-  width: max-content;
-  padding: 5px 10px 5px 10px;
-  margin-top: 5px;
-  margin-right: 10px !important;
-  text-decoration: none;
-  display: block;
-}
+
 
 a#termo-botao {
   width: 100%;

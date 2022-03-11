@@ -56,7 +56,7 @@ function setRedeTermo()
         if (!empty($dados['termos'])) {
             $baloes_termos = '';
             for ($a = 0; $a != count($dados['termos']); $a++) {
-                $baloes_termos .= '<a id="rede-termo-balao" target="_blank" href="//localhost/2021-projeto-final-curso/view/Ver-publicacao.php?id=' . $dados['termos'][$a]['id'] . '">' . $dados['termos'][$a]['nome'] . '</a>';
+                $baloes_termos .= '<a id="rede-termo-balao" target="_blank" href="//localhost/2021-projeto-final-curso/view/Ver-termo.php?id=' . $dados['termos'][$a]['id'] . '">' . $dados['termos'][$a]['nome'] . '</a>';
             }
         }
         if(!empty($_SESSION['usuarioAutenticado'])){

@@ -183,7 +183,7 @@ function setTermo()
 
           <div class="row">
             <div class="col-xl-12">
-              <p id="rede-descricao-texto">' . $dados['termo']['nome'] . '</p>
+              <p id="rede-descricao-texto">' . $dados['termo']['conceito'] . '</p>
             </div>
           </div>
           ' . $redes . '
