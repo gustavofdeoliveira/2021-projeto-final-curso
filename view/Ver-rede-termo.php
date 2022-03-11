@@ -3,6 +3,7 @@ include_once __DIR__ . '../../database/Connection.php';
 require_once __DIR__ . '../../dao/RedeTermosDao.php';
 require_once __DIR__ . '../../components/header.php';
 require_once __DIR__ . '../../components/footer.php';
+require_once __DIR__ . '../../components/ver-rede-termo.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -31,29 +32,7 @@ require_once __DIR__ . '../../components/footer.php';
   <main id="telas-navbar">
     <form action="../control/RedeTermosControl.php" method="POST" class="form-group">
       <div id="ver-rede-termos">
-        <div class="col-xl-12">
-          <div class="row">
-            <div class="col-xl-10 col-lg-10 col-md-9 col-sm-7">
-              <p id="rede-nome"></p>
-              <div class="pull-right" id="rede-botoes">
-
-              </div>
-            </div>
-            <hr id="rede-hr">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xl-12">
-            <p id="rede-descricao">descrição:</p>
-            <p id="rede-descricao-texto"></p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xl-12">
-            <p id="rede-termos">termos incluídos:</p>
-            <div id="rede-termos-balao"></div>
-          </div>
-        </div>
+        <?=setRedeTermo()?>
       </div>
     </form>
   </main>

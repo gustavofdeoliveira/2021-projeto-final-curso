@@ -11,11 +11,6 @@ $(document).ready(function () {
     }
 })
 
-
-//Carrega termo para editar
-
-
-
 //Carrega rede para editar
 $(document).ready(function () {
     var editar = document.getElementsByName("editar-rede");
@@ -174,79 +169,6 @@ function fecharRedeBalao(id) {
     input.disabled = false;
     document.getElementById(id).remove();
 }
-
-
-//Ver rede de termos
-$(document).ready(function () {
-    var url = window.location.href;
-    var valores_url = url.split("=");
-    $.post('../ajax-php/ver-rede-termos.php?id=' + valores_url[1], function (resposta) {
-        resultado = JSON.parse(resposta);
-        var ver_rede_termos = document.getElementById("ver-rede-termos");
-        if (ver_rede_termos != null) {
-            console.log(resultado);
-            document.getElementById('rede-nome').insertAdjacentHTML('afterbegin', resultado['dados']['redeTermos']['nome']);
-            document.getElementById('rede-descricao-texto').insertAdjacentHTML('afterbegin', resultado['dados']['redeTermos']['descricao']);
-            document.getElementById('rede-botoes').insertAdjacentHTML('afterbegin',
-            '<a href="../view/Editar-rede-termo.php?id=' + resultado['dados']['redeTermos']['id'] + '"><i class="fa fa-verde fa-pencil-square-o" aria-hidden="true"></i></a>' +
-            '<form action="../control/RedeTermosControl.php" method="POST" class="form-group">' +
-            '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirRede">' +
-            '<button class="btn-excluir-atualizar" type="submit" name="idRede" value="' + resultado['dados']['redeTermos']['id'] + '">' +
-            '<i class="fa fa-verde fa-trash-o" aria-hidden="true"></i></button></form>');
-
-            for (a = 0; a != resultado['dados']['termos'].length; a++) {
-                document.getElementById('rede-termos-balao').insertAdjacentHTML('afterbegin', 
-                '<a id="rede-termo-balao" target="_blank" href="//localhost/2021-projeto-final-curso/view/Ver-publicacao.php?id=' + resultado['dados']['termos'][a]['id'] + '">' + resultado['dados']['termos'][a]['nome'] + '</a>')
-               
-
-            }
-
-        }
-    })
-})
-
-//Ver termo
-// $(document).ready(function () {
-//     var url = window.location.href;
-//     var valores_url = url.split("=");
-//     $.post('../ajax-php/ver-termo.php?id=' + valores_url[1], function (resposta) {
-//         resultado = JSON.parse(resposta);
-//         var ver_rede_termos = document.getElementById("ver-termo");
-//         if (ver_rede_termos != null) {
-//             console.log(resultado);
-//             document.getElementById('termo-nome').insertAdjacentHTML(
-//                 'afterbegin', resultado['dados']['termo']['nome']);
-
-//             document.getElementById('rede-descricao-texto').insertAdjacentHTML(
-//                 'afterbegin', resultado['dados']['termo']['conceito']);
-
-//             document.getElementById('rede-botoes').insertAdjacentHTML(
-//                 'afterbegin',
-//                  '<form action="../control/TermoControl.php" method="POST" class="form-group">' +
-//             '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="verTermo">' +
-//             '<button class="btn-excluir-atualizar" type="submit" name="idTermo" value="' + resultado['dados']['termo']['id'] + '">' +
-//             '<i class="fa fa-verde fa-pencil-square-o" aria-hidden="true"></i></button></form>'+
-//             '<form action="../control/TermoControl.php" method="POST" class="form-group">' +
-//             '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirTermo">' +
-//             '<button class="btn-excluir-atualizar" type="submit" name="Termo" value="' + resultado['dados']['termo']['id'] + '">' +
-//             '<i class="fa fa-verde fa-trash-o" aria-hidden="true"></i></button></form>');
-
-//             for (a = 0; a != resultado['dados']['redeTermos'].length; a++) {
-//                 document.getElementById('rede-termos-balao').insertAdjacentHTML('afterbegin', 
-//                  '<a id="rede-termo-balao" target="_blank" href="//localhost/2021-projeto-final-curso/view/Ver-publicacao.php?id=' + resultado['dados']['redeTermos'][a]['id'] + '">' + resultado['dados']['redeTermos'][a]['nome'] + '</a>')
-//             }
-//             if (resultado['dados']['semelhantes'].length != 0) {
-//                 document.getElementById('publicacao-semelhantes').insertAdjacentHTML('afterbegin', '<p id="texto-termo-semelhante">esse termo aparece em:</p>')
-//                 for (a = 0; a != resultado['dados']['semelhantes'].length; a++) {
-//                     document.getElementById('texto-termo-semelhante').insertAdjacentHTML('afterend', '<img class="img-publicacao-semelhante" id="img-publicacao-semelhante" src="' + resultado['dados']['semelhantes'][a]['imagem'] + '">')
-//                     document.getElementById('img-publicacao-semelhante').insertAdjacentHTML('afterend', '<a class="titulo-publicacao-semelhante" target="_blank" href="//localhost/2021-projeto-final-curso/view/Ver-publicacao.php?id=' + resultado['dados']['semelhantes'][a]['id'] + '">' + resultado['dados']['semelhantes'][a]['titulo'] + '</a>')
-
-//                 }
-//             }
-
-//         }
-//     })
-// })
 
 async function carrega_publicacao(value) {
     if (value.length >= 3) {

@@ -152,7 +152,7 @@ function setTermo()
             $redes = '<div class="row">
             <div class="col-xl-12">
               <p id="termo-rede">este termo está presente na(s) seguinte(s) rede(s) de termo: </p>
-              <div id="rede-termos-balao">' . $baloes_rede . '</div>
+              <div class="input-group"><div id="rede-termos-balao">' . $baloes_rede . '</div></div>
             </div>
           </div>';
         } else {
