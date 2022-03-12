@@ -283,7 +283,6 @@ function verPublicacao()
 
 function titlePublicacao()
 {
-
     $id_url = $_SERVER['QUERY_STRING'];
     $url = explode("=", $id_url);
     if (!empty($url[1])) {
@@ -292,7 +291,6 @@ function titlePublicacao()
         $publicacao =  $publicacaoControl->verPublicacao($_SESSION['pesquisa']);
         return $publicacao[0]['titulo'];
     } else {
-        $mensagemError = setMensagemError();
-        return $mensagemError;
+        return "Publicação";
     }
 }

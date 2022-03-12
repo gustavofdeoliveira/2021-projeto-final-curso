@@ -38,8 +38,8 @@ class TermoControl
             if ($this->acao == "removerTermo") {
                 $this->removerTermo();
             }
-            if($this->acao =="verTermo"){
-                $this->verTermo(); 
+            if ($this->acao == "verTermo") {
+                $this->verTermo();
             }
         }
     }
@@ -50,7 +50,7 @@ class TermoControl
             $this->modelo->setNome($_POST["nome"]);
             $this->modelo->setConceito($_POST["conceito"]);
             $id_termo = $this->dao->inserirTermo($this->modelo);
-            header("Location:../view/Ver-termo.php?id=".$id_termo);
+            header("Location:../view/Ver-termo.php?id=" . $id_termo);
         } catch (\Exception $e) {
             $_SESSION["msg_error"] = $e->getMessage();
             $_SESSION["tempo_msg_error"] = time();
@@ -78,7 +78,7 @@ class TermoControl
             $this->modelo->setNome($_POST["nome"]);
             $this->modelo->setConceito($_POST["conceito"]);
             $id_termo = $this->dao->atualizarTermo($this->modelo);
-            header("Location:../view/Ver-termo.php?id=".$id_termo);
+            header("Location:../view/Ver-termo.php?id=" . $id_termo);
         } catch (\Exception $e) {
             $_SESSION["msg_error"] = $e->getMessage();
             $_SESSION["tempo_msg_error"] = time();
@@ -133,16 +133,16 @@ class TermoControl
             exit();
         }
     }
-     public function verTermo()
+    public function verTermo()
     {
-        try{
+        try {
             $id_termo = $_POST['idTermo'];
             $this->modelo->setId($_POST['idTermo']);
             $termo = $this->dao->verTermo($this->modelo);
             $termo_formatado = $this->modelo->getTermo($termo);
             $_SESSION['termo'] = $termo_formatado;
-            header("Location:../view/Editar-Termo.php?id=".$id_termo);
-        }catch (\Exception $e) {
+            header("Location:../view/Editar-Termo.php?id=" . $id_termo);
+        } catch (\Exception $e) {
             $_SESSION["msg_error"] = $e->getMessage();
             $_SESSION["msg_tempo_error"] = time();
             print_r($_SESSION["msg_error"]);
@@ -163,6 +163,19 @@ class TermoControl
             print_r($_SESSION["msg_error"]);
             exit();
             header("Location:../view/Meu-espaco.php");
+        }
+    }
+    public function pesquisaTermo($id_termo)
+    {
+        try {
+            $termo = $this->dao->pesquisaTermo($id_termo);
+            $termo_formatado = $this->modelo->getTermo($termo);
+            return $termo_formatado;
+        } catch (\Exception $e) {
+            $_SESSION["msg_error"] = $e->getMessage();
+            $_SESSION["msg_tempo_error"] = time();
+            print_r($_SESSION["msg_error"]);
+            exit();
         }
     }
 }

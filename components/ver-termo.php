@@ -1,9 +1,12 @@
 <?php
 require_once(realpath(dirname(__FILE__) . "/../database/Connection.php"));
 require_once __DIR__ . '../../components/mensagem-error.php';
+require_once __DIR__ . '../../control/TermoControl.php';
+
 
 function setTermo()
 {
+    $conn = Connection::conectar();
 
     $id_url = $_SERVER['QUERY_STRING'];
     $url = explode("=", $id_url);
@@ -13,7 +16,6 @@ function setTermo()
         $mensagemError = setMensagemError();
         return $mensagemError;
     }
-    $conn = Connection::conectar();
     if ($url[0] == "termo") {
         $id_pesquisa = '';
         $id_url = explode("%20", $url[1]);
@@ -215,4 +217,40 @@ function setTermo()
         </div>
       </div>';
     }
+}
+function titleTermo()
+{
+    $conn = Connection::conectar();
+    $id_url = $_SERVER['QUERY_STRING'];
+    $url = explode("=", $id_url);
+    if ($url[0] == "termo") {
+        $id_pesquisa = '';
+        $id_url = explode("%20", $url[1]);
+        for ($a = 0; $a != count($id_url); $a++) {
+            $id_pesquisa .= $id_url[$a] . " ";
+        }
+        $query_termo = "SELECT * FROM `termo` WHERE `nome`=:nome";
+        $result = $conn->prepare($query_termo);
+        $result->bindParam(':nome', $id_pesquisa);
+        $result->execute();
+        if (($result) and ($result->rowCount() != 0)) {
+            while ($row_termo = $result->fetch(PDO::FETCH_ASSOC)) {
+                $Termo = $row_termo['nome'];
+            }
+            
+        }else{
+            $Termo = "Termo";
+        }
+        return $Termo;
+    }if ($url[0] == "id"){
+        if (!empty($_SESSION['pesquisa'])){
+            $_SESSION['pesquisa'] = $url[1];
+            $TermoControl = new TermoControl;
+            print_r($_SESSION['pesquisa']);
+            $Termo =  $TermoControl->pesquisaTermo($_SESSION['pesquisa']);
+            return $Termo[0]['nome'];
+        }else {
+            return "Termo";
+        }
+    }   
 }

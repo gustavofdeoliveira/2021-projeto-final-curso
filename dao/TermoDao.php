@@ -152,7 +152,21 @@ class TermoDao
             return $termo;
         }
     }
-    function listagemTermosSalvos(){
+    function pesquisaTermo($id_termo)
+    {
+        $sql = "SELECT * FROM `termo` WHERE `id`= :id_termo";
+        $statement = $this->conn->prepare($sql);
+        $statement->bindParam(':id_termo', $id_termo);
+        $statement->execute();
+        if (($statement) and ($statement->rowCount() != 0)) {
+            while ($result = $statement->fetch(PDO::FETCH_ASSOC)) {
+                $termo[] = $result;
+            }
+            return $termo;
+        }
+    }
+    function listagemTermosSalvos()
+    {
         $id_usuario = $_SESSION['usuarioAutenticado']['idUsuario'];
         $sql = "SELECT * FROM `usuarios_termos_salvos` WHERE `id_usuario`= $id_usuario ORDER BY `dataInclusao` DESC";
         $statement = $this->conn->prepare($sql);
@@ -173,7 +187,7 @@ class TermoDao
                 }
             }
             return $termos;
-        }else{
+        } else {
             return null;
         }
     }

@@ -1,6 +1,8 @@
 <?php
 require_once(realpath(dirname(__FILE__) . "/../database/Connection.php"));
 require_once __DIR__ . '../../components/mensagem-error.php';
+require_once __DIR__ . '../../control/RedeTermosControl.php';
+
 
 function setRedeTermo()
 {
@@ -107,4 +109,17 @@ function setRedeTermo()
         </div>
       </div>';
   }
+}
+function titleRede()
+{
+    $id_url = $_SERVER['QUERY_STRING'];
+    $url = explode("=", $id_url);
+    if (!empty($url[1])) {
+        $_SESSION['pesquisa'] = $url[1];
+        $RedeTermosControl = new RedeTermosControl;
+        $RedeTermos =  $RedeTermosControl->pesquisaRedeTermos($_SESSION['pesquisa']);
+        return $RedeTermos[0]['nome'];
+    } else {
+        return "Rede de Termos";
+    }
 }
