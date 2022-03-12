@@ -1,11 +1,18 @@
 <?php
 require_once(realpath(dirname(__FILE__) . "/../database/Connection.php"));
+require_once __DIR__ . '../../components/mensagem-error.php';
+
 function setTermo()
 {
 
     $id_url = $_SERVER['QUERY_STRING'];
     $url = explode("=", $id_url);
-    $id_pesquisa = $url[1];
+    if (!empty($url[1])) {
+        $id_pesquisa = $url[1];
+    } else {
+        $mensagemError = setMensagemError();
+        return $mensagemError;
+    }
     $conn = Connection::conectar();
     if ($url[0] == "termo") {
         $id_pesquisa = '';
@@ -207,7 +214,5 @@ function setTermo()
           </div>
         </div>
       </div>';
-    } else {
-        return null;
     }
 }

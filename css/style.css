@@ -252,7 +252,7 @@ input .input-login~label {
   transition: .4s;
 }
 
-.error, .error-senha{
+.error, .error-senha {
   color: var(--cor_vermelha);
   font-size: 18px;
   margin-left: 3% !important;
@@ -2655,11 +2655,58 @@ div#rede-termos-balao {
   display: contents;
 }
 
-.senha{
+.senha {
   color: var(--cor_branca);
   font-size: 18px;
   margin-left: 3% !important;
   font-family: Raleway-Black-Italic;
   width: 100%;
   display: table;
+}
+
+p#error-titulo {
+  font-family: Raleway-Black;
+  font-size: 65px;
+  line-height: 65px;
+  color: var(--cor_vermelha) !important;
+  margin-top: 20px;
+}
+
+p#error-mensagem {
+  font-family: Raleway-Light;
+  font-size: 35px;
+  line-height: 45px;
+  color: var(--cor_vermelha) !important;
+  max-width: 812px;
+}
+
+a#btn-voltar {
+  display: block;
+  font-family: Raleway-Black;
+  font-size: 35px;
+  background-color: var(--cor_verde);
+  width: max-content;
+  color: var(--cor_branca) !important;
+  text-decoration: none;
+  border-radius: 100px;
+  padding: 0px 20px;
+}
+
+.img-error {
+  margin-top: 50px;
+}
+
+p#error-fala {
+  font-family: Raleway-Black;
+  font-size: 55px;
+  line-height: 55px;
+  color: var(--cor_vermelha) !important;
+  max-width: 500px;
+  margin-top: 50px;
+  margin-left: 20px;
+}
+
+p#error-fala span {
+  color: var(--cor_verde) !important;
+
 }

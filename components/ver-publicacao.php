@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '../../control/PublicacaoControl.php';
 require_once __DIR__ . '../../components/mensagem.php';
+require_once __DIR__ . '../../components/mensagem-error.php';
 require_once(realpath(dirname(__FILE__) . "/../database/Connection.php"));
 
 function verPublicacao()
@@ -9,8 +10,13 @@ function verPublicacao()
 
     $id_url = $_SERVER['QUERY_STRING'];
     $url = explode("=", $id_url);
+    if (!empty($url[1])) {
+        $_SESSION['pesquisa'] = $url[1];
+    } else {
+        $mensagemError = setMensagemError();
+        return $mensagemError;
+    }
 
-    $_SESSION['pesquisa'] = $url[1];
     $publicacaoControl = new PublicacaoControl;
     $publicacao =  $publicacaoControl->verPublicacao($_SESSION['pesquisa']);
     $query_termo = "SELECT `a`.`id`,`a`.`id_publicacao`, `a`.`id_rede`, `a`.`id_termo` FROM `publicacao_termo_rede_termos` as A INNER JOIN `publicacao` as B ON `b`.`id` = `a`.`id_publicacao` WHERE `a`.`id_publicacao` = :id";
@@ -286,6 +292,7 @@ function titlePublicacao()
         $publicacao =  $publicacaoControl->verPublicacao($_SESSION['pesquisa']);
         return $publicacao[0]['titulo'];
     } else {
-        return null;
+        $mensagemError = setMensagemError();
+        return $mensagemError;
     }
 }

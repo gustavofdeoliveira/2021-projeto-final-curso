@@ -119,26 +119,26 @@ require_once __DIR__ . '../../components/footer.php';
                                             <a class='nav-link btn-navbar-login' href='../view/Login.php'>Fazer Login</a>
                                         </li>";
                                         } ?>
-                                        
+
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </nav>
-                <?php 
-                    $usuario = $_SESSION["usuarioAutenticado"];
-                    if($usuario != null){
-                        echo"
+                <?php
+                $usuario = $_SESSION["usuarioAutenticado"];
+                if ($usuario != null) {
+                    echo "
                     <div class='header-tools ion-ios-navicon pull-right'>
                         <i class='fa fa-cog' aria-hidden='true'></i>
                     </div> 
                     <div class='sidebar'>
                     <div class='sidebar-overlay animated fadeOut'></div>
                         <div class='sidebar-content'>
-                            <p id='configuracao'>Configurações</p>"; 
-                            if($usuario['nivelAcesso'] == 3){
-                            echo "
+                            <p id='configuracao'>Configurações</p>";
+                    if ($usuario['nivelAcesso'] == 3) {
+                        echo "
                             <div class='nav-left'>
                                 <a href='Meus-dados.php' class='btn-tools'><span class='ion-ios-home-outline'></span>Meus Dados</a>
                                 <a class='btn-tools'><span class='ion-ios-list-outline'></span>Sugerir Termo</a>
@@ -163,16 +163,18 @@ require_once __DIR__ . '../../components/footer.php';
                                     </form>
                                 </a>
                                 
-                            </div>";}                         
-                            if($usuario['nivelAcesso'] == 1|| $usuario['nivelAcesso']==2){
-                            echo "
+                            </div>";
+                    }
+                    if ($usuario['nivelAcesso'] == 1 || $usuario['nivelAcesso'] == 2) {
+                        echo "
                             <div class='nav-left'>
                             <div id='texto-usuario'>Usuário</div>
                                 <a href='view/Meus-dados.php' class='btn-tools'><span class='ion-ios-home-outline'></span>Meus Dados</a>";
-                                if($usuario['nivelAcesso'] == 1){
-                                    echo"
-                                <a href='view/Listar-usuarios.php' class='btn-tools'><span class='ion-ios-home-outline'></span>Listar Usuários</a>";}
-                                echo"
+                        if ($usuario['nivelAcesso'] == 1) {
+                            echo "
+                                <a href='view/Listar-usuarios.php' class='btn-tools'><span class='ion-ios-home-outline'></span>Listar Usuários</a>";
+                        }
+                        echo "
                                 <a class='btn-tools' id='dark-mode-toggle'><span class='ion-ios-list-outline'></span>
                                     <div class='d-flex modo-noturno'>
                                         <div class='texto-modo-noturno'>Modo noturno</div>
@@ -204,15 +206,18 @@ require_once __DIR__ . '../../components/footer.php';
                                     </form>
                                 </a>
                                 
-                            </div>";}
-                        echo "</div>
-                    </div>";}
-                    ?> 
+                            </div>";
+                    }
+                    echo "</div>
+                    </div>";
+                }
+                ?>
             </div>
         </div>
     </header>
-    <main>
-       
+    <main id="telas-navbar">
+        
+
     </main>
     <?= setFooter() ?>
     <script src="../javascript/bootstrap.bundle.min.js">
