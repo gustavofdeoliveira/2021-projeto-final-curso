@@ -90,7 +90,6 @@ function get_termo_publicacao(id, nome) {
 }
 
 function passaHref(){
-    debugger
     var a = document.getElementById(nomeTermo);
     a.href = "http://localhost/2021-projeto-final-curso/view/Ver-termo.php?termo="+nomeTermo
 }
@@ -144,7 +143,6 @@ async function carrega_redes(value) {
 
 var input = document.querySelector("#redeTermos");
 function get_rede(id, nome) {
-    debugger
     document.getElementById('termos-container').insertAdjacentHTML('afterbegin', '<div class="rede-balao" id="' + id + '" value="' + nome + '"><a id="ver-rede" target="_blank" href="../view/Ver-rede-termo.php?id='+id+'">' + nome +'</a><a class="balao-fechar"  onclick="fecharRedeBalao(' + id + ')"><i class="fa fa-times" aria-hidden="true"></i></a></div>');
     ids.push(id);
     if (ids) {

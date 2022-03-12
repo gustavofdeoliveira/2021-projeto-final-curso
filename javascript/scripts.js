@@ -121,7 +121,6 @@ function ValidateField(field) {
         const error = verifyErrors()
         if (error) {
             if (field.id == "senha_atual") {
-                debugger
                 field.style.borderColor = "#fff"
             } else {
                 const message = customMessage(error)
@@ -313,7 +312,6 @@ function filtraUsuario(filter) {
 }
 
 function validaFormulario(event) {
-    debugger
     const spanError = document.getElementById("error-senha")
     var novaSenha = document.getElementById("senhaNova").value
 
@@ -326,9 +324,7 @@ function validaFormulario(event) {
 }
 
 function validaFormularioCadastro(event) {
-    debugger
     const spanError = document.getElementById("error-senha")
-
     if (spanError.innerHTML != "") {
         event.preventDefault();
     }
