@@ -149,5 +149,21 @@ class TermoControl
             exit();
         }
     }
+    public function listagemTermosSalvos()
+    {
+        try {
+            $termos = $this->dao->listagemTermosSalvos();
+            if (!empty($termos)) {
+                $termo_formatado = $this->modelo->getTermo($termos);
+                return $termo_formatado;
+            }
+        } catch (\Exception $e) {
+            $_SESSION["msg_error"] = $e->getMessage();
+            $_SESSION["msg_tempo_error"] = time();
+            print_r($_SESSION["msg_error"]);
+            exit();
+            header("Location:../view/Meu-espaco.php");
+        }
+    }
 }
 new TermoControl();

@@ -5,6 +5,7 @@ require_once __DIR__ . '../../components/header.php';
 require_once __DIR__ . '../../components/footer.php';
 require_once __DIR__ . '../../components/mensagem.php';
 require_once __DIR__ . '../../components/publicacoes-salvas.php';
+require_once __DIR__ . '../../components/termos-salvos.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -71,6 +72,11 @@ require_once __DIR__ . '../../components/publicacoes-salvas.php';
           </div>
           <div class="col-xl-6 col-lg-6">
             <a href="../view/Biblioteca.php" class="adicionar-termos">Acessar Biblioteca</a>
+          </div>
+          <div class="row">
+            <div class="col-xl-12 col-lg-12">
+              <div id="rede-termos-balao"><?= setTermos() ?></div>
+            </div>
           </div>
         </div>
 

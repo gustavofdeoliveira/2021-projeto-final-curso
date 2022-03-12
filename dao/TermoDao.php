@@ -148,4 +148,29 @@ class TermoDao
             return $termo;
         }
     }
+    function listagemTermosSalvos(){
+        $id_usuario = $_SESSION['usuarioAutenticado']['idUsuario'];
+        $sql = "SELECT * FROM `usuarios_termos_salvos` WHERE `id_usuario`= $id_usuario ORDER BY `dataInclusao` DESC";
+        $statement = $this->conn->prepare($sql);
+        $statement->execute();
+        if (($statement) and ($statement->rowCount() != 0)) {
+            while ($resultado = $statement->fetch(PDO::FETCH_ASSOC)) {
+                $termos_salvos[] = $resultado;
+            }
+            for ($a = 0; $a != count($termos_salvos); $a++) {
+                $id_termo = $termos_salvos[$a]['id_termo'];
+                $sql = "SELECT * FROM `termo` WHERE `id`='$id_termo' ORDER BY `dataInclusao` DESC";
+                $statement = $this->conn->prepare($sql);
+                $statement->execute();
+                if (($statement) and ($statement->rowCount() != 0)) {
+                    while ($resultado = $statement->fetch(PDO::FETCH_ASSOC)) {
+                        $termos[$a] = $resultado;
+                    }
+                }
+            }
+            return $termos;
+        }else{
+            return null;
+        }
+    }
 }
