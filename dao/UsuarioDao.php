@@ -211,7 +211,7 @@ class UsuarioDao
             }
         }
         if (!empty($modelo->getSenhaAntiga()) && (sha1($modelo->getSenhaAntiga()) != $_SESSION['usuarioAutenticado']['senha'])) {
-            throw new \Exception('Senha antiga não corresponde a senha já castrada!');
+            throw new \Exception('Senha antiga não corresponde a senha já cadastrada!');
         }
         if (!empty($modelo->getSenha())) {
             $senha_nova = $modelo->getSenha();

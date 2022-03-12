@@ -185,7 +185,9 @@ function setTermo()
         </div>
         <div class="col-xl-4 col-lg-4">
           <div class="row">
+          <div id="publicacao-semelhantes">
             '.$semelhantes.$btn_linha.'
+          </div>
           </div>
         </div>
       </div>';

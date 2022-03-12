@@ -197,7 +197,7 @@ class PublicacaoDao
 
     function listagemIndex($variavel, $ordem)
     {
-        $sql = "SELECT * FROM `publicacao` ORDER BY `$variavel` $ordem LIMIT 4";
+        $sql = "SELECT * FROM `publicacao` ORDER BY `$variavel` $ordem LIMIT 3";
         $statement = $this->conn->prepare($sql);
         $statement->execute();
         if (($statement) and ($statement->rowCount() != 0)) {
