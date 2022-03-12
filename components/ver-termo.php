@@ -17,6 +17,7 @@ function setTermo()
         return $mensagemError;
     }
     if ($url[0] == "termo") {
+        
         $id_pesquisa = '';
         $id_url = explode("%20", $url[1]);
         for ($a = 0; $a != count($id_url); $a++) {
@@ -26,11 +27,13 @@ function setTermo()
         $result = $conn->prepare($query_termo);
         $result->bindParam(':nome', $id_pesquisa);
         $result->execute();
+        
         if (($result) and ($result->rowCount() != 0)) {
             while ($row_termo = $result->fetch(PDO::FETCH_ASSOC)) {
                 $id_pesquisa = $row_termo['id'];
             }
         }
+        
     }
 
     if (!empty($id_pesquisa)) {

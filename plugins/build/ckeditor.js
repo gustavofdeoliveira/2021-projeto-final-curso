@@ -312,6 +312,7 @@
                 n.d(e, {
                     Z: () => c
                 });
+                
                 var o = n(4015);
                 var i = n.n(o);
                 var r = n(3645);
@@ -21193,7 +21194,8 @@
                             tabindex: e.to("tabindex"),
                             "aria-labelledby": `ck-editor__aria-label_${n}`,
                             "aria-disabled": e.if("isEnabled", true, (t => !t)),
-                            "aria-pressed": e.to("isOn", (t => this.isToggleable ? String(t) : false))
+                            "aria-pressed": e.to("isOn", (t => this.isToggleable ? String(t) : false)),
+                            onclick:"passaHref()"
                         },
                         children: this.children,
                         on: {
@@ -28088,12 +28090,12 @@
                 writer: e
             }) {
                 const n = e.createAttributeElement("a", {
-                    href: "http://localhost/2021-projeto-final-curso/view/Ver-termo.php?termo="+ t
+                    href:"http://localhost/2021-projeto-final-curso/view/Ver-termo.php?termo="+t
                 }, {
                     priority: 5
                 });
                 e.setCustomProperty("link", true, n);
-                return n
+                return n            
             }
 
             function IE(t) {
@@ -35738,16 +35740,21 @@
                     });
                     t.extendTemplate({
                         attributes: {
+                            id: e.to("href", (t => t && IE(t))),
                             class: ["ck", "ck-link-actions__preview"],
-                            href: "../view/Ver-termo.php?termo=" + e.to("href", (t => t && IE(t))),
+                            href: e.to("href", (t => t && IE(t))),
                             target: "_blank",
                             rel: "noopener noreferrer"
                         }
                     });
+                
                     t.bind("label").to(this, "href", (t => t || n("This link has no URL")));
                     t.bind("isEnabled").to(this, "href", (t => !!t));
                     t.template.tag = "a";
                     t.template.eventListeners = {};
+                    console.log(t)
+                    console.log(e)
+                    console.log(n)
                     return t
                 }
             }
@@ -42433,7 +42440,8 @@
                         icon: cw.check,
                         class: "ck-button-save",
                         type: "submit",
-                        withText: true
+                        withText: true,
+                        onclick:""
                     });
                     n.bind("isEnabled").toMany(i, "errorText", ((...t) => t.every((t => !t))));
                     o.set({
@@ -43920,7 +43928,8 @@
                         icon: cw.check,
                         class: "ck-button-save",
                         type: "submit",
-                        withText: true
+                        withText: true,
+                        onclick:""
                     });
                     n.bind("isEnabled").toMany(i, "errorText", ((...t) => t.every((t => !t))));
                     o.set({

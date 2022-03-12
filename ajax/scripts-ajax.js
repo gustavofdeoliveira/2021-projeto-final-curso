@@ -78,14 +78,21 @@ async function carrega_termos_publicacao(value) {
         document.getElementById('resultado_pesquisa_termo').innerHTML = html;
     }
 }
-
+var nomeTermo = ""
 function get_termo_publicacao(id, nome) {
-    document.getElementsByName('input-link').value = nome
+    nomeTermo = nome
+    document.getElementsByName('input-link').value = JSON.stringify(nome)
     input_id = document.getElementsByName('input-link')
     document.getElementById(input_id[2]["id"]).value = nome;
     ids_termos.push(id);
     document.getElementById("termosId").value = ids_termos;
-    document.getElementById('resultado_pesquisa_termo').innerHTML = '';
+    document.getElementById('resultado_pesquisa_termo').innerHTML = '';   
+}
+
+function passaHref(){
+    debugger
+    var a = document.getElementById(nomeTermo);
+    a.href = "http://localhost/2021-projeto-final-curso/view/Ver-termo.php?termo="+nomeTermo
 }
 
 function get_termo(id, nome) {
