@@ -27,11 +27,11 @@ if (!empty($termo)) {
          $retorna = ['erro' => false, 'dados' => $dados];
     }
     else{
-         $retorna = ['erro' => true, 'msg' => "Erro: Nenhum usuário encontrado!"];
+         $retorna = ['erro' => true, 'msg' => "Erro: Nenhum termo encontrado!"];
      }
 
 } else {
-    $retorna = ['erro' => true, 'msg' => "Erro: Nenhum usuário encontrado!"];
+    $retorna = ['erro' => true, 'msg' => "Erro: Nenhum termo encontrado!"];
 }
 
 echo json_encode($retorna);

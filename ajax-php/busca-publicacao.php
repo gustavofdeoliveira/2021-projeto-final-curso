@@ -27,11 +27,11 @@ if (!empty($publicacao)) {
          $retorna = ['erro' => false, 'dados' => $dados];
     }
     else{
-         $retorna = ['erro' => true, 'msg' => "Erro: Nenhum usuário encontrado!"];
+         $retorna = ['erro' => true, 'msg' => "Erro: Nenhuma publicação encontrada!"];
      }
 
 } else {
-    $retorna = ['erro' => true, 'msg' => "Erro: Nenhum usuário encontrado!"];
+    $retorna = ['erro' => true, 'msg' => "Erro: Nenhuma publicação encontrada!"];
 }
 
 echo json_encode($retorna);
