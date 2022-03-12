@@ -210,12 +210,14 @@ class UsuarioDao
                 throw new \Exception('nome de usuário | e-mail já cadastrado!');
             }
         }
-
+        if (!empty($modelo->getSenhaAntiga()) && (sha1($modelo->getSenhaAntiga()) != $_SESSION['usuarioAutenticado']['senha'])) {
+            throw new \Exception('Senha antiga não corresponde a senha já castrada!');
+        }
         if (!empty($modelo->getSenha())) {
             $senha_nova = $modelo->getSenha();
             $verifica_senha_nova = sha1($modelo->getSenha());
-            if($_SESSION['usuarioAutenticado']['senha'] == $verifica_senha_nova){
-                throw new \Exception('A senha nova não pode ser igual a antiga!'); 
+            if ($_SESSION['usuarioAutenticado']['senha'] == $verifica_senha_nova) {
+                throw new \Exception('A senha nova não pode ser igual a antiga!');
             }
             $sql = "UPDATE `usuario` SET 
             `senha` =SHA1('$senha_nova') WHERE `idUsuario`=:id";

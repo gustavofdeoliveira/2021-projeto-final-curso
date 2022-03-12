@@ -6,6 +6,7 @@ class UsuarioModel
     private $nomeCompleto;
     private $nomeUsuario;
     private $senha;
+    private $senhaAntiga;
     private $email;
     private $manterLogin;
     private $fotoAvatar;
@@ -81,6 +82,21 @@ class UsuarioModel
     public function setSenha($senha)
     {
         $this->senha = $senha;
+    }
+    /**
+     * @return mixed
+     */
+    public function getSenhaAntiga()
+    {
+        return $this->senhaAntiga;
+    }
+
+    /**
+     * @param mixed 
+     */
+    public function setSenhaAntiga($senhaAntiga)
+    {
+        $this->senhaAntiga = $senhaAntiga;
     }
     /**
      * @return mixed

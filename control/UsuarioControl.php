@@ -148,6 +148,9 @@ class UsuarioControl
             if (!empty($_POST["senhaNova"])) {
                 $this->modelo->setSenha($_POST["senhaNova"]);
             }
+            if (!empty($_POST["senha"])) {
+                $this->modelo->setSenhaAntiga($_POST["senha"]);
+            }
             if (!empty($_POST["email"])) {
                 $this->modelo->setEmail($_POST["email"]);
             }
