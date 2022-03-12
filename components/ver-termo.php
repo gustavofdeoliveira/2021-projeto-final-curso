@@ -7,9 +7,25 @@ function setTermo()
     $url = explode("=", $id_url);
     $id_pesquisa = $url[1];
     $conn = Connection::conectar();
+    if ($url[0] == "termo") {
+        $id_pesquisa = '';
+        $id_url = explode("%20", $url[1]);
+        for ($a = 0; $a != count($id_url); $a++) {
+            $id_pesquisa .= $id_url[$a] . " ";
+        }
+        $query_termo = "SELECT * FROM `termo` WHERE `nome`=:nome";
+        $result = $conn->prepare($query_termo);
+        $result->bindParam(':nome', $id_pesquisa);
+        $result->execute();
+        if (($result) and ($result->rowCount() != 0)) {
+            while ($row_termo = $result->fetch(PDO::FETCH_ASSOC)) {
+                $id_pesquisa = $row_termo['id'];
+            }
+        }
+    }
 
     if (!empty($id_pesquisa)) {
-        $query_termo = "SELECT * FROM `termo` WHERE `id`=:id OR 'nome'=:id";
+        $query_termo = "SELECT * FROM `termo` WHERE `id`=:id";
         $result = $conn->prepare($query_termo);
         $result->bindParam(':id', $id_pesquisa);
         $result->execute();
@@ -162,7 +178,7 @@ function setTermo()
             </div>';
         } else {
             $btn_linha = '';
-            $semelhantes ='';
+            $semelhantes = '';
         }
         return '<div class="row">
         <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
@@ -186,7 +202,7 @@ function setTermo()
         <div class="col-xl-4 col-lg-4">
           <div class="row">
           <div id="publicacao-semelhantes">
-            '.$semelhantes.$btn_linha.'
+            ' . $semelhantes . $btn_linha . '
           </div>
           </div>
         </div>

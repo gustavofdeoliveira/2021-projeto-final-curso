@@ -44,7 +44,9 @@ class TermoDao
             $statement = $this->conn->prepare($sql);
             $statement->execute();
             $_SESSION["tempo_msg_sucess"] = time();
-            return $_SESSION["msg_sucess"] = "Termo cadastrado com sucesso!";
+            $_SESSION["msg_sucess"] = "Termo cadastrado com sucesso!";
+            $id_termo = $this->conn->lastInsertId();
+            return $id_termo;
         }
     }
 
@@ -71,7 +73,9 @@ class TermoDao
         $statement->bindValue("id", $modelo->getId());
         $statement->execute();
         $_SESSION["tempo_msg_sucess"] = time();
-        return $_SESSION["msg_sucess"] = "Termo atualizado com sucesso!";
+        $_SESSION["msg_sucess"] = "Termo atualizado com sucesso!";
+        $id_termo = $modelo->getId();
+        return $id_termo;
     }
 
     function listarTermo()

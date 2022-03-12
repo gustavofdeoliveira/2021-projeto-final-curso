@@ -49,8 +49,8 @@ class TermoControl
             $this->modelo->setTipoTermo($_POST["tipoTermo"]);
             $this->modelo->setNome($_POST["nome"]);
             $this->modelo->setConceito($_POST["conceito"]);
-            $this->dao->inserirTermo($this->modelo);
-            header("Location:../view/Cadastrar-termo.php");
+            $id_termo = $this->dao->inserirTermo($this->modelo);
+            header("Location:../view/Ver-termo.php?id=".$id_termo);
         } catch (\Exception $e) {
             $_SESSION["msg_error"] = $e->getMessage();
             $_SESSION["tempo_msg_error"] = time();
@@ -77,8 +77,8 @@ class TermoControl
             $this->modelo->setTipoTermo($_POST["tipoTermo"]);
             $this->modelo->setNome($_POST["nome"]);
             $this->modelo->setConceito($_POST["conceito"]);
-            $this->dao->atualizarTermo($this->modelo);
-            header("Location:../view/Editar-termo.php");
+            $id_termo = $this->dao->atualizarTermo($this->modelo);
+            header("Location:../view/Ver-termo.php?id=".$id_termo);
         } catch (\Exception $e) {
             $_SESSION["msg_error"] = $e->getMessage();
             $_SESSION["tempo_msg_error"] = time();

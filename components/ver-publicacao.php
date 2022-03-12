@@ -9,7 +9,7 @@ function verPublicacao()
 
     $id_url = $_SERVER['QUERY_STRING'];
     $url = explode("=", $id_url);
-    
+
     $_SESSION['pesquisa'] = $url[1];
     $publicacaoControl = new PublicacaoControl;
     $publicacao =  $publicacaoControl->verPublicacao($_SESSION['pesquisa']);
@@ -25,7 +25,8 @@ function verPublicacao()
             ];
         }
 
-        $id_rede = $id_termos[1]['id_rede'];
+        $id_rede = $id_termos[0]['id_rede'];
+
         if (!empty($id_rede)) {
             $query_termo = "SELECT * FROM `redetermos` WHERE `id` =:id";
             $result = $conn->prepare($query_termo);
@@ -43,7 +44,6 @@ function verPublicacao()
         }
         for ($a = 0; $a != count($id_termos); $a++) {
             $id = $id_termos[$a]['id_termo'];
-
             $query_termo = "SELECT * FROM `termo` WHERE `id` =:id";
             $result = $conn->prepare($query_termo);
             $result->bindParam(':id', $id);
@@ -120,7 +120,7 @@ function verPublicacao()
         $imagem = "";
     }
     if (!empty($publicacao['redeTermos'])) {
-        $rede = '<a href="../view/Ver-rede-termo.php?id='.$publicacao['redeTermos'][0]['id'].'" id="rede-publicacao">' . $publicacao['redeTermos'][0]['nome'] . '</a>';
+        $rede = '<a href="../view/Ver-rede-termo.php?id=' . $publicacao['redeTermos'][0]['id'] . '" id="rede-publicacao">' . $publicacao['redeTermos'][0]['nome'] . '</a>';
     } else {
         $rede = '';
     }
@@ -187,7 +187,7 @@ function verPublicacao()
                 '<input class="btn-excluir-atualizar"style="display:none" type="hidden" name="acao" value="excluirPublicacao">' .
                 '<button class="btn-excluir-atualizar" type="submit" name="idPublicacao" value="' . $publicacao[0]['id'] . '">' .
                 '<i class="fa fa-verde fa-trash-o" aria-hidden="true"></i></button></form>';
-        }else{
+        } else {
             $btn_edicao = "";
         }
         if ($isSalva == false) {
@@ -205,7 +205,6 @@ function verPublicacao()
         $status_textarea = "";
         $comentario_id_usuario = '<input type="hidden" name="idUsuario" value="' . $_SESSION['usuarioAutenticado']['idUsuario'] . '">';
         $comentario_nome_usuario = '<input type="hidden" name="nomeUsuario" value="' . $_SESSION['usuarioAutenticado']['nomeUsuario'] . '">';
-        
     } else {
         $btn_salvar = "";
         $btn_comentario = "";

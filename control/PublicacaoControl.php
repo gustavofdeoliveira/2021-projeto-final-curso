@@ -52,7 +52,11 @@ class PublicacaoControl
             $this->modelo->setImagem($imagem);
             $this->modelo->setCategoria($_POST["categoria"]);
             $this->modelo->setResumo($_POST["resumo"]);
-            $this->modelo->setRedeTermosId($_POST["rede"]);
+            if(!empty($_POST["rede"])){
+                $this->modelo->setRedeTermosId($_POST["rede"]);
+            }else{
+                $this->modelo->setRedeTermosId(0);
+            }
             $this->modelo->setTexto($_POST["texto_publicacao"]);
             $this->modelo->setTermosId($_POST["termosId"]);
             $id_publicacao = $this->dao->inserirPublicacao($this->modelo);

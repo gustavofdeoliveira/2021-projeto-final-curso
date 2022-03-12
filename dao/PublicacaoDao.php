@@ -120,10 +120,7 @@ class PublicacaoDao
     }
     function atualizarPublicacao(PublicacaoModel $modelo)
     {
-        $sql = "DELETE FROM `publicacao_termo_rede_termos` WHERE `id_publicacao`=:id";
-        $statement = $this->conn->prepare($sql);
-        $statement->bindValue(':id', $modelo->getId());
-        $statement->execute();
+
         $termos =  $modelo->getTermosId();
         $id_termos = explode(",", $termos);
         $numeroTermos = count($id_termos) - 1;
@@ -131,12 +128,26 @@ class PublicacaoDao
         $id_rede = $modelo->getRedeTermosId();
         for ($a = 0; $a != $numeroTermos; $a++) {
             try {
-                $sql = "INSERT INTO `publicacao_termo_rede_termos` (`id_publicacao`,`id_rede`,`id_termo`) VALUES (?,?,?)";
+                $sql = "SELECT * FROM `publicacao_termo_rede_termos` WHERE `id_termo`= :id AND `id_publicacao` = :id_publicacao";
                 $statement = $this->conn->prepare($sql);
-                $statement->bindParam(1, $id_publicacao);
-                $statement->bindParam(2, $id_rede);
-                $statement->bindParam(3, $id_termos[$a]);
+                $statement->bindParam(":id_termo", $id_termos[$a]);
+                $statement->bindParam(":id_publicacao", $id_publicacao);
                 $statement->execute();
+                if (($statement) and ($statement->rowCount() == 0)) {
+                    try {
+                        $sql = "INSERT INTO `publicacao_termo_rede_termos` (`id_publicacao`,`id_rede`,`id_termo`) VALUES (?,?,?)";
+                        $statement = $this->conn->prepare($sql);
+                        $statement->bindParam(1, $id_publicacao);
+                        $statement->bindParam(2, $id_rede);
+                        $statement->bindParam(3, $id_termos[$a]);
+                        $statement->execute();
+                    } catch (Exception $e) {
+                        $_SESSION["msg_error"] = $e->getMessage();
+                        print_r($_SESSION["msg_error"]);
+                        $_SESSION["tempo_msg_sucess"] = time();
+                        exit();
+                    }
+                }
             } catch (Exception $e) {
                 $_SESSION["msg_error"] = $e->getMessage();
                 print_r($_SESSION["msg_error"]);
@@ -239,7 +250,7 @@ class PublicacaoDao
                 $publicacoes_salvas[] = $resultado;
             }
             for ($a = 0; $a != count($publicacoes_salvas); $a++) {
-                
+
                 $id_publicacao = $publicacoes_salvas[$a]['id_publicacao'];
                 $sql = "SELECT * FROM `publicacao` WHERE `id`='$id_publicacao' ORDER BY `dataInclusao` DESC";
                 $statement = $this->conn->prepare($sql);
@@ -251,7 +262,7 @@ class PublicacaoDao
                 }
             }
             return $publicacoes;
-        }else{
+        } else {
             return null;
         }
     }
