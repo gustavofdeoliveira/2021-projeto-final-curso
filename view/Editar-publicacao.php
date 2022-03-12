@@ -154,5 +154,6 @@ require_once __DIR__ . '../../components/mensagem.php';
     CKEDITOR.instances.editor1.setData(t);
   </script>
 </body>
+<script src="../ajax/scripts-ajax.js"></script>
 
 </html>

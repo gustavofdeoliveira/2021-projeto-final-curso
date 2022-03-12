@@ -35,7 +35,7 @@ require_once __DIR__ . '../../components/publicacao-semelhante.php';
             <div class="col-xl-4 col-lg-4">
                 <div class="row">
                     <div id="publicacao-semelhantes">
-                        <?= setPublicacaoSemelhante()?>
+                        <?= setPublicacaoSemelhante() ?>
                     </div>
                 </div>
             </div>
@@ -46,6 +46,8 @@ require_once __DIR__ . '../../components/publicacao-semelhante.php';
     </script>
     <script src="../javascript/scripts.js"></script>
     <script src="../javascript/script-bell.js"></script>
+    <script src="../ajax/scripts-ajax.js"></script>
+
 </body>
 
 </html>

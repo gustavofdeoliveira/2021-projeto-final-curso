@@ -27,7 +27,7 @@ function setPublicacoesSalvas()
     }
     return '<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-          <div id="carousel-item">
+          <div id="carousel-item-espaco">
             <div class="row">
            ' . $publicacoes_index . '
           </div>

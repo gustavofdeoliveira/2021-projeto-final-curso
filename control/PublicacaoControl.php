@@ -53,10 +53,10 @@ class PublicacaoControl
                 $imagem = 'data:image/png;base64,' . base64_encode($tmp_img);
             }
             if (($_FILES["imagem"]["error"] >= 0) and ($_POST["categoria"]) == "Publiçacão Conteudista") {
-                $imagem = 'http://localhost/2021-projeto-final-curso/image/publi_conteudista_noturno.png';
+                $imagem = 'http://localhost/2021-projeto-final-curso/image/publi_conteudista.png';
             }
             if (($_FILES["imagem"]["error"] >= 0) and ($_POST["categoria"]) == "Atualidade Sociológica") {
-                $imagem = 'http://localhost/2021-projeto-final-curso/image/atualidade_socio_noturno.png';
+                $imagem = 'http://localhost/2021-projeto-final-curso/image/atualidade_socio.png';
             }
             $this->modelo->setImagem($imagem);
 
@@ -86,6 +86,7 @@ class PublicacaoControl
         } catch (\Exception $e) {
             $_SESSION["msg_error"] = $e->getMessage();
             $_SESSION["msg_tempo_error"] = time();
+            print_r($_SESSION["msg_tempo_error"]);
             header("Location:../view/Listar-publicacao.php");
         }
     }

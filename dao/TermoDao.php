@@ -52,11 +52,17 @@ class TermoDao
 
     function excluirTermo(TermoModel $modelo)
     {
+        $id_termo = $modelo->getId();
+        $sql = "DELETE FROM `usuarios_termos_salvos`  WHERE  `id_termo` = :id_termo";
+        $statement = $this->conn->prepare($sql);
+        $statement->bindParam(':id_termo', $id_termo);
+        $statement->execute();
+
         $sql = "DELETE `termo`, `rede_termos_termo` FROM `termo`
                 LEFT JOIN `rede_termos_termo` ON `termo`.`id` = `rede_termos_termo`.`id_termo`
-                WHERE `termo`.`id` = :id";
+                WHERE `termo`.`id` = :id_termo";
         $statement = $this->conn->prepare($sql);
-        $statement->bindValue("id", $modelo->getId());
+        $statement->bindValue("id_termo", $modelo->getId());
         $statement->execute();
         $_SESSION["msg_sucess"] = "Termo " . $modelo->getId() . " excluído!";
         $_SESSION["tempo_msg_sucess"] = time();

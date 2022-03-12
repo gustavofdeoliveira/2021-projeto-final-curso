@@ -151,6 +151,7 @@ require_once __DIR__ . '../../components/mensagem.php';
   </script>
   <script src="../javascript/scripts.js"></script>
   <script src="../javascript/script-bell.js"></script>
+  <script src="../ajax/scripts-ajax.js"></script>
 </body>
 
 </html>

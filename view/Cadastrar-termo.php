@@ -27,7 +27,7 @@ require_once __DIR__ . '../../components/mensagem.php';
 
 
 <body id="dark-mode">
-<?= head() ?>
+    <?= head() ?>
     <main id="telas-navbar">
         <form action="../control/TermoControl.php" method="POST" class="form-group">
             <div class="row">
@@ -50,11 +50,11 @@ require_once __DIR__ . '../../components/mensagem.php';
                         <div class="col-xl-12">
                             <div class="form-group">
                                 <label class="form-label label-criar-categoria" for="tipoTermo">tipo de termo</label>
-                                    <select required class="custom-select" id="select-termo" name="tipoTermo">
-                                      <option selected>Selecionar...</option>
-                                      <option value="conceito">Conceito (ex: Ação Social, Fato Social, Etnocentrismo)</option>
-                                      <option value="teórico">Teórico (ex: Durkheim, Weber, Comte)</option>
-                                    </select>
+                                <select required class="custom-select" id="select-termo" name="tipoTermo">
+                                    <option selected>Selecionar...</option>
+                                    <option value="conceito">Conceito (ex: Ação Social, Fato Social, Etnocentrismo)</option>
+                                    <option value="teórico">Teórico (ex: Durkheim, Weber, Comte)</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -86,7 +86,7 @@ require_once __DIR__ . '../../components/mensagem.php';
                             </ul>
                         </div>
                     </div>
-                    <?= setMensagens()?>
+                    <?= setMensagens() ?>
                     <div class="row">
                         <div class="col-xl-10 col-sm-12 col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-offset-0">
                             <input type="hidden" name="acao" value="inserirTermo">
@@ -102,6 +102,8 @@ require_once __DIR__ . '../../components/mensagem.php';
     </script>
     <script src="../javascript/scripts.js"></script>
     <script src="../javascript/script-bell.js"></script>
+    <script src="../ajax/scripts-ajax.js"></script>
+
 </body>
 
 </html>

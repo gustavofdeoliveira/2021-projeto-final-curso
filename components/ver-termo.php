@@ -246,7 +246,6 @@ function titleTermo()
         if (!empty($_SESSION['pesquisa'])){
             $_SESSION['pesquisa'] = $url[1];
             $TermoControl = new TermoControl;
-            print_r($_SESSION['pesquisa']);
             $Termo =  $TermoControl->pesquisaTermo($_SESSION['pesquisa']);
             return $Termo[0]['nome'];
         }else {

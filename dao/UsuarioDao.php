@@ -133,44 +133,58 @@ class UsuarioDao
     function excluirUsuario(UsuarioModel $modelo)
     {
         $usuario =  $_SESSION['usuarioAutenticado'];
-        if ($usuario['nivelAcesso'] != 1) {
-            $sql = "SELECT * FROM `usuario` WHERE `idUsuario`=:id";
-            $statement = $this->conn->prepare($sql);
-            $statement->bindValue("id", $usuario['idUsuario']);
 
-            $statement->execute();
-            if ($statement->rowCount()) {
-                //Guarda em um array os dados retornado do banco
-                $result = $statement->fetch(PDO::FETCH_ASSOC);
-                //Se a senha estiver correta
-                if ($result['senha'] === sha1($modelo->getSenha())) {
-                    $sql = "DELETE FROM `usuario` WHERE `idUsuario`=:id";
-                    $statement = $this->conn->prepare($sql);
-                    $statement->bindValue("id", $usuario['idUsuario']);
-                    $statement->execute();
-                    unset($_SESSION['usuarioAutenticado']);
-                    header("Location:../index.php");
-                } else {
-                    throw new \Exception('Senha incorreta!');
-                }
-            } else {
-                throw new \Exception('Usuário não encontrado');
+        if (empty($modelo->getSenha())) {
+            if ($usuario['nivelAcesso'] == 1) {
+                $sql = "DELETE FROM `comentario` WHERE `id_usuario`=:id_usuario";
+                $statement = $this->conn->prepare($sql);
+                $statement->bindValue("id_usuario", $modelo->getId());
+                $statement->execute();
+
+                $sql = "DELETE FROM `usuarios_publicacoes_salvas`  WHERE `id_usuario` = :id_usuario";
+                $statement = $this->conn->prepare($sql);
+                $statement->bindValue("id_usuario", $modelo->getId());
+                $statement->execute();
+
+                $sql = "DELETE FROM `usuarios_termos_salvos`  WHERE  `id_usuario` = :id_usuario";
+                $statement = $this->conn->prepare($sql);
+                $statement->bindValue("id_usuario", $modelo->getId());
+                $statement->execute();
+
+                $sql = "DELETE FROM `usuario` WHERE `idUsuario`=:id";
+                $statement = $this->conn->prepare($sql);
+                $statement->bindValue("id", $modelo->getId());
+                $statement->execute();
+                $_SESSION["msg_sucess"] = "Usuário " . $modelo->getId() . " excluído!";
+                $_SESSION["tempo_msg_sucess"] = time();
+                header("Location:../view/Listar-usuarios.php");
             }
-        }
+        } else if(!empty($modelo->getSenha())) {
+            if ($usuario['senha'] === sha1($modelo->getSenha())) {
+                $sql = "DELETE FROM `comentario` WHERE `id_usuario`=:id_usuario";
+                $statement = $this->conn->prepare($sql);
+                $statement->bindValue(":id_usuario", $usuario['idUsuario']);
+                $statement->execute();
 
-        if ($usuario['nivelAcesso'] == 1) {
-            $sql = "DELETE FROM `comentario` WHERE `id_usuario`=:id";
-            $statement = $this->conn->prepare($sql);
-            $statement->bindValue("id", $modelo->getId());
-            $statement->execute();
+                $sql = "DELETE FROM `usuarios_publicacoes_salvas`  WHERE `id_usuario` = :id_usuario";
+                $statement = $this->conn->prepare($sql);
+                $statement->bindParam(':id_usuario', $usuario['idUsuario']);
+                $statement->execute();
 
-            $sql = "DELETE FROM `usuario` WHERE `idUsuario`=:id";
-            $statement = $this->conn->prepare($sql);
-            $statement->bindValue("id", $modelo->getId());
-            $statement->execute();
-            $_SESSION["msg_sucess"] = "Usuário " . $modelo->getId() . " excluído!";
-            $_SESSION["tempo_msg_sucess"] = time();
-            header("Location:../view/Listar-usuarios.php");
+                $sql = "DELETE FROM `usuarios_termos_salvos`  WHERE  `id_usuario` = :id_usuario";
+                $statement = $this->conn->prepare($sql);
+                $statement->bindParam(':id_usuario', $usuario['idUsuario']);
+                $statement->execute();
+
+                $sql = "DELETE FROM `usuario` WHERE `idUsuario`=:id";
+                $statement = $this->conn->prepare($sql);
+                $statement->bindValue("id", $usuario['idUsuario']);
+                $statement->execute();
+                unset($_SESSION['usuarioAutenticado']);
+                header("Location:../index.php");
+            } else {
+                throw new \Exception('Senha incorreta!');
+            }
         }
     }
     function atualizarUsuario(UsuarioModel $modelo)

@@ -214,7 +214,7 @@ a#novo-registro {
 .icon-login {
   width: 225px;
   height: 280px;
-  z-index: 10;
+  z-index: 999;
   bottom: 0;
   right: 0;
   float: left;
@@ -2039,7 +2039,7 @@ p#linha-info {
 
 p#rede-nome, p#termo-nome {
   width: max-content;
-  font-size: 60px !important;
+  font-size: 50px !important;
   margin-top: 20px;
   font-family: Raleway-Black;
   color: var(--cor_vermelha) !important;
@@ -2457,20 +2457,24 @@ div#carousel-item {
   margin-left: 20px;
 }
 
+div#carousel-item-espaco {
+  overflow-y: auto;
+  margin-left: 20px;
+}
 
-div#carousel-item::-webkit-scrollbar {
+div#carousel-item::-webkit-scrollbar , div#carousel-item-espaco::-webkit-scrollbar{
   width: 12px;
   /* width of the entire scrollbar */
 }
 
-div#carousel-item::-webkit-scrollbar-track {
+div#carousel-item::-webkit-scrollbar-track, div#carousel-item-espaco::-webkit-scrollbar-track {
   background: var(--cor_branca);
   /* color of the tracking area */
   width: 10px;
   border-radius: 0px 0px 20px 0px;
 }
 
-div#carousel-item::-webkit-scrollbar-thumb {
+div#carousel-item::-webkit-scrollbar-thumb, div#carousel-item-espaco::-webkit-scrollbar-thumb{
   background-color: var(--cor_verde);
   /* color of the scroll thumb */
   border-radius: 20px;

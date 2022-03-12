@@ -89,6 +89,7 @@ require_once __DIR__ . '../../components/termos-salvos.php';
   <?= setFooter() ?>
   <script src="../javascript/bootstrap.bundle.min.js"></script>
   <script src="../javascript/scripts.js"></script>
+  <script src="../ajax/scripts-ajax.js"></script>
   <script src="../javascript/script-bell.js"></script>
 
 </body>

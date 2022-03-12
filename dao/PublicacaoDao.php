@@ -69,6 +69,11 @@ class PublicacaoDao
 
     function excluirPublicacao($id_publicacao)
     {
+        $sql = "DELETE FROM `usuarios_publicacoes_salvas`  WHERE `id_publicacao` = :id_publicacao";
+        $statement = $this->conn->prepare($sql);
+        $statement->bindParam(':id_publicacao', $id_publicacao);
+        $statement->execute();
+
         $sql = "DELETE `publicacao`, `publicacao_termo_rede_termos` FROM `publicacao` 
         LEFT JOIN `publicacao_termo_rede_termos` ON `publicacao_termo_rede_termos`.`id_publicacao` = `publicacao`.`id` 
         WHERE `publicacao`.`id` = :id";
@@ -128,7 +133,7 @@ class PublicacaoDao
         $id_rede = $modelo->getRedeTermosId();
         for ($a = 0; $a != $numeroTermos; $a++) {
             try {
-                $sql = "SELECT * FROM `publicacao_termo_rede_termos` WHERE `id_termo`= :id AND `id_publicacao` = :id_publicacao";
+                $sql = "SELECT * FROM `publicacao_termo_rede_termos` WHERE `id_termo`= :id_termo AND `id_publicacao` = :id_publicacao";
                 $statement = $this->conn->prepare($sql);
                 $statement->bindParam(":id_termo", $id_termos[$a]);
                 $statement->bindParam(":id_publicacao", $id_publicacao);
