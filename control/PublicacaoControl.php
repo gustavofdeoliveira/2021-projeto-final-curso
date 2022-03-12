@@ -47,14 +47,23 @@ class PublicacaoControl
     {
         try {
             $this->modelo->setTitulo($_POST["titulo"]);
-            $tmp_img = file_get_contents($_FILES["imagem"]['tmp_name']);
-            $imagem = 'data:image/png;base64,' . base64_encode($tmp_img);
-            $this->modelo->setImagem($imagem);
             $this->modelo->setCategoria($_POST["categoria"]);
+            if ($_FILES["imagem"]["error"] == 0) {
+                $tmp_img = file_get_contents($_FILES["imagem"]['tmp_name']);
+                $imagem = 'data:image/png;base64,' . base64_encode($tmp_img);
+            }
+            if (($_FILES["imagem"]["error"] >= 0) and ($_POST["categoria"]) == "Publiçacão Conteudista") {
+                $imagem = 'http://localhost/2021-projeto-final-curso/image/publi_conteudista_noturno.png';
+            }
+            if (($_FILES["imagem"]["error"] >= 0) and ($_POST["categoria"]) == "Atualidade Sociológica") {
+                $imagem = 'http://localhost/2021-projeto-final-curso/image/atualidade_socio_noturno.png';
+            }
+            $this->modelo->setImagem($imagem);
+
             $this->modelo->setResumo($_POST["resumo"]);
-            if(!empty($_POST["rede"])){
+            if (!empty($_POST["rede"])) {
                 $this->modelo->setRedeTermosId($_POST["rede"]);
-            }else{
+            } else {
                 $this->modelo->setRedeTermosId(0);
             }
             $this->modelo->setTexto($_POST["texto_publicacao"]);
