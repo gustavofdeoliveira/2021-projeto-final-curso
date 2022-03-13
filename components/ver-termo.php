@@ -7,7 +7,7 @@ require_once __DIR__ . '../../control/TermoControl.php';
 function setTermo()
 {
     $conn = Connection::conectar();
-
+    $utf8 = utf8_encode("%C3%A7%C3%");
     $id_url = $_SERVER['QUERY_STRING'];
     $url = explode("=", $id_url);
     if (!empty($url[1])) {
@@ -17,23 +17,23 @@ function setTermo()
         return $mensagemError;
     }
     if ($url[0] == "termo") {
-        
+        $url[1] = utf8_encode(base64_decode($url[1]));
         $id_pesquisa = '';
         $id_url = explode("%20", $url[1]);
         for ($a = 0; $a != count($id_url); $a++) {
             $id_pesquisa .= $id_url[$a] . " ";
         }
+
         $query_termo = "SELECT * FROM `termo` WHERE `nome`=:nome";
         $result = $conn->prepare($query_termo);
         $result->bindParam(':nome', $id_pesquisa);
         $result->execute();
-        
+
         if (($result) and ($result->rowCount() != 0)) {
             while ($row_termo = $result->fetch(PDO::FETCH_ASSOC)) {
                 $id_pesquisa = $row_termo['id'];
             }
         }
-        
     }
 
     if (!empty($id_pesquisa)) {
@@ -240,19 +240,19 @@ function titleTermo()
             while ($row_termo = $result->fetch(PDO::FETCH_ASSOC)) {
                 $Termo = $row_termo['nome'];
             }
-            
-        }else{
+        } else {
             $Termo = "Termo";
         }
         return $Termo;
-    }if ($url[0] == "id"){
-        if (!empty($_SESSION['pesquisa'])){
+    }
+    if ($url[0] == "id") {
+        if (!empty($_SESSION['pesquisa'])) {
             $_SESSION['pesquisa'] = $url[1];
             $TermoControl = new TermoControl;
             $Termo =  $TermoControl->pesquisaTermo($_SESSION['pesquisa']);
             return $Termo[0]['nome'];
-        }else {
+        } else {
             return "Termo";
         }
-    }   
+    }
 }

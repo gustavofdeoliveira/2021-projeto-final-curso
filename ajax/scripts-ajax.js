@@ -54,6 +54,8 @@ async function carrega_termos(value) {
         }
         html += "</ul>";
         document.getElementById('resultado_pesquisa').innerHTML = html;
+    }if (value.length >= 3) {
+        document.getElementById('resultado_pesquisa').innerHTML = "";
     }
 }
 const id_input = '';
@@ -76,6 +78,9 @@ async function carrega_termos_publicacao(value) {
         html += "</ul>";
 
         document.getElementById('resultado_pesquisa_termo').innerHTML = html;
+    }if (value.length >= 3) {
+        document.getElementById('resultado_pesquisa_termo').innerHTML = "";
+
     }
 }
 var nomeTermo = ""
@@ -137,6 +142,8 @@ async function carrega_redes(value) {
         }
         html += "</ul>";
         document.getElementById('resultado_pesquisa').innerHTML = html;
+    }if (value.length <= 3) {
+        document.getElementById('resultado_pesquisa').innerHTML = "";
     }
 }
 

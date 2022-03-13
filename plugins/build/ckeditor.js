@@ -28090,7 +28090,7 @@
                 writer: e
             }) {
                 const n = e.createAttributeElement("a", {
-                    href:"../view/Ver-termo.php?termo="+t
+                    href:"../view/Ver-termo.php?termo="+btoa(t)
                 }, {
                     priority: 5
                 });
