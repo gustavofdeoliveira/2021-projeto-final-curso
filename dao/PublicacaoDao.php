@@ -225,7 +225,7 @@ class PublicacaoDao
     }
     function listagemLinhaTempo($categoria)
     {
-        $sql = "SELECT * FROM `publicacao` WHERE `categoria`= '$categoria' ORDER BY `dataInclusao` DESC";
+        $sql = "SELECT * FROM `publicacao` WHERE `categoria`= '$categoria' ORDER BY `id` DESC";
         $statement = $this->conn->prepare($sql);
         $statement->execute();
         if (($statement) and ($statement->rowCount() != 0)) {

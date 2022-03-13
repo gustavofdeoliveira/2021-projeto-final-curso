@@ -28090,7 +28090,7 @@
                 writer: e
             }) {
                 const n = e.createAttributeElement("a", {
-                    href:"http://localhost/2021-projeto-final-curso/view/Ver-termo.php?termo="+t
+                    href:"../view/Ver-termo.php?termo="+t
                 }, {
                     priority: 5
                 });
