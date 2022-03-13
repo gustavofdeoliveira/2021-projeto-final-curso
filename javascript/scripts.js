@@ -329,3 +329,7 @@ function validaFormularioCadastro(event) {
         event.preventDefault();
     }
 }
+
+function validaCampoPublicacao(input){
+
+}
