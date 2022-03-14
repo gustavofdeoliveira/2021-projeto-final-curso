@@ -1,34 +1,31 @@
 # IFPR - Instituto do Federal do Paraná - Campus Foz do Iguaçu
 
 <p align="center">
-<a href= "https://foz.ifpr.edu.br/"><img src="https://user-images.githubusercontent.com/65983794/158275314-38859849-9d87-437b-968f-0f6317b7b97c.png" alt="IFPR - Instituto do Federal do Paraná - Campus Foz do Iguaçu" border="0"></a>
+<a href= "https://foz.ifpr.edu.br/"><img src="https://user-images.githubusercontent.com/65983794/158275550-ae05719b-4d21-4b73-a284-f6e9d480ecd4.png" alt="IFPR - Instituto do Federal do Paraná - Campus Foz do Iguaçu" border="0"></a>
 </p>
 
 
-# Memories
+# Tererê com Sociologia
 
-## Amdevs
+## Grupo
 
-## Integrantes: <a target="_blank" href="//linkedin.com/in/alberto-da-rocha-miranda-614315232/">Alberto Rocha Miranda</a>, <a target="_blank" href="//linkedin.com/in/erik-bonn-freundt-119619210/">Erik Bonn Freundt</a>, <a target="_blank" href="//linkedin.com/in/fernando-tavares-bertholdo-199b60173/">Fernando Tavares Bertholdo</a>, <a target="_blank" href="//linkedin.com/in/gustavo-ferreira-aa8050220/">Gustavo Ferreira de Oliveira</a>, <a target="_blank" href="//linkedin.com/in/luiz-felipe-kama-alencar-722935142/">Luiz Felipe Kama Alencar</a>, <a target="_blank" href="//linkedin.com/in/mariana-lema-9861ba21b/">Mariana Lema</a>, <a target="_blank" href="//linkedin.com/in/rafael-alves-cabral/">Rafael Alves Cabral</a>
+## Alunos:  <a target="_blank" href="//linkedin.com/in/gustavo-ferreira-aa8050220/">Gustavo Ferreira de Oliveira</a>, <p>JULIANA HITOMI KASHIMA</p> e <a target="_blank" href="//www.linkedin.com/in/natangpm/">NATAN GABRIEL PASTORE MARTINS</a>.
 
 ## Descrição
 
-📜 Descrição curta sobre o que seu projeto faz.
 <br><br>
-O jogo Memories tem como objetivo ensinar os funcionários da Ambev sobre diversidade.
+Desenvolver um blog voltado para dar suporte à publicação e consequente  disseminação de conteúdo sobre sociologia de forma interativa e dinâmica.
 <br><br>
 <p align="center">
-<img src="https://user-images.githubusercontent.com/65983794/156167759-df96ff2b-956f-452a-9ca9-9b79137423b7.png" style="margin-left:auto;margin-right:auto" alt="MEMORIES" border="0">
-  Game by <a href="http://www.nyphotographic.com/">Amdevs</a> <a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a> <a href="http://pix4free.org/">Pix4free</a>
+<img src="//user-images.githubusercontent.com/65983794/158276316-cba4731b-6008-423b-ad9e-77f38a0f847b.png" style="margin-left:auto;margin-right:auto" alt="Terere com Sociologia" border="0">
+  Site by <a href="http://www.nyphotographic.com/">Tererê com Sociologia</a> <a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a> <a href="http://pix4free.org/">Pix4free</a>
 </p>
 
 
-
-💡 De um a dois parágrafos sobre o que é seu projeto e o que ele faz.
 <br><br>
-Meu projeto ajuda estudantes inteli a configurarem seus githubs.
+O presente trabalho tem como objetivo apresentar a estruturação e desenvolvimento do projeto Tereré com Sociologia, que consiste na criação de um espaço virtual em forma de blog para a disseminação dinâmica de conteúdo sociológico por meio de publicações, que são elaboradas por uma comunidade de professores e direcionada para um público de alunos. 
 <br><br>
-May the force be with you!
+As publicações têm caráter conteudista e conectam diversos termos sociológicos, promovendo uma interpretação expandida e acessível do conteúdo, além de poderem se relacionar com acontecimentos e produções da atualidade a fim de diluir a teoria proposta com temáticas recorrentes do cotidiano. Deste modo, este projeto tornou-se uma nova opção para estudo e comunicação da sociologia, bem como um possível recurso a ser utilizado por docentes durante as aulas de sociologia.
 <br><br>
 
 ## 🛠 Estrutura de pastas
