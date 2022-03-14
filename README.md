@@ -32,104 +32,42 @@ As publicações têm caráter conteudista e conectam diversos termos sociológi
 ## 🛠 Estrutura de pastas
 
 -Raiz<br>
-|<br>
-|-->documentos<br>
-  &emsp;|-->antigos<br>
-  &emsp;|GDD.docx ou Documentação.docx<br>
-|-->executáveis<br>
-  &emsp;|-->windows<br>
-  &emsp;|-->android<br>
-  &emsp;|-->HTML<br>
-|-->imagens<br>
-|-->src<br>
-  &emsp;|-->Memories<br>
-    &emsp;|-->Assets<br>
-    &emsp;|-->Scenes<br>
+<br>
+|-->ajax<br>
+|-->ajax-php<br>
+|-->components<br>
+|-->control<br>
+|-->css<br>
+|-->dao<br>
+|-->database<br>
+|-->fonts<br>
+|-->image<br>
+  &emsp;|-->avatares<br>
+  &emsp;|-->icons<br>
+|-->javascript<br>
+|-->model<br>
+|-->plugins<br>
+  &emsp;|-->build<br>
+    &emsp;|-->translations<br>
+  &emsp;|-->src<br>
+|-->view<br>
 |readme.md<br>
 |license.txt<br>
 
-A pasta raiz contem dois arquivos que devem ser alterados:
-
-<b>README.MD</b>: Arquivo que serve como guia e explicação geral sobre seu projeto. O mesmo que você está lendo agora.
-
-<b>license.txt</b>: Arquivo de licença do projeto, para que qualquer um possa entender até que ponto podem utilizar seu projeto. Aconselhável utilizar a licença Creative Commons Attribution 4.0 International.
-
-Há também 4 pastas que seguem da seguinte forma:
-
-<b>documentos</b>: Aqui estarão todos os documentos do projeto, mas principalmente o <b>GDD (Game Design Document)/Documentação do Sistema</b>. Há uma pasta <b>antigos</b> onde estarão todas as versões antigas da documentação.
-
-<b>executáveis</b>: Aqui estarão todos os executáveis do jogo, prontos para rodar. Há no mínimo 3 pastas, uma para binários <b>Windows</b>, uma para binários <b>android</b> e uma para a <b>Web/HTML</b>
-
-<b>imagens</b>: Algumas imagens do jogo/sistema e logos prontos para serem utilizados e visualizados.
-
-<b>src</b>: Nesta pasta irá todo o código fonte do jogo/sistema, pronto para para ser baixado e modificado.
-
-## 🛠 Instalação
-
-<b>Android:</b>
-
-Faça o Download do JOGO.apk no seu celular.
-Execute o APK e siga as instruções de seu telefone.
-
-```sh
-Coloque código do prompt de comnando se for necessário
-```
-
-<b>Windows:</b>
-
-Não há instalação! Apenas executável!
-Encontre o Memories.exe na pasta executáveis e execute-o como qualquer outro programa.
-
-```sh
-Coloque código do prompt de comnando se for necessário
-```
-
-<b>HTML:</b>
-
-Não há instalação!
-Encontre o index.html na pasta executáveis e execute-o como uma página WEB (através de algum browser).
-
-## 📈 Exemplo de uso
-
-Alguns exemplos interessantes e úteis sobre como seu projeto pode ser utilizado.
-
-Adicione blocos de códigos e, se necessário, screenshots.
-
-Este modelo pode ser copiado e utilizado à vontade.
-
-Através da cópia/clone/ download do repositório, altere os dados do readme.md e carregue os arquivos de seu projeto.
 
 ## 💻 Configuração para Desenvolvimento
 
-Descreva como instalar todas as dependências para desenvolvimento e como rodar um test-suite automatizado de algum tipo. Se necessário, faça isso para múltiplas plataformas.
-
 Para abrir este projeto você necessita das seguintes ferramentas:
 
--<a href="https://godotengine.org/download">GODOT</a>
-
-```sh
-make install
-npm test
-Coloque código do prompt de comnando se for necessário
-```
+-<a href="https://www.apachefriends.org/pt_br/index.html">Apache</a>
+-<a href="https://code.visualstudio.com/">Visual Studio Code</a>
 
 ## 🗃 Histórico de lançamentos
 
-A cada atualização os detalhes devem ser lançados aqui.
-
-
-* 0.2.0 - 15/01/2022
-    * ADD: Sons, Tela Inicial, Sprites e elementos ao mapa principal (Casas, Ruas e NPCs)
-* 0.1.1 - 25/02/2022
-    * MUDANÇA: Organização das pastas
-    * ADD: Imagens dos icones, mapas e avatares do jogo
-* 0.1. - 18/01/2022
-    * UPLOAD: Primeira versão do jogo
-      * Mecânica inicial do jogo
-* 0.0.1 - 11/02/2022
-    * EDIÇÕES: GDD e no repositorio do GitHub
-* 0.0.1 - 08/02/2022
-    * Início de desenvolvimento do jogo
+* 0.5.0 - 14/03/2022
+    * Finalização do Projeto
+* 0.0.1 - 10/11/2021
+    * Início de desenvolvimento do site
     * Criação do GitHub
 
 ## 📋 Licença/License
@@ -138,8 +76,15 @@ A cada atualização os detalhes devem ser lançados aqui.
 
 ## 🎓 Referências
 
-Aqui estão as referências usadas no projeto.
+1. BOURDIEU, PIERRE. A sociologia é um esporte de combate. Fala no documentário/entrevista realizado por Pierre Carles. Paris: ICARUS FILMS, 2001. Disponível em: https://www.youtube.com/watch?v=PFejoCxHA0w. Acesso em: 3 jan. 2022.
 
-1. Canal HeartBeast do Youtube - <https://www.youtube.com/watch?v=mAbG8Oi-SvQ&list=PL9FzW-m48fn2SlrW0KoLT4n5egNdX-W9a>
-2. <https://github.com/gabrieldejesus/readme-model>
-3. <https://creativecommons.org/share-your-work/>
+2. CKSOURCE. CKEditor Ecosystem Documentation. Documentação do editor open source de texto rico em modelo WYSIWYG (What You See Is What You Get). Polônia: CKSource, 2022. Disponível em: https://ckeditor.com/docs/. Acesso em: 24 jan. 2022.
+
+3. OTTO, MARK. Sistema Grid Bootstrap. Ferramenta open source para desenvolvimento HTML, CSS e JS. San Francisco: MIT, 2021. Disponível em: https://getbootstrap.com.br/docs/4.1/layout/grid/. Acesso em: 12 nov. 2021.
+
+4. RATSCHILLER, TOBIAS. Documentação do phpMyAdmin. Documentação do software de gerenciamento de bases de dados phpMyAdmin. United States: Projeto phpMyAdmin, 2021. Disponível em: https://docs.phpmyadmin.net/pt_BR/. Acesso em: 16 nov. 2021.
+
+5. THE PHP GROUP. PHP: Manual do PHP. Documentação da linguagem PHP: Hypertext Preprocessor voltada para o desenvolvimento web. [S.L]: PHP Documentation Group, 2022. Disponível em: https://www.php.net/manual/pt_BR/index.php. Acesso em: 12 nov. 2021.
+
+6. VÁRIOS AUTORES. Stack Overflow. Fórum de perguntas e respostas sobre programação. New York: Stack Exchange Inc, 2022. Disponível em: https://stackoverflow.com/. Acesso em: 7 jan. 2022.
+
