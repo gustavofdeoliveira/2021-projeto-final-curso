@@ -5,7 +5,7 @@
 </p>
 
 
-# Tererê com Sociologia
+# Tereré com Sociologia
 
 ## Alunos:  <a target="_blank" href="//linkedin.com/in/gustavo-ferreira-aa8050220/">GUSTAVO FERREIRA DE OLIVEIRA</a>, <a href="#">JULIANA HITOMI KASHIMA</a> e <a target="_blank" href="//www.linkedin.com/in/natangpm/">NATAN GABRIEL PASTORE MARTINS</a>.
 
@@ -15,14 +15,14 @@
 Desenvolver um blog voltado para dar suporte à publicação e consequente  disseminação de conteúdo sobre sociologia de forma interativa e dinâmica.
 <br><br>
 <p align="center">
-<img src="https://user-images.githubusercontent.com/65983794/158276316-cba4731b-6008-423b-ad9e-77f38a0f847b.png" style="margin-left:auto;margin-right:auto" alt="Tererê com Sociologia" border="0">
+<img src="https://user-images.githubusercontent.com/65983794/158276316-cba4731b-6008-423b-ad9e-77f38a0f847b.png" style="margin-left:auto;margin-right:auto" alt="Tereré com Sociologia" border="0">
   <br>
-  Site by <a href="#">Tererê com Sociologia</a>
+  Site by <a href="#">Tereré com Sociologia</a>
 </p>
 
 
 <br><br>
-O presente trabalho tem como objetivo apresentar a estruturação e desenvolvimento do projeto Tererê com Sociologia, que consiste na criação de um espaço virtual em forma de blog para a disseminação dinâmica de conteúdo sociológico por meio de publicações, que são elaboradas por uma comunidade de professores e direcionada para um público de alunos. 
+O presente trabalho tem como objetivo apresentar a estruturação e desenvolvimento do projeto Tereré com Sociologia, que consiste na criação de um espaço virtual em forma de blog para a disseminação dinâmica de conteúdo sociológico por meio de publicações, que são elaboradas por uma comunidade de professores e direcionada para um público de alunos. 
 <br><br>
 As publicações têm caráter conteudista e conectam diversos termos sociológicos, promovendo uma interpretação expandida e acessível do conteúdo, além de poderem se relacionar com acontecimentos e produções da atualidade a fim de diluir a teoria proposta com temáticas recorrentes do cotidiano. Deste modo, este projeto tornou-se uma nova opção para estudo e comunicação da sociologia, bem como um possível recurso a ser utilizado por docentes durante as aulas de sociologia.
 <br><br>
