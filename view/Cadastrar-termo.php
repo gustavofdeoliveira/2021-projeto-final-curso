@@ -38,7 +38,7 @@ require_once __DIR__ . '../../components/mensagem.php';
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="form-group">
-                                <label class="form-label label-criar-publicacao" for="nome">nome</label>
+                                <label class="form-label label-criar-publicacao" for="nome">nome*</label>
                                 <div class="input-group">
                                     <input required class="input-criar-conta form-control" type="text" name="nome">
                                     <span class="error"></span>
@@ -49,7 +49,7 @@ require_once __DIR__ . '../../components/mensagem.php';
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="form-group">
-                                <label class="form-label label-criar-categoria" for="tipoTermo">tipo de termo</label>
+                                <label class="form-label label-criar-categoria" for="tipoTermo">tipo de termo*</label>
                                 <select required class="custom-select" id="select-termo" name="tipoTermo">
                                     <option selected>Selecionar...</option>
                                     <option value="conceito">Conceito (ex: Ação Social, Fato Social, Etnocentrismo)</option>
