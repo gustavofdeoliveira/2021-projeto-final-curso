@@ -52,14 +52,13 @@ class PublicacaoControl
                 $tmp_img = file_get_contents($_FILES["imagem"]['tmp_name']);
                 $imagem = 'data:image/png;base64,' . base64_encode($tmp_img);
             }
-            if (($_FILES["imagem"]["error"] >= 0) and ($_POST["categoria"]) == "Publiçacão Conteudista") {
+            if (($_FILES["imagem"]["error"] >= 0) and ($_POST["categoria"] == "Publicação Conteudista")) {
                 $imagem = 'http://localhost/2021-projeto-final-curso/image/publi_conteudista.png';
             }
-            if (($_FILES["imagem"]["error"] >= 0) and ($_POST["categoria"]) == "Atualidade Sociológica") {
+            if (($_FILES["imagem"]["error"] >= 0) and ($_POST["categoria"] == "Atualidade Sociológica")) {
                 $imagem = 'http://localhost/2021-projeto-final-curso/image/atualidade_socio.png';
             }
             $this->modelo->setImagem($imagem);
-
             $this->modelo->setResumo($_POST["resumo"]);
             if (!empty($_POST["rede"])) {
                 $this->modelo->setRedeTermosId($_POST["rede"]);

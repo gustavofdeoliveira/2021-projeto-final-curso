@@ -63,6 +63,7 @@ class RedeTermosDao
             }
             $_SESSION["msg_sucess"] = "Rede de termos cadastrado com sucesso!";
             $_SESSION["tempo_msg_sucess"] = time();
+            return $id;
         }
     }
     function excluirRedeTermos(RedeTermosModel $modelo)

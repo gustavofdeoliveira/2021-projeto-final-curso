@@ -54,7 +54,7 @@ async function carrega_termos(value) {
         }
         html += "</ul>";
         document.getElementById('resultado_pesquisa').innerHTML = html;
-    }if (value.length <= 3) {
+    }if (value.length <= 2) {
         document.getElementById('resultado_pesquisa').innerHTML = "";
     }
 }
@@ -78,7 +78,7 @@ async function carrega_termos_publicacao(value) {
         html += "</ul>";
 
         document.getElementById('resultado_pesquisa_termo').innerHTML = html;
-    }if (value.length <= 3) {
+    }if (value.length <= 2) {
         document.getElementById('resultado_pesquisa_termo').innerHTML = "";
 
     }
@@ -142,7 +142,7 @@ async function carrega_redes(value) {
         }
         html += "</ul>";
         document.getElementById('resultado_pesquisa').innerHTML = html;
-    }if (value.length <= 3) {
+    }if (value.length <= 2) {
         document.getElementById('resultado_pesquisa').innerHTML = "";
     }
 }

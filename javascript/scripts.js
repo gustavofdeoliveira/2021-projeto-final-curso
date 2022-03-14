@@ -249,7 +249,7 @@ function senhaValida(password) {
 
         if (document.getElementById("senhaNova")) {
             var input = document.getElementById("senhaNova")
-        }if( document.getElementById("senha")){
+        } if (document.getElementById("senha")) {
             var input = document.getElementById("senha")
         }
         input.style.borderColor = "var(--cor_verde)"
@@ -283,6 +283,7 @@ function habilitaCampoPublicacao() {
 
 var texto = document.getElementById("texto");
 function pegaTexto() {
+    debugger
     document.getElementById("texto_publicacao").value = document.getElementById("texto").innerHTML;
 }
 
@@ -329,7 +330,93 @@ function validaFormularioCadastro(event) {
         event.preventDefault();
     }
 }
+function validaCampoPublicacao(input) {
+    debugger
+    if (input.id == "titulo") {
+        if(input.value.length == 0){
+            document.getElementById("error-titulo").innerHTML = "";
+            document.getElementById("error-titulo-caracters").innerHTML = 0 + "/255";
+            document.getElementById("error-obrigatorio").classList.remove("d-none");
+            document.getElementById("error-titulo-caracters").style.color = "var(--cor_vermelha)";
 
-function validaCampoPublicacao(input){
+        }
+        if (input.value.length <= 25) {
+            document.getElementById("error-titulo").innerHTML = "Mínimo 25 caracteres";
+            document.getElementById("error-obrigatorio").classList.add("d-none");
+            document.getElementById("error-titulo-caracters").innerHTML = input.value.length + "/255";
+            document.getElementById("error-titulo-caracters").style.color = "var(--cor_vermelha)";
 
+        }if(input.value.length > 255){
+            document.getElementById("error-titulo").innerHTML = "Limite atingido";
+            document.getElementById("error-titulo-caracters").style.color = "var(--cor_vermelha)";
+        }
+        if (input.value.length >= 25 && input.value.length < 255) {
+            document.getElementById("error-titulo").innerHTML = "";
+            document.getElementById("error-titulo-caracters").innerHTML = input.value.length + "/255";
+            document.getElementById("error-titulo-caracters").style.color = "var(--cor_verde)";
+        }
+        
+    }
+    if(input.id == "resumo"){
+        if(input.value.length == 0){
+            document.getElementById("error-comentario").innerHTML = "Campo obrigatório";
+            document.getElementById("error-comentario-caracters").innerHTML = 0 + "/300";
+            document.getElementById("error-comentario-caracters").style.color = "var(--cor_vermelha)";
+        }
+        if(input.value.length > 300){
+            document.getElementById("error-comentario").innerHTML = "Limite atingido";
+            document.getElementById("error-comentario-caracters").style.color = "var(--cor_vermelha)";
+            document.getElementById("error-comentario-caracters").innerHTML = input.value.length + "/300";
+        }
+        if (input.value.length <= 30) {
+            document.getElementById("error-comentario").innerHTML = "Mínimo 30 caracteres";
+            document.getElementById("error-comentario-caracters").innerHTML = input.value.length + "/300";
+            document.getElementById("error-comentario-caracters").style.color = "var(--cor_vermelha)";
+        }
+        if (input.value.length >= 30 && input.value.length < 300) {
+            document.getElementById("error-comentario").innerHTML = "";
+            document.getElementById("error-comentario-caracters").innerHTML = input.value.length + "/300";
+            document.getElementById("error-comentario-caracters").style.color = "var(--cor_verde)";
+        }
+    }
+    if(input.id == "texto"){
+        if(input.outerText.length == 0){
+            document.getElementById("error-texto").innerHTML = "Campo obrigatório";
+            document.getElementById("error-texto-caracters").innerHTML = 0 + "/300";
+            document.getElementById("error-texto-caracters").style.color = "var(--cor_vermelha)";
+        }
+        if (input.outerText.length <= 100) {
+            document.getElementById("error-texto").innerHTML = "Mínimo 100 caracteres";
+            document.getElementById("error-texto-caracters").innerHTML = input.outerText.length;
+            document.getElementById("error-titulo-caracters").style.color = "var(--cor_vermelha)";
+        }if (input.outerText.length >= 100) {
+            document.getElementById("error-texto").innerHTML = "";
+            document.getElementById("error-texto-caracters").innerHTML = input.outerText.length;
+            document.getElementById("error-texto-caracters").style.color = "var(--cor_verde)";
+        }
+    }
+}
+
+function validaFormularioPublicacao(event){
+    debugger
+    titulo = document.getElementById("error-titulo").innerHTML;
+    resumo = document.getElementById("error-comentario").innerHTML;
+    texto = document.getElementById("error-texto").innerHTML;
+    var categoria = document.getElementById("select-termo").value;
+    if(categoria == "" || categoria == "Selecionar..."){
+        document.getElementById("error-categoria").innerHTML = "Campo obrigatório";
+        event.preventDefault();
+    }
+    if(titulo == ""){
+        document.getElementById("error-comentario").innerHTML = "Campo obrigatório";
+    }
+    if(texto.length <= 36){
+        document.getElementById("error-texto").innerHTML = "Campo obrigatório";
+    }
+    if(resumo == ""){
+        document.getElementById("error-comentario").innerHTML = "Campo obrigatório";
+    }
+    if (titulo != "" || resumo != "" || texto != "" ||categoria == "" || categoria == "Selecionar..."){
+        event.preventDefault();
+    }
 }

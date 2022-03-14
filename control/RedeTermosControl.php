@@ -41,8 +41,8 @@ class RedeTermosControl
             $this->modelo->setNome($_POST["nome"]);
             $this->modelo->setDescricao($_POST["descricao"]);
             $this->modelo->setTermosIncluidos($_POST["termos"]);
-            $this->dao->inserirRedeTermos($this->modelo);
-            header("Location:../view/Cadastrar-rede-termo.php");
+            $id_rede = $this->dao->inserirRedeTermos($this->modelo);
+            header("Location:../view/Ver-rede-termo.php?id=".$id_rede);
         } catch (\Exception $e) {
             $_SESSION["msg_error"] = $e->getMessage();
             $_SESSION["tempo_msg_error"] = time();

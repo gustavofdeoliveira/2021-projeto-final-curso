@@ -40,7 +40,7 @@ require_once __DIR__ . '../../components/select-categoria-termo.php';
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="form-group">
-                                <label class="form-label label-criar-publicacao" for="nome">nome</label>
+                                <label class="form-label label-criar-publicacao" for="nome">nome*</label>
                                 <div class="input-group">
                                     <input class="input-criar-conta form-control" type="hidden" style="display: none;" id="idTermo" name="idTermo" value="<?php echo $termo[0]['id']?>">
                                     <input required class="input-criar-conta form-control" type="text" id="nome" name="nome" value="<?php echo $termo[0]['nome']?>" disabled>
@@ -53,7 +53,7 @@ require_once __DIR__ . '../../components/select-categoria-termo.php';
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="form-group">
-                                <label class="form-label label-criar-categoria" for="tipoTermo">tipo de termo</label>
+                                <label class="form-label label-criar-categoria" for="tipoTermo">tipo de termo*</label>
                                 
                                     
                                     <?=setCategoria()?>
@@ -64,7 +64,7 @@ require_once __DIR__ . '../../components/select-categoria-termo.php';
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="form-group">
-                                <label class="form-label label-criar-publicacao" for="conceito">definição</label>
+                                <label class="form-label label-criar-publicacao" for="conceito">definição*</label>
                                 <div class="input-group">
                                     <textarea required class="textarea form-control" rows="4" type="text" id="conceito" name="conceito" value="<?php echo $termo[0]['conceito'];?>" disabled><?php echo $termo[0]['conceito'];?></textarea>
                                     <i class="editar fa fa-pencil-square-o" aria-hidden="true" onclick="ativaCampo(conceito)"></i>

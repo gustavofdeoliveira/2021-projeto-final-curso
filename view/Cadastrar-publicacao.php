@@ -31,7 +31,7 @@ require_once __DIR__ . '../../components/mensagem.php';
 <body id="dark-mode">
   <?= head() ?>
   <main id="telas-navbar">
-    <form action="../control/PublicacaoControl.php" method="POST" enctype="multipart/form-data" class="form-group">
+    <form action="../control/PublicacaoControl.php" method="POST" onsubmit="validaFormularioPublicacao(event)" enctype="multipart/form-data" class="form-group">
       <div class="row">
         <div class="col-xl-12">
           <p id="titulo-criar-publicacao">criar publicação</p>
@@ -39,87 +39,98 @@ require_once __DIR__ . '../../components/mensagem.php';
           <div class="row">
             <div class="col-xl-12">
               <div class="form-group">
-                <label class="form-label label-criar-publicacao" for="titulo">título</label>
+                <label class="form-label label-criar-publicacao" for="titulo">título*</label>
                 <div class="input-group">
-                  <input required class="input-criar-conta form-control" type="text" name="titulo">
-                  <span class="error"></span>
+                  <input required onkeyup="validaCampoPublicacao(titulo)" class="input-criar-conta form-control" type="text" name="titulo" id="titulo">
+                  <div class="d-flex w-100">
+                    <span id="error-obrigatorio" class="error"></span>
+                    <span id="error-titulo" class="mensagem-caracters"></span>
+                    <span id="error-titulo-caracters" class="error-titulo-caracters pull-right">0/255</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-xl-6 col-lg-6">
-              <div class="form-group" x-data="{ fileName: '' }">
-                <label class="form-label label-criar-categoria" for="imagem">imagem</label>
+            <div class="row">
+              <div class="col-xl-6 col-lg-6">
+                <div class="form-group" x-data="{ fileName: '' }">
+                  <label class="form-label label-criar-categoria" for="imagem">imagem <span id="texto-opcional">(opcional)</span></label>
+                  <div class="input-group">
+                    <input type="file" x-ref="file" @change="fileName = $refs.file.files[0].name" name="imagem" id="imagem" class="d-none">
+                    <input type="text" class="input-imagem form-control form-control-lg" x-model="fileName">
+                    <button class="browse btn btn-primary px-4" type="button" x-on:click.prevent="$refs.file.click()"><i class="fa fa-image"></i> Carregar</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6">
                 <div class="input-group">
-                  <input type="file" x-ref="file" @change="fileName = $refs.file.files[0].name" name="imagem" id="imagem" class="d-none">
-                  <input type="text" class="input-imagem form-control form-control-lg" x-model="fileName">
-                  <button class="browse btn btn-primary px-4" type="button" x-on:click.prevent="$refs.file.click()"><i class="fa fa-image"></i> Carregar</button>
+                  <label class="form-label label-criar-categoria" for="categoria">categoria*</label>
+                  <select required class="custom-select" id="select-termo" name="categoria">
+                    <option selected>Selecionar...</option>
+                    <option value="Publicação Conteudista">Publicação Conteudista</option>
+                    <option value="Atualidade Sociológica">Atualidade Sociológica</option>
+                  </select>
+                  <span id="error-categoria" class="error"></span>
                 </div>
               </div>
             </div>
-            <div class="col-xl-6 col-lg-6">
-              <div class="input-group">
-                <label class="form-label label-criar-categoria" for="categoria">categoria</label>
-                <select required class="custom-select" id="select-termo" name="categoria">
-                  <option selected>Selecionar...</option>
-                  <option value="Publicação Conteudista">Publicação Conteudista</option>
-                  <option value="Atualidade Sociológica">Atualidade Sociológica</option>
-                </select>
-                <span class="error"></span>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xl-12">
-              <div class="form-group">
-                <label class="form-label label-criar-publicacao" for="resumo">resumo</label>
-                <div class="input-group">
-                  <textarea class="textarea input-criar-conta form-control" type="text" name="resumo"></textarea>
-                  <span class="error"></span>
+            <div class="row">
+              <div class="col-xl-12">
+                <div class="form-group">
+                  <label class="form-label label-criar-publicacao" for="resumo">resumo*</label>
+                  <div class="input-group">
+                    <textarea onkeyup="validaCampoPublicacao(resumo)" class="textarea input-criar-conta form-control" type="text" name="resumo" id="resumo"></textarea>
+                    <div class="d-flex w-100">
+                      <span id="error-comentario" class="mensagem-caracters"></span>
+                      <span id="error-comentario-caracters" class="error-titulo-caracters pull-right">0/300</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-xl-12">
-              <div class="form-group">
-                <label class="form-label label-criar-publicacao" for="redeTermos">rede de termos <span id="texto-opcional">(opcional)</span></label>
-                <div class="input-group">
-                  <input class="input-criar-conta form-control" type="text" id="redeTermos" onkeyup="carrega_redes(this.value)" name="redeTermos">
-                  <span id="resultado_pesquisa"></span>
-                  <div class="rede-container" id="termos-container"></div>
-                  <p id="texto-alerta">deixar esse campo vazio pode reduzir o alcance da sua publicação</p>
-                  <input type="hidden" name="rede" class="form-control" id="rede">
+            <div class="row">
+              <div class="col-xl-12">
+                <div class="form-group">
+                  <label class="form-label label-criar-publicacao" for="redeTermos">rede de termos <span id="texto-opcional">(opcional)</span></label>
+                  <div class="input-group">
+                    <input class="input-criar-conta form-control" type="text" id="redeTermos" onkeyup="carrega_redes(this.value)" name="redeTermos">
+                    <span id="resultado_pesquisa"></span>
+                    <div class="rede-container" id="termos-container"></div>
+                    <p id="texto-alerta">deixar esse campo vazio pode reduzir o alcance da sua publicação</p>
+                    <input type="hidden" name="rede" class="form-control" id="rede">
+                    <span id="error-categoria" class="mensagem-caracters"></span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-xl-12">
-              <div class="form-group">
-                <label class="form-label label-criar-publicacao" for="termos">texto</label>
-                <p id="instrucao">Caro professor, para adicionar termos da nossa Biblioteca à sua publicação você deve:</p>
-                <p id="instrucao-passos">1 - selecionar a parte do seu texto que se refere ao termo | 2 - clicar neste botão <i class="fa fa-link"></i> | 3 - buscar o termo que você quer e clicar em salvar!</p>
-                <div class="input-group">
-                  <input class="form-control" type="hidden" id="termosId" name="termosId">
-                  <input class="form-control" type="hidden" id="texto_publicacao" name="texto_publicacao">
-                  <textarea class="form-control" type="text" id="textoArea" name="textoArea"></textarea>
+            <div class="row">
+              <div class="col-xl-12">
+                <div class="form-group">
+                  <label class="form-label label-criar-publicacao" for="termos">texto*</label>
+                  <p id="instrucao">Caro professor, para adicionar termos da nossa Biblioteca à sua publicação você deve:</p>
+                  <p id="instrucao-passos">1 - selecionar a parte do seu texto que se refere ao termo | 2 - clicar neste botão <i class="fa fa-link"></i> | 3 - buscar o termo que você quer e clicar em salvar!</p>
+                  <div class="input-group">
+                    <input class="form-control" type="hidden" id="termosId" name="termosId">
+                    <input class="form-control" type="hidden" id="texto_publicacao" name="texto_publicacao">
+                    <textarea class="form-control" type="text" id="textoArea" name="textoArea"></textarea>
+                  </div>
+                  <div class="d-flex w-100">
+                    <span id="error-texto" class="mensagem-caracters"></span>
+                    <span id="error-texto-caracters" class="error-titulo-caracters pull-right">0</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="row">
-            <p id="text-revisar-publicacão">revise seus textos<br>antes de publicar</p>
-          </div>
-          <div class="row">
-            <div class="col-md-6 col-sm-8 col-lg-6 col-lg-offset-3 col-xl-4 col-xl-offset-4 col-sm-offset-2 col-md-offset-3">
-              <input type="hidden" name="acao" value="cadastrarPublicacao">
-              <input class="btn-publicar btn btn-lg" type="submit" onclick="pegaTexto()" value="publicar">
+            <div class="row">
+              <p id="text-revisar-publicacão">revise seus textos<br>antes de publicar</p>
+            </div>
+            <div class="row">
+              <div class="col-md-6 col-sm-8 col-lg-6 col-lg-offset-3 col-xl-4 col-xl-offset-4 col-sm-offset-2 col-md-offset-3">
+                <input type="hidden" name="acao" value="cadastrarPublicacao">
+                <input class="btn-publicar btn btn-lg" type="submit" onclick="pegaTexto()" value="publicar">
+              </div>
             </div>
           </div>
         </div>
-      </div>
     </form>
   </main>
   <?= setFooter() ?>

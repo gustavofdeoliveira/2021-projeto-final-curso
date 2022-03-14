@@ -848,6 +848,30 @@ div .notification:hover i {
   /* creates padding around scroll thumb */
 }
 
+textarea::-webkit-scrollbar {
+  width: 5px;
+  height: 10%;
+  /* width of the entire scrollbar */
+}
+
+textarea::-webkit-scrollbar-track {
+  background: transparent;
+  /* color of the tracking area */
+  width: 5px;
+  height: 20px;
+  border-radius: 0px 0px 20px 0px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  /* color of the scroll thumb */
+  border-radius: 20px;
+  /* roundness of the scroll thumb */
+  border: 3px solid transparent;
+  /* creates padding around scroll thumb */
+}
+
+
 .notification-dropdown .items {
   background: var(--cor_verde);
   width: 100%;
@@ -2462,7 +2486,7 @@ div#carousel-item-espaco {
   margin-left: 20px;
 }
 
-div#carousel-item::-webkit-scrollbar , div#carousel-item-espaco::-webkit-scrollbar{
+div#carousel-item::-webkit-scrollbar, div#carousel-item-espaco::-webkit-scrollbar {
   width: 12px;
   /* width of the entire scrollbar */
 }
@@ -2474,7 +2498,7 @@ div#carousel-item::-webkit-scrollbar-track, div#carousel-item-espaco::-webkit-sc
   border-radius: 0px 0px 20px 0px;
 }
 
-div#carousel-item::-webkit-scrollbar-thumb, div#carousel-item-espaco::-webkit-scrollbar-thumb{
+div#carousel-item::-webkit-scrollbar-thumb, div#carousel-item-espaco::-webkit-scrollbar-thumb {
   background-color: var(--cor_verde);
   /* color of the scroll thumb */
   border-radius: 20px;
@@ -2712,5 +2736,23 @@ p#error-fala {
 
 p#error-fala span {
   color: var(--cor_verde) !important;
+}
 
+.mensagem-caracters {
+  color: var(--cor_vermelha);
+  font-size: 18px;
+  margin-left: 10px !important;
+  font-family: Raleway-Black-Italic;
+  display: table;
+  width: 100%;
+
+}
+
+.error-titulo-caracters {
+  color: var(--cor_vermelha);
+  font-size: 18px;
+  margin-right: 10px !important;
+  font-family: Raleway-Black-Italic;
+  display: table;
+  margin-left: auto !important;
 }

@@ -22732,7 +22732,9 @@
                             attributes: {
                                 class: ["ck", "ck-editor__main"],
                                 role: "presentation",
-                                name: "texto"
+                                name: "textoarea",
+                                id:"textoarea",
+                                onkeyup: "validaCampoPublicacao(texto)"  
                             },
                             children: this.main
                         }]
@@ -22818,7 +22820,7 @@
                             role: "textbox",
                             class: "ck-editor__editable_inline",
                             id: "texto",
-                            name: "texto"
+                            name: "texto",
                         }
                     })
                 }

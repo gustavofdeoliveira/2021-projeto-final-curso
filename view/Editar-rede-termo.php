@@ -40,7 +40,7 @@ require_once __DIR__ . '../../components/mensagem.php';
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="form-group">
-                                <label class="form-label label-criar-publicacao" for="nome">nome</label>
+                                <label class="form-label label-criar-publicacao" for="nome">nome*</label>
                                 <div class="input-group">
                                     <input class="input-criar-conta form-control" type="hidden" id="idRede" name="idRede">
                                     <input required class="input-criar-conta form-control" type="text" id="nome" name="nome" disabled>
@@ -53,7 +53,7 @@ require_once __DIR__ . '../../components/mensagem.php';
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="form-group">
-                                <label class="form-label label-criar-publicacao" for="descricao">breve descrição</label>
+                                <label class="form-label label-criar-publicacao" for="descricao">breve descrição*</label>
                                 <div class="input-group">
                                     <textarea required class="textarea form-control" rows="4" type="text" id="descricao" name="descricao" disabled></textarea>
                                     <i class="editar fa fa-pencil-square-o" aria-hidden="true" onclick="ativaCampo(descricao)"></i>
@@ -65,7 +65,7 @@ require_once __DIR__ . '../../components/mensagem.php';
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="form-group">
-                                <label class="form-label label-criar-publicacao" for="termos_incluidos">termos incluídos</label>
+                                <label class="form-label label-criar-publicacao" for="termos_incluidos">termos incluídos*</label>
                                 <div class="input-group">
                                     <div class="balao-container" id="termos-container"></div>
                                     <input class="input-criar-conta termos form-control" rows="6" onkeyup="carrega_termos(this.value)" type="text" name="termos_incluidos" id="termos_incluidos">

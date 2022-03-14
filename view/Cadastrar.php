@@ -43,7 +43,7 @@ require_once __DIR__ . '../../components/mensagem.php';
                         <div class="row">
                             <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-xl-8 col-xl-offset-2 col-lg-8 col-lg-offset-2">
                                 <div class="form-group">
-                                    <label class="form-label label-criar-conta" for="nomeCompleto">nome completo</label>
+                                    <label class="form-label label-criar-conta" for="nomeCompleto">nome completo*</label>
                                     <div class="input-group">
                                         <input required class="input-criar-conta form-control" type="text" id="nomeCompleto" id="nomeCompleto" name="nomeCompleto">
                                         <span class="error"></span>
@@ -54,7 +54,7 @@ require_once __DIR__ . '../../components/mensagem.php';
                         <div class="row">
                             <div class="col-sm-10 col-sm-offset-1 col-sm-offset-0 col-md-10 col-md-offset-1 col-xl-8 col-xl-offset-2 col-lg-8 col-lg-offset-2">
                                 <div class="form-group">
-                                    <label class="form-label label-criar-conta" for="email">e-mail</label>
+                                    <label class="form-label label-criar-conta" for="email">e-mail*</label>
                                     <div class="input-group">
                                         <input required class="input-criar-conta form-control" type="text" onkeyup="validacaoEmail(email)" id="email" name="email">
                                         <span class="error"></span>
@@ -65,7 +65,7 @@ require_once __DIR__ . '../../components/mensagem.php';
                         <div class="row">
                             <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-xl-8 col-xl-offset-2 col-lg-8 col-lg-offset-2">
                                 <div class="form-group">
-                                    <label class="form-label label-criar-conta" for="nomeUsuario">nome de usuário</label>
+                                    <label class="form-label label-criar-conta" for="nomeUsuario">nome de usuário*</label>
                                     <div class="input-group input-group-criar-conta">
                                         <div class="input-group-prepend">
                                             <div class="input-group-nomeUsuario">@</div>
@@ -80,10 +80,10 @@ require_once __DIR__ . '../../components/mensagem.php';
                         <div class="row">
                             <div class="col-sm-10 col-sm-offset-1 col-sm-offset-0 col-md-8 col-md-offset-1 col-xl-6 col-xl-offset-2 col-lg-8 col-lg-offset-2">
                                 <div class="form-group input-senha">
-                                    <label class="form-label label-criar-conta" for="senha">senha</label>
+                                    <label class="form-label label-criar-conta" for="senha">senha*</label>
                                     <div class="input-group" id="show_hide_password">
                                         <input class="input-criar-conta form-control" id="senha" type="password" name="senha" onkeyup="senhaValida(this.value)">
-                                       
+                                        <span class="error span-error"></span>
                                         <span id="error-senha" class="error-senha"></span>
                                         <div class="input-group-addon" onclick="mostrar()">
                                             <i class="fa fa-eye" aria-hidden="true"></i>

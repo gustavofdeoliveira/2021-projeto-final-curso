@@ -61,7 +61,7 @@ require_once __DIR__ . '../../components/mensagem.php';
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="form-group">
-                                <label class="form-label label-criar-publicacao" for="conceito">definição</label>
+                                <label class="form-label label-criar-publicacao" for="conceito">definição*</label>
                                 <div class="input-group">
                                     <textarea required class="textarea form-control" rows="4" type="text" name="conceito"></textarea>
                                     <span class="error"></span>

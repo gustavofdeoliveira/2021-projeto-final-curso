@@ -40,7 +40,7 @@ require_once __DIR__ . '../../components/mensagem.php';
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="form-group">
-                                <label class="form-label label-criar-publicacao" for="nome">nome</label>
+                                <label class="form-label label-criar-publicacao" for="nome">nome*</label>
                                 <div class="input-group">
                                     <input required class="input-criar-conta form-control" type="text" name="nome">
                                     <span class="error"></span>
@@ -51,7 +51,7 @@ require_once __DIR__ . '../../components/mensagem.php';
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="form-group">
-                                <label class="form-label label-criar-publicacao" for="descricao">breve descrição</label>
+                                <label class="form-label label-criar-publicacao" for="descricao">breve descrição*</label>
                                 <div class="input-group">
                                     <textarea required class="textarea form-control" rows="4" type="text" name="descricao"></textarea>
                                     <span class="error"></span>
@@ -63,7 +63,7 @@ require_once __DIR__ . '../../components/mensagem.php';
                         <div class="col-xl-12">
                             <form action="../control/TermoControl.php" method="POST" class="form-group" id="pesquisa-temo">
                                 <div class="form-group">
-                                    <label class="form-label label-criar-publicacao" for="termos_incluidos">termos incluídos</label>
+                                    <label class="form-label label-criar-publicacao" for="termos_incluidos">termos incluídos*</label>
 
                                     <div class="input-group">
                                         <div class="balao-container" id="termos-container"></div>
