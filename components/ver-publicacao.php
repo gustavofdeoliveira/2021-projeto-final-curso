@@ -135,7 +135,7 @@ function verPublicacao()
         $semalhantes_titulo = '<p id="texto-publicacao-semelhante">Publicações semelhantes</p>';
         $semalhantes = '';
         for ($a = 0; $a != count($publicacao['semelhantes']); $a++) {
-            $semalhantes .= '<img class="img-publicacao-semelhante" id="img-publicacao-semelhante" src="' . $publicacao['semelhantes'][$a]['imagem'] . '"><a class="titulo-publicacao-semelhante" target="_blank" href="//localhost/2021-projeto-final-curso/view/Ver-publicacao.php?id=' . $publicacao['semelhantes'][$a]['id'] . '">' . $publicacao['semelhantes'][$a]['titulo'] . '</a>';
+            $semalhantes .= '<img class="img-publicacao-semelhante" id="img-publicacao-semelhante" src="' . $publicacao['semelhantes'][$a]['imagem'] . '"><a class="titulo-publicacao-semelhante" target="_blank" href="//localhost/Terere-com-Sociologia/view/Ver-publicacao.php?id=' . $publicacao['semelhantes'][$a]['id'] . '">' . $publicacao['semelhantes'][$a]['titulo'] . '</a>';
         }
     } else {
         $semalhantes_titulo = '';

@@ -1,2 +1,2 @@
 <?php
-       $_SESSION['SERVIDOR'] = "http://localhost/2021-projeto-final-curso";
+       $_SESSION['SERVIDOR'] = "http://localhost/Terere-com-Sociologia";

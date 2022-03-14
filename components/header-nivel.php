@@ -1,5 +1,5 @@
 <?php
-require_once(realpath($_SERVER["DOCUMENT_ROOT"]).'/2021-projeto-final-curso/config.php');
+require_once(realpath($_SERVER["DOCUMENT_ROOT"]).'/Terere-com-Sociologia/config.php');
 
 function verifica_nivel($usuario)
 {

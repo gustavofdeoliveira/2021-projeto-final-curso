@@ -16,19 +16,19 @@ if (darkModeToggle != null) {
 const enableDarkMode = () => {
     document.body.classList.add('darkmode');
     if (document.getElementById('img-logo')) {
-        document.getElementById('img-logo').src = 'http://localhost/2021-projeto-final-curso/image/Logo-noturno.png';
+        document.getElementById('img-logo').src = 'http://localhost/Terere-com-Sociologia/image/Logo-noturno.png';
     }
     if (document.getElementById('img-logo-index')) {
-        document.getElementById('img-logo-index').src = 'http://localhost/2021-projeto-final-curso/image/Logo-noturno.png';
+        document.getElementById('img-logo-index').src = 'http://localhost/Terere-com-Sociologia/image/Logo-noturno.png';
     }
     if (document.getElementById('icon-login')) {
-        document.getElementById('icon-login').src = 'http://localhost/2021-projeto-final-curso/image/Bg-Login-Icon-Noturno.png';
+        document.getElementById('icon-login').src = 'http://localhost/Terere-com-Sociologia/image/Bg-Login-Icon-Noturno.png';
     }
     if (document.getElementById('icon-login-secundario')) {
-        document.getElementById('icon-login-secundario').src = 'http://localhost/2021-projeto-final-curso/image/Bg-Login-Icon-Noturno.png';
+        document.getElementById('icon-login-secundario').src = 'http://localhost/Terere-com-Sociologia/image/Bg-Login-Icon-Noturno.png';
     }
     if (document.getElementById('img-cadastro-finalizado')) {
-        document.getElementById('img-cadastro-finalizado').src = 'http://localhost/2021-projeto-final-curso/image/Bg-Conta-Criada-Icon-Noturno.png';
+        document.getElementById('img-cadastro-finalizado').src = 'http://localhost/Terere-com-Sociologia/image/Bg-Conta-Criada-Icon-Noturno.png';
     }
     localStorage.setItem('darkMode', 'enabled');
 }
@@ -36,19 +36,19 @@ const enableDarkMode = () => {
 const disableDarkMode = () => {
     document.body.classList.remove('darkmode');
     if (document.getElementById('img-logo')) {
-        document.getElementById('img-logo').src = 'http://localhost/2021-projeto-final-curso/image/Logo-claro.png';
+        document.getElementById('img-logo').src = 'http://localhost/Terere-com-Sociologia/image/Logo-claro.png';
     }
     if (document.getElementById('img-logo-index')) {
-        document.getElementById('img-logo-index').src = 'http://localhost/2021-projeto-final-curso/image/Logo-claro.png';
+        document.getElementById('img-logo-index').src = 'http://localhost/Terere-com-Sociologia/image/Logo-claro.png';
     }
     if (document.getElementById('icon-login')) {
-        document.getElementById('icon-login').src = 'http://localhost/2021-projeto-final-curso/image/Bg-Login-Icon-Claro.png';
+        document.getElementById('icon-login').src = 'http://localhost/Terere-com-Sociologia/image/Bg-Login-Icon-Claro.png';
     }
     if (document.getElementById('icon-login-secundario')) {
-        document.getElementById('icon-login-secundario').src = 'http://localhost/2021-projeto-final-curso/image/Bg-Login-Icon-Claro.png';
+        document.getElementById('icon-login-secundario').src = 'http://localhost/Terere-com-Sociologia/image/Bg-Login-Icon-Claro.png';
     }
     if (document.getElementById('img-cadastro-finalizado')) {
-        document.getElementById('img-cadastro-finalizado').src = 'http://localhost/2021-projeto-final-curso/image/Bg-Conta-Criada-Icon-Claro';
+        document.getElementById('img-cadastro-finalizado').src = 'http://localhost/Terere-com-Sociologia/image/Bg-Conta-Criada-Icon-Claro';
     }
     localStorage.setItem('darkMode', null);
 }
@@ -288,8 +288,8 @@ function pegaTexto() {
 }
 
 function mudarAvatar(id) {
-    document.getElementById("fotAvatar").src = "http://localhost/2021-projeto-final-curso/image/avatares/Avatar-" + id + ".png";
-    document.getElementById("fotoAvatar").value = "http://localhost/2021-projeto-final-curso/image/avatares/Avatar-" + id + ".png";
+    document.getElementById("fotAvatar").src = "http://localhost/Terere-com-Sociologia/image/avatares/Avatar-" + id + ".png";
+    document.getElementById("fotoAvatar").value = "http://localhost/Terere-com-Sociologia/image/avatares/Avatar-" + id + ".png";
 }
 
 function validaSubmiti() {

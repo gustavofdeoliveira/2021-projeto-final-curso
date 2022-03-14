@@ -170,7 +170,7 @@ function setTermo()
         $baloes_rede = '';
         if (!empty($dados['redeTermos'])) {
             for ($a = 0; $a != count($dados['redeTermos']); $a++) {
-                $baloes_rede .= '<a id="rede-termo-balao" target="_blank" href="//localhost/2021-projeto-final-curso/view/Ver-rede-termo.php?id=' . $dados['redeTermos'][$a]['id'] . '">' . $dados['redeTermos'][$a]['nome'] . '</a>';
+                $baloes_rede .= '<a id="rede-termo-balao" target="_blank" href="//localhost/Terere-com-Sociologia/view/Ver-rede-termo.php?id=' . $dados['redeTermos'][$a]['id'] . '">' . $dados['redeTermos'][$a]['nome'] . '</a>';
             }
             $redes = '<div class="row">
             <div class="col-xl-12">
@@ -183,7 +183,7 @@ function setTermo()
         }
         if (!empty($dados['semelhantes'])) {
             for ($a = 0; $a != count($dados['semelhantes']); $a++) {
-                $semelhantes =  '<img class="img-publicacao-semelhante" id="img-publicacao-semelhante" src="' . $dados['semelhantes'][$a]['imagem'] . '"><a class="titulo-publicacao-semelhante" target="_blank" href="//localhost/2021-projeto-final-curso/view/Ver-publicacao.php?id=' . $dados['semelhantes'][$a]['id'] . '">' . $dados['semelhantes'][$a]['titulo'] . '</a>';
+                $semelhantes =  '<img class="img-publicacao-semelhante" id="img-publicacao-semelhante" src="' . $dados['semelhantes'][$a]['imagem'] . '"><a class="titulo-publicacao-semelhante" target="_blank" href="//localhost/Terere-com-Sociologia/view/Ver-publicacao.php?id=' . $dados['semelhantes'][$a]['id'] . '">' . $dados['semelhantes'][$a]['titulo'] . '</a>';
             }
             $btn_linha = ' <div id="publicacao-semelhantes">
             <a href="../view/Linha-tempo.php" id="termo-botao">Ir para Linha do Tempo de Publicações</a>

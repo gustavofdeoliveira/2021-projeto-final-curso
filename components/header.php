@@ -9,7 +9,7 @@ require_once __DIR__ . '/header-configuracao.php';
 
 function head(): string
 {
-  require_once(realpath($_SERVER["DOCUMENT_ROOT"]).'/2021-projeto-final-curso/config.php');
+  require_once(realpath($_SERVER["DOCUMENT_ROOT"]).'/Terere-com-Sociologia/config.php');
 
   if ($_SESSION['usuarioAutenticado']) {
     $usuario = $_SESSION['usuarioAutenticado'];

@@ -96,7 +96,7 @@ function get_termo_publicacao(id, nome) {
 
 function passaHref(){
     var a = document.getElementById(nomeTermo);
-    a.href = "http://localhost/2021-projeto-final-curso/view/Ver-termo.php?termo="+nomeTermo
+    a.href = "http://localhost/Terere-com-Sociologia/view/Ver-termo.php?termo="+nomeTermo
 }
 
 function get_termo(id, nome) {
@@ -184,7 +184,7 @@ function fecharRedeBalao(id) {
 
 async function carrega_publicacao(value) {
     if (value.length >= 3) {
-        const publicacao = await fetch('http://localhost/2021-projeto-final-curso/ajax-php/busca-publicacao.php?publicacao=' + value);
+        const publicacao = await fetch('http://localhost/Terere-com-Sociologia/ajax-php/busca-publicacao.php?publicacao=' + value);
         const resposta = await publicacao.json();
         var html = "<ul class='list-group'>";
         if (resposta['erro']) {
@@ -201,5 +201,5 @@ async function carrega_publicacao(value) {
 }
 
 function verPublicacao(id){
-    window.location.href = "http://localhost/2021-projeto-final-curso/view/Ver-publicacao.php?id="+id;
+    window.location.href = "http://localhost/Terere-com-Sociologia/view/Ver-publicacao.php?id="+id;
 }
