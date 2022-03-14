@@ -7,8 +7,6 @@
 
 # Tererê com Sociologia
 
-## Grupo
-
 ## Alunos:  <a target="_blank" href="//linkedin.com/in/gustavo-ferreira-aa8050220/">Gustavo Ferreira de Oliveira</a>, <p>JULIANA HITOMI KASHIMA</p> e <a target="_blank" href="//www.linkedin.com/in/natangpm/">NATAN GABRIEL PASTORE MARTINS</a>.
 
 ## Descrição
@@ -59,7 +57,7 @@ As publicações têm caráter conteudista e conectam diversos termos sociológi
 
 Para abrir este projeto você necessita das seguintes ferramentas:
 
--<a href="https://www.apachefriends.org/pt_br/index.html">Apache</a>
+-<a href="https://www.apachefriends.org/pt_br/index.html">Apache</a><br>
 -<a href="https://code.visualstudio.com/">Visual Studio Code</a>
 
 ## 🗃 Histórico de lançamentos
