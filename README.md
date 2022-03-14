@@ -7,7 +7,7 @@
 
 # Tererê com Sociologia
 
-## Alunos:  <a target="_blank" href="//linkedin.com/in/gustavo-ferreira-aa8050220/">Gustavo Ferreira de Oliveira</a>, <p>JULIANA HITOMI KASHIMA</p> e <a target="_blank" href="//www.linkedin.com/in/natangpm/">NATAN GABRIEL PASTORE MARTINS</a>.
+## Alunos:  <a target="_blank" href="//linkedin.com/in/gustavo-ferreira-aa8050220/">Gustavo Ferreira de Oliveira</a>, <a href="#">JULIANA HITOMI KASHIMA</a> e <a target="_blank" href="//www.linkedin.com/in/natangpm/">NATAN GABRIEL PASTORE MARTINS</a>.
 
 ## Descrição
 
@@ -46,7 +46,7 @@ As publicações têm caráter conteudista e conectam diversos termos sociológi
 |-->model<br>
 |-->plugins<br>
   &emsp;|-->build<br>
-    &emsp;|-->translations<br>
+      &emsp;|-->translations<br>
   &emsp;|-->src<br>
 |-->view<br>
 |readme.md<br>
