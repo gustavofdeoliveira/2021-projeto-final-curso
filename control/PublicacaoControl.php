@@ -69,10 +69,6 @@ class PublicacaoControl
             }
             $this->modelo->setTexto($_POST["texto_publicacao"]);
             $this->modelo->setTermosId($_POST["termosId"]);
-            print_r($this->modelo);
-            print_r($_FILES["imagem"]["error"]);
-
-            exit();
             $id_publicacao = $this->dao->inserirPublicacao($this->modelo);
             header("Location:../view/Ver-publicacao.php?id=" . $id_publicacao);
         } catch (\Exception $e) {
