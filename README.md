@@ -1,8 +1,9 @@
-# Inteli - Instituto de Tecnologia e Liderança 
+# IFPR - Instituto do Federal do Paraná - Campus Foz do Iguaçu
 
 <p align="center">
-<a href= "https://www.inteli.edu.br/"><img src="https://www.inteli.edu.br/wp-content/uploads/2021/08/20172028/marca_1-2.png" alt="Inteli - Instituto de Tecnologia e Liderança" border="0"></a>
+<a href= "https://foz.ifpr.edu.br/"><img src="https://user-images.githubusercontent.com/65983794/158275314-38859849-9d87-437b-968f-0f6317b7b97c.png" alt="IFPR - Instituto do Federal do Paraná - Campus Foz do Iguaçu" border="0"></a>
 </p>
+
 
 # Memories
 
