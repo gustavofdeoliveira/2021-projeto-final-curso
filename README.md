@@ -18,6 +18,7 @@ Desenvolver um blog voltado para dar suporte à publicação e consequente  diss
 <br><br>
 <p align="center">
 <img src="https://user-images.githubusercontent.com/65983794/158276316-cba4731b-6008-423b-ad9e-77f38a0f847b.png" style="margin-left:auto;margin-right:auto" alt="Terere com Sociologia" border="0">
+  <br>
   Site by <a href="http://www.nyphotographic.com/">Tererê com Sociologia</a> <a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a> <a href="http://pix4free.org/">Pix4free</a>
 </p>
 
