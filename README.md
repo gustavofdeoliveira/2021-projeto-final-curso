@@ -17,7 +17,7 @@ Desenvolver um blog voltado para dar suporte à publicação e consequente  diss
 <p align="center">
 <img src="https://user-images.githubusercontent.com/65983794/158276316-cba4731b-6008-423b-ad9e-77f38a0f847b.png" style="margin-left:auto;margin-right:auto" alt="Terere com Sociologia" border="0">
   <br>
-  Site by <a href="http://www.nyphotographic.com/">Tererê com Sociologia</a> <a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a> <a href="http://pix4free.org/">Pix4free</a>
+  Site by <a href="#">Tererê com Sociologia</a>
 </p>
 
 
@@ -67,10 +67,6 @@ Para abrir este projeto você necessita das seguintes ferramentas:
 * 0.0.1 - 10/11/2021
     * Início de desenvolvimento do site
     * Criação do GitHub
-
-## 📋 Licença/License
-
-<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/Spidus/Teste_Final_1">MODELO GIT INTELI</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.yggbrasil.com.br/vr">INTELI, VICTOR BRUNO ALEXANDER ROSETTI DE QUIROZ</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a></p>
 
 ## 🎓 Referências
 
