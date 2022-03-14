@@ -133,6 +133,12 @@ class PublicacaoDao
         $id_rede = $modelo->getRedeTermosId();
         for ($a = 0; $a != $numeroTermos; $a++) {
             try {
+                $sql="UPDATE publicacao_termo_rede_termos SET `id_rede` = :id_rede 
+                WHERE `id_publicacao`= :id_publicacao";
+                $statement = $this->conn->prepare($sql);
+                $statement->bindParam(":id_rede", $id_rede);
+                $statement->bindParam(":id_publicacao", $id_publicacao);
+                $statement->execute();
                 $sql = "SELECT * FROM `publicacao_termo_rede_termos` WHERE `id_termo`= :id_termo AND `id_publicacao` = :id_publicacao";
                 $statement = $this->conn->prepare($sql);
                 $statement->bindParam(":id_termo", $id_termos[$a]);

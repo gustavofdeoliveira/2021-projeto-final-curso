@@ -4,7 +4,7 @@ function verificaSelect()
     if (!empty($_SESSION['publicacao'])) {
         if ($_SESSION['publicacao'][0]['categoria'] == 'Publicação Conteudista') {
             $categoria = "Publicação Conteudista";
-            $publicacao = "<option selected>Publiçacão Conteudista</option>";
+            $publicacao = "<option selected>Publicação Conteudista</option>";
             $atualidade = "<option>Atualidade Sociológica</option>";
         }
         if ($_SESSION['publicacao'][0]['categoria'] == 'Atualidade Sociológica') {

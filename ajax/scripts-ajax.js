@@ -177,7 +177,7 @@ function fecharRedeBalao(id) {
         rede.splice(indice, 1);
         indice = rede.indexOf(buscar);
     }
-    document.getElementsByName("rede").value = rede;
+    document.getElementById("rede").value = rede;
     input.disabled = false;
     document.getElementById(id).remove();
 }
