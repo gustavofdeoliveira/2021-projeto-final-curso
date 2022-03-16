@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '../../dao/UsuarioDao.php';
 require_once(realpath(dirname(__FILE__) . "/../database/Connection.php"));
+require_once __DIR__ . '../../components/mensagem-error-biblioteca.php';
 
 
 function listaTermosBiblioteca()
@@ -62,5 +63,8 @@ function listaTermosBiblioteca()
                     </div>
                 </div>
             </div>';
+    }if(empty($_SESSION["termos_biblioteca"])){
+        $mensagemError = setMensagemErrorBiblioteca();
+        return $mensagemError;
     }
 }

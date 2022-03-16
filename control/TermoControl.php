@@ -96,9 +96,15 @@ class TermoControl
         try {
             $letraPesquisa = $_POST["letraPesquisa"];
             $termos = $this->dao->ordenarTermo($letraPesquisa);
-            $termos_formatado = $this->modelo->getTermo($termos);
-            $_SESSION['termos_biblioteca'] = $termos_formatado;
-            $_SESSION['letra_pesquisa'] = $letraPesquisa;
+            if (!empty($termos)) {
+                $termos_formatado = $this->modelo->getTermo($termos);
+                $_SESSION['termos_biblioteca'] = $termos_formatado;
+                $_SESSION['letra_pesquisa'] = $letraPesquisa;
+            }else{
+                $_SESSION['termos_biblioteca'] = "";
+                $_SESSION['letra_pesquisa'] = "";
+            }
+
             header("Location:../view/Listagem-Biblioteca.php");
         } catch (\Exception $e) {
             $_SESSION["msg_error"] = $e->getMessage();

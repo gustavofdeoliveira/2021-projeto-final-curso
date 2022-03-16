@@ -107,9 +107,7 @@ class TermoDao
                     $termos[] = $result;
                 }
                 return $termos;
-            } else {
-                throw new \Exception('Dados não encontrado!');
-            }
+            } 
         } catch (\Exception $e) {
             $_SESSION["msg_error"] = $e->getMessage();
             $_SESSION["tempo_msg_error"] = time();
