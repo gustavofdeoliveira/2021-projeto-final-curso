@@ -99,7 +99,7 @@ class TermoDao
     function ordenarTermo($letraPesquisa)
     {
         try {
-            $sql = "SELECT * FROM `termo` WHERE `nome` LIKE '$letraPesquisa%'";
+            $sql = "SELECT * FROM `termo` WHERE `nome` LIKE '$letraPesquisa%' ORDER BY `nome`";
             $statement = $this->conn->prepare($sql);
             $statement->execute();
             if (($statement) and ($statement->rowCount() != 0)) {
