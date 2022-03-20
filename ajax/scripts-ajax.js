@@ -96,7 +96,7 @@ function get_termo_publicacao(id, nome) {
 
 function passaHref(){
     var a = document.getElementById(nomeTermo);
-    a.href = "http://localhost/Terere-com-Sociologia/view/Ver-termo.php?termo="+nomeTermo
+    a.href = "http://localhost/Terere-com-Sociologia/view/Ver-termo.php?termo="+ btoa(nomeTermo)
 }
 
 function get_termo(id, nome) {

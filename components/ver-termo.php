@@ -7,7 +7,6 @@ require_once __DIR__ . '../../control/TermoControl.php';
 function setTermo()
 {
     $conn = Connection::conectar();
-    $utf8 = utf8_encode("%C3%A7%C3%");
     $id_url = $_SERVER['QUERY_STRING'];
     $url = explode("=", $id_url);
     if (!empty($url[1])) {
