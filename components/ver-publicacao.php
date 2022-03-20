@@ -64,9 +64,10 @@ function verPublicacao()
         }
     }
 
-    $sql = "SELECT * FROM `usuarios_publicacoes_salvas` WHERE `id_publicacao`=:id";
+    $sql = "SELECT * FROM `usuarios_publicacoes_salvas` WHERE `id_publicacao`=:id AND `id_usuario`= :id_usuario";
     $result = $conn->prepare($sql);
     $result->bindParam(':id', $_SESSION['pesquisa']);
+    $result->bindParam(':id_usuario', $_SESSION['usuarioAutenticado']['idUsuario']);
     $result->execute();
     if (($result) and ($result->rowCount() != 0)) {
         $isSalva = true;

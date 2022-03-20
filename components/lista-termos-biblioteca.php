@@ -13,9 +13,11 @@ function listaTermosBiblioteca()
 
         for ($a = 0; $a != count($termos); $a++) {
             if (!empty($_SESSION['usuarioAutenticado'])) {
-                $sql = "SELECT * FROM `usuarios_termos_salvos` WHERE `id_termo` = :id_termo";
+                $sql = "SELECT * FROM `usuarios_termos_salvos` WHERE `id_termo` = :id_termo AND `id_usuario`= :id_usuario";
                 $result = $conn->prepare($sql);
                 $result->bindParam(':id_termo', $termos[$a]['id']);
+                $result->bindParam(':id_usuario', $_SESSION['usuarioAutenticado']['idUsuario']);
+
                 $result->execute();
                 $result->fetch(PDO::FETCH_ASSOC);
                 if (($result) and ($result->rowCount() == 0)) {
