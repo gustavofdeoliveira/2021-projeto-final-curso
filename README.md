@@ -17,7 +17,7 @@ Desenvolver um blog voltado para dar suporte à publicação e consequente  diss
 <p align="center">
 <img src="https://user-images.githubusercontent.com/65983794/158276316-cba4731b-6008-423b-ad9e-77f38a0f847b.png" style="margin-left:auto;margin-right:auto" alt="Tereré com Sociologia" border="0">
   <br>
-  Site by <a href="#">Tereré com Sociologia</a>
+  Site by <a href="http://200.17.101.6/terere.sociologia/">Tereré com Sociologia</a>
 </p>
 
 
